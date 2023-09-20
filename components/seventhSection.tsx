@@ -103,7 +103,7 @@ const posts = [
 
 export default function SeventhSection() {
   return (
-    <div className="bg-stone-100 dark:bg-[#040D12]  mb-4 rounded-b-lg pb-4 ">
+    <div className="bg-stone-100 dark:bg-[#040D12]  mb-4 2xl:p-8 rounded-b-lg rounded-b-lg pb-4 ">
       <Divider />
       <div className="xl:container mx-auto max-w-7xl px-4 lg:px-2">
         <section

@@ -62,7 +62,7 @@ function classNames(...classes: string[]) {
 export default function HighlightNews() {
 
   return (
-    <div className="bg-stone-100 dark:bg-[#040D12] mt-8  sm:mt-4  lg:round-t-md round-t-md pt-4 mb-4 pb-4">
+    <div className="bg-stone-100 dark:bg-[#040D12] mt-8  sm:mt-4 2xl:p-8 rounded-b-lg rounded-t-lg   pt-4 mb-4 pb-4">
      
       <main>
      
@@ -78,6 +78,8 @@ export default function HighlightNews() {
                     src={post.imageUrl}
                     alt={post.title}
                     fill={true}
+                    // placeholder="blur" 
+                    priority
                     className="object-cover object-center group-hover:opacity-75"
                   />
                   <div
