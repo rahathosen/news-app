@@ -1,7 +1,11 @@
-import './globals.css'
+import "@/styles/globals.css"
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-
+import SiteHeader from "@/components/layouts/site-header"
+import MainNav from "@/components/layouts/main-nav"
+import SiteFooter from "@/components/layouts/site-footer"
+import { Provider } from "@/components/layouts/provider"
+import BackToTopButton from '@/components/ui/backToTopButton'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -16,7 +20,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Provider attribute="class" defaultTheme="system" enableSystem>
+        <MainNav/>
+        <SiteHeader/>
+        <div>{children}</div>
+        <BackToTopButton />
+        <SiteFooter/>
+        </Provider>
+        </body>
     </html>
   )
 }
