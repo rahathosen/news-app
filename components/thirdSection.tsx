@@ -10,7 +10,7 @@ const posts = [
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content. This very helpfull for generate default content..",
     imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
+      "https://plus.unsplash.com/premium_photo-1687014519607-941f932dc03b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
     date: "Mar 16, 2020",
   },
   {
@@ -21,7 +21,7 @@ const posts = [
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",
     imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
+      "https://images.unsplash.com/photo-1690972575567-fde4d39a8c06?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
     date: "Mar 16, 2020",
   },
   {
@@ -235,7 +235,7 @@ export default function ThirdSection() {
                       <a href="">
                         <Image
                           src={
-                            "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80"
+                            "https://images.unsplash.com/photo-1689542901884-4fe1715af46d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80 "
                           }
                           alt={""}
                           width={640}

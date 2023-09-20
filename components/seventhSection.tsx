@@ -103,7 +103,7 @@ const posts = [
 
 export default function SeventhSection() {
   return (
-    <div className="bg-stone-100 dark:bg-[#040D12]  mb-4 2xl:p-8 rounded-b-lg rounded-b-lg pb-4 ">
+    <div className="bg-stone-100 dark:bg-[#040D12]  mb-4 2xl:p-8  rounded-b-lg pb-4 ">
       <Divider />
       <div className="xl:container mx-auto max-w-7xl px-4 lg:px-2">
         <section
@@ -113,7 +113,7 @@ export default function SeventhSection() {
           <div className="absolute inset-0">
             <Image
               src={
-                "https://tailwindui.com/img/ecommerce-images/category-page-01-featured-collection.jpg"
+                "https://images.unsplash.com/photo-1683836145476-603ad16f4987?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1633&q=80"
               }
               alt={""}
               fill={true}
@@ -156,7 +156,7 @@ export default function SeventhSection() {
               className="relative isolate flex flex-col justify-end overflow-hidden rounded-md bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
             >
               <Image
-                src={post.imageUrl}
+                src={"https://images.unsplash.com/photo-1694481348806-0b6de4934812?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"}
                 alt={""}
                 fill={true}
                 className="absolute inset-0 -z-10 h-full w-full object-cover"
