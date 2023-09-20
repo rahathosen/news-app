@@ -18,7 +18,7 @@ export default function Page() {
         <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700 lg:px-4 col-start-auto col-span-4 ">
           {/* <p className="text-base font-semibold leading-7 text-indigo-600">Introducing</p> */}
           <h1 className="mt-2 pb-10 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl text-center ">
-            ReactJs for NextJS13
+          5 Reasons Why You Should Eat More Fruit Every Day
           </h1>
           <p className="mt-6 text-xl leading-8 dark:text-gray-400">
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -63,7 +63,7 @@ export default function Page() {
           </div>
           <figure className="mt-16">
             <Image 
-            src={"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&w=1310&h=873&q=80&facepad=3"}
+            src={"https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"}
              alt=""
              height={240}
              width={640}
