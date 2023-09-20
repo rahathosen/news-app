@@ -25,6 +25,7 @@
 .bg-cover-imgage{
   @apply bg-gradient-to-b from-transparent to-black opacity-75;
 }
+
 @layer components {
   /* custom css start  */
 
