@@ -110,7 +110,7 @@ export default function RelatedNews() {
                 <div className="flex flex-row sm:block hover-img">
                   <a href="">
                     <Image
-                      src={post.imageUrl}
+                      src={"https://images.unsplash.com/photo-1693926398073-ca6a302ba696?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"}
                       alt={""}
                       width={640}
                       height={427}

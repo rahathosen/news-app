@@ -6,6 +6,7 @@ import ForthSection from '@/components/forthSection'
 import SixthSection from '@/components/sixthSection'
 import SeventhSection from '@/components/seventhSection'
 import EighthSection from '@/components/eighthSection'
+import FifthSection from '@/components/fifthSection'
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <SecondSection/>
       <ThirdSection/>
       <ForthSection/>
+      <FifthSection/>
       <SixthSection/>
       <SeventhSection/>
       <EighthSection/>
