@@ -78,7 +78,7 @@ const navItems: NavItem[] = [
 const global : GlobalItem[] = [
   {
     id: 1,
-    name: "Analytics",
+    name: "All",
     description: "Get a better understanding of your traffic",
     href: "#",
     icon: ChartPieIcon,
@@ -115,9 +115,9 @@ const global : GlobalItem[] = [
 const news: NewsItem[] = [
   {
     id: 1,
-    name: "Analytics",
+    name: "All",
     description: "Get a better understanding of your traffic",
-    href: "#",
+    href: "/news",
     icon: ChartPieIcon,
   },
   {
@@ -171,8 +171,9 @@ export default function SiteHeader() {
       >
         <Popover.Group className="lg:flex lg:gap-x-12">
           <Popover className="relative">
-            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-neutral-400">
+            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-neutral-400 outline-none">
               News
+            
               <ChevronDownIcon
                 className="h-5 w-5 flex-none text-gray-400"
                 aria-hidden="true"
@@ -187,7 +188,7 @@ export default function SiteHeader() {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-xl bg-white dark:bg-[#040D12]  shadow-lg dark:drop-shadow-2xl ring-1 ring-gray-900/5">
+              <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-xl bg-white dark:bg-[#040D12] border-[1px] border-[#071720]  shadow-lg dark:drop-shadow-2xl ring-1 ring-gray-900/5">
                 <div className="p-4">
                   {news.map((item) => (
                     <div
@@ -231,7 +232,7 @@ export default function SiteHeader() {
             </Transition>
           </Popover>
           <Popover className="relative">
-            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-neutral-400">
+            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-neutral-400 outline-none">
               Opinion
               <ChevronDownIcon
                 className="h-5 w-5 flex-none text-gray-400"
@@ -248,7 +249,7 @@ export default function SiteHeader() {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white dark:bg-[#040D12]  shadow-lg dark:drop-shadow-2xl ring-1 ring-gray-900/5">
+              <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl border-[1px] border-[#071720] bg-white dark:bg-[#040D12]  shadow-lg dark:drop-shadow-2xl ring-1 ring-gray-900/5">
                 <div className="p-4">
                   {global.map((item) => (
                     <div
@@ -299,7 +300,7 @@ export default function SiteHeader() {
           ))}
 
           <Popover className="relative">
-            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-neutral-400">
+            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-neutral-400 outline-none">
               Feature
               <ChevronDownIcon
                 className="h-5 w-5 flex-none text-gray-400"
@@ -316,7 +317,7 @@ export default function SiteHeader() {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute -left-[12rem] top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white dark:bg-[#040D12]  shadow-lg dark:drop-shadow-2xl ring-1 ring-gray-900/5">
+              <Popover.Panel className="absolute -left-[12rem] top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl border-[1px] border-[#071720]  bg-white dark:bg-[#040D12]  shadow-lg dark:drop-shadow-2xl ring-1 ring-gray-900/5">
                 <div className="p-4">
                   {global.map((item) => (
                     <div
@@ -356,7 +357,7 @@ export default function SiteHeader() {
             </Transition>
           </Popover>
           <Popover className="relative">
-            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-neutral-400">
+            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-neutral-400 outline-none">
               More
               <ChevronDownIcon
                 className="h-5 w-5 flex-none text-gray-400"
@@ -373,7 +374,7 @@ export default function SiteHeader() {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute -left-[18rem] top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white dark:bg-[#040D12]  shadow-lg dark:drop-shadow-2xl ring-1 ring-gray-900/5">
+              <Popover.Panel className="absolute -left-[18rem] top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl border-[1px] border-[#071720] bg-white dark:bg-[#040D12]  shadow-lg dark:drop-shadow-2xl ring-1 ring-gray-900/5">
                 <div className="p-4">
                   {global.map((item) => (
                     <div
