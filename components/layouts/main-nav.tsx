@@ -70,7 +70,7 @@ export default function MainNav() {
   return (
     <Disclosure
       as="header"
-      className="bg-stone-100 dark:bg-[#040D12] rounded-t-lg dark:text-stone-400 drop-shadow-2xl xs:sticky  xs:top-0 xs:z-10 es:sticky es:top-0 es:z-10"
+      className="bg-stone-100 dark:bg-[#040D12] rounded-t-lg dark:text-stone-400 drop-shadow-2xl xs:sticky hidden lg:block  xs:top-0 xs:z-10 es:sticky es:top-0 es:z-10"
     >
       {({ open }) => (
         <>
