@@ -198,7 +198,7 @@ export default function Test() {
               leaveTo="-translate-x-full"
             >
               <Dialog.Panel className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-stone-100 dark:bg-[#040D12] pb-12 shadow-xl">
-                <div className="flex px-4 pb-2 pt-5">
+                <div className="flex justify-between px-4 pb-2 pt-5">
                   <button
                     type="button"
                     className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
@@ -207,6 +207,12 @@ export default function Test() {
                     <span className="sr-only">Close menu</span>
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
+                  <Link href='/search' className=" inset-y-0  flex items-center pl-4">
+                  <MagnifyingGlassIcon
+                    className="h-5 w-5 text-gray-400"
+                    aria-hidden="true"
+                  />
+                </Link>
                 </div>
 
                 {/* Links */}
@@ -450,7 +456,9 @@ export default function Test() {
                                                 </div>
                                               )
                                             )}
+                                            
                                           </div>
+                                          
                                         </div>
                                       </div>
                                     </div>
@@ -470,7 +478,14 @@ export default function Test() {
                             {page.name}
                           </a>
                         ))}
+                  <Link href='/search' className=" inset-y-0  flex items-center pl-4">
+                  <MagnifyingGlassIcon
+                    className="h-5 w-5 text-gray-400"
+                    aria-hidden="true"
+                  />
+                </Link>
                       </div>
+                      
                     </Popover.Group>
                   </div>
 
