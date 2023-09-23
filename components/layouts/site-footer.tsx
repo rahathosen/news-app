@@ -15,24 +15,25 @@ const navigation = {
     { name: "Author", href: "/author" },
     { name: "Sitemap", href: "/sitemap" },
     { name: "News", href: "/news" },
-    { name: "Commerce", href: "#" },
+    { name: "Advertisement", href: "#" },
   ],
-  support: [
-    { name: "Pricing", href: "#" },
-    { name: "Documentation", href: "#" },
-    { name: "Documentation2", href: "#" },
-    { name: "Documentation3", href: "#" },
+  today: [
+    { name: "weather", href: "#" },
+    { name: "Currency", href: "#" },
+    { name: "newsletter", href: "#" },
+    { name: "Feature", href: "#" },
   ],
   company: [
     { name: "About", href: "#" },
     { name: "Blog", href: "#" },
-    { name: "Documentation4", href: "#" },
+    { name: "Contact Us", href: "#" },
     { name: "Jobs", href: "#" },
-    { name: "Jobs2", href: "#" },
+
   ],
   legal: [
+    { name: "Comment Policy", href: "#" },
+    { name: "Privacy Policy", href: "#" },
     { name: "Claim", href: "#" },
-    { name: "Privacy", href: "#" },
     { name: "Terms", href: "#" },
   ],
   social: [
@@ -149,10 +150,10 @@ export default function SiteFooter() {
               </div>
               <div className="mt-10 md:mt-0">
                 <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
-                  Support
+                  Today
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {navigation.support.map((item) => (
+                  {navigation.today.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
