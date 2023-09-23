@@ -7,6 +7,7 @@ import MostViewed from "@/components/mostViewed";
 import RelatedNews from "@/components/relatedNews";
 import Author from "@/components/layouts/author";
 import Breadcrumb from "@/components/breadcrumb";
+import Badges from "@/components/ui/badges";
 export default function Page() {
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
@@ -104,6 +105,10 @@ export default function Page() {
               praesent donec est. Odio penatibus risus viverra tellus varius sit
               neque erat velit.
             </p>
+          </div>
+          <div>
+            <h4 className="lg:pt-8 pt-4 pb-4 border-b border-white dark:border-[#071720] text-lg lg:text-2xl font-bold text-gray-400 dark:text-gray-400">Related Topics:</h4>
+            <Badges/>
           </div>
         </div>
         <div className="col-span-1">
