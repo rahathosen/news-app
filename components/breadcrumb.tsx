@@ -18,7 +18,7 @@ export default function Breadcrumb() {
       >
         <li className="flex">
           <div className="flex items-center">
-            <Link href="/" className="text-gray-400 hover:text-gray-500">
+            <Link href="/" className="text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700">
               <HomeIcon className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
               <span className="sr-only">Home</span>
             </Link>
@@ -48,7 +48,7 @@ export default function Breadcrumb() {
         ))}
       </ol>
       <div className="lg:pr-6 pr-4">
-        <ShareIcon className="h-5 w-5 flex-shrink-0 text-gray-600 hover:text-gray-400"/>
+        <ShareIcon className="h-5 w-5 flex-shrink-0 text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700"/>
       </div>
     </nav>
   );
