@@ -12,7 +12,7 @@ interface NavigationItem {
 
 const navigation = {
   solutions: [
-    { name: "Marketing", href: "#" },
+    { name: "Author", href: "/author" },
     { name: "Analytics", href: "#" },
     { name: "Commerce", href: "#" },
     { name: "News", href: "#" },

@@ -4,6 +4,7 @@ import {
 } from "@heroicons/react/20/solid";
 import MostViewed from "@/components/mostViewed";
 import RelatedNews from "@/components/relatedNews";
+import Author from "@/components/layouts/author";
 import Image from "next/image";
 export default function Page() {
   return (
@@ -13,7 +14,10 @@ export default function Page() {
         className="grid grid-cols-1 md:px-4 px-4 gap-x-2 gap-y-2 lg:grid-cols-7 xl:gap-x-2"
       >
         <div className="hidden lg:block col-span-2">
+          <div>
+          <Author/>
           <MostViewed />
+          </div>
         </div>
         <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700 lg:px-4 col-start-auto col-span-4 ">
           {/* <p className="text-base font-semibold leading-7 text-indigo-600">Introducing</p> */}
@@ -99,7 +103,10 @@ export default function Page() {
           </div>
         </div>
         <div className="col-span-1">
-          <RelatedNews />
+       <div>
+       <div className="lg:hidden"><Author/></div>
+       <RelatedNews />
+       </div>
         </div>
       </div>
       <div className="lg:hidden">
