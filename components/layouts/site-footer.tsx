@@ -13,9 +13,9 @@ interface NavigationItem {
 const navigation = {
   solutions: [
     { name: "Author", href: "/author" },
-    { name: "Analytics", href: "#" },
+    { name: "Sitemap", href: "/sitemap" },
+    { name: "News", href: "/news" },
     { name: "Commerce", href: "#" },
-    { name: "News", href: "#" },
   ],
   support: [
     { name: "Pricing", href: "#" },
