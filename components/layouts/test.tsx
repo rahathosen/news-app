@@ -31,8 +31,10 @@ import Image from "next/image";
 const navigation = {
   categories: [
     {
-      id: "News",
+      id: "news",
+      url:'news',
       name: "News",
+
       featured: [
         {
           name: "New Arrivals",
@@ -74,34 +76,10 @@ const navigation = {
           imageAlt:
             "Models sitting back to back, wearing Basic Tee in black and bone.",
         },
-        {
-          name: "New Arrivals",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
-          imageAlt:
-            "Models sitting back to back, wearing Basic Tee in black and bone.",
-        },
-        {
-          name: "New Arrivals",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
-          imageAlt:
-            "Models sitting back to back, wearing Basic Tee in black and bone.",
-        },
-        {
-          name: "Basic Tees",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg",
-          imageAlt:
-            "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
-        },
       ],
       sections: [
         {
-          id: "News",
+          id: "news",
           name: "News",
           items: [
             { name: "Bangladesh", href: "#" },
@@ -115,6 +93,7 @@ const navigation = {
     },
     {
       id: "More",
+      url:'more',
       name: "More",
       featured: [
         {
@@ -140,7 +119,6 @@ const navigation = {
           name: "More",
           items: [
             { name: "Environment", href: "#" },
-            { name: "NRB", href: "#" },
             { name: "Supplements", href: "#" },
             { name: "Law & Our Rights", href: "#" },
             { name: "Jackets", href: "#" },
@@ -305,12 +283,12 @@ export default function Test() {
                 <div className="space-y-6 border-t border-stone-200 dark:border-gray-900 px-4 py-6">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
-                      <a
+                      <Link
                         href={page.href}
                         className="-m-2 block p-2 font-medium dark:text-gray-600 text-gray-900"
                       >
                         {page.name}
-                      </a>
+                      </Link>
                     </div>
                   ))}
                 </div>
@@ -392,7 +370,7 @@ export default function Test() {
                                       <div className="mx-auto max-w-7xl px-8">
                                         <div className="grid grid-flow-col gap-x-8 gap-y-10 py-8">
                                           <div className="col-start-2 grid grid-cols-5 gap-x-2">
-                                            {category.featured.map((item) => (
+                                            {category.featured.slice(0,5).map((item) => (
                                               <div
                                                 key={item.name}
                                                 className="group relative text-base sm:text-sm"
@@ -410,10 +388,10 @@ export default function Test() {
                                                 </div>
                                                 <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                                                   <h3 className="text-sm font-medium leading-tight mb-2 text-black dark:text-gray-400">
-                                                    <a href="#">
+                                                    <Link href="#">
                                                       Govt move to check prices
                                                       falls flat
-                                                    </a>
+                                                    </Link>
                                                   </h3>
                                                 </div>
                                               </div>
@@ -423,15 +401,15 @@ export default function Test() {
                                             {category.sections.map(
                                               (section) => (
                                                 <div key={section.name}>
-                                                  <Link href={section.name}>
+                                                  {/* <Link > */}
                                                   
-                                                  <p
+                                                  <Link href={category.url}
                                                     id={`${section.name}-heading`}
                                                     className="font-semibold text-base dark:text-gray-200 text-black"
                                                   >
                                                     {section.name}
-                                                  </p>
                                                   </Link>
+                                                  {/* </Link> */}
                                                   <ul
                                                     role="list"
                                                     aria-labelledby={`${section.name}-heading`}

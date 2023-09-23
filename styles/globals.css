@@ -89,9 +89,9 @@
   h3 {
     @apply font-bold text-2xl;
   }
-  p {
+  /* p {
     @apply mt-4 opacity-70;
-  }
+  } */
   .violet {
     @apply bg-neutral-100 text-neutral-800;
   }

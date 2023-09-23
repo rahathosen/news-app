@@ -30,8 +30,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
       )}>
         <Provider attribute="class" defaultTheme="system" enableSystem>
           <MainNav />
-          {/* <SiteHeader /> */}
-          <Test/>
+          <SiteHeader />
+          {/* <Test/> */}
           <div className="2xl:container mx-auto max-w-[85rem]">{children}</div>
           <BackToTopButton />
           <SiteFooter />
