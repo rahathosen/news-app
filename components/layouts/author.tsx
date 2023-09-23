@@ -38,7 +38,7 @@ export default function Author() {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap py-6 items-center lg:justify-between  border-t dark:border-[#040D12] border-gray-50 bg-stone-200 dark:bg-[#071720] ">
+        <div className="flex flex-wrap py-6 items-center justify-center lg:justify-between   border-t dark:border-[#040D12] border-gray-50 bg-stone-200 dark:bg-[#071720] ">
           <div className="px-6 item-center lg:pb-2 sm:pb-0 pb-2  text-sm font-medium">
             <span className="text-gray-600 dark:text-gray-600">
               <span className="font-bold dark:text-gray-500">Published:</span>{" "}

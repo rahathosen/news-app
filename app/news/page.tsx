@@ -10,21 +10,20 @@ import Breadcrumb from "@/components/breadcrumb";
 export default function Page() {
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
-      <Breadcrumb/>
+      <Breadcrumb />
       <div
         role="list"
-        className="grid grid-cols-1 md:px-4 px-4 gap-x-2 gap-y-2 lg:grid-cols-7 xl:gap-x-2"
+        className="grid grid-cols-1 md:px-4 px-4  gap-y-2 lg:grid-cols-7 xl:gap-x-2"
       >
         <div className="hidden lg:block col-span-2">
           <div>
-          <Author/>
-          <MostViewed />
+            <Author />
+            <MostViewed />
           </div>
         </div>
         <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700 lg:px-4 col-start-auto col-span-4 ">
-          {/* <p className="text-base font-semibold leading-7 text-indigo-600">Introducing</p> */}
           <h1 className="mt-2 pb-10 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl text-center ">
-          5 Reasons Why You Should Eat More Fruit Every Day
+            5 Reasons Why You Should Eat More Fruit Every Day
           </h1>
           <p className="mt-6 text-xl leading-8 dark:text-gray-400">
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -68,14 +67,16 @@ export default function Page() {
             </p>
           </div>
           <figure className="mt-16">
-            <Image 
-            src={"https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"}
-             alt=""
-             height={240}
-             width={640}
-            className="aspect-video rounded-xl bg-gray-50 object-cover"
+            <Image
+              src={
+                "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              }
+              alt=""
+              height={240}
+              width={640}
+              className="aspect-video rounded-xl bg-gray-50 object-cover"
             />
-            
+
             <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
               <InformationCircleIcon
                 className="mt-0.5 h-5 w-5 flex-none text-gray-300"
@@ -105,13 +106,13 @@ export default function Page() {
           </div>
         </div>
         <div className="col-span-1">
-       <div>
-       <div className="lg:hidden"><Author/></div>
-       <RelatedNews />
-       </div>
+          <div className="lg:hidden">
+            <Author />
+          </div>
+          <RelatedNews />
         </div>
       </div>
-      <div className="lg:hidden">
+      <div className="px-4 py-2 lg:hidden">
         <MostViewed />
       </div>
     </div>
