@@ -32,7 +32,7 @@ const navigation = {
   categories: [
     {
       id: "news",
-      url:'news',
+      url: "news",
       name: "News",
 
       featured: [
@@ -93,7 +93,7 @@ const navigation = {
     },
     {
       id: "More",
-      url:'more',
+      url: "more",
       name: "More",
       featured: [
         {
@@ -145,7 +145,6 @@ function classNames(...classes: string[]) {
 }
 
 export default function SiteHeader() {
-  //   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [open, setOpen] = useState(false);
 
   return (
@@ -185,12 +184,15 @@ export default function SiteHeader() {
                     <span className="sr-only">Close menu</span>
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
-                  <Link href='/search' className=" inset-y-0  flex items-center pl-4">
-                  <MagnifyingGlassIcon
-                    className="h-5 w-5 text-gray-400"
-                    aria-hidden="true"
-                  />
-                </Link>
+                  <Link
+                    href="/search"
+                    className=" inset-y-0  flex items-center pl-4"
+                  >
+                    <MagnifyingGlassIcon
+                      className="h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                  </Link>
                 </div>
 
                 {/* Links */}
@@ -221,19 +223,20 @@ export default function SiteHeader() {
                         className="space-y-10 px-4 pb-8 pt-10"
                       >
                         <div className="grid grid-cols-2 gap-x-4">
-                          {category.featured.slice(0,2).map((item) => (
+                          {category.featured.slice(0, 2).map((item) => (
                             <div
                               key={item.name}
                               className="group relative text-sm"
                             >
                               <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-stone-100 dark:bg-[#040D12] group-hover:opacity-75">
                                 <Image
-                                  src={"https://images.unsplash.com/photo-1657934787560-cbecc866430a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"}
+                                  src={
+                                    "https://images.unsplash.com/photo-1657934787560-cbecc866430a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                  }
                                   alt={item.imageAlt}
                                   fill={true}
                                   className="object-cover object-center"
                                 />
-                                {/* <img src={item.imageSrc} alt={item.imageAlt} className="object-cover object-center" /> */}
                               </div>
                               <Link
                                 href={item.href}
@@ -245,7 +248,6 @@ export default function SiteHeader() {
                                 />
                                 Govt move to check prices falls flat
                               </Link>
-                              
                             </div>
                           ))}
                         </div>
@@ -307,14 +309,6 @@ export default function SiteHeader() {
             <div className="">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-center">
-                  {/* Logo (lg+) */}
-                  {/* <div className="hidden lg:flex lg:items-center">
-                    <a href="#">
-                      <span className="sr-only">Your Company</span>
-                      <h1 className="font-bold text-gray-200">Desktop</h1>
-                    </a>
-                  </div> */}
-
                   <div className="hidden h-full lg:flex">
                     {/* Mega menus */}
                     <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch">
@@ -370,40 +364,43 @@ export default function SiteHeader() {
                                       <div className="mx-auto max-w-7xl px-8">
                                         <div className="grid grid-flow-col gap-x-8 gap-y-10 py-8">
                                           <div className="col-start-2 grid grid-cols-5 gap-x-2">
-                                            {category.featured.slice(0,5).map((item) => (
-                                              <div
-                                                key={item.name}
-                                                className="group relative text-base sm:text-sm"
-                                              >
-                                                <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
-                                                  <Image
-                                                    src={
-                                                      "https://images.unsplash.com/photo-1657934787560-cbecc866430a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                                                    }
-                                                    alt={""}
-                                                    width={240}
-                                                    height={120}
-                                                    className="object-cover  object-center"
-                                                  />
+                                            {category.featured
+                                              .slice(0, 5)
+                                              .map((item) => (
+                                                <div
+                                                  key={item.name}
+                                                  className="group relative text-base sm:text-sm"
+                                                >
+                                                  <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+                                                    <Image
+                                                      src={
+                                                        "https://images.unsplash.com/photo-1657934787560-cbecc866430a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                                                      }
+                                                      alt={""}
+                                                      width={240}
+                                                      height={120}
+                                                      className="object-cover  object-center"
+                                                    />
+                                                  </div>
+                                                  <div className="py-0 sm:py-3 pl-3 sm:pl-0">
+                                                    <h3 className="text-sm font-medium leading-tight mb-2 text-black dark:text-gray-400">
+                                                      <Link href="#">
+                                                        Govt move to check
+                                                        prices falls flat
+                                                      </Link>
+                                                    </h3>
+                                                  </div>
                                                 </div>
-                                                <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                                                  <h3 className="text-sm font-medium leading-tight mb-2 text-black dark:text-gray-400">
-                                                    <Link href="#">
-                                                      Govt move to check prices
-                                                      falls flat
-                                                    </Link>
-                                                  </h3>
-                                                </div>
-                                              </div>
-                                            ))}
+                                              ))}
                                           </div>
                                           <div className="row-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm">
                                             {category.sections.map(
                                               (section) => (
                                                 <div key={section.name}>
                                                   {/* <Link > */}
-                                                  
-                                                  <Link href={category.url}
+
+                                                  <Link
+                                                    href={category.url}
                                                     id={`${section.name}-heading`}
                                                     className="font-semibold text-base dark:text-gray-200 text-black"
                                                   >
@@ -434,9 +431,7 @@ export default function SiteHeader() {
                                                 </div>
                                               )
                                             )}
-                                            
                                           </div>
-                                          
                                         </div>
                                       </div>
                                     </div>
@@ -456,14 +451,16 @@ export default function SiteHeader() {
                             {page.name}
                           </a>
                         ))}
-                  <Link href='/search' className=" inset-y-0  flex items-center pl-4">
-                  <MagnifyingGlassIcon
-                    className="h-5 w-5 text-gray-400"
-                    aria-hidden="true"
-                  />
-                </Link>
+                        <Link
+                          href="/search"
+                          className=" inset-y-0  flex items-center pl-4"
+                        >
+                          <MagnifyingGlassIcon
+                            className="h-5 w-5 text-gray-400"
+                            aria-hidden="true"
+                          />
+                        </Link>
                       </div>
-                      
                     </Popover.Group>
                   </div>
 
