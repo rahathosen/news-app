@@ -47,7 +47,7 @@ export default function Breadcrumb() {
           </li>
         ))}
       </ol>
-      <div className="lg:pr-6">
+      <div className="lg:pr-6 pr-4">
         <ShareIcon className="h-5 w-5 flex-shrink-0 text-gray-600 hover:text-gray-400"/>
       </div>
     </nav>

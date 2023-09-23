@@ -22,9 +22,28 @@ export default function Page() {
           </div>
         </div>
         <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700 lg:px-4 col-start-auto col-span-4 ">
-          <h1 className="mt-2 pb-10 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl text-center ">
+          <h1 className="mt-2 pb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl text-center ">
             5 Reasons Why You Should Eat More Fruit Every Day
           </h1>
+          <figure className="mt-4">
+            <Image
+              src={
+                "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              }
+              alt=""
+              height={240}
+              width={840}
+              className="aspect-video rounded-xl bg-gray-50 object-cover"
+            />
+
+            <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+              <InformationCircleIcon
+                className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
+                aria-hidden="true"
+              />
+              The country’s solar home systems programme could not achieve its desired impact due to the lack of grassroots capacity and servicing. PHOTO: REUTERS.
+            </figcaption>
+          </figure>
           <p className="mt-6 text-xl leading-8 dark:text-gray-400">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industrys standard dummy text
@@ -66,25 +85,7 @@ export default function Page() {
               neque erat velit.
             </p>
           </div>
-          <figure className="mt-16">
-            <Image
-              src={
-                "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-              }
-              alt=""
-              height={240}
-              width={640}
-              className="aspect-video rounded-xl bg-gray-50 object-cover"
-            />
-
-            <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
-              <InformationCircleIcon
-                className="mt-0.5 h-5 w-5 flex-none text-gray-300"
-                aria-hidden="true"
-              />
-              Faucibus commodo massa rhoncus, volutpat.
-            </figcaption>
-          </figure>
+         
           <div className="mt-16 max-w-2xl">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-400">
               Everything you need to get up and running
