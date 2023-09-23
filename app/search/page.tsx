@@ -68,7 +68,7 @@ export default function Page() {
             {/* search end */}
             <h2 className="text-black dark:text-gray-400 lg:text-3xl pb-4 text-xl font-bold">
               <span className="inline-block lg:h-6 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
-              Search result for: {"Dhaka Today"}
+              Search result for: {`"${"Dhaka Today"}"`}
             </h2>
             <NewsGridTemplate />
           </div>
