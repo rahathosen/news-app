@@ -6,13 +6,13 @@ export default function Badges() {
           Helth
         </span>
         <span className="inline-flex items-center rounded-full bg-white dark:bg-[#040D12] px-2 py-1 text-sm font-bold text-gray-600 dark:text-gray-400 ring-1 ring-inset ring-gray-500/40">
-          Sports
+        Bangladesh energy sector
         </span>
         <span className="inline-flex items-center rounded-full bg-white dark:bg-[#040D12] px-2 py-1 text-sm font-bold text-gray-600 dark:text-gray-400 ring-1 ring-inset ring-gray-500/40">
           Fruits
         </span>
         <span className="inline-flex items-center rounded-full bg-white dark:bg-[#040D12] px-2 py-1 text-sm font-bold text-gray-600 dark:text-gray-400 ring-1 ring-inset ring-gray-500/40">
-          Man
+        bangladesh energy sector transition
         </span>
         <span className="inline-flex items-center rounded-full bg-white dark:bg-[#040D12] px-2 py-1 text-sm font-bold text-gray-600 dark:text-gray-400 ring-1 ring-inset ring-gray-500/40">
           Technology
@@ -21,7 +21,7 @@ export default function Badges() {
           History
         </span>
         <span className="inline-flex items-center rounded-full bg-white dark:bg-[#040D12] px-2 py-1 text-sm font-bold text-gray-600 dark:text-gray-400 ring-1 ring-inset ring-gray-500/40">
-          Politics
+        renewable energy Bangladesh
         </span>
       </div>
     </>
