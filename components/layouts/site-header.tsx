@@ -130,7 +130,7 @@ const navigation = {
     },
   ],
   pages: [
-    { name: "Opinion", href: "#" },
+    { name: "Opinion", href: "/section" },
     { name: "Sports", href: "#" },
     { name: "Business", href: "#" },
     { name: "Life & Living", href: "#" },
