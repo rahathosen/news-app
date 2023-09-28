@@ -1,5 +1,5 @@
-
 import "@/styles/globals.css";
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import SiteHeader from "@/components/layouts/site-header";
@@ -36,6 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <BackToTopButton />
           <SiteFooter />
         </Provider>
+        <Analytics />
       </body>
     </html>
   );
