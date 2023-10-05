@@ -18,6 +18,10 @@ const nextConfig = {
           protocol: 'https',
           hostname: 'rahat.vercel.app',
         },
+        {
+          protocol: 'https',
+          hostname: 'django-news-server.vercel.app',
+        },
       ],
     },
   }
