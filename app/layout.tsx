@@ -10,7 +10,6 @@ import BackToTopButton from "@/components/ui/backToTopButton";
 const inter = Inter({ subsets: ["latin"] });
 import { cn } from "@/lib/utils";
 import Test from "@/components/layouts/test";
-import TestHeader from "@/components/layouts/test-header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -31,8 +30,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
       )}>
         <Provider attribute="class" defaultTheme="system" enableSystem>
           {/* <MainNav /> */}
-          {/* <SiteHeader /> */}
-          <TestHeader/>
+          <SiteHeader />
+          
           {/* <Test/> */}
           <div className="2xl:container mx-auto max-w-[85rem]">{children}</div>
           <BackToTopButton />
