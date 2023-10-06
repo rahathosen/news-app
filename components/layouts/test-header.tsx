@@ -27,13 +27,11 @@ function classNames(...classes: string[]) {
 
 export default function TestHeader() {
   return (
-    <div className="bg-stone-100 dark:bg-[#040D12] sticky top-0 z-10 ">
+    <div className="bg-[#F5F5F4] dark:bg-[#040D12] sticky top-0 z-10 shadow-2xl mx-auto 2xl:container max-w-full ">
       <div>
-        <div className="mx-auto ">
-          <div className="flex h-16 items-center justify-center">
-           
-
-            <NavigationMenu.Root className="relative  z-50 flex w-screen justify-between">
+        <div>
+          <div className="flex h-16 items-center justify-center relative ">
+            <NavigationMenu.Root className="relative z-50 flex w-full justify-between">
               <div>
                  {/* Desktop Logo (lg-) */}
                 <Link href="/" className=" hidden lg:block  items-center">
@@ -74,9 +72,9 @@ export default function TestHeader() {
                         />
                       </NavigationMenu.Trigger>
                       {/* nav sub page */}
-                      <NavigationMenu.Content className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight absolute top-0 shadow-2xl backdrop-blur-xl dark:backdrop-blur-xl bg-white/90 dark:bg-[#040D12]/100  text-sm text-gray-500 w-screen  ">
-                        <ul className="grid grid-flow-col gap-x-10 gap-y-10 py-12 pr-20  ">
-                          <li className="col-start-2 grid grid-cols-5 gap-x-2">
+                      <NavigationMenu.Content className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight  top-0 shadow-2xl backdrop-blur-xl dark:backdrop-blur-xl bg-white/95 dark:bg-[#040D12]/100  text-sm text-gray-500 relative ">
+                        <ul className="grid grid-flow-col  py-12 ">
+                          <li className="col-start-2 grid grid-cols-5 gap-x-2 gap-y-6 pr-8">
                             {category.featured.slice(0, 10).map((item) => (
                               <Link key={item.name} href="/">
                                 <div className="aspect-h-1 aspect-w-2 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
@@ -101,7 +99,7 @@ export default function TestHeader() {
                             ))}
                           </li>
                           <li>
-                            <div className="row-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm pl-8">
+                            <div className="col-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm pl-8">
                               {category.sections.map((section) => (
                                 <div key={section.name}>
                                   <Link
