@@ -14,11 +14,11 @@ export default function Home() {
       <HighlightNews/>
       <SecondSection/>
       <ThirdSection/>
-      <ForthSection/>
-      <FifthSection/>
-      <SixthSection/>
-      <SeventhSection/>
-      <EighthSection/>
+      {/* <ForthSection/> */}
+      {/* <FifthSection/> */}
+      {/* <SixthSection/> */}
+      {/* <SeventhSection/> */}
+      {/* <EighthSection/> */}
     </main>
   )
 }
