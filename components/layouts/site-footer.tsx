@@ -111,7 +111,7 @@ export default function SiteFooter() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
           <h1 className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-400 font-bold text-2xl lg:text-3xl bg-clip-text  tracking-[-0.02em] text-transparent drop-shadow-sm duration-300 ease-linear animate-in zoom-in-50 dark:bg-gradient-to-br dark:from-gray-100 dark:to-gray-900  md:leading-[5rem]">
-                The Daily Morning
+          Dailyudayan
           </h1>
             <p className="text-sm leading-6 text-gray-600">
               Making the world a better place and spreading the truth everyhere.

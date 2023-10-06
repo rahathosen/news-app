@@ -34,6 +34,14 @@ const config: Config = {
         ...indigo,
       },
       keyframes: {
+        "accordion-down": {
+          from: { height: '0' },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: '0' },
+        },
         enterFromRight: {
           from: { opacity: '0', transform: 'translateX(200px)' },
           to: { opacity: '1', transform: 'translateX(0)' },
@@ -67,6 +75,10 @@ const config: Config = {
           to: { opacity: '0' },
         },
       },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
     },
     animation: {
       scaleIn: 'scaleIn 200ms ease',
@@ -82,6 +94,7 @@ const config: Config = {
    plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
+    require("tailwindcss-animate"),
     
   ],
 
