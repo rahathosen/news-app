@@ -96,7 +96,7 @@ export default function SiteHeader() {
                               {category.sections.map((section) => (
                                 <div key={section.name}>
                                   <Link
-                                    href={section.name}
+                                    href={section.id}
                                     className="font-semibold text-base dark:text-gray-200 text-black"
                                   >
                                     {section.name}
