@@ -99,8 +99,9 @@ export default function Siebar() {
                           {item.sections?.map((subItem, index) => (
                             <div
                               key={index}
-                              className="text-foreground/70 transition-colors"
+                              className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-gray-400"
                             >
+                              <Link href={item.id}>All {`${item.name}`}</Link>
                               {subItem.items?.map((sub, index) => (
                                 <div
                                   key={index}
