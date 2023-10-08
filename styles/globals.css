@@ -18,7 +18,7 @@
 
 @layer base {
     body {
-      @apply md:p-4 p-2  bg-white dark:bg-black text-gray-700;
+      @apply bg-white dark:bg-black text-gray-700;
     }
   }
   
