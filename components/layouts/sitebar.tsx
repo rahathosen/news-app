@@ -98,18 +98,26 @@ export default function Siebar() {
                         <div className="flex flex-col space-y-2">
                           {item.sections?.map((subItem, index) => (
                             <div
-                              key={index}
+                            key={index}
                               className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-gray-400"
                             >
+
+                              {/* <SheetFooter > */}
+                              <SheetClose asChild>
                               <Link href={item.id}>All {`${item.name}`}</Link>
+                              </SheetClose>
                               {subItem.items?.map((sub, index) => (
                                 <div
-                                  key={index}
+                                key={index}
                                   className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-gray-400"
-                                >
+                                  >
+                                   <SheetClose asChild>
                                   <Link href={sub.name}>{sub.name}</Link>
+                                   </SheetClose>
                                 </div>
                               ))}
+                                {/* </SheetFooter> */}
+                             
                             </div>
                           ))}
                         </div>
