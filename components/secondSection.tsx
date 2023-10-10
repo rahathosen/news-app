@@ -1,186 +1,28 @@
-"use client"
-
 import Image from "next/image";
+import Link from "next/link";
 import Divider from "./ui/divider";
+import RelativeDate from "@/lib/relativeDate";
 
-const posts = [
-  {
-    id: 1,
-    title: "Amazon Shoppers Are Ditching Designer Belts for This Best-Selling",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This very helpfull for generate default content..",
-    imageUrl:
-      "https://images.unsplash.com/photo-1691945253089-a68132b86169?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1456&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 2,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1692071097529-320eb2b32292?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 3,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 4,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 5,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 6,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 7,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 8,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 9,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-];
+async function getData() {
+  const res = await fetch("http://localhost:3000/api/content", {
+    cache: "no-cache",
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
 
-const popularPosts = [
-  {
-    id: 1,
-    title: " Why the world would end without political polls",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 2,
-    title: " Meet The Man Who Designed The Ducati Monster",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 3,
-    title: "2020 Audi R8 Spyder spy shots release",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 4,
-    title: " Lamborghini makes Huracán GT3 racer faster for 2019",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 5,
-    title: "ZF plans $14 billion autonomous vehicle push, concept van",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 6,
-    title: " Why the world would end without political polls",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 7,
-    title: " Meet The Man Who Designed The Ducati Monster",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 8,
-    title: "2020 Audi R8 Spyder spy shots release",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 9,
-    title: " Lamborghini makes Huracán GT3 racer faster for 2019",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 10,
-    title: "ZF plans $14 billion autonomous vehicle push, concept van",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 11,
-    title: "ZF plans $14 billion autonomous vehicle push, concept van",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 12,
-    title: "ZF plans $14 billion autonomous vehicle push, concept van",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-];
+interface Post {
+  id: number;
+  imageUrl: string;
+  title: string;
+  description: string;
+  date: string;
+}
 
-export default function SecondSection() {
+export default async function SecondSection() {
+  const posts = await getData();
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
       <Divider />
@@ -190,14 +32,14 @@ export default function SecondSection() {
             {/* <!-- Left --> */}
             <div className="flex-shrink max-w-full w-full lg:w-2/3  overflow-hidden">
               <div className="flex flex-row flex-wrap -mx-3">
-                {posts.slice(0, 1).map((post) => (
+                {posts.slice(0, 1).map((post: Post) => (
                   <div
                     key={post.id}
                     className="flex-shrink max-w-full w-full px-3 pb-5"
                   >
                     <div className="relative hover-img max-h-98 overflow-hidden">
                       {/* <!--thumbnail--> */}
-                      <a href="#">
+                      <Link href="#">
                         <Image
                           src={post.imageUrl}
                           alt={""}
@@ -205,29 +47,28 @@ export default function SecondSection() {
                           height={427}
                           className="max-w-full w-full mx-auto h-auto rounded-md"
                         />
-                      </a>
+                      </Link>
                       <div className="absolute px-5 pt-8 pb-5 bottom-0 w-full bg-gradient-cover">
                         {/* <!--title--> */}
-                        <a href="#">
+                        <Link href="#">
                           <h2 className="text-3xl font-bold capitalize text-white mb-3">
                             {post.title}
                           </h2>
-                        </a>
+                        </Link>
                         <p className="text-gray-100 hidden sm:inline-block">
                           {post.description}
                         </p>
                         {/* <!-- author and date --> */}
                         <div className="pt-2">
-                          <div className="text-gray-100">
-                            <div className="inline-block h-3 border-l-2 border-red-600 mr-2"></div>
-                            {post.tag}
+                          <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
+                            <RelativeDate date={post.date} />{" "}
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 ))}
-                {posts.slice(1, 7).map((post) => (
+                {posts.slice(1, 7).map((post: Post) => (
                   <div
                     key={post.id}
                     className="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
@@ -235,9 +76,7 @@ export default function SecondSection() {
                     <div className="flex flex-row sm:block hover-img">
                       <a href="">
                         <Image
-                          src={
-                            "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                          }
+                          src={post.imageUrl}
                           alt={""}
                           width={640}
                           height={427}
@@ -251,13 +90,9 @@ export default function SecondSection() {
                         <p className="hidden md:block  dark:text-gray-400 text-gray-800 leading-tight mb-1">
                           {post.description}
                         </p>
-                        <a
-                          className="text-gray-800 font-medium  dark:text-gray-400"
-                          href="#"
-                        >
-                          <span className="inline-block h-3 border-l-2 border-red-600 mr-2"></span>
-                          {post.tag}
-                        </a>
+                        <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
+                          <RelativeDate date={post.date} />{" "}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -274,7 +109,7 @@ export default function SecondSection() {
                     </h2>
                   </div>
                   <ul className="post-number">
-                    {popularPosts.slice(0, 12).map((post) => (
+                    {posts.slice(0, 12).map((post: Post) => (
                       <li
                         key={post.id}
                         className="border-b border-gray-100 dark:border-gray-900 hover:bg-stone-300 rounded-lg dark:hover:bg-[#030b10]"

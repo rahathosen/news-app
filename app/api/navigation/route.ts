@@ -1,4 +1,4 @@
-export const navigation = {
+const navigation = {
     categories: [
       {
         id: "news",
@@ -12,7 +12,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Models sitting back to back, wearing Basic Tee in black and bone.",
+              "natural fruits.",
           },
           {
             name: "New Arrivals",
@@ -20,7 +20,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Models sitting back to back, wearing Basic Tee in black and bone.",
+              "natural fruits.",
           },
           {
             name: "New Arrivals",
@@ -28,7 +28,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Models sitting back to back, wearing Basic Tee in black and bone.",
+              "natural fruits.",
           },
           {
             name: "New Arrivals",
@@ -36,7 +36,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Models sitting back to back, wearing Basic Tee in black and bone.",
+              "natural fruits.",
           },
           {
             name: "New Arrivals",
@@ -44,7 +44,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Models sitting back to back, wearing Basic Tee in black and bone.",
+              "natural fruits.",
           },
           {
             name: "New Arrivals",
@@ -52,7 +52,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Models sitting back to back, wearing Basic Tee in black and bone.",
+              "natural fruits.",
           },
           {
             name: "New Arrivals",
@@ -60,7 +60,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Models sitting back to back, wearing Basic Tee in black and bone.",
+              "natural fruits.",
           },
           {
             name: "New Arrivals",
@@ -68,7 +68,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Models sitting back to back, wearing Basic Tee in black and bone.",
+              "natural fruits.",
           },
           {
             name: "New Arrivals",
@@ -76,7 +76,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Models sitting back to back, wearing Basic Tee in black and bone.",
+              "natural fruits.",
           },
           {
             name: "New Arrivals",
@@ -84,7 +84,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Models sitting back to back, wearing Basic Tee in black and bone.",
+              "natural fruits.",
           },
         ],
         sections: [
@@ -112,7 +112,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Drawstring top with elastic loop closure and textured interior padding.",
+              "natural fruits.",
           },
           {
             name: "Artwork Tees",
@@ -120,7 +120,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -128,7 +128,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -136,7 +136,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -144,7 +144,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -152,7 +152,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -160,7 +160,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
         ],
         sections: [
@@ -190,7 +190,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -198,7 +198,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -206,7 +206,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -214,7 +214,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -222,7 +222,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
         ],
         sections: [
@@ -250,7 +250,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -258,7 +258,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -266,7 +266,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -274,7 +274,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -282,7 +282,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -290,7 +290,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -298,7 +298,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
         ],
         sections: [
@@ -326,7 +326,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -334,7 +334,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -342,7 +342,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -350,7 +350,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -358,7 +358,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -366,7 +366,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
         ],
         sections: [
@@ -394,7 +394,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
         ],
         sections: [
@@ -422,7 +422,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
         ],
         sections: [
@@ -450,7 +450,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
         ],
         sections: [
@@ -480,7 +480,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -488,7 +488,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -496,7 +496,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -504,7 +504,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -512,7 +512,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -520,7 +520,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -528,7 +528,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -536,7 +536,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -544,7 +544,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
           {
             name: "Artwork Tees",
@@ -552,7 +552,7 @@ export const navigation = {
             imageSrc:
               "https://plus.unsplash.com/premium_photo-1694166713270-da1164385b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
             imageAlt:
-              "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+              "natural good fruits.",
           },
         ],
         sections: [
@@ -574,3 +574,10 @@ export const navigation = {
     ],
   
   };
+
+
+  import { NextResponse } from "next/server";
+
+export async function GET(){
+    return NextResponse.json(navigation)
+}

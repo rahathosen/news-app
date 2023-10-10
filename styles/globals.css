@@ -63,23 +63,23 @@
   }
   .box-one > article:nth-child(1) { 
       padding-top: 0;
-      padding-bottom: 0.125rem;
-      padding-right: 0.125rem;
+      padding-bottom: 0.25rem;
+      padding-right: 0.25rem;
   }
   .box-one > article:nth-child(2) {
       padding-top: 0;
-      padding-bottom: 0.125rem;
-      padding-left: 0.125rem;
+      padding-bottom: 0.25rem;
+      padding-left: 0.25rem;
   }
   .box-one > article:nth-child(3) {
-      padding-top: 0.125rem;
-      padding-bottom: 0.125rem;
-      padding-right: 0.125rem;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      padding-right: 0.25rem;
   }
   .box-one > article:nth-child(4) {
-      padding-top: 0.125rem;
-      padding-bottom: 0.125rem;
-      padding-left: 0.125rem;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      padding-left: 0.25rem;
   }
   .hover-img:hover img {
       -webkit-filter: brightness(103%) contrast(103%);

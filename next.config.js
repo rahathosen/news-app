@@ -22,6 +22,10 @@ const nextConfig = {
           protocol: 'https',
           hostname: 'django-news-server.vercel.app',
         },
+        {
+          protocol: 'https',
+          hostname: 'st2.depositphotos.com',
+        },
       ],
     },
   }
