@@ -5,7 +5,7 @@ const posts = [
     href: "#",
     tag: "24m ago",
     description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This is a wider card with supporting text below as a natural...",
+      "This is a wider card with supporting text below as a natural lead-in to additional content. This is a wider card with supporting text below as a natural.This is a wider card with supporting text below as a natural lead-in to additional content. This is a wider card with supporting text below as a natural.This is a wider card with supporting text below as a natural lead-in to additional content...",
     imageUrl:
       "https://images.unsplash.com/photo-1691945253089-a68132b86169?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1456&q=80",
     date: "Mar 16, 2020",

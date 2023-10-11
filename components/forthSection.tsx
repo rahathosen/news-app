@@ -44,8 +44,8 @@ export default async function ForthSection() {
                     />
                   </Link>
                   <div className="py-0 sm:py-1 sm:pl-0">
-                    <Link href="#">
-                      <h2 className="text-xl font-bold capitalize text-gray-600 dark:text-gray-400">
+                    <Link href={"/news"}>
+                      <h2 className="text-xl font-bold capitalize text-black  dark:text-gray-400 ">
                         {post.title}
                       </h2>
                     </Link>
@@ -68,18 +68,18 @@ export default async function ForthSection() {
                     className="flex-shrink max-w-full w-full sm:w-1/2"
                   >
                     <div className="flex flex-row group hover-img dark:hover-img-dark  sm:block  max-h-18">
-                      <a href="">
+                      <Link href={"/news"}>
                         <Image
                           src={post.imageUrl}
                           alt={""}
                           width={640}
                           height={427}
-                          className="max-w-full object-cover w-full mx-auto max-h-[8.7rem] h-auto rounded-md"
+                          className="max-w-full object-cover w-full mx-auto max-h-[12.7rem] h-auto rounded-md"
                         />
-                      </a>
+                      </Link>
                       <div className="py-0 sm:py-1 pl-3 sm:pl-0">
                         <h3 className="text-lg font-bold leading-tight text-black  dark:text-gray-400 ">
-                          <a href="#">{post.title}</a>
+                          <Link href={"/news"}>{post.title}</Link>
                         </h3>
                         <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                           <RelativeDate date={post.date} />{" "}

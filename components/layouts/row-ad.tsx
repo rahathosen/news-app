@@ -10,7 +10,7 @@ function classNames(...classes: string[]) {
 
 export default function RowAd() {
   return (
-    <div className="bg-stone-100 dark:bg-[#040D12] mt-8  sm:mt-4 2xl:p-8 rounded-lg  pt-4 mb-4 pb-4">
+    <div className="bg-stone-100 dark:bg-[#040D12] 2xl:container mx-auto max-w-[85rem] mt-8  sm:mt-4 2xl:p-8 rounded-lg  pt-4 mb-4 pb-4">
       <main className="px-4">
         <Link href="#">
           <div className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">

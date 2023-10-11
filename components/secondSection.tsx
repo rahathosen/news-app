@@ -27,7 +27,7 @@ export default async function SecondSection() {
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
       <Divider />
       <div className="px-4">
-        <div >
+        <div>
           <div className="flex flex-row flex-wrap">
             {/* <!-- Left --> */}
             <div className="flex-shrink max-w-full w-full lg:w-2/3  overflow-hidden">
@@ -51,7 +51,7 @@ export default async function SecondSection() {
                       <div className="">
                         {/* <!--title--> */}
                         <Link href="#">
-                          <h2 className="text-2xl font-bold capitalize text-gray-600 dark:text-gray-400">
+                          <h2 className="text-2xl font-bold capitalize text-black  dark:text-gray-400 ">
                             {post.title}
                           </h2>
                         </Link>
