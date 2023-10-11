@@ -9,6 +9,16 @@ import {
   ComputerDesktopIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/solid";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -32,7 +42,7 @@ export default function ThemeToggle() {
       <button
         className={`${btnDefault} ${
           theme === "dark"
-            ? "bg-white dark:bg-[#0c2525f8] dark:text-gray-100 text-zinc-50 rounded-full shadow-xl"
+            ? "bg-white dark:bg-[#0c2525f8] dark:text-gray-100 text-zinc-50 rounded-md shadow-xl"
             : ""
         }`}
         onClick={() => setTheme("dark")}
@@ -42,7 +52,7 @@ export default function ThemeToggle() {
       <button
         className={`${btnDefault} ${
           theme === "light"
-            ? "bg-neutral-200 dark:bg-[#0c2525f8] text-zinc-700 rounded-full shadow-xl"
+            ? "bg-neutral-200 dark:bg-[#0c2525f8] text-zinc-700 rounded-md shadow-xl"
             : ""
         }`}
         onClick={() => setTheme("light")}
@@ -53,9 +63,11 @@ export default function ThemeToggle() {
       <button
         className={`${btnDefault} ${"bg-neutral-200 dark:bg-[#0c2525f8]  text-zinc-700 rounded-md shadow-md"}`}
       >
-        <Link href="/search">
-          <MagnifyingGlassIcon className="h-5 w-5" />
-        </Link>
+        <SheetClose asChild className="-mb-1">
+          <Link href="/search">
+            <MagnifyingGlassIcon className="h-5 w-5" />
+          </Link>
+        </SheetClose>
       </button>
     </div>
   );
