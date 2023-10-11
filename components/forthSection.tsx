@@ -1,149 +1,109 @@
 import Image from "next/image";
-import Divider from "./ui/divider";
+import Link from "next/link";
+import RelativeDate from "@/lib/relativeDate";
 
-const posts = [
-  {
-    id: 1,
-    title: "Amazon Shoppers Are Ditching Designer Belts For This Best-Selling",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content. This very helpfull for generate default content...",
-    imageUrl:
-      "https://images.unsplash.com/photo-1684151092147-e0700ae1c766?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-  },
-  {
-    id: 2,
-    title: "Boost your conversion rate",
-    href: "#",
-    tag: "Europe",
-    description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-      imageUrl:
-      "https://images.unsplash.com/photo-1682080019175-dcf97dca51d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-  },
-  {
-    id: 3,
-    title: "Boost your conversion rate",
-    href: "#",
-    tag: "Europe",
-    description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-      imageUrl:
-      "https://images.unsplash.com/photo-1682080019175-dcf97dca51d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-  },
-  {
-    id: 4,
-    title: "Boost your conversion rate",
-    href: "#",
-    tag: "Europe",
-    description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-      imageUrl:
-      "https://images.unsplash.com/photo-1682080019175-dcf97dca51d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-  },
-  {
-    id: 5,
-    title: "Boost your conversion rate",
-    href: "#",
-    tag: "Europe",
-    description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-      imageUrl:
-      "https://images.unsplash.com/photo-1682080019175-dcf97dca51d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    date: "Mar 16, 2020",
-    datetime: "2020-03-16",
-  },
-];
+async function getData() {
+  const res = await fetch("https://www.dailyudayan.com/api/content", {
+    cache: "no-cache",
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
 
-export default function ForthSection() {
+interface Post {
+  id: number;
+  imageUrl: string;
+  title: string;
+  description: string;
+  date: string;
+}
+
+export default async function ForthSection() {
+  const posts = await getData();
   return (
     <div>
       <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-lg pt-4 mb-4 pb-4">
-        <Divider />
-        <div className="xl:container mx-auto px-3 sm:px-4 xl:px-2">
+        <main className="px-4">
           <div className="flex flex-row flex-wrap">
-            <div className="flex-shrink max-w-full w-full lg:w-1/2 pb-2 lg:pb-0 lg:pr-1">
-              {posts.slice(0, 1).map((post) => (
+            <div className="flex-shrink max-w-full w-full lg:w-1/3 pb-4 lg:pb-6  lg:pr-2">
+              {posts.slice(0, 1).map((post: Post) => (
                 <div
                   key={post.id}
-                  className="relative group hover-img dark:hover-img-dark max-h-98 overflow-hidden"
+                  className="relative group hover-img dark:hover-img-dark  max-h-98 "
                 >
-                  <a href="#">
+                  {/*  */}
+                  <Link href={"/news"}>
                     <Image
-                      src={post.imageUrl
-                      }
+                      src={post.imageUrl}
                       alt={""}
                       width={640}
                       height={427}
-                      className="max-w-full w-full mx-auto  max-h-98 h-auto rounded-md "
+                      className="max-w-full object-cover w-full mx-auto  max-h-[18.2rem] h-auto rounded-md "
                     />
-                  </a>
-                  <div className="absolute px-5 pt-28 pb-5 bottom-0 w-full bg-gradient-cover ">
-                    <a href="#">
-                      <span className="lg:text-2xl font-semibold capitalize text-white ">
-                        {post.title }
-                      </span>
-                    </a>
-                    <p className="text-gray-100 hidden sm:inline-block">
+                  </Link>
+                  <div className="py-0 sm:py-1 sm:pl-0">
+                    <Link href="#">
+                      <h2 className="text-xl font-bold capitalize text-gray-600 dark:text-gray-400">
+                        {post.title}
+                      </h2>
+                    </Link>
+                    <p className="text-gray-800 font-medium text-base  dark:text-gray-500 hidden sm:inline-block">
                       {post.description}
                     </p>
-                    <div className="pt-2">
-                      <div className="text-gray-100">
-                        <div className="inline-block h-3 border-l-2 border-red-600 mr-2"></div>
-                        {post.tag}
-                      </div>
+                    <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
+                      <RelativeDate date={post.date} />{" "}
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-{/* Article */}
+            {/* Article */}
             <div className="flex-shrink max-w-full  w-full lg:w-1/2">
               <div className="box-one flex gap-2 sm:gap-0 flex-row flex-wrap">
-              {posts.slice(1,5).map((post)=>(
-                    <article key={post.id} className="flex-shrink max-w-full w-full sm:w-1/2">
-
-                    <div className="relative group hover-img dark:hover-img-dark max-h-48 overflow-hidden">
-                      <a href="#">
+                {posts.slice(1, 5).map((post: Post) => (
+                  <article
+                    key={post.id}
+                    className="flex-shrink max-w-full w-full sm:w-1/2"
+                  >
+                    <div className="flex flex-row group hover-img dark:hover-img-dark  sm:block  max-h-18">
+                      <a href="">
                         <Image
-                          src={post.imageUrl
-                          }
+                          src={post.imageUrl}
                           alt={""}
                           width={640}
                           height={427}
-                          className="max-w-full w-full mx-auto max-h-48 h-auto rounded-md"
+                          className="max-w-full object-cover w-full mx-auto max-h-[8.7rem] h-auto rounded-md"
                         />
                       </a>
-                      <div className="absolute px-5 pt-28 pb-5 bottom-0 w-full bg-gradient-cover">
-                        <a href="#">
-                          <h2 className="tlg:text-2xl font-semibold capitalize text-white  leading-tight  mb-1">
-                            {post.title}
-                          </h2>
-                        </a>
-                        <div className="pt-1">
-                          <div className="text-gray-100">
-                            <div className="inline-block h-3 border-l-2 border-red-600 mr-2"></div>
-                           {post.tag}
-                          </div>
+                      <div className="py-0 sm:py-1 pl-3 sm:pl-0">
+                        <h3 className="text-lg font-bold leading-tight text-black  dark:text-gray-400 ">
+                          <a href="#">{post.title}</a>
+                        </h3>
+                        <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
+                          <RelativeDate date={post.date} />{" "}
                         </div>
                       </div>
                     </div>
                   </article>
-                    ))}
-                
+                ))}
               </div>
             </div>
+            {/*Desktop Sidebar Ad  */}
+            <div className=" lg:w-1/6 lg:pl-2">
+              <Image
+                src={
+                  "https://st2.depositphotos.com/5544578/8976/v/950/depositphotos_89763874-stock-illustration-click-here-vertical-advertising-banner.jpg"
+                }
+                alt={""}
+                width={640}
+                height={427}
+                className="hidden lg:block max-w-full w-full object-cover  max-h-full h-auto rounded-md"
+              />
+            </div>
           </div>
-        </div>
+        </main>
       </div>
     </div>
   );

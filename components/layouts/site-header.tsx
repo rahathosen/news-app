@@ -72,10 +72,8 @@ export default function SiteHeader() {
                               <Link key={item.name} href="/">
                                 <div className="aspect-h-1 aspect-w-2 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
                                   <Image
-                                    src={
-                                      "https://images.unsplash.com/photo-1657934787560-cbecc866430a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                                    }
-                                    alt={""}
+                                    src={item.imageSrc}
+                                    alt={item.imageAlt}
                                     width={240}
                                     height={120}
                                     className="object-cover  object-center"
