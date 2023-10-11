@@ -51,7 +51,7 @@ export default async function ThirdSection() {
                       <div className="">
                         {/* <!--title--> */}
                         <Link href="#">
-                          <h2 className="text-2xl font-bold capitalize text-gray-600 dark:text-gray-400">
+                          <h2 className="text-2xl font-bold capitalize text-black  dark:text-gray-400 ">
                             {post.title}
                           </h2>
                         </Link>
