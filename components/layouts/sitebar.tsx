@@ -80,7 +80,7 @@ export default function Siebar() {
                 <DropdownMenuContent className="w-56">
                   <DropdownMenuLabel>Notification area</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <ScrollArea className="my-2 h-[calc(40vh-4rem)] pb-2 pt-2 pl-2">
+                  <ScrollArea className="h-[calc(40vh-4rem)] pl-2">
                     <div>
                       <div className="flex flex-col gap-2  rounded-md text-sm p-2 ">
                         <Link
