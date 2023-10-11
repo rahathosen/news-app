@@ -140,7 +140,7 @@ export default function Siebar() {
                 <DropdownMenuContent className="w-56">
                   <DropdownMenuLabel>Notification area</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <ScrollArea className="h-[calc(40vh-4rem)]">
+                  <ScrollArea className="h-[calc(50vh-4rem)]">
                     <div>
                       {notifications.map((post) => (
                         <div
