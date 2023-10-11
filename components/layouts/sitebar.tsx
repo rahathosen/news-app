@@ -41,6 +41,66 @@ import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { navigation } from "../../lib/navigations";
 import ThemeToggle from "./theme-toggle-sitebar";
+import RelativeDate from "@/lib/relativeDate";
+
+const notifications = [
+  {
+    id: 1,
+    title: "5 Reasons Why You Should Eat More Fruit Every Day",
+    href: "/news",
+    date: "Oct 11, 2023",
+    datetime: "2023-03-16",
+  },
+  {
+    id: 2,
+    title: "5 Reasons Why You Should Eat More Fruit Every Day",
+    href: "/news",
+    date: "Oct 10, 2023",
+    datetime: "2023-03-16",
+  },
+  {
+    id: 3,
+    title: "5 Reasons Why You Should Eat More Fruit Every Day",
+    href: "/news",
+    date: "Mar 16, 2023",
+    datetime: "2023-03-16",
+  },
+  {
+    id: 4,
+    title: "5 Reasons Why You Should Eat More Fruit Every Day",
+    href: "/news",
+    date: "Feb 16, 2023",
+    datetime: "2023-03-16",
+  },
+  {
+    id: 5,
+    title: "5 Reasons Why You Should Eat More Fruit Every Day",
+    href: "/news",
+    date: "Mar 16, 2023",
+    datetime: "2023-03-16",
+  },
+  {
+    id: 6,
+    title: "5 Reasons Why You Should Eat More Fruit Every Day",
+    href: "/news",
+    date: "Mar 16, 2022",
+    datetime: "2023-03-16",
+  },
+  {
+    id: 7,
+    title: "5 Reasons Why You Should Eat More Fruit Every Day",
+    href: "/news",
+    date: "Mar 16, 2021",
+    datetime: "2023-03-16",
+  },
+  {
+    id: 8,
+    title: "5 Reasons Why You Should Eat More Fruit Every Day",
+    href: "/news",
+    date: "Mar 16, 2020",
+    datetime: "2023-03-16",
+  },
+];
 
 export interface ListItemProps extends HTMLProps<HTMLAnchorElement> {
   title: string;
@@ -80,50 +140,24 @@ export default function Siebar() {
                 <DropdownMenuContent className="w-56">
                   <DropdownMenuLabel>Notification area</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <ScrollArea className="h-[calc(40vh-4rem)] pl-2">
+                  <ScrollArea className="h-[calc(40vh-4rem)]">
                     <div>
-                      <div className="flex flex-col gap-2  rounded-md text-sm p-2 ">
-                        <Link
-                          className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
-                          href={"/news"}
+                      {notifications.map((post) => (
+                        <div
+                          key={post.id}
+                          className="flex flex-col gap-2  rounded-md text-sm p-2 "
                         >
-                          <p>
-                            5 Reasons Why You Should Eat More Fruit Every Day
-                          </p>
-                        </Link>
-                        <Link
-                          className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
-                          href={"/news"}
-                        >
-                          <p>
-                            5 Reasons Why You Should Eat More Fruit Every Day
-                          </p>
-                        </Link>
-                        <Link
-                          className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
-                          href={"/news"}
-                        >
-                          <p>
-                            5 Reasons Why You Should Eat More Fruit Every Day
-                          </p>
-                        </Link>
-                        <Link
-                          className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
-                          href={"/news"}
-                        >
-                          <p>
-                            5 Reasons Why You Should Eat More Fruit Every Day
-                          </p>
-                        </Link>
-                        <Link
-                          className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
-                          href={"/news"}
-                        >
-                          <p>
-                            5 Reasons Why You Should Eat More Fruit Every Day
-                          </p>
-                        </Link>
-                      </div>
+                          <Link
+                            className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-[#0e232e] p-3 rounded-md"
+                            href={"/news"}
+                          >
+                            <p>{post.title}</p>
+                            <div className="text-neutral-400 font-medium text-sm  dark:text-neutral-600">
+                              <RelativeDate date={post.date} />{" "}
+                            </div>
+                          </Link>
+                        </div>
+                      ))}
                     </div>
                   </ScrollArea>
 
