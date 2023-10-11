@@ -52,7 +52,7 @@ export default function ThemeToggle() {
       <button
         className={`${btnDefault} ${
           theme === "light"
-            ? "bg-neutral-200 dark:bg-[#0c2525f8] text-zinc-700 rounded-md shadow-xl"
+            ? "bg-gray-200 dark:bg-[#0c2525f8] text-zinc-700 rounded-md shadow-xl"
             : ""
         }`}
         onClick={() => setTheme("light")}
@@ -61,11 +61,11 @@ export default function ThemeToggle() {
       </button>
       <div className="border-l border-gray-200 dark:border-[#0c2525f8]  py-2"></div>
       <button
-        className={`${btnDefault} ${"bg-neutral-200 dark:bg-[#0c2525f8]  text-zinc-700 rounded-md shadow-md"}`}
+        className={`${btnDefault} ${"bg-gray-200 dark:bg-[#0c2525f8]  text-zinc-700 rounded-md shadow-md"}`}
       >
         <SheetClose asChild className="-mb-1">
           <Link href="/search">
-            <MagnifyingGlassIcon className="h-5 w-5" />
+            <MagnifyingGlassIcon className="h-4 w-4" />
           </Link>
         </SheetClose>
       </button>

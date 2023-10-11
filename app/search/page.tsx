@@ -142,7 +142,7 @@ export default function Page() {
                   <div className="relative">
                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                       <MagnifyingGlassIcon
-                        className="h-5 w-5 text-gray-400"
+                        className="h-4 w-4 lg:h-5 lg:w-5  text-gray-900 dark:text-gray-400"
                         aria-hidden="true"
                       />
                     </div>
@@ -150,9 +150,9 @@ export default function Page() {
                       id="search"
                       name="search"
                       className="block w-full rounded-md border-0 bg-white dark:bg-black
-                       py-2.5 pl-10 pr-3 text-gray-900 dark:text-gray-200 text-lg ring-1 font-medium ring-inset ring-gray-300 dark:ring-[#071720]
+                       lg:py-2.5 py-1.5 pl-10 pr-3 text-gray-900 dark:text-gray-200 lg:text-lg ring-1 font-medium ring-inset ring-gray-300 dark:ring-[#071720]
                         placeholder:text-gray-400 focus:ring-2 focus:ring-inset dark:focus:ring-[#071720] focus:ring-gray-400
-                        sm:text-sm sm:leading-6"
+                        text-sm sm:leading-6"
                       placeholder="enter your Word"
                       type="search"
                     />
@@ -161,7 +161,7 @@ export default function Page() {
                 <button
                   type="button"
                   className="inline-flex items-center ml-4 gap-x-1.5 
-                  rounded-md bg-[#071720] px-2.5 py-2.5 text-sm font-medium
+                  rounded-md bg-[#071720] px-2.5 lg:py-2.5 py-1.5 text-sm font-medium
                   text-white dark:text-gray-400  shadow-sm hover:bg-[#071720]/60 focus-visible:outline
                    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
                 >
@@ -203,7 +203,7 @@ export default function Page() {
                     variant="outline"
                     role="combobox"
                     aria-expanded={openCountry}
-                    className="w-[200px] dark:text-gray-400 justify-between"
+                    className="lg:w-[200px] w-full dark:text-gray-400 justify-between"
                   >
                     {valueCountry
                       ? country.find(
@@ -213,7 +213,7 @@ export default function Page() {
                     <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-[200px] p-0">
+                <PopoverContent className="lg:w-[200px] w-full p-0">
                   <Command>
                     <CommandInput
                       placeholder="Search Country..."
@@ -252,7 +252,7 @@ export default function Page() {
                     variant="outline"
                     role="combobox"
                     aria-expanded={openDivision}
-                    className="w-[200px] justify-between dark:text-gray-400"
+                    className="lg:w-[200px] w-full justify-between dark:text-gray-400"
                   >
                     {valueDivision
                       ? division.find(
@@ -262,7 +262,7 @@ export default function Page() {
                     <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-[200px] p-0">
+                <PopoverContent className="lg:w-[200px] w-full p-0">
                   <Command>
                     <CommandInput
                       placeholder="Search Division..."
@@ -301,7 +301,7 @@ export default function Page() {
                     variant="outline"
                     role="combobox"
                     aria-expanded={openDistrict}
-                    className="w-[200px] justify-between dark:text-gray-400"
+                    className="lg:w-[200px] w-full justify-between dark:text-gray-400"
                   >
                     {valueDistrict
                       ? district.find(
@@ -311,7 +311,7 @@ export default function Page() {
                     <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-[200px] p-0">
+                <PopoverContent className="lg:w-[200px] w-full p-0">
                   <Command>
                     <CommandInput
                       placeholder="Search District..."
@@ -350,7 +350,7 @@ export default function Page() {
                     variant="outline"
                     role="combobox"
                     aria-expanded={openZip}
-                    className="w-[200px] justify-between dark:text-gray-400"
+                    className="lg:w-[200px] w-full justify-between dark:text-gray-400"
                   >
                     {valueZip
                       ? zip.find((framework) => framework.value === valueZip)
@@ -359,7 +359,7 @@ export default function Page() {
                     <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-[200px] p-0">
+                <PopoverContent className="lg:w-[200px] w-full p-0">
                   <Command>
                     <CommandInput placeholder="Search Zip..." className="h-9" />
                     <CommandEmpty>No framework found.</CommandEmpty>
