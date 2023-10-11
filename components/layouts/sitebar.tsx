@@ -147,15 +147,17 @@ export default function Siebar() {
                           key={post.id}
                           className="flex flex-col gap-2  rounded-md text-sm p-2 "
                         >
-                          <Link
-                            className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-[#0e232e] p-3 rounded-md"
-                            href={"/news"}
-                          >
-                            <p>{post.title}</p>
-                            <div className="text-neutral-400 font-medium text-sm  dark:text-neutral-600">
-                              <RelativeDate date={post.date} />{" "}
-                            </div>
-                          </Link>
+                          <SheetClose asChild>
+                            <Link
+                              className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-[#0e232e] p-3 rounded-md"
+                              href={"/news"}
+                            >
+                              <p>{post.title}</p>
+                              <div className="text-neutral-400 font-medium text-sm  dark:text-neutral-600">
+                                <RelativeDate date={post.date} />{" "}
+                              </div>
+                            </Link>
+                          </SheetClose>
                         </div>
                       ))}
                     </div>
