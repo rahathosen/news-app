@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/accordion";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { navigation } from "../../lib/navigations";
+import ThemeToggle from "./theme-toggle-sitebar";
 
 export interface ListItemProps extends HTMLProps<HTMLAnchorElement> {
   title: string;
@@ -59,8 +60,9 @@ export default function Siebar() {
                 <span className="sr-only">notification area</span>
               </div>
               <SheetDescription>
+                <ThemeToggle />
                 {/*search  */}
-                <div className="w-full sm:max-w-xs">
+                {/* <div className="w-full sm:max-w-xs">
                   <label htmlFor="search" className="sr-only">
                     Search
                   </label>
@@ -79,7 +81,7 @@ export default function Siebar() {
                       type="search"
                     />
                   </div>
-                </div>
+                </div> */}
               </SheetDescription>
             </SheetHeader>
             <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pt-8 pl-6">
@@ -98,26 +100,24 @@ export default function Siebar() {
                         <div className="flex flex-col space-y-2">
                           {item.sections?.map((subItem, index) => (
                             <div
-                            key={index}
+                              key={index}
                               className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-gray-400"
                             >
-
                               {/* <SheetFooter > */}
                               <SheetClose asChild>
-                              <Link href={item.id}>All {`${item.name}`}</Link>
+                                <Link href={item.id}>All {`${item.name}`}</Link>
                               </SheetClose>
                               {subItem.items?.map((sub, index) => (
                                 <div
-                                key={index}
+                                  key={index}
                                   className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-gray-400"
-                                  >
-                                   <SheetClose asChild>
-                                  <Link href={sub.name}>{sub.name}</Link>
-                                   </SheetClose>
+                                >
+                                  <SheetClose asChild>
+                                    <Link href={sub.name}>{sub.name}</Link>
+                                  </SheetClose>
                                 </div>
                               ))}
-                                {/* </SheetFooter> */}
-                             
+                              {/* </SheetFooter> */}
                             </div>
                           ))}
                         </div>
