@@ -81,29 +81,30 @@ export default function Siebar() {
                   <DropdownMenuSeparator />
                   <div className="flex flex-col gap-2  rounded-md text-sm p-2 ">
                     <Link
-                      className="bg-[#071720] hover:bg-gray-800 p-3 rounded-md"
+                      className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
                       href={"/news"}
                     >
                       <p>5 Reasons Why You Should Eat More Fruit Every Day</p>
                     </Link>
                     <Link
-                      className="bg-[#071720] hover:bg-gray-800 p-3 rounded-md"
+                      className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
                       href={"/news"}
                     >
                       <p>5 Reasons Why You Should Eat More Fruit Every Day</p>
                     </Link>
                     <Link
-                      className="bg-[#071720] hover:bg-gray-800 p-3 rounded-md"
+                      className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
                       href={"/news"}
                     >
                       <p>5 Reasons Why You Should Eat More Fruit Every Day</p>
                     </Link>
                     <Link
-                      className="bg-[#071720] hover:bg-gray-800 p-3 rounded-md"
+                      className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
                       href={"/news"}
                     >
                       <p>5 Reasons Why You Should Eat More Fruit Every Day</p>
                     </Link>
+                    
                   </div>
                 </DropdownMenuContent>
               </DropdownMenu>
