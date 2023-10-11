@@ -7,12 +7,15 @@ import SixthSection from "@/components/sixthSection";
 import SeventhSection from "@/components/seventhSection";
 import EighthSection from "@/components/eighthSection";
 import FifthSection from "@/components/fifthSection";
+import RowAd from "@/components/layouts/row-ad";
 
 export default function Home() {
   return (
     <main>
       <ForthSection />
+      <RowAd />
       <SecondSection />
+      <RowAd />
       <ThirdSection />
 
       {/* <HighlightNews/> */}

@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import SiteHeader from "@/components/layouts/site-header";
@@ -10,6 +10,7 @@ import BackToTopButton from "@/components/ui/backToTopButton";
 const inter = Inter({ subsets: ["latin"] });
 import { cn } from "@/lib/utils";
 import Test from "@/components/layouts/test";
+import RowAd from "@/components/layouts/row-ad";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,18 +24,16 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body 
-      className={cn(
-        "",
-        inter.className
-      )}>
+      <body className={cn("", inter.className)}>
         <Provider attribute="class" defaultTheme="system" enableSystem>
           {/* <MainNav /> */}
-          <SiteHeader/>
-          
+          <SiteHeader />
+          <RowAd />
+
           {/* <Test/> */}
           <div className="2xl:container mx-auto max-w-[85rem]">{children}</div>
           <BackToTopButton />
+          <RowAd />
           <SiteFooter />
         </Provider>
         <Analytics />

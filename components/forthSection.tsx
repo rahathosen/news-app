@@ -3,7 +3,7 @@ import Link from "next/link";
 import RelativeDate from "@/lib/relativeDate";
 
 async function getData() {
-  const res = await fetch("http://localhost:3000/api/content", {
+  const res = await fetch("https://www.dailyudayan.com/api/content", {
     cache: "no-cache",
   });
   if (!res.ok) {
@@ -25,7 +25,7 @@ export default async function ForthSection() {
   return (
     <div>
       <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-lg pt-4 mb-4 pb-4">
-        <div className="xl:container mx-auto ">
+        <main className="px-4">
           <div className="flex flex-row flex-wrap">
             <div className="flex-shrink max-w-full w-full lg:w-1/3 pb-4 lg:pb-6  lg:pr-2">
               {posts.slice(0, 1).map((post: Post) => (
@@ -44,9 +44,11 @@ export default async function ForthSection() {
                     />
                   </Link>
                   <div className="py-0 sm:py-1 sm:pl-0">
-                    <h3 className="text-lg font-bold leading-tight text-black  dark:text-gray-400 ">
-                      <Link href={"/news"}> {post.title}</Link>
-                    </h3>
+                    <Link href="#">
+                      <h2 className="text-xl font-bold capitalize text-gray-600 dark:text-gray-400">
+                        {post.title}
+                      </h2>
+                    </Link>
                     <p className="text-gray-800 font-medium text-base  dark:text-gray-500 hidden sm:inline-block">
                       {post.description}
                     </p>
@@ -89,7 +91,7 @@ export default async function ForthSection() {
               </div>
             </div>
             {/*Desktop Sidebar Ad  */}
-            <div className=" lg:pl-2">
+            <div className=" lg:w-1/6 lg:pl-2">
               <Image
                 src={
                   "https://st2.depositphotos.com/5544578/8976/v/950/depositphotos_89763874-stock-illustration-click-here-vertical-advertising-banner.jpg"
@@ -97,11 +99,11 @@ export default async function ForthSection() {
                 alt={""}
                 width={640}
                 height={427}
-                className="hidden lg:block object-cover mx-auto max-w-[12.8rem] max-h-[24.7rem] rounded-md"
+                className="hidden lg:block max-w-full w-full object-cover  max-h-full h-auto rounded-md"
               />
             </div>
           </div>
-        </div>
+        </main>
       </div>
     </div>
   );

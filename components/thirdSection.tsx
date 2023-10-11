@@ -4,7 +4,7 @@ import RelativeDate from "@/lib/relativeDate";
 import Link from "next/link";
 
 async function getData() {
-  const res = await fetch("http://localhost:3000/api/content", {
+  const res = await fetch("https://www.dailyudayan.com/api/content", {
     cache: "no-cache",
   });
   if (!res.ok) {
@@ -28,7 +28,7 @@ export default async function ThirdSection() {
       <Divider />
 
       <div>
-        <div className="xl:container mx-auto px-3 sm:px-4 xl:px-2">
+        <main className="px-4">
           <div className="flex flex-row flex-wrap">
             <div className="flex-shrink max-w-full w-full lg:w-2/3 overflow-hidden">
               <div className="flex flex-row flex-wrap -mx-3">
@@ -37,7 +37,7 @@ export default async function ThirdSection() {
                     key={post.id}
                     className="flex-shrink max-w-full w-full px-3 pb-5"
                   >
-                    <div className="relative hover-img max-h-98 overflow-hidden">
+                    <div className="relative hover-img dark:hover-img-dark max-h-98 ">
                       {/* <!--thumbnail--> */}
                       <Link href="#">
                         <Image
@@ -45,21 +45,21 @@ export default async function ThirdSection() {
                           alt={""}
                           width={640}
                           height={427}
-                          className="max-w-full w-full mx-auto h-auto rounded-md"
+                          className="max-w-full w-full mx-auto h-auto max-h-[18.2rem] pb-2 object-cover rounded-md"
                         />
                       </Link>
-                      <div className="absolute px-5 pt-8 pb-5 bottom-0 w-full bg-gradient-cover">
+                      <div className="">
                         {/* <!--title--> */}
                         <Link href="#">
-                          <h2 className="text-3xl font-bold capitalize text-white mb-3">
+                          <h2 className="text-2xl font-bold capitalize text-gray-600 dark:text-gray-400">
                             {post.title}
                           </h2>
                         </Link>
-                        <p className="text-gray-100 hidden sm:inline-block">
+                        <p className="text-gray-800 font-medium text-base  dark:text-gray-500  hidden sm:inline-block">
                           {post.description}
                         </p>
                         {/* <!-- author and date --> */}
-                        <div className="pt-2">
+                        <div className="">
                           <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                             <RelativeDate date={post.date} />{" "}
                           </div>
@@ -77,9 +77,7 @@ export default async function ThirdSection() {
                     <div className="flex flex-row sm:block hover-img">
                       <Link href="">
                         <Image
-                          src={
-                            "https://images.unsplash.com/photo-1689542901884-4fe1715af46d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80 "
-                          }
+                          src={post.imageUrl}
                           alt={""}
                           width={640}
                           height={427}
@@ -118,7 +116,7 @@ export default async function ThirdSection() {
                         className="border-b border-gray-100 dark:border-gray-900 hover:bg-stone-300 rounded-lg dark:hover:bg-[#030b10]"
                       >
                         <Link
-                          className="text-lg font-bold px-6 py-3 flex flex-row items-center text-gray-800 dark:text-gray-400"
+                          className="text-lg font-bold pl-2 py-3 flex flex-row items-center text-gray-800 dark:text-gray-400"
                           href="#"
                         >
                           {post.title}
@@ -130,7 +128,7 @@ export default async function ThirdSection() {
               </div>
             </div>
           </div>
-        </div>
+        </main>
       </div>
       {/*  */}
     </div>

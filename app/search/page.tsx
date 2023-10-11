@@ -23,6 +23,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
 import NewsGridTemplate from "@/components/layouts/newsGridTemplate";
+import RowAd from "@/components/layouts/row-ad";
 
 const country = [
   {
@@ -129,8 +130,8 @@ export default function Page() {
   const [valueZip, setValueZip] = React.useState("");
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
-      <div className="relative xl:container mx-auto px-3 sm:px-4  py-4 bg-stone-100 dark:bg-[#040D12] ">
-        <div className="max-w-full w-full lg:w-3/4">
+      <div className="flex flex-row flex-wrap relative px-4  py-4 bg-stone-100 dark:bg-[#040D12] ">
+        <div className="max-w-full w-full lg:w-4/5">
           <div className="relative">
             <div className=" flex-1 lg:px-0 ">
               <div className="flex items-center  py-4 xl:px-0">
@@ -183,11 +184,11 @@ export default function Page() {
                   className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
                   aria-hidden="true"
                 />
-              Select the menu for more sorting  
+                Select the menu for more sorting
               </figcaption>
             </div>
             <div className="flex flex-wrap gap-4">
-              <div className="hidden lg:block">
+              {/* <div className="hidden lg:block">
                 <figcaption className="mt-2  flex gap-x-2 text-sm leading-6 text-gray-500">
                   <InformationCircleIcon
                     className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
@@ -195,7 +196,7 @@ export default function Page() {
                   />
                   Select menu for sorting
                 </figcaption>
-              </div>
+              </div> */}
               <Popover open={openCountry} onOpenChange={setOpenCountry}>
                 <PopoverTrigger asChild>
                   <Button
@@ -391,7 +392,17 @@ export default function Page() {
             </div>
             <NewsGridTemplate />
           </div>
-          <div> Hello</div>
+        </div>
+        <div className=" lg:w-[20%] lg:pl-4">
+          <Image
+            src={
+              "https://st2.depositphotos.com/5544578/8976/v/950/depositphotos_89763874-stock-illustration-click-here-vertical-advertising-banner.jpg"
+            }
+            alt={""}
+            width={640}
+            height={427}
+            className="hidden lg:block max-w-full w-full object-cover  max-h-full h-auto rounded-md"
+          />
         </div>
       </div>
     </div>

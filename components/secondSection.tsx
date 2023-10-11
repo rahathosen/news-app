@@ -4,7 +4,7 @@ import Divider from "./ui/divider";
 import RelativeDate from "@/lib/relativeDate";
 
 async function getData() {
-  const res = await fetch("http://localhost:3000/api/content", {
+  const res = await fetch("https://www.dailyudayan.com/api/content", {
     cache: "no-cache",
   });
   if (!res.ok) {
@@ -26,8 +26,8 @@ export default async function SecondSection() {
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
       <Divider />
-      <div>
-        <div className="xl:container mx-auto px-3 sm:px-4 xl:px-2">
+      <div className="px-4">
+        <div >
           <div className="flex flex-row flex-wrap">
             {/* <!-- Left --> */}
             <div className="flex-shrink max-w-full w-full lg:w-2/3  overflow-hidden">
@@ -37,7 +37,7 @@ export default async function SecondSection() {
                     key={post.id}
                     className="flex-shrink max-w-full w-full px-3 pb-5"
                   >
-                    <div className="relative hover-img max-h-98 overflow-hidden">
+                    <div className="relative hover-img dark:hover-img-dark max-h-98 ">
                       {/* <!--thumbnail--> */}
                       <Link href="#">
                         <Image
@@ -45,21 +45,21 @@ export default async function SecondSection() {
                           alt={""}
                           width={640}
                           height={427}
-                          className="max-w-full w-full mx-auto h-auto rounded-md"
+                          className="max-w-full w-full mx-auto h-auto max-h-[18.2rem] pb-2 object-cover rounded-md"
                         />
                       </Link>
-                      <div className="absolute px-5 pt-8 pb-5 bottom-0 w-full bg-gradient-cover">
+                      <div className="">
                         {/* <!--title--> */}
                         <Link href="#">
-                          <h2 className="text-3xl font-bold capitalize text-white mb-3">
+                          <h2 className="text-2xl font-bold capitalize text-gray-600 dark:text-gray-400">
                             {post.title}
                           </h2>
                         </Link>
-                        <p className="text-gray-100 hidden sm:inline-block">
+                        <p className="text-gray-800 font-medium text-base  dark:text-gray-500  hidden sm:inline-block">
                           {post.description}
                         </p>
                         {/* <!-- author and date --> */}
-                        <div className="pt-2">
+                        <div className="">
                           <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                             <RelativeDate date={post.date} />{" "}
                           </div>
@@ -114,12 +114,12 @@ export default async function SecondSection() {
                         key={post.id}
                         className="border-b border-gray-100 dark:border-gray-900 hover:bg-stone-300 rounded-lg dark:hover:bg-[#030b10]"
                       >
-                        <a
-                          className="text-lg font-bold px-6 py-3 flex flex-row items-center text-gray-800 dark:text-gray-400"
+                        <Link
+                          className="text-lg font-bold pl-2 py-3 flex flex-row items-center text-gray-800 dark:text-gray-400"
                           href="#"
                         >
                           {post.title}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
