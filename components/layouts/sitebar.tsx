@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/accordion";
 import {
   DropdownMenu,
+  DropdownMenuItem,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuLabel,
@@ -79,33 +80,62 @@ export default function Siebar() {
                 <DropdownMenuContent className="w-56">
                   <DropdownMenuLabel>Notification area</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <div className="flex flex-col gap-2  rounded-md text-sm p-2 ">
+                  <ScrollArea className="my-2 h-[calc(40vh-4rem)] pb-2 pt-2 pl-2">
+                    <div>
+                      <div className="flex flex-col gap-2  rounded-md text-sm p-2 ">
+                        <Link
+                          className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
+                          href={"/news"}
+                        >
+                          <p>
+                            5 Reasons Why You Should Eat More Fruit Every Day
+                          </p>
+                        </Link>
+                        <Link
+                          className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
+                          href={"/news"}
+                        >
+                          <p>
+                            5 Reasons Why You Should Eat More Fruit Every Day
+                          </p>
+                        </Link>
+                        <Link
+                          className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
+                          href={"/news"}
+                        >
+                          <p>
+                            5 Reasons Why You Should Eat More Fruit Every Day
+                          </p>
+                        </Link>
+                        <Link
+                          className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
+                          href={"/news"}
+                        >
+                          <p>
+                            5 Reasons Why You Should Eat More Fruit Every Day
+                          </p>
+                        </Link>
+                        <Link
+                          className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
+                          href={"/news"}
+                        >
+                          <p>
+                            5 Reasons Why You Should Eat More Fruit Every Day
+                          </p>
+                        </Link>
+                      </div>
+                    </div>
+                  </ScrollArea>
+
+                  <DropdownMenuSeparator />
+                  <DropdownMenuLabel className="text-center">
                     <Link
-                      className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
-                      href={"/news"}
+                      className="rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 p-2"
+                      href="/notification"
                     >
-                      <p>5 Reasons Why You Should Eat More Fruit Every Day</p>
+                      View All Notification
                     </Link>
-                    <Link
-                      className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
-                      href={"/news"}
-                    >
-                      <p>5 Reasons Why You Should Eat More Fruit Every Day</p>
-                    </Link>
-                    <Link
-                      className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
-                      href={"/news"}
-                    >
-                      <p>5 Reasons Why You Should Eat More Fruit Every Day</p>
-                    </Link>
-                    <Link
-                      className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 p-3 rounded-md"
-                      href={"/news"}
-                    >
-                      <p>5 Reasons Why You Should Eat More Fruit Every Day</p>
-                    </Link>
-                    
-                  </div>
+                  </DropdownMenuLabel>
                 </DropdownMenuContent>
               </DropdownMenu>
               <SheetDescription>
