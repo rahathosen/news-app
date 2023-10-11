@@ -34,7 +34,7 @@ export default function SiteHeader() {
                 </Link>
 
                 {/* Mobile Notification bell icon (lg-) */}
-                <Link href="/" className="flex lg:hidden items-center">
+                {/* <Link href="/" className="flex lg:hidden items-center">
                   <h1 className=" lg:pl-8  md:pl-2 pl-2 md:pr-2  font-bold text-xl lg:text-2xl bg-clip-text text-center font-heading  tracking-[-0.02em]  drop-shadow-sm   md:leading-[5rem]">
                     <button
                       type="button"
@@ -44,7 +44,7 @@ export default function SiteHeader() {
                       <BellIcon className="h-6 w-6 " aria-hidden="true" />
                     </button>
                   </h1>
-                </Link>
+                </Link> */}
               </div>
               <div>
                 {/* Mobile Logo (lg-hidden) */}
