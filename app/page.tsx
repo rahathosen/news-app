@@ -1,8 +1,8 @@
 import Image from "next/image";
 import HighlightNews from "@/components/highlight-news";
-import SecondSection from "@/components/secondSection";
-import ThirdSection from "@/components/thirdSection";
-import ForthSection from "@/components/forthSection";
+import MiddleSection from "@/components/middleSection";
+import BottomSection from "@/components/bottomSection";
+import TopSection from "@/components/topSection";
 import SixthSection from "@/components/sixthSection";
 import SeventhSection from "@/components/seventhSection";
 import EighthSection from "@/components/eighthSection";
@@ -12,11 +12,11 @@ import RowAd from "@/components/layouts/row-ad";
 export default function Home() {
   return (
     <main>
-      <ForthSection />
+      <TopSection />
       <RowAd />
-      <SecondSection />
+      <MiddleSection />
       <RowAd />
-      <ThirdSection />
+      <BottomSection />
 
       {/* <HighlightNews/> */}
       {/* <FifthSection />
