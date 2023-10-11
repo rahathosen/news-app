@@ -28,6 +28,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { navigation } from "../../lib/navigations";
 import ThemeToggle from "./theme-toggle-sitebar";
@@ -37,11 +46,16 @@ export interface ListItemProps extends HTMLProps<HTMLAnchorElement> {
   children: ReactNode;
 }
 
+type Checked = DropdownMenuCheckboxItemProps["checked"];
+
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Siebar() {
+  const [showStatusBar, setShowStatusBar] = useState<Checked>(true);
+  const [showActivityBar, setShowActivityBar] = useState<Checked>(false);
+  const [showPanel, setShowPanel] = useState<Checked>(false);
   return (
     <div className="flex  items-center lg:pr-6  md:pr-2 pr-0">
       <button
@@ -55,33 +69,46 @@ export default function Siebar() {
           </SheetTrigger>
           <SheetContent>
             <SheetHeader>
-              <div className="absolute left-4 top-6 rounded-sm opacity-70 dark:text-gray-400 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-stone-950 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-stone-100 dark:ring-offset-stone-950 dark:focus:ring-stone-300 dark:data-[state=open]:bg-stone-800">
-                <BellIcon className="h-5 w-5" />
-                <span className="sr-only">notification area</span>
-              </div>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button className="absolute left-4 top-6 rounded-sm opacity-70 dark:text-gray-400 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-gray-100 dark:ring-offset-gray-950 dark:focus:ring-gray-300 dark:data-[state=open]:bg-gray-800">
+                    <BellIcon className="h-5 w-5" />
+                    <span className="sr-only">notification area</span>
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  <DropdownMenuLabel>Notification area</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <div className="flex flex-col gap-2  rounded-md text-sm p-2 ">
+                    <Link
+                      className="bg-[#071720] hover:bg-gray-800 p-3 rounded-md"
+                      href={"/news"}
+                    >
+                      <p>5 Reasons Why You Should Eat More Fruit Every Day</p>
+                    </Link>
+                    <Link
+                      className="bg-[#071720] hover:bg-gray-800 p-3 rounded-md"
+                      href={"/news"}
+                    >
+                      <p>5 Reasons Why You Should Eat More Fruit Every Day</p>
+                    </Link>
+                    <Link
+                      className="bg-[#071720] hover:bg-gray-800 p-3 rounded-md"
+                      href={"/news"}
+                    >
+                      <p>5 Reasons Why You Should Eat More Fruit Every Day</p>
+                    </Link>
+                    <Link
+                      className="bg-[#071720] hover:bg-gray-800 p-3 rounded-md"
+                      href={"/news"}
+                    >
+                      <p>5 Reasons Why You Should Eat More Fruit Every Day</p>
+                    </Link>
+                  </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
               <SheetDescription>
                 <ThemeToggle />
-                {/*search  */}
-                {/* <div className="w-full sm:max-w-xs">
-                  <label htmlFor="search" className="sr-only">
-                    Search
-                  </label>
-                  <div className="relative">
-                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                      <MagnifyingGlassIcon
-                        className="h-5 w-5 text-gray-400"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <input
-                      id="search"
-                      name="search"
-                      className="block w-full rounded-lg border-0 bg-white dark:bg-[#040D12] py-1.5 pl-10 pr-3 text-gray-900 dark:text-gray-600 ring-1 ring-inset ring-gray-300 dark:ring-[#0c2525f8] placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-[#0c2525f8] sm:text-sm sm:leading-6"
-                      placeholder="Search"
-                      type="search"
-                    />
-                  </div>
-                </div> */}
               </SheetDescription>
             </SheetHeader>
             <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pt-8 pl-6">
