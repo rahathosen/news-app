@@ -38,11 +38,19 @@ export const generateMetadata = async ({
   return {
     title: `${post.title}`,
     openGraph: {
+      title: `${post.title}`,
+      url: "https://www.dailyudayan.com",
+      siteName: "Dailyudayan",
       images: [
         {
           url: `${post.imageUrl}`,
           width: 800,
           height: 600,
+        },
+        {
+          url: `${post.imageUrl}`,
+          width: 1800,
+          height: 1600,
         },
       ],
     },
