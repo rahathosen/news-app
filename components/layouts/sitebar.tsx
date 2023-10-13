@@ -132,7 +132,7 @@ export default function Siebar() {
             <SheetHeader>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button className="absolute left-4 top-6 rounded-sm opacity-70 dark:text-gray-400 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-gray-100 dark:ring-offset-gray-950 dark:focus:ring-gray-300 dark:data-[state=open]:bg-gray-800">
+                  <button className="absolute left-4 top-6 rounded-md opacity-70 dark:text-gray-400 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-gray-100 dark:ring-offset-gray-950 dark:focus:ring-gray-300 dark:data-[state=open]:bg-gray-800">
                     <BellIcon className="h-5 w-5" />
                     <span className="sr-only">notification area</span>
                   </button>
@@ -140,7 +140,7 @@ export default function Siebar() {
                 <DropdownMenuContent className="w-56">
                   <DropdownMenuLabel>Notification area</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <ScrollArea className="h-[calc(50vh-4rem)]">
+                  <ScrollArea className="h-[calc(50vh-4rem)] py-2 rounded-2xl ">
                     <div>
                       {notifications.map((post) => (
                         <div
