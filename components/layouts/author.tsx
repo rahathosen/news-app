@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+
 const user = {
   name: "Rahat Hosen",
   url: "rahathosen",
@@ -9,7 +10,7 @@ const user = {
     "https://rahat.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmypic.eeffca13.jpg&w=3840&q=75",
 };
 
-export default function Author() {
+export default function Author({ date  }: any) {
   return (
     <>
       <div className="overflow-hidden rounded-lg bg-stone-200 dark:bg-[#071720] shadow mb-4">
@@ -42,7 +43,7 @@ export default function Author() {
           <div className="px-6 item-center lg:pb-2 sm:pb-0 pb-2  text-sm font-medium">
             <span className="text-gray-600 dark:text-gray-600">
               <span className="font-bold dark:text-gray-500">Published:</span>{" "}
-              Wed Sep 13, 2023 09:00 AM
+              {date}
             </span>
           </div>
           <div className="px-6  text-sm font-medium">

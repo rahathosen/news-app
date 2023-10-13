@@ -1,19 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import RelativeDate from "@/lib/relativeDate";
-
-async function getData() {
-  const res = await fetch("https://www.dailyudayan.com/api/content", {
-    cache: "no-cache",
-  });
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  return res.json();
-}
+import getData from "@/lib/getNews";
 
 interface Post {
   id: number;
+  slug: string;
   imageUrl: string;
   title: string;
   description: string;
@@ -34,7 +26,7 @@ export default async function TopSection() {
                   className="relative group hover-img dark:hover-img-dark  max-h-98 "
                 >
                   {/*  */}
-                  <Link href={"/news"}>
+                  <Link href={`/${post.slug}`}>
                     <Image
                       src={post.imageUrl}
                       alt={""}
@@ -44,7 +36,7 @@ export default async function TopSection() {
                     />
                   </Link>
                   <div className="py-0 sm:py-1 sm:pl-0">
-                    <Link href={"/news"}>
+                    <Link href={`/${post.slug}`}>
                       <h2 className="text-xl font-bold capitalize text-black  dark:text-gray-400 ">
                         {post.title}
                       </h2>
@@ -58,6 +50,7 @@ export default async function TopSection() {
                   </div>
                 </div>
               ))}
+              div
             </div>
             {/* Article */}
             <div className="flex-shrink max-w-full  w-full lg:w-1/2">
@@ -68,7 +61,7 @@ export default async function TopSection() {
                     className="flex-shrink max-w-full w-full sm:w-1/2"
                   >
                     <div className="flex flex-row group hover-img dark:hover-img-dark  sm:block  max-h-18">
-                      <Link href={"/news"}>
+                      <Link href={`/${post.slug}`}>
                         <Image
                           src={post.imageUrl}
                           alt={""}
@@ -79,7 +72,7 @@ export default async function TopSection() {
                       </Link>
                       <div className="py-0 sm:py-1 pl-3 sm:pl-0">
                         <h3 className="text-lg font-bold leading-tight text-black  dark:text-gray-400 ">
-                          <Link href={"/news"}>{post.title}</Link>
+                          <Link href={`/${post.slug}`}>{post.title}</Link>
                         </h3>
                         <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                           <RelativeDate date={post.date} />{" "}

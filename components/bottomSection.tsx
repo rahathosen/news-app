@@ -2,19 +2,11 @@ import Image from "next/image";
 import Divider from "./ui/divider";
 import RelativeDate from "@/lib/relativeDate";
 import Link from "next/link";
-
-async function getData() {
-  const res = await fetch("https://www.dailyudayan.com/api/content", {
-    cache: "no-cache",
-  });
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  return res.json();
-}
+import getData from "@/lib/getNews";
 
 interface Post {
   id: number;
+  slug: string;
   imageUrl: string;
   title: string;
   description: string;
@@ -39,7 +31,7 @@ export default async function BottomSection() {
                   >
                     <div className="relative hover-img dark:hover-img-dark max-h-98 ">
                       {/* <!--thumbnail--> */}
-                      <Link href="#">
+                      <Link href={`/${post.slug}`}>
                         <Image
                           src={post.imageUrl}
                           alt={""}
@@ -50,7 +42,7 @@ export default async function BottomSection() {
                       </Link>
                       <div className="">
                         {/* <!--title--> */}
-                        <Link href="#">
+                        <Link href={`/${post.slug}`}>
                           <h2 className="text-2xl font-bold capitalize text-black  dark:text-gray-400 ">
                             {post.title}
                           </h2>
@@ -75,7 +67,7 @@ export default async function BottomSection() {
                     className="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
                   >
                     <div className="flex flex-row sm:block hover-img">
-                      <Link href="">
+                      <Link href={`/${post.slug}`}>
                         <Image
                           src={post.imageUrl}
                           alt={""}
@@ -86,7 +78,7 @@ export default async function BottomSection() {
                       </Link>
                       <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                         <h3 className="text-lg font-bold leading-tight text-black  dark:text-gray-400 mb-2">
-                          <a href="#">{post.title}</a>
+                          <Link href={`/${post.slug}`}>{post.title}</Link>
                         </h3>
                         <p className="hidden md:block  dark:text-gray-400 text-gray-800 leading-tight mb-1">
                           {post.description}
@@ -116,8 +108,8 @@ export default async function BottomSection() {
                         className="border-b border-gray-100 dark:border-gray-900 hover:bg-stone-300 rounded-lg dark:hover:bg-[#030b10]"
                       >
                         <Link
+                          href={`/${post.slug}`}
                           className="text-lg font-bold pl-2 py-3 flex flex-row items-center text-gray-800 dark:text-gray-400"
-                          href="#"
                         >
                           {post.title}
                         </Link>
