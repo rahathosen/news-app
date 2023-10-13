@@ -29,12 +29,9 @@ type Props = {
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
-  const posts: Post[] = await fetch(
-    "https://www.dailyudayan.com/api/blogpost",
-    {
-      cache: "no-cache",
-    }
-  ).then((res) => res.json());
+  const posts: Post[] = await fetch("https://www.dailyudayan.com/api/content", {
+    cache: "no-cache",
+  }).then((res) => res.json());
 
   const post = posts.find((post) => post.slug === params.slug)!;
 
@@ -44,7 +41,7 @@ export const generateMetadata = async ({
 };
 
 export default async function Page({ params }: Props) {
-  const posts: Post[] = await fetch("https://www.dailyudayan.com/api/blogpost", {
+  const posts: Post[] = await fetch("https://www.dailyudayan.com/api/content", {
     cache: "no-cache",
   }).then((res) => res.json());
 

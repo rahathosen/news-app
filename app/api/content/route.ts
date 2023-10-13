@@ -3,6 +3,7 @@ const posts = [
     id: 1,
     title: "5 Reasons Why You Should Eat More Fruit Every Day",
     href: "#",
+    slug: "5-reasons-why-you-should-eat-more-fruit-every-day",
     tag: "24m ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content. This is a wider card with supporting text below as a natural.This is a wider card with supporting text below as a natural lead-in to additional content. This is a wider card with supporting text below as a natural.This is a wider card with supporting text below as a natural lead-in to additional content...",
@@ -15,6 +16,7 @@ const posts = [
     id: 2,
     title: "Meet The Man Who Designed The Ducati Monster",
     href: "#",
+    slug: "meet-the-man-who-designed-the-ducati-monster",
     tag: "24m ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content...",
@@ -27,6 +29,7 @@ const posts = [
     id: 3,
     title: "Meet The Man Who Designed The Ducati Monster",
     href: "#",
+    slug: "meet-the-man-who-designed-the-ducati-monster2",
     tag: "24m ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content...",
@@ -39,6 +42,7 @@ const posts = [
     id: 4,
     title: "Lamborghini makes Huracán GT3 racer faster for 2019",
     href: "#",
+    slug: "lamborghini-makes-huracan-gt3-racer-faster-for-2019",
     tag: "24m ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content...",
@@ -51,6 +55,7 @@ const posts = [
     id: 5,
     title: "ZF plans $14 billion autonomous vehicle push, concept van",
     href: "#",
+    slug: "zf-plans-dollar14-billion-autonomous-vehicle-push-concept-van",
     tag: "24m ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content...",
@@ -63,6 +68,7 @@ const posts = [
     id: 6,
     title: " Why the world would end without political polls",
     href: "#",
+    slug: "why-the-world-would-end-without-political-polls",
     tag: "24m ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content...",
@@ -75,6 +81,7 @@ const posts = [
     id: 7,
     title: " Meet The Man Who Designed The Ducati Monster",
     href: "#",
+    slug: "meet-the-man-who-designed-the-ducati-monster",
     tag: "24m ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content...",
@@ -87,6 +94,7 @@ const posts = [
     id: 8,
     title: "2020 Audi R8 Spyder spy shots release",
     href: "#",
+    slug: "2020-audi-r8-spyder-spy-shots-release",
     tag: "24m ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content...",
@@ -99,6 +107,7 @@ const posts = [
     id: 9,
     title: "ZF plans $14 billion autonomous vehicle push, concept van",
     href: "#",
+    slug: "zf-plans-dollar14-billion-autonomous-vehicle-push-concept-van2",
     tag: "24m ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content...",
@@ -111,6 +120,7 @@ const posts = [
     id: 10,
     title: "Boost your conversion rate",
     href: "#",
+    slug: "boost-your-conversion-rate",
     tag: "24m ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content...",
@@ -123,6 +133,7 @@ const posts = [
     id: 11,
     title: " Lamborghini makes Huracán GT3 racer faster for 2019",
     href: "#",
+    slug: "lamborghini-makes-huracan-gt3-racer-faster-for-2019",
     tag: "24m ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content...",
@@ -135,6 +146,7 @@ const posts = [
     id: 12,
     title: "Boost your conversion rate",
     href: "#",
+    slug: "boost-your-conversion-rate2",
     tag: "24m ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content...",
@@ -146,6 +158,6 @@ const posts = [
 ];
 import { NextResponse } from "next/server";
 
-export async function GET(){
-    return NextResponse.json(posts)
+export async function GET() {
+  return NextResponse.json(posts);
 }
