@@ -1,81 +1,18 @@
 import Image from "next/image";
+import Link from "next/link";
+import getData from "@/lib/getNews";
 
-const popularPosts = [
-  {
-    id: 1,
-    title: " Why the world would end without political polls",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 2,
-    title: " Meet The Man Who Designed The Ducati Monster",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 3,
-    title: "2020 Audi R8 Spyder spy shots release",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 4,
-    title: " Lamborghini makes Huracán GT3 racer faster for 2019",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 5,
-    title: "ZF plans $14 billion autonomous vehicle push, concept van",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 6,
-    title: " Why the world would end without political polls",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 7,
-    title: " Meet The Man Who Designed The Ducati Monster",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 8,
-    title: "2020 Audi R8 Spyder spy shots release",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 9,
-    title: " Lamborghini makes Huracán GT3 racer faster for 2019",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 10,
-    title: "ZF plans $14 billion autonomous vehicle push, concept van",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 11,
-    title: "ZF plans $14 billion autonomous vehicle push, concept van",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 12,
-    title: "ZF plans $14 billion autonomous vehicle push, concept van",
-    href: "#",
-    date: "Mar 16, 2020",
-  },
-];
+interface Post {
+  id: number;
+  slug: string;
+  imageUrl: string;
+  title: string;
+  description: string;
+  date: string;
+}
 
-export default function MostViewed() {
+export default async function MostViewed() {
+  const posts = await getData();
   return (
     <>
       <div className="">
@@ -85,17 +22,17 @@ export default function MostViewed() {
           </h2>
         </div>
         <ul className="post-number">
-          {popularPosts.slice(0, 12).map((post) => (
+          {posts.slice(0, 12).map((post: Post) => (
             <li
               key={post.id}
               className="border-b border-gray-100 dark:border-gray-900 hover:bg-stone-300 rounded-lg dark:hover:bg-[#030b10]"
             >
-              <a
+              <Link
                 className="text-sm font-bold px-6 py-3 flex flex-row items-center text-gray-800 dark:text-gray-400"
-                href="#"
+                href={`${post.slug}`}
               >
                 {post.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

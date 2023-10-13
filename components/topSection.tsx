@@ -50,7 +50,6 @@ export default async function TopSection() {
                   </div>
                 </div>
               ))}
-              div
             </div>
             {/* Article */}
             <div className="flex-shrink max-w-full  w-full lg:w-1/2">
