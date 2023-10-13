@@ -1,5 +1,5 @@
 export default async function getData() {
-  const res = await fetch("https://www.dailyudayan.com/api/blogpost", {
+  const res = await fetch("https://www.dailyudayan.com/api/content", {
     cache: "no-cache",
   });
   if (!res.ok) {
