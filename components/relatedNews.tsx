@@ -1,125 +1,45 @@
 import Image from "next/image";
+import Link from "next/link";
+import getData from "@/lib/getNews";
 
-const posts = [
-  {
-    id: 1,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 2,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 3,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 4,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 5,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 6,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 7,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-  {
-    id: 8,
-    title: "5 Tips to Save Money Booking Your Next Hotel Room",
-    href: "#",
-    tag: "Europe",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    date: "Mar 16, 2020",
-  },
-];
-
-export default function RelatedNews() {
+interface Post {
+  id: number;
+  slug: string;
+  imageUrl: string;
+  title: string;
+  description: string;
+  date: string;
+}
+export default async function RelatedNews() {
+  const posts = await getData();
   return (
     <>
       <div className="p-4 mb-4 bg-stone-200 dark:bg-[#071720] rounded-lg">
-          <h2 className="lg:text-xl text-lg font-bold text-black dark:text-gray-400">
-           Related News
-          </h2>
-        </div>
+        <h2 className="lg:text-xl text-lg font-bold text-black dark:text-gray-400">
+          Related News
+        </h2>
+      </div>
       <div className="flex flex-row flex-wrap">
         <div className="flex-shrink max-w-full w-full overflow-hidden">
           <div className="flex flex-row flex-wrap -mx-3">
-            {posts.map((post) => (
+            {posts.slice(0, 5).map((post: Post) => (
               <div
                 key={post.id}
                 className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-full px-3 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
               >
                 <div className="flex flex-row sm:block hover-img">
-                  <a href="">
+                  <Link href={`/${post.slug}`}>
                     <Image
-                      src={"https://images.unsplash.com/photo-1693926398073-ca6a302ba696?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"}
+                      src={post.imageUrl}
                       alt={""}
                       width={640}
                       height={427}
                       className="max-w-full w-full mx-auto rounded-md"
                     />
-                  </a>
+                  </Link>
                   <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                     <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-gray-400">
-                      <a href="#">{post.title}</a>
+                      <Link href={`/${post.slug}`}>{post.title}</Link>
                     </h3>
                   </div>
                 </div>

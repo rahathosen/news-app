@@ -6,9 +6,50 @@ import { Fragment, useState, ReactNode, HTMLProps } from "react";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { CaretDownIcon } from "@radix-ui/react-icons";
 import { BellIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+// import GetNavigation from "@/lib/getNavigations";
+
+// interface Categories {
+//   id: number;
+//   url: string;
+//   name: string;
+//   featured: {
+//     name: string;
+//     href: string;
+//     slug: string;
+//     imageSrc: string;
+//     imageAlt: string;
+//     title: string;
+//   };
+//   sections: {
+//     id: number;
+//     name: string;
+//     items: {
+//       name: string;
+//       href: string;
+//     };
+//   };
+// }
+
+// interface Category {
+//   name: string;
+//   featured: {
+//     name: string;
+//     imageSrc: string;
+//     imageAlt: string;
+//   }[];
+//   sections: {
+//     name: string;
+//     id: string;
+//     items: {
+//       name: string;
+//       href: string;
+//     }[];
+//   }[];
+// }
 
 import { navigation } from "../../lib/navigations";
 import Siebar from "./sitebar";
+
 export interface ListItemProps extends HTMLProps<HTMLAnchorElement> {
   title: string;
   children: ReactNode;
@@ -19,6 +60,7 @@ function classNames(...classes: string[]) {
 }
 
 export default function SiteHeader() {
+  // const navigation = GetNavigation()
   return (
     <div className="bg-[#F5F5F4] dark:bg-[#040D12] sticky top-0 z-10 shadow-2xl mx-auto 2xl:container max-w-full ">
       <div>
