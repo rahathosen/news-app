@@ -42,7 +42,7 @@ export default async function TopSection() {
                       </h2>
                     </Link>
                     <p className="text-gray-800 font-medium text-base  dark:text-gray-500 hidden sm:inline-block">
-                      {post.description}
+                      {post.description.slice(0, 350) + "..."}
                     </p>
                     <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                       <RelativeDate date={post.date} />{" "}

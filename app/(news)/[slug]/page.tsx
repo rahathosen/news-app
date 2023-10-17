@@ -39,7 +39,7 @@ export const generateMetadata = async ({
     title: `${post.title}`,
     openGraph: {
       title: `${post.title}`,
-      description: `${post.description}`,
+      description: `${post.description.slice(0, 400)}`,
       url: "https://www.dailyudayan.com",
       siteName: "Dailyudayan",
       images: [
@@ -50,8 +50,8 @@ export const generateMetadata = async ({
         },
         {
           url: `${post.imageUrl}`,
-          width: 1800,
-          height: 1600,
+          width: 1200,
+          height: 630,
         },
       ],
     },
