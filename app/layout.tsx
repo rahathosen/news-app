@@ -13,8 +13,16 @@ import Test from "@/components/layouts/test";
 import RowAd from "@/components/layouts/row-ad";
 
 export const metadata: Metadata = {
-  title: "Dailyudayan",
-  description: "Dailyudayan",
+  title: "দৈনিক উদয়ন",
+  description: "দৈনিক উদয়ন, একটি বাংলা পত্রিকা",
+  keywords: [
+    "দৈনিক উদয়ন",
+    "Daily udayan",
+    "বাংলা নিউজ",
+    "খেলা",
+    "রাজনীতি",
+    "বাণিজ্য",
+  ],
 };
 
 interface RootLayoutProps {

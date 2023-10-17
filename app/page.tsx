@@ -12,8 +12,16 @@ import type { Metadata } from "next";
 import TopSectionGQL from "@/components/topSectionGQL";
 
 export const metadata: Metadata = {
-  title: "Dailyudayan",
-  description: "Dailyudayan",
+  title: "দৈনিক উদয়ন",
+  description: "দৈনিক উদয়ন, একটি বাংলা পত্রিকা",
+  keywords: [
+    "দৈনিক উদয়ন",
+    "Daily udayan",
+    "বাংলা নিউজ",
+    "খেলা",
+    "রাজনীতি",
+    "বাণিজ্য",
+  ],
 };
 export default function Home() {
   return (

@@ -1,16 +1,14 @@
-"use client"
-
+"use client";
 
 import ThemeToggle from "./theme-toggle";
 import Link from "next/link";
 import Image from "next/image";
 
 interface NavigationItem {
-    name: string;
-    href: string;
-    icon?: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
-  }
-  
+  name: string;
+  href: string;
+  icon?: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
+}
 
 const navigation = {
   solutions: [
@@ -30,7 +28,6 @@ const navigation = {
     { name: "Blog", href: "#" },
     { name: "Contact Us", href: "#" },
     { name: "Jobs", href: "#" },
-
   ],
   legal: [
     { name: "Comment Policy", href: "#" },
@@ -55,7 +52,7 @@ const navigation = {
     {
       name: "Instagram",
       href: "#",
-      icon: (props :  React.SVGProps<SVGSVGElement>) => (
+      icon: (props: React.SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -68,7 +65,7 @@ const navigation = {
     {
       name: "Twitter",
       href: "#",
-      icon: (props :  React.SVGProps<SVGSVGElement>) => (
+      icon: (props: React.SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
         </svg>
@@ -77,7 +74,7 @@ const navigation = {
     {
       name: "GitHub",
       href: "#",
-      icon: (props :  React.SVGProps<SVGSVGElement>) => (
+      icon: (props: React.SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -90,7 +87,7 @@ const navigation = {
     {
       name: "YouTube",
       href: "#",
-      icon: (props :  React.SVGProps<SVGSVGElement>) => (
+      icon: (props: React.SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -105,16 +102,19 @@ const navigation = {
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-stone-100 dark:bg-[#040D12] mx-auto 2xl:container max-w-full  rounded-lg" aria-labelledby="footer-heading">
-    <h2 id="footer-heading" className="sr-only">
-      Footer
-    </h2>
+    <footer
+      className="bg-stone-100 dark:bg-[#040D12] mx-auto 2xl:container max-w-full  rounded-lg"
+      aria-labelledby="footer-heading"
+    >
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-2 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-          <h1 className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-400 font-bold text-2xl lg:text-3xl bg-clip-text  tracking-[-0.02em] text-transparent drop-shadow-sm duration-300 ease-linear animate-in zoom-in-50 dark:bg-gradient-to-br dark:from-gray-100 dark:to-gray-900  md:leading-[5rem]">
-          Dailyudayan
-          </h1>
+            <h1 className="bg-gradient-to-br from-gray-900 via-gray-800 to-orange-400 font-bold text-2xl lg:text-3xl bg-clip-text  tracking-[-0.02em] text-transparent drop-shadow-sm duration-300 ease-linear animate-in zoom-in-50 dark:bg-gradient-to-br dark:from-orange-200 dark:to-gray-900  md:leading-[5rem]">
+              দৈনিক উদয়ন
+            </h1>
             <p className="text-sm leading-6 text-gray-600">
               Making the world a better place and spreading the truth everyhere.
             </p>
@@ -211,7 +211,7 @@ export default function SiteFooter() {
             &copy; 2023 Tech Sand, Inc. All rights reserved.
           </p>
 
-          <ThemeToggle/>
+          <ThemeToggle />
         </div>
       </div>
     </footer>
