@@ -42,6 +42,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { navigation } from "../../lib/navigations";
 import ThemeToggle from "./theme-toggle-sitebar";
 import RelativeDate from "@/lib/relativeDate";
+// import { navigationGQL } from "@/lib/getGQL";
 
 const notifications = [
   {
@@ -113,7 +114,11 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Siebar() {
+export default function Siebar({ newsCategories }: any) {
+  // const data2 = navigationGQL();
+
+  console.log(newsCategories);
+
   const [showStatusBar, setShowStatusBar] = useState<Checked>(true);
   const [showActivityBar, setShowActivityBar] = useState<Checked>(false);
   const [showPanel, setShowPanel] = useState<Checked>(false);
@@ -182,42 +187,48 @@ export default function Siebar() {
               <div className="pl-1 pr-7">
                 <Accordion
                   type="multiple"
-                  defaultValue={navigation.categories.map((item) => item.name)}
+                  defaultValue={newsCategories.newsCategories.map(
+                    (item: any) => item.title
+                  )}
                   className="w-full"
                 >
-                  {navigation.categories?.map((item, index) => (
-                    <AccordionItem value={item.name} key={index}>
-                      <AccordionTrigger className="text-sm capitalize font-semibold dark:text-gray-400">
-                        {item.name}
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <div className="flex flex-col space-y-2">
-                          {item.sections?.map((subItem, index) => (
+                  {newsCategories.newsCategories?.map(
+                    (item: any, index: any) => (
+                      <AccordionItem value={item.title} key={index}>
+                        <AccordionTrigger className="text-sm capitalize font-semibold dark:text-gray-400">
+                          {item.title}
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="flex flex-col space-y-2">
                             <div
                               key={index}
                               className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-gray-400"
                             >
                               {/* <SheetFooter > */}
                               <SheetClose asChild>
-                                <Link href={item.id}>All {`${item.name}`}</Link>
+                                <Link href={item.id}>
+                                  সকল {`${item.title}`}
+                                </Link>
                               </SheetClose>
-                              {subItem.items?.map((sub, index) => (
-                                <div
-                                  key={index}
-                                  className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-gray-400"
-                                >
-                                  <SheetClose asChild>
-                                    <Link href={sub.name}>{sub.name}</Link>
-                                  </SheetClose>
-                                </div>
-                              ))}
+                              {item.newssubcategorySet?.map(
+                                (sub: any, index: any) => (
+                                  <div
+                                    key={index}
+                                    className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-gray-400"
+                                  >
+                                    <SheetClose asChild>
+                                      <Link href={sub.title}>{sub.title}</Link>
+                                    </SheetClose>
+                                  </div>
+                                )
+                              )}
                               {/* </SheetFooter> */}
                             </div>
-                          ))}
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    )
+                  )}
                 </Accordion>
               </div>
             </ScrollArea>

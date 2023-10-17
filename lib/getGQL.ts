@@ -1,57 +1,112 @@
-export async function getGQL() {
+async function fetchGraphQL(query: string): Promise<any> {
   const response = await fetch(
-    `https://django-news-server-98x1afcwa-rahathosen.vercel.app/gql/`,
+    "https://django-news-server-cvltgxeto-rahathosen.vercel.app/gql/",
     {
-      mode: "no-cors",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        query: `query MyQuery {
-              newsCategories{
-                          id
-                        title
-          newssubcategorySet{
-                          id
-                       title
-                
-                 }
-              }
-          }
-          `,
+        query,
       }),
     }
   );
+
   const { data } = await response.json();
   return data;
 }
 
-export async function getGQL2() {
-  const response = await fetch(
-    `https://django-news-server-98x1afcwa-rahathosen.vercel.app/gql/`,
-    {
-      mode: "no-cors",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        query: `query MyQuery {
-                newsCategories{
-                            id
-                          title
-            newssubcategorySet{
-                            id
-                         title
-                  
-                   }
-                }
+// Template
+
+// export async function Template(): Promise<any> {
+//   const query = `
+//         query MyQuery {
+//           newsCategories {
+//             id
+//             title
+//           }
+//         }
+//       `;
+
+//   return fetchGraphQL(query);
+// }
+// ---------------------------------------------------------------------------------
+
+// Get All Post
+
+export async function allPosts(): Promise<any> {
+  const query = `
+        query MyQuery {
+          allPosts {
+            id
+            image
+            title
+            url
+            details
+          }
+        }
+      `;
+
+  return fetchGraphQL(query);
+}
+
+// list of Categories
+export async function newsCategoriesGQL(): Promise<any> {
+  const query = `
+      query MyQuery {
+        newsCategories {
+          id
+          title
+          newssubcategorySet {
+            id
+            title
+          }
+        }
+      }
+    `;
+
+  return fetchGraphQL(query);
+}
+
+// list of navigation
+export async function navigationGQL(): Promise<any> {
+  const query = `
+      query MyQuery {
+        navigation{
+            id
+            news {
+              id
+              name
             }
-            `,
-      }),
-    }
-  );
-  const { data } = await response.json();
-  return data;
+            news2 {
+              id
+              name
+            }
+            news3 {
+              id
+              name
+            }
+            news4 {
+              id
+              name
+            }
+            news5 {
+              id
+              name
+            }
+            categories{
+              id
+              title
+              serial
+            }
+            feature {
+              id
+              title
+              serial
+            }
+          }
+      }
+    `;
+
+  return fetchGraphQL(query);
 }

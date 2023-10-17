@@ -77,7 +77,7 @@ export default async function MiddleSection() {
                       </Link>
                       <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                         <h3 className="text-lg font-bold leading-tight text-black  dark:text-gray-400 mb-2">
-                          <Link href={`/${post.slug}`}>{post.title}\</Link>
+                          <Link href={`/${post.slug}`}>{post.title}</Link>
                         </h3>
                         <p className="hidden md:block  dark:text-gray-400 text-gray-800 leading-tight mb-1">
                           {post.description}

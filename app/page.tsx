@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      <TopSectionGQL />
+      {/* <TopSectionGQL /> */}
       <TopSection />
       <RowAd />
       <MiddleSection />
