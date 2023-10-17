@@ -39,6 +39,7 @@ export const generateMetadata = async ({
     title: `${post.title}`,
     openGraph: {
       title: `${post.title}`,
+      description: `${post.description}`,
       url: "https://www.dailyudayan.com",
       siteName: "Dailyudayan",
       images: [
@@ -74,7 +75,7 @@ export default async function Page({ params }: Props) {
         <div className="hidden lg:block col-span-2">
           <div>
             <Author date={post.date} />
-            <MostViewed     />
+            <MostViewed />
           </div>
         </div>
 
