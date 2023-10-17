@@ -14,13 +14,15 @@ import RowAd from "@/components/layouts/row-ad";
 
 export const metadata: Metadata = {
   title: "দৈনিক উদয়ন",
-  description: "দৈনিক উদয়ন, একটি বাংলা পত্রিকা",
+  description: "দ্রুততম সময়ে সর্বশেষ খবর পেতে - দৈনিক উদয়ন",
   keywords: [
     "দৈনিক উদয়ন",
     "Daily udayan",
     "বাংলা নিউজ",
     "খেলা",
+    "খবর",
     "রাজনীতি",
+    "সর্বশেষ খবর",
     "বাণিজ্য",
   ],
 };
