@@ -9,6 +9,7 @@ import EighthSection from "@/components/eighthSection";
 import FifthSection from "@/components/fifthSection";
 import RowAd from "@/components/layouts/row-ad";
 import type { Metadata } from "next";
+import TopSectionGQL from "@/components/topSectionGQL";
 
 export const metadata: Metadata = {
   title: "Dailyudayan",
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
+      {/* <TopSectionGQL /> */}
       <TopSection />
       <RowAd />
       <MiddleSection />
