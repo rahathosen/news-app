@@ -45,14 +45,14 @@ export const generateMetadata = async ({
       images: [
         {
           url: `${post.imageUrl}`,
-          width: 800,
-          height: 600,
-        },
-        {
-          url: `${post.imageUrl}`,
           width: 1200,
           height: 630,
         },
+        // {
+        //   url: `${post.imageUrl}`,
+        //   width: 800,
+        //   height: 600,
+        // },
       ],
     },
   };
