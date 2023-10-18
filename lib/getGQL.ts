@@ -40,6 +40,7 @@ export async function postByCategoryGQL(): Promise<any> {
       details
       image
       url
+      uniqueId
     }
   }
 `;
