@@ -11,7 +11,7 @@ import Badges from "@/components/ui/badges";
 export default function Page() {
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
-      <Breadcrumb />
+      {/* <Breadcrumb /> */}
       <div
         role="list"
         className="grid grid-cols-1 md:px-4 px-4  gap-y-2 lg:grid-cols-7 xl:gap-x-2"
@@ -42,7 +42,9 @@ export default function Page() {
                 className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
                 aria-hidden="true"
               />
-              The country’s solar home systems programme could not achieve its desired impact due to the lack of grassroots capacity and servicing. PHOTO: REUTERS.
+              The country’s solar home systems programme could not achieve its
+              desired impact due to the lack of grassroots capacity and
+              servicing. PHOTO: REUTERS.
             </figcaption>
           </figure>
           <p className="mt-6 text-xl leading-8 dark:text-gray-400">
@@ -86,7 +88,7 @@ export default function Page() {
               neque erat velit.
             </p>
           </div>
-         
+
           <div className="mt-16 max-w-2xl">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-400">
               Everything you need to get up and running
@@ -107,8 +109,10 @@ export default function Page() {
             </p>
           </div>
           <div>
-            <h4 className="lg:pt-8 pt-4 pb-4 border-b border-white dark:border-[#071720] text-lg lg:text-2xl font-bold text-gray-600 dark:text-gray-400">Related Topics:</h4>
-            <Badges/>
+            <h4 className="lg:pt-8 pt-4 pb-4 border-b border-white dark:border-[#071720] text-lg lg:text-2xl font-bold text-gray-600 dark:text-gray-400">
+              Related Topics:
+            </h4>
+            <Badges />
           </div>
         </div>
         <div className="col-span-1">

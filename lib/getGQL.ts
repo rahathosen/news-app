@@ -60,6 +60,14 @@ export async function allPosts(): Promise<any> {
             url
             details
             uniqueId
+            subcategory {
+              id
+              title
+            }
+            category {
+              id
+              title
+            }
           }
         }
       `;
