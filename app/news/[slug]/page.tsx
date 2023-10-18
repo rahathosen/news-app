@@ -9,19 +9,13 @@ import Author from "@/components/layouts/author";
 import Breadcrumb from "@/components/breadcrumb";
 import Badges from "@/components/ui/badges";
 import type { Metadata, ResolvingMetadata } from "next";
-import getData from "@/lib/getNews";
-
+import { newsCategoriesGQL, navigationGQL, allPosts } from "@/lib/getGQL";
 interface Post {
   title: string;
-  slug: string;
-  href: string;
-  tag: string;
-  description: string;
-  imageUrl: string;
-  date: string;
-  datetime: string;
+  image: string;
+  url: string;
+  details: string;
 }
-
 type Props = {
   params: { slug: string };
 };
@@ -29,22 +23,19 @@ type Props = {
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
-  const posts: Post[] = await fetch("https://www.dailyudayan.com/api/content", {
-    cache: "no-cache",
-  }).then((res) => res.json());
-
-  const post = posts.find((post) => post.slug === params.slug)!;
+  const allpost = await allPosts();
+  const post = allpost.allPosts.find((post: any) => post.url === params.slug)!;
   // console.log({ post });
   return {
     title: `${post.title}`,
     openGraph: {
       title: `${post.title}`,
-      description: `${post.description.slice(0, 400)}`,
+      description: `${post.details.slice(0, 400)}`,
       url: "https://www.dailyudayan.com",
-      siteName: "Dailyudayan",
+      siteName: "দৈনিক উদয়ন",
       images: [
         {
-          url: `${post.imageUrl}`,
+          url: `${post.image}`,
           width: 1200,
           height: 630,
         },
@@ -57,13 +48,9 @@ export const generateMetadata = async ({
     },
   };
 };
-
 export default async function Page({ params }: Props) {
-  const posts: Post[] = await fetch("https://www.dailyudayan.com/api/content", {
-    cache: "no-cache",
-  }).then((res) => res.json());
-
-  const post = posts.find((post) => post.slug === params.slug)!;
+  const allpost = await allPosts();
+  const post = allpost.allPosts.find((post: any) => post.url === params.slug)!;
 
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
@@ -74,7 +61,7 @@ export default async function Page({ params }: Props) {
       >
         <div className="hidden lg:block col-span-2">
           <div>
-            <Author date={post.date} />
+            {/* <Author date={post.date} /> */}
             <MostViewed />
           </div>
         </div>
@@ -85,7 +72,7 @@ export default async function Page({ params }: Props) {
           </h1>
           <figure className="mt-4">
             <Image
-              src={post.imageUrl}
+              src={post.image}
               alt=""
               height={240}
               width={840}
@@ -103,7 +90,11 @@ export default async function Page({ params }: Props) {
             </figcaption>
           </figure>
           <p className="mt-6 text-xl leading-8 dark:text-gray-400">
-            {post.description}
+            <div
+              dangerouslySetInnerHTML={{
+                __html: post.details,
+              }}
+            ></div>
           </p>
 
           <div>
@@ -114,9 +105,7 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
         <div className="col-span-1">
-          <div className="lg:hidden">
-            <Author date={post.date} />
-          </div>
+          <div className="lg:hidden">{/* <Author date={post.date} /> */}</div>
           <RelatedNews />
         </div>
       </div>

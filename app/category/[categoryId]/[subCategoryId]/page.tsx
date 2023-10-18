@@ -7,7 +7,14 @@ import Link from "next/link";
 import NewsGridTemplate from "@/components/layouts/newsGridTemplate";
 import RowAd from "@/components/layouts/row-ad";
 import type { Metadata, ResolvingMetadata } from "next";
-import { newsCategoriesGQL, navigationGQL, allPosts } from "@/lib/getGQL";
+import {
+  newsCategoriesGQL,
+  postByCategoryGQL,
+  navigationGQL,
+  allPosts,
+} from "@/lib/getGQL";
+
+import SubCategory from "@/components/layouts/subCategory";
 
 type Props = {
   params: { subCategoryId: number; categoryId: number };
@@ -35,6 +42,8 @@ export const generateMetadata = async ({
 };
 
 export default async function Page({ params }: Props) {
+  const postbycategory = await postByCategoryGQL();
+ 
   const data = await newsCategoriesGQL();
 
   const category = data.newsCategories.find(
@@ -53,7 +62,8 @@ export default async function Page({ params }: Props) {
               <h2 className="text-black dark:text-gray-400 lg:text-3xl pb-4 text-xl font-bold">
                 <span className="inline-block lg:h-6 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
                 <Link href={`/category/${category.id}`}>{category.title}</Link>{" "}
-                / {subcategory.title}
+                <span className="inline-block lg:h-1 h-1 mb-[5px] lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
+                {subcategory.title}
               </h2>
               <div>
                 <div className="sm:hidden">
@@ -80,7 +90,7 @@ export default async function Page({ params }: Props) {
                 </div>
               </div>
               {/* Tab end */}
-              <NewsGridTemplate />
+              <SubCategory postbycategory={postbycategory} />
             </div>
           </div>
         </div>

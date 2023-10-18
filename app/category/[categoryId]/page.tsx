@@ -8,6 +8,7 @@ import NewsGridTemplate from "@/components/layouts/newsGridTemplate";
 import RowAd from "@/components/layouts/row-ad";
 import type { Metadata, ResolvingMetadata } from "next";
 import { newsCategoriesGQL, navigationGQL, allPosts } from "@/lib/getGQL";
+import Category from "@/components/layouts/category";
 const tabs = [
   { name: "Views", href: "#", current: true },
   { name: "Editorial", href: "#", current: false },
@@ -44,7 +45,7 @@ type Props = {
 
 export default async function Page({ params }: Props) {
   const data = await newsCategoriesGQL();
-
+  const allpost = await allPosts();
   const category = data.newsCategories.find(
     (category: any) => category.id === params.categoryId
   );
@@ -101,11 +102,10 @@ export default async function Page({ params }: Props) {
                 </div>
               </div>
               {/* Tab end */}
-              <NewsGridTemplate />
+              <Category allpost={allpost} />
             </div>
           </div>
         </div>
-        A
       </div>
     </div>
   );

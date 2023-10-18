@@ -1,16 +1,13 @@
 async function fetchGraphQL(query: string): Promise<any> {
-  const response = await fetch(
-    "https://django-news-server-cvltgxeto-rahathosen.vercel.app/gql/",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        query,
-      }),
-    }
-  );
+  const response = await fetch("https://django-news-server.vercel.app/gql/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query,
+    }),
+  });
 
   const { data } = await response.json();
   return data;
@@ -31,6 +28,24 @@ async function fetchGraphQL(query: string): Promise<any> {
 //   return fetchGraphQL(query);
 // }
 // ---------------------------------------------------------------------------------
+
+// Post By Category
+
+export async function postByCategoryGQL(): Promise<any> {
+  const query = `
+  query MyQuery {
+    postByCategory(categoryId: 1) {
+      id
+      title
+      details
+      image
+      url
+    }
+  }
+`;
+
+  return fetchGraphQL(query);
+}
 
 // Get All Post
 
