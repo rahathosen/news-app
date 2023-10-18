@@ -4,7 +4,7 @@ import {
 } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
-import NewsGridTemplate from "@/components/layouts/newsGridTemplate";
+
 import RowAd from "@/components/layouts/row-ad";
 import type { Metadata, ResolvingMetadata } from "next";
 import {
