@@ -115,10 +115,6 @@ function classNames(...classes: string[]) {
 }
 
 export default function Siebar({ newsCategories }: any) {
-  // const data2 = navigationGQL();
-
-  console.log(newsCategories);
-
   const [showStatusBar, setShowStatusBar] = useState<Checked>(true);
   const [showActivityBar, setShowActivityBar] = useState<Checked>(false);
   const [showPanel, setShowPanel] = useState<Checked>(false);
@@ -206,7 +202,7 @@ export default function Siebar({ newsCategories }: any) {
                             >
                               {/* <SheetFooter > */}
                               <SheetClose asChild>
-                                <Link href={item.id}>
+                                <Link href={`/category/${item.id}`}>
                                   সকল {`${item.title}`}
                                 </Link>
                               </SheetClose>
@@ -217,7 +213,9 @@ export default function Siebar({ newsCategories }: any) {
                                     className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-gray-400"
                                   >
                                     <SheetClose asChild>
-                                      <Link href={sub.title}>{sub.title}</Link>
+                                      <Link href={`/category/${sub.title}`}>
+                                        {sub.title}
+                                      </Link>
                                     </SheetClose>
                                   </div>
                                 )

@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import NewsGridTemplate from "@/components/layouts/newsGridTemplate";
 import RowAd from "@/components/layouts/row-ad";
+import { newsCategoriesGQL, navigationGQL, allPosts } from "@/lib/getGQL";
 const tabs = [
   { name: "Views", href: "#", current: true },
   { name: "Editorial", href: "#", current: false },
@@ -17,7 +18,16 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Page() {
+type Props = {
+  params: { id: number };
+};
+
+export default async function Page({ params }: Props) {
+  const data = await newsCategoriesGQL();
+
+  const category = data.newsCategories.find(
+    (category: any) => category.id === params.id
+  );
   return (
     <div>
       <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
@@ -26,7 +36,7 @@ export default function Page() {
             <div className="relative">
               <h2 className="text-black dark:text-gray-400 lg:text-3xl pb-4 text-xl font-bold">
                 <span className="inline-block lg:h-6 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
-                Opinion
+                {category.title}
               </h2>
               <div>
                 <div className="sm:hidden">
@@ -51,10 +61,10 @@ export default function Page() {
                 <div className="no-scrollbar overflow-x-auto">
                   <div className="border-b border-gray-200 dark:border-[#071720]">
                     <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-                      {tabs.map((tab) => (
+                      {category.newssubcategorySet.map((tab: any) => (
                         <a
-                          key={tab.name}
-                          href={tab.href}
+                          key={tab.title}
+                          href={tab.id}
                           className={classNames(
                             tab.current
                               ? "dark:border-gray-500 border-black text-black dark:text-gray-200"
@@ -63,7 +73,7 @@ export default function Page() {
                           )}
                           aria-current={tab.current ? "page" : undefined}
                         >
-                          {tab.name}
+                          {tab.title}
                         </a>
                       ))}
                     </nav>

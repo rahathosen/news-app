@@ -34,7 +34,7 @@ export const generateMetadata = async ({
   }).then((res) => res.json());
 
   const post = posts.find((post) => post.slug === params.slug)!;
-
+  // console.log({ post });
   return {
     title: `${post.title}`,
     openGraph: {
