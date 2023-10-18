@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import NewsGridTemplate from "@/components/layouts/newsGridTemplate";
 import RowAd from "@/components/layouts/row-ad";
+import type { Metadata, ResolvingMetadata } from "next";
 import { newsCategoriesGQL, navigationGQL, allPosts } from "@/lib/getGQL";
 const tabs = [
   { name: "Views", href: "#", current: true },
@@ -13,6 +14,25 @@ const tabs = [
   { name: "In Focus", href: "#", current: false },
   { name: "Letters to the Editor", href: "#", current: false },
 ];
+
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const data = await newsCategoriesGQL();
+
+  const category = data.newsCategories.find(
+    (category: any) => category.id === params.categoryId
+  );
+
+  return {
+    title: `${category.title} - দৈনিক উদয়ন`,
+    openGraph: {
+      title: `${category.title}`,
+      url: "https://www.dailyudayan.com",
+      siteName: "দৈনিক উদয়ন",
+    },
+  };
+};
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");

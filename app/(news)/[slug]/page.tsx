@@ -41,7 +41,7 @@ export const generateMetadata = async ({
       title: `${post.title}`,
       description: `${post.description.slice(0, 400)}`,
       url: "https://www.dailyudayan.com",
-      siteName: "Dailyudayan",
+      siteName: "দৈনিক উদয়ন",
       images: [
         {
           url: `${post.imageUrl}`,
