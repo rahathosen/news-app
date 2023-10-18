@@ -22,7 +22,7 @@ import {
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
-import NewsGridTemplate from "@/components/layouts/newsGridTemplate";
+// import NewsGridTemplate from "@/components/layouts/newsGridTemplate";
 import RowAd from "@/components/layouts/row-ad";
 
 const country = [
@@ -390,7 +390,7 @@ export default function Page() {
                 </PopoverContent>
               </Popover>
             </div>
-            <NewsGridTemplate />
+            {/* <NewsGridTemplate /> */}
           </div>
         </div>
         <div className=" lg:w-[20%] lg:pl-4">
