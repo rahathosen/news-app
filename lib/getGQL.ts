@@ -58,6 +58,7 @@ export async function allPosts(): Promise<any> {
             title
             url
             details
+            uniqueId
           }
         }
       `;

@@ -24,8 +24,9 @@ export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
   const allpost = await allPosts();
-  const post = allpost.allPosts.find((post: any) => post.url === params.slug)!;
-  // console.log({ post });
+  const post = allpost.allPosts.find(
+    (post: any) => post.uniqueId === params.slug
+  )!;
   return {
     title: `${post.title}`,
     openGraph: {
@@ -50,7 +51,9 @@ export const generateMetadata = async ({
 };
 export default async function Page({ params }: Props) {
   const allpost = await allPosts();
-  const post = allpost.allPosts.find((post: any) => post.url === params.slug)!;
+  const post = allpost.allPosts.find(
+    (post: any) => post.uniqueId === params.slug
+  )!;
 
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
