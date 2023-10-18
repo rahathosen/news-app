@@ -26,7 +26,7 @@ export default async function TopSection() {
                   className="relative group hover-img dark:hover-img-dark  max-h-98 "
                 >
                   {/*  */}
-                  <Link href={`/${post.slug}`}>
+                  <Link href={`news/${post.slug}`}>
                     <Image
                       src={post.imageUrl}
                       alt={""}
