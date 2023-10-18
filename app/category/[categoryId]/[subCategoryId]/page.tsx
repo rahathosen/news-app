@@ -1,7 +1,9 @@
 import {
-  CheckCircleIcon,
-  InformationCircleIcon,
+  HomeIcon,
+  ChevronRightIcon,
+  ShareIcon,
 } from "@heroicons/react/20/solid";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -43,7 +45,7 @@ export const generateMetadata = async ({
 
 export default async function Page({ params }: Props) {
   const postbycategory = await postByCategoryGQL();
- 
+
   const data = await newsCategoriesGQL();
 
   const category = data.newsCategories.find(
@@ -59,10 +61,16 @@ export default async function Page({ params }: Props) {
         <div>
           <div className="relative xl:container mx-auto px-3 sm:px-4 xl:px-2 py-4 bg-stone-100 dark:bg-[#040D12] ">
             <div className="relative">
-              <h2 className="text-black dark:text-gray-400 lg:text-3xl pb-4 text-xl font-bold">
+              <h2 className=" text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700 lg:text-3xl pb-4 text-xl font-bold">
                 <span className="inline-block lg:h-6 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
                 <Link href={`/category/${category.id}`}>{category.title}</Link>{" "}
-                <span className="inline-block lg:h-1 h-1 mb-[5px] lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
+                <span className="inline-block lg:px-4 px-2 lg:h-[28px] h-[25px] items-center ">
+                  {" "}
+                  <ChevronRightIcon
+                    className="lg:h-10 h-8 w-8 lg:w-10 text-gray-300 dark:text-[#071720]"
+                    aria-hidden="true"
+                  />
+                </span>
                 {subcategory.title}
               </h2>
               <div>
@@ -94,7 +102,6 @@ export default async function Page({ params }: Props) {
             </div>
           </div>
         </div>
-        A
       </div>
     </div>
   );
