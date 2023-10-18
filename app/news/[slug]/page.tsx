@@ -57,7 +57,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
-      <Breadcrumb />
+      <Breadcrumb post={post}/>
       <div
         role="list"
         className="grid grid-cols-1 md:px-4 px-4  gap-y-2 lg:grid-cols-7 xl:gap-x-2"
