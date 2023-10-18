@@ -213,7 +213,9 @@ export default function Siebar({ newsCategories }: any) {
                                     className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-gray-400"
                                   >
                                     <SheetClose asChild>
-                                      <Link href={`/category/${sub.title}`}>
+                                      <Link
+                                        href={`/category/${item.id}/${sub.id}`}
+                                      >
                                         {sub.title}
                                       </Link>
                                     </SheetClose>

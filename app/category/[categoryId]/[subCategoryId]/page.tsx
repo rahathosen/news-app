@@ -52,7 +52,8 @@ export default async function Page({ params }: Props) {
             <div className="relative">
               <h2 className="text-black dark:text-gray-400 lg:text-3xl pb-4 text-xl font-bold">
                 <span className="inline-block lg:h-6 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
-                {category.title} / {subcategory.title}
+                <Link href={`/category/${category.id}`}>{category.title}</Link>{" "}
+                / {subcategory.title}
               </h2>
               <div>
                 <div className="sm:hidden">
