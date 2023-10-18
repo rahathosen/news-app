@@ -7,27 +7,21 @@ import Link from "next/link";
 import NewsGridTemplate from "@/components/layouts/newsGridTemplate";
 import RowAd from "@/components/layouts/row-ad";
 import { newsCategoriesGQL, navigationGQL, allPosts } from "@/lib/getGQL";
-const tabs = [
-  { name: "Views", href: "#", current: true },
-  { name: "Editorial", href: "#", current: false },
-  { name: "In Focus", href: "#", current: false },
-  { name: "Letters to the Editor", href: "#", current: false },
-];
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
 
 type Props = {
-  params: { id: number };
+  params: { subCategoryId: number; categoryId: number };
 };
 
 export default async function Page({ params }: Props) {
   const data = await newsCategoriesGQL();
 
   const category = data.newsCategories.find(
-    (category: any) => category.id === params.id
+    (category: any) => category.id === params.categoryId
   );
+  const subcategory = category.newssubcategorySet.find(
+    (subcategory: any) => subcategory.id === params.subCategoryId
+  );
+
   return (
     <div>
       <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
@@ -36,7 +30,7 @@ export default async function Page({ params }: Props) {
             <div className="relative">
               <h2 className="text-black dark:text-gray-400 lg:text-3xl pb-4 text-xl font-bold">
                 <span className="inline-block lg:h-6 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
-                {category.title}
+                {category.title} / {subcategory.title}
               </h2>
               <div>
                 <div className="sm:hidden">
@@ -59,25 +53,7 @@ export default async function Page({ params }: Props) {
                 )} */}
                 </div>
                 <div className="no-scrollbar overflow-x-auto">
-                  <div className="border-b border-gray-200 dark:border-[#071720]">
-                    <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-                      {category.newssubcategorySet.map((tab: any) => (
-                        <a
-                          key={tab.title}
-                          href={tab.id}
-                          className={classNames(
-                            tab.current
-                              ? "dark:border-gray-500 border-black text-black dark:text-gray-200"
-                              : "border-transparent text-gray-500 hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700",
-                            "whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium"
-                          )}
-                          aria-current={tab.current ? "page" : undefined}
-                        >
-                          {tab.title}
-                        </a>
-                      ))}
-                    </nav>
-                  </div>
+                  <div className="border-b border-gray-200 dark:border-[#071720]"></div>
                 </div>
               </div>
               {/* Tab end */}
