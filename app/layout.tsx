@@ -11,6 +11,13 @@ const inter = Inter({ subsets: ["latin"] });
 import { cn } from "@/lib/utils";
 import Test from "@/components/layouts/test";
 import RowAd from "@/components/layouts/row-ad";
+import {
+  newsCategoriesGQL,
+  navigationGQL,
+  websiteInfoGQL,
+  navigationheaderGQL,
+  allPosts,
+} from "@/lib/getGQL";
 
 export const metadata: Metadata = {
   title: "দৈনিক উদয়ন",
@@ -31,7 +38,9 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({ children }: RootLayoutProps) {
+  // const data = await websiteInfoGQL();
+  // console.log(data);
   return (
     <html lang="en">
       <body className={cn("", inter.className)}>

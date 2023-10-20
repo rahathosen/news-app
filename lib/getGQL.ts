@@ -1,5 +1,6 @@
 async function fetchGraphQL(query: string): Promise<any> {
   const response = await fetch("https://django-news-server.vercel.app/gql/", {
+    cache: "no-cache",
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -28,6 +29,49 @@ async function fetchGraphQL(query: string): Promise<any> {
 //   return fetchGraphQL(query);
 // }
 // ---------------------------------------------------------------------------------
+
+// Template
+
+export async function navigationheaderGQL(): Promise<any> {
+  const query = `
+        query MyQuery {
+          navigation {
+            id
+            feature {
+              id
+              title
+            }
+            categories {
+              id
+              title
+            }
+          }
+        }
+      `;
+
+  return fetchGraphQL(query);
+}
+
+// website Info
+
+export async function websiteInfoGQL(): Promise<any> {
+  const query = `
+        query MyQuery {
+          websiteInfo {
+            id
+            logo
+            title
+            favicon
+            tagLine
+            url
+            address
+            copyrightText
+          }
+        }
+      `;
+
+  return fetchGraphQL(query);
+}
 
 // Post By Category
 
@@ -59,14 +103,46 @@ export async function allPosts(): Promise<any> {
             title
             url
             details
+            description
+            createdAt
             uniqueId
-            subcategory {
-              id
-              title
-            }
             category {
               id
               title
+              image
+              uniqueId
+              url
+            }
+            subcategory {
+              id
+              title
+              image
+              uniqueId
+              url
+            }
+            tag {
+              id
+              image
+              title
+              uniqueId
+              url
+            }
+            reportedBy {
+              createdAt
+              designation
+              id
+              name
+              image
+              uniqueId
+              updatedAt
+            }
+            continent {
+              id
+              name
+            }
+            country {
+              id
+              name
             }
           }
         }

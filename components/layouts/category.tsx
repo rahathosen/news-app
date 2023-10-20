@@ -34,7 +34,7 @@ export default function Category({ allpost }: any) {
                         <p className="hidden md:block text-gray-800 dark:text-gray-400 leading-tight mb-1">
                           <div
                             dangerouslySetInnerHTML={{
-                              __html: post.details.slice(0, 100) + "...",
+                              __html: post.description.slice(0, 100) + "...",
                             }}
                           ></div>
                           {/* {post.details.slice(0, 100) + "..."} */}
