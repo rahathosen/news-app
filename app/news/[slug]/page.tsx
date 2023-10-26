@@ -12,8 +12,8 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { newsCategoriesGQL, navigationGQL, allPosts } from "@/lib/getGQL";
 interface Post {
   title: string;
+  imageSource: string;
   image: string;
-  url: string;
   details: string;
 }
 type Props = {
@@ -40,11 +40,11 @@ export const generateMetadata = async ({
           width: 1200,
           height: 630,
         },
-        // {
-        //   url: `${post.imageUrl}`,
-        //   width: 800,
-        //   height: 600,
-        // },
+        {
+          url: `${post.imageUrl}`,
+          width: 800,
+          height: 600,
+        },
       ],
     },
   };
@@ -57,7 +57,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
-      <Breadcrumb post={post}/>
+      <Breadcrumb post={post} />
       <div
         role="list"
         className="grid grid-cols-1 md:px-4 px-4  gap-y-2 lg:grid-cols-7 xl:gap-x-2"
@@ -87,9 +87,7 @@ export default async function Page({ params }: Props) {
                 className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
                 aria-hidden="true"
               />
-              The country’s solar home systems programme could not achieve its
-              desired impact due to the lack of grassroots capacity and
-              servicing. PHOTO: REUTERS.
+              {post.imageSource}
             </figcaption>
           </figure>
           <p className="mt-6 text-xl leading-8 dark:text-gray-400">
