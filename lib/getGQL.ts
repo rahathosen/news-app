@@ -63,7 +63,6 @@ export async function websiteInfoGQL(): Promise<any> {
             title
             favicon
             tagLine
-            url
             address
             copyrightText
           }
@@ -83,7 +82,6 @@ export async function postByCategoryGQL(): Promise<any> {
       title
       details
       image
-      url
       uniqueId
     }
   }
@@ -99,50 +97,49 @@ export async function allPosts(): Promise<any> {
         query MyQuery {
           allPosts {
             id
-            image
-            title
-            url
-            details
-            description
-            createdAt
             uniqueId
+            title
+            description
+            details
+            image
+            imageSource
+            createdAt
+            updatedAt
             category {
+              uniqueId
               id
               title
-              image
-              uniqueId
-              url
             }
             subcategory {
               id
               title
-              image
               uniqueId
-              url
-            }
-            tag {
-              id
-              image
-              title
-              uniqueId
-              url
             }
             reportedBy {
-              createdAt
-              designation
               id
               name
-              image
+              designation
               uniqueId
-              updatedAt
             }
             continent {
               id
               name
+              uniqueId
             }
             country {
               id
               name
+              uniqueId
+            }
+            relatedPost {
+              id
+              title
+              uniqueId
+            }
+            tag {
+              id
+              title
+              uniqueId
             }
           }
         }
