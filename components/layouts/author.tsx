@@ -18,7 +18,7 @@ export default function Author({ post }: any) {
                 />
               </div>
               <div className="mt-0 text-center sm:mt-0 sm:pt-1 sm:text-left">
-                <Link href={post.reportedBy.uniqueId}>
+                <Link href={`../author/${post.reportedBy.uniqueId}`}>
                   <p className="text-xl font-bold text-gray-900 dark:text-gray-400 sm:text-2xl">
                     {post.reportedBy.name}
                   </p>

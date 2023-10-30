@@ -102,7 +102,7 @@ export default async function Section({
                         className="border-b border-gray-100 dark:border-gray-900 hover:bg-stone-300 rounded-lg dark:hover:bg-[#030b10]"
                       >
                         <Link
-                          href={`/${post.uniqueId}`}
+                          href={`../news/${post.uniqueId}`}
                           className="text-lg font-bold pl-2 py-3 flex flex-row items-center text-gray-800 dark:text-gray-400"
                         >
                           {post.title}
