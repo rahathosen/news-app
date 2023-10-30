@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Divider from "./ui/divider";
+import Divider from "../ui/divider";
 const posts = [
   {
     id: 1,

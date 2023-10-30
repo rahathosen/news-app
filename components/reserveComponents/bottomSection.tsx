@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
-import Divider from "./ui/divider";
+import Divider from "../ui/divider";
 import RelativeDate from "@/lib/relativeDate";
+import Link from "next/link";
 import getData from "@/lib/getNews";
 
 interface Post {
@@ -13,23 +13,23 @@ interface Post {
   date: string;
 }
 
-export default async function MiddleSection() {
+export default async function BottomSection() {
   const posts = await getData();
   return (
-    <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
+    <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 pb-4">
       <Divider />
-      <div className="px-4">
-        <div>
-          <div className="flex flex-row flex-wrap">
-            {/* <!-- Left --> */}
-            <div className="flex-shrink max-w-full w-full lg:w-2/3  overflow-hidden">
+
+      <div>
+        <main className="px-4">
+          <div className="flex flex-row flex-wrap ">
+            <div className="flex-shrink max-w-full w-full lg:w-2/3 overflow-hidden ">
               <div className="flex flex-row flex-wrap -mx-3">
                 {posts.slice(0, 1).map((post: Post) => (
                   <div
                     key={post.id}
-                    className="flex-shrink max-w-full w-full px-3 pb-5 lg:pb-20 md:pb-20 sm:pb-20"
+                    className="flex-shrink max-w-full w-full px-3  pb-5 lg:pb-20 md:pb-20 sm:pb-20"
                   >
-                    <div className="relative hover-img dark:hover-img-dark max-h-98  ">
+                    <div className="relative hover-img dark:hover-img-dark max-h-98 ">
                       {/* <!--thumbnail--> */}
                       <Link href={`/${post.slug}`}>
                         <Image
@@ -37,7 +37,7 @@ export default async function MiddleSection() {
                           alt={""}
                           width={640}
                           height={427}
-                          className="max-w-full w-full mx-auto h-auto max-h-[18.2rem] pb-2  object-cover rounded-md"
+                          className="max-w-full w-full mx-auto h-auto max-h-[18.2rem] pb-2 object-cover rounded-md"
                         />
                       </Link>
                       <div className="">
@@ -60,6 +60,7 @@ export default async function MiddleSection() {
                     </div>
                   </div>
                 ))}
+
                 {posts.slice(1, 7).map((post: Post) => (
                   <div
                     key={post.id}
@@ -91,13 +92,13 @@ export default async function MiddleSection() {
                 ))}
               </div>
             </div>
-            {/* <!-- right --> */}
-            <div className="flex-shrink max-w-full w-full lg:w-1/3 lg:pl-8 order-first lg:order-last">
-              <div className="w-full bg-stone-100 dark:bg-[#040D12] ">
+
+            <div className="flex-shrink max-w-full w-full lg:w-1/3 lg:pr-8 order-first">
+              <div className="w-full bg-stone-100 dark:bg-[#040D12]">
                 <div className="mb-6">
                   <div className="p-4 bg-stone-200 dark:bg-[#071720] rounded-lg">
                     <h2 className="lg:text-xl text-lg font-bold text-black dark:text-gray-400">
-                      Most Popular
+                      Latest news
                     </h2>
                   </div>
                   <ul className="post-number">
@@ -119,8 +120,9 @@ export default async function MiddleSection() {
               </div>
             </div>
           </div>
-        </div>
+        </main>
       </div>
+      {/*  */}
     </div>
   );
 }

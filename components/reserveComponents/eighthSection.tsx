@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Divider from "./ui/divider";
+import Divider from "../ui/divider";
 
 const posts = [
   {
@@ -87,7 +87,7 @@ export default function EighthSection() {
             {/* <!-- Left --> */}
             <div className="flex-shrink max-w-full w-full overflow-hidden">
               <div className="flex flex-row flex-wrap -mx-3">
-                {posts.slice(0,6).map((post) => (
+                {posts.slice(0, 6).map((post) => (
                   <div
                     key={post.id}
                     className="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
@@ -95,7 +95,9 @@ export default function EighthSection() {
                     <div className="flex flex-row sm:block hover-img">
                       <a href="">
                         <Image
-                          src={"https://images.unsplash.com/photo-1693761935581-1f6a0ab16590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"}
+                          src={
+                            "https://images.unsplash.com/photo-1693761935581-1f6a0ab16590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                          }
                           alt={""}
                           width={640}
                           height={427}
@@ -104,16 +106,17 @@ export default function EighthSection() {
                       </a>
                       <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                         <h3 className="text-lg text-black dark:text-gray-400 font-bold leading-tight mb-2">
-                          <a href="#">
-                            {post.title}
-                          </a>
+                          <a href="#">{post.title}</a>
                         </h3>
                         <p className="hidden md:block text-gray-800 dark:text-gray-400 leading-tight mb-1">
-                         {post.description}
+                          {post.description}
                         </p>
-                        <a className="text-gray-800 font-medium dark:text-gray-400" href="#">
+                        <a
+                          className="text-gray-800 font-medium dark:text-gray-400"
+                          href="#"
+                        >
                           <span className="inline-block h-3 border-l-2 border-red-600 mr-2"></span>
-                         {post.tag}
+                          {post.tag}
                         </a>
                       </div>
                     </div>
@@ -121,7 +124,6 @@ export default function EighthSection() {
                 ))}
               </div>
             </div>
-            
           </div>
         </div>
       </div>
