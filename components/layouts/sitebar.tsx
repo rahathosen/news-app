@@ -42,7 +42,6 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { navigation } from "../../lib/navigations";
 import ThemeToggle from "./theme-toggle-sitebar";
 import RelativeDate from "@/lib/relativeDate";
-// import { navigationGQL } from "@/lib/getGQL";
 
 const notifications = [
   {

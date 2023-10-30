@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import RowAd from "@/components/layouts/row-ad";
 import type { Metadata, ResolvingMetadata } from "next";
-import { newsCategoriesGQL, navigationGQL, allPosts } from "@/lib/getGQL";
+import { newsCategoriesGQL, allPosts } from "@/lib/getGQL";
 import Category from "@/components/layouts/category";
 const tabs = [
   { name: "Views", href: "#", current: true },

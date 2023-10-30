@@ -9,12 +9,7 @@ import Link from "next/link";
 
 import RowAd from "@/components/layouts/row-ad";
 import type { Metadata, ResolvingMetadata } from "next";
-import {
-  newsCategoriesGQL,
-  postByCategoryGQL,
-  navigationGQL,
-  allPosts,
-} from "@/lib/getGQL";
+import { newsCategoriesGQL, allPosts } from "@/lib/getGQL";
 
 import SubCategory from "@/components/layouts/subCategory";
 
@@ -44,7 +39,7 @@ export const generateMetadata = async ({
 };
 
 export default async function Page({ params }: Props) {
-  const postbycategory = await postByCategoryGQL();
+  // const postbycategory = await postByCategoryGQL();
 
   const data = await newsCategoriesGQL();
 
@@ -98,7 +93,7 @@ export default async function Page({ params }: Props) {
                 </div>
               </div>
               {/* Tab end */}
-              <SubCategory postbycategory={postbycategory} />
+              {/* <SubCategory postbycategory={postbycategory} /> */}
             </div>
           </div>
         </div>

@@ -6,33 +6,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default async function Test() {
-  const response = await fetch(
-    `https://django-news-server.vercel.app/graphql/`,
-    {
-      mode: "no-cors",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        query: `query MyQuery {
-        posts {
-          title
-          status
-          createdAt
-          url
-          image
-        }
-      }
-      `,
-      }),
-    }
-  );
-
-  const { data } = await response.json();
-  // console.log(data);
-
+export default function Test() {
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
       <div>

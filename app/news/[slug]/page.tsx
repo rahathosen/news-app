@@ -9,7 +9,7 @@ import Author from "@/components/layouts/author";
 import Breadcrumb from "@/components/breadcrumb";
 import Badges from "@/components/ui/badges";
 import type { Metadata, ResolvingMetadata } from "next";
-import { newsCategoriesGQL, navigationGQL, allPosts } from "@/lib/getGQL";
+import { newsCategoriesGQL, allPosts } from "@/lib/getGQL";
 interface Post {
   title: string;
   imageSource: string;

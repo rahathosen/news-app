@@ -3,7 +3,7 @@ import Link from "next/link";
 import Divider from "./ui/divider";
 import RelativeDate from "@/lib/relativeDate";
 import getData from "@/lib/getNews";
-import { newsCategoriesGQL, navigationGQL, allPosts } from "@/lib/getGQL";
+import { newsCategoriesGQL, allPosts } from "@/lib/getGQL";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 interface Post {
@@ -24,7 +24,7 @@ interface AllPost {
 
 export default async function TopSectionGQL() {
   const data = await newsCategoriesGQL();
-  // const data = await navigationGQL();
+
   const allpost = await allPosts();
 
   // console.log(data);
