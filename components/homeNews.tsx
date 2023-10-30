@@ -3,8 +3,7 @@ import Link from "next/link";
 import Divider from "./ui/divider";
 import RelativeDate from "@/lib/relativeDate";
 import Section from "./section";
-import { newsCategoriesGQL, websiteInfoGQL, allPosts } from "@/lib/getGQL";
-import RowAd from "./layouts/row-ad";
+import RowAd from "./advertisement/row-ad";
 
 interface Post {
   id: number;
@@ -15,12 +14,9 @@ interface Post {
   date: string;
 }
 
-export default async function HomeNews() {
-  const posts = await allPosts();
-  const newsCategory = await newsCategoriesGQL();
+export default function HomeNews({ posts, newsCategory }: any) {
   return (
-    <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
-      {/* <Divider /> */}
+    <div>
       <div>
         {newsCategory.newsCategories.map((category: any) => (
           <div key={category.id}>

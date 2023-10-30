@@ -4,7 +4,7 @@ import {
 } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
-import RowAd from "@/components/layouts/row-ad";
+import RowAd from "@/components/advertisement/row-ad";
 import type { Metadata, ResolvingMetadata } from "next";
 import { newsCategoriesGQL, allPosts } from "@/lib/getGQL";
 import Category from "@/components/layouts/category";

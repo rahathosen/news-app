@@ -95,6 +95,15 @@ export async function allPosts(): Promise<any> {
               title
               uniqueId
             }
+            reportedBy {
+              createdAt
+              designation
+              id
+              image
+              name
+              uniqueId
+              updatedAt
+            }
           }
         }
       `;
