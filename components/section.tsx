@@ -9,7 +9,7 @@ export default async function Section({
   categoryId,
 }: any) {
   return (
-    <div>
+    <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
       <Divider categoryTitle={categoryTitle} categoryId={categoryId} />
       <div className="px-4">
         <div>

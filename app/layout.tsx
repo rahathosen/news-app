@@ -10,7 +10,7 @@ import BackToTopButton from "@/components/ui/backToTopButton";
 const inter = Inter({ subsets: ["latin"] });
 import { cn } from "@/lib/utils";
 import Test from "@/components/layouts/test";
-import RowAd from "@/components/layouts/row-ad";
+import TopBottomAd from "@/components/advertisement/topBottom-ad copy";
 
 export const metadata: Metadata = {
   title: "দৈনিক উদয়ন",
@@ -40,12 +40,10 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         <Provider attribute="class" defaultTheme="system" enableSystem>
           {/* <MainNav /> */}
           <SiteHeader />
-          <RowAd />
-
-          {/* <Test/> */}
+          <TopBottomAd />
           <div className="2xl:container mx-auto max-w-[85rem]">{children}</div>
           <BackToTopButton />
-          <RowAd />
+          <TopBottomAd />
           <SiteFooter />
         </Provider>
         <Analytics />
