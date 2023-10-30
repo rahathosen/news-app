@@ -11,6 +11,12 @@ import type { Metadata } from "next";
 import TopSectionGQL from "@/components/reserveComponents/topSectionGQL";
 import BreakingNews from "@/components/breakingNews";
 import HomeNews from "@/components/homeNews";
+import {
+  newsCategoriesGQL,
+  websiteInfoGQL,
+  allPosts,
+} from "@/lib/getGQL";
+
 export const metadata: Metadata = {
   title: "দৈনিক উদয়ন",
   description: "দৈনিক উদয়ন, একটি বাংলা পত্রিকা",
@@ -23,10 +29,11 @@ export const metadata: Metadata = {
     "বাণিজ্য",
   ],
 };
-export default function Home() {
+export default async function Home() {
+  const posts = await allPosts();
   return (
     <main>
-      <BreakingNews />
+      <BreakingNews posts={posts}/>
       {/* <RowAd /> */}
       <HomeNews />
     </main>

@@ -11,11 +11,6 @@ const inter = Inter({ subsets: ["latin"] });
 import { cn } from "@/lib/utils";
 import Test from "@/components/layouts/test";
 import RowAd from "@/components/layouts/row-ad";
-import {
-  newsCategoriesGQL,
-  websiteInfoGQL,
-  allPosts,
-} from "@/lib/getGQL";
 
 export const metadata: Metadata = {
   title: "দৈনিক উদয়ন",

@@ -1,34 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import RelativeDate from "@/lib/relativeDate";
-import getData from "@/lib/getNews";
 
-interface Post {
-  id: number;
-  slug: string;
-  imageUrl: string;
-  title: string;
-  description: string;
-  date: string;
-}
-
-export default async function BreakingNews() {
-  const posts = await getData();
+export default function BreakingNews({ posts }: any) {
   return (
     <div>
       <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-lg pt-4 mb-4 pb-4">
         <main className="px-4">
           <div className="flex flex-row flex-wrap">
             <div className="flex-shrink max-w-full w-full lg:w-1/3  lg:pr-2 pb-5 lg:pb-20 md:pb-20 sm:pb-20">
-              {posts.slice(0, 1).map((post: Post) => (
+              {posts.allPosts.slice(0, 1).map((post: any) => (
                 <div
                   key={post.id}
                   className="relative group hover-img dark:hover-img-dark  max-h-98 "
                 >
                   {/*  */}
-                  <Link href={`/${post.slug}`}>
+                  <Link href={`../news/${post.uniqueId}`}>
                     <Image
-                      src={post.imageUrl}
+                      src={post.image}
                       alt={""}
                       width={640}
                       height={427}
@@ -36,7 +25,7 @@ export default async function BreakingNews() {
                     />
                   </Link>
                   <div className="py-0 sm:py-1 sm:pl-0">
-                    <Link href={`/${post.slug}`}>
+                    <Link href={`../news/${post.uniqueId}`}>
                       <h2 className="text-xl font-bold capitalize text-black  dark:text-gray-400 ">
                         {post.title}
                       </h2>
@@ -45,7 +34,7 @@ export default async function BreakingNews() {
                       {post.description.slice(0, 350) + "..."}
                     </p>
                     <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
-                      <RelativeDate date={post.date} />{" "}
+                      {/* <RelativeDate date={post.date} />{" "} */}
                     </div>
                   </div>
                 </div>
@@ -54,15 +43,15 @@ export default async function BreakingNews() {
             {/* Article */}
             <div className="flex-shrink max-w-full  w-full lg:w-1/2">
               <div className="box-one flex gap-2 sm:gap-0 flex-row flex-wrap">
-                {posts.slice(1, 5).map((post: Post) => (
+                {posts.allPosts.slice(1, 5).map((post: any) => (
                   <article
                     key={post.id}
                     className="flex-shrink max-w-full w-full sm:w-1/2"
                   >
                     <div className="flex flex-row group hover-img dark:hover-img-dark  sm:block  max-h-18">
-                      <Link href={`/${post.slug}`}>
+                      <Link href={`../news/${post.uniqueId}`}>
                         <Image
-                          src={post.imageUrl}
+                          src={post.image}
                           alt={""}
                           width={640}
                           height={427}
@@ -71,10 +60,12 @@ export default async function BreakingNews() {
                       </Link>
                       <div className="py-0 sm:py-1 pl-3 sm:pl-0">
                         <h3 className="text-lg font-bold leading-tight text-black  dark:text-gray-400 ">
-                          <Link href={`/${post.slug}`}>{post.title}</Link>
+                          <Link href={`../news/${post.uniqueId}`}>
+                            {post.title}
+                          </Link>
                         </h3>
                         <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
-                          <RelativeDate date={post.date} />{" "}
+                          {/* <RelativeDate date={post.date} />{" "} */}
                         </div>
                       </div>
                     </div>
