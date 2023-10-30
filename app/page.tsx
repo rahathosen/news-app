@@ -10,7 +10,6 @@ import FifthSection from "@/components/fifthSection";
 import RowAd from "@/components/layouts/row-ad";
 import type { Metadata } from "next";
 import TopSectionGQL from "@/components/topSectionGQL";
-
 export const metadata: Metadata = {
   title: "দৈনিক উদয়ন",
   description: "দৈনিক উদয়ন, একটি বাংলা পত্রিকা",
@@ -27,10 +26,10 @@ export default function Home() {
   return (
     <main>
       {/* <TopSectionGQL /> */}
-      {/* <TopSection /> */}
-      {/* <RowAd /> */}
-      {/* <MiddleSection /> */}
-      {/* <RowAd /> */}
+      <TopSection />
+      <RowAd />
+      <MiddleSection />
+      <RowAd />
       <BottomSection />
 
       {/* <HighlightNews/> */}
