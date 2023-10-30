@@ -3,11 +3,25 @@ import Link from "next/link";
 import Divider from "./ui/divider";
 import RelativeDate from "@/lib/relativeDate";
 
+interface Post {
+  id: string;
+  uniqueId: string;
+  title: string;
+  category: {
+    id: number;
+    title: string;
+  };
+}
+
 export default async function Section({
   posts,
   categoryTitle,
   categoryId,
 }: any) {
+  const categoryPosts = posts.allPosts.filter(
+    (post: Post) => post.category.id === categoryId
+  );
+
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
       <Divider categoryTitle={categoryTitle} categoryId={categoryId} />
@@ -53,7 +67,7 @@ export default async function Section({
                     </div>
                   </div>
                 ))}
-                {posts.allPosts.slice(1, 7).map((post: any) => (
+                {categoryPosts.slice(1, 7).map((post: any) => (
                   <div
                     key={post.id}
                     className="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
