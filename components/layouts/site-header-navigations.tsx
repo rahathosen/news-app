@@ -19,8 +19,8 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function SiteHeaderNavigations({ data, newsCategories }: any) {
-  // console.log(data);
+export default function SiteHeaderNavigations({  newsCategories }: any) {
+
   return (
     <div className="flex h-16 items-center justify-center relative ">
       <NavigationMenu.Root className="relative z-50 flex w-full justify-between">

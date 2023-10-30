@@ -32,26 +32,6 @@ async function fetchGraphQL(query: string): Promise<any> {
 
 // Template
 
-export async function navigationheaderGQL(): Promise<any> {
-  const query = `
-        query MyQuery {
-          navigation {
-            id
-            feature {
-              id
-              title
-            }
-            categories {
-              id
-              title
-            }
-          }
-        }
-      `;
-
-  return fetchGraphQL(query);
-}
-
 // website Info
 
 export async function websiteInfoGQL(): Promise<any> {
@@ -110,38 +90,7 @@ export async function allPosts(): Promise<any> {
               id
               title
             }
-            subcategory {
-              id
-              title
-              uniqueId
-            }
-            reportedBy {
-              id
-              name
-              designation
-              uniqueId
-            }
-            continent {
-              id
-              name
-              uniqueId
-            }
-            country {
-              id
-              name
-              uniqueId
-            }
-            relatedPost {
-              id
-              title
-              uniqueId
-            }
-            tag {
-              id
-              title
-              uniqueId
-            }
-          }
+    }
         }
       `;
 
@@ -167,44 +116,3 @@ export async function newsCategoriesGQL(): Promise<any> {
 }
 
 // list of navigation
-export async function navigationGQL(): Promise<any> {
-  const query = `
-      query MyQuery {
-        navigation{
-            id
-            news {
-              id
-              name
-            }
-            news2 {
-              id
-              name
-            }
-            news3 {
-              id
-              name
-            }
-            news4 {
-              id
-              name
-            }
-            news5 {
-              id
-              name
-            }
-            categories{
-              id
-              title
-              serial
-            }
-            feature {
-              id
-              title
-              serial
-            }
-          }
-      }
-    `;
-
-  return fetchGraphQL(query);
-}

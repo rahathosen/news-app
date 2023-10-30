@@ -13,9 +13,7 @@ import Test from "@/components/layouts/test";
 import RowAd from "@/components/layouts/row-ad";
 import {
   newsCategoriesGQL,
-  navigationGQL,
   websiteInfoGQL,
-  navigationheaderGQL,
   allPosts,
 } from "@/lib/getGQL";
 

@@ -27,10 +27,10 @@ export default function Home() {
   return (
     <main>
       {/* <TopSectionGQL /> */}
-      <TopSection />
-      <RowAd />
-      <MiddleSection />
-      <RowAd />
+      {/* <TopSection /> */}
+      {/* <RowAd /> */}
+      {/* <MiddleSection /> */}
+      {/* <RowAd /> */}
       <BottomSection />
 
       {/* <HighlightNews/> */}
