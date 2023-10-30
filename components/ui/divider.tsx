@@ -9,7 +9,7 @@ export default function Divider({ categoryTitle, categoryId }: any) {
           {categoryTitle}
         </h2>
         <Link
-           href={`/category/${categoryId}`}
+          href={`/category/${categoryId}`}
           className="inline-flex items-center gap-x-1.5 rounded-full  px-3 text-sm lg:text-base font-semibold text-gray-900 "
         >
           <div className="group text-black dark:text-gray-400 hover:text-[#5C8374] dark:hover:text-[#5C8374]  transition ease-in-out duration-200">
