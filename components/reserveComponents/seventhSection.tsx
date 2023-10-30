@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Divider from "./ui/divider";
+import Divider from "../ui/divider";
 
 const posts = [
   {
@@ -120,7 +120,7 @@ export default function SeventhSection() {
               className="h-full w-full object-cover object-center"
             />
           </div>
-          
+
           <div aria-hidden="true" className="relative h-96 w-full lg:hidden" />
           <div className="absolute inset-x-0 bottom-0 rounded-bl-lg rounded-br-lg bg-black bg-opacity-75 p-6 backdrop-blur backdrop-filter sm:flex sm:items-center sm:justify-between lg:inset-x-auto lg:inset-y-0 lg:w-96 lg:flex-col lg:items-start lg:rounded-br-none lg:rounded-tl-lg">
             <div>
@@ -145,9 +145,7 @@ export default function SeventhSection() {
             </a>
           </div>
         </section>
-        <div className="flex-shrink max-w-full w-full lg:w-1/2 pb-1  lg:pb-0 lg:pr-1">
-          
-        </div>
+        <div className="flex-shrink max-w-full w-full lg:w-1/2 pb-1  lg:pb-0 lg:pr-1"></div>
         {/* end Big Post */}
         <div className="mx-auto  grid max-w-2xl auto-rows-fr grid-cols-1 gap-4 mt-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {posts.map((post) => (
@@ -156,7 +154,9 @@ export default function SeventhSection() {
               className="relative isolate flex flex-col justify-end overflow-hidden rounded-md bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
             >
               <Image
-                src={"https://images.unsplash.com/photo-1694481348806-0b6de4934812?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"}
+                src={
+                  "https://images.unsplash.com/photo-1694481348806-0b6de4934812?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+                }
                 alt={""}
                 fill={true}
                 className="absolute inset-0 -z-10 h-full w-full object-cover"

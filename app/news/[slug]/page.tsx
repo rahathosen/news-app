@@ -15,6 +15,7 @@ interface Post {
   imageSource: string;
   image: string;
   details: string;
+  uniqueId: string;
 }
 type Props = {
   params: { slug: string };
@@ -32,7 +33,7 @@ export const generateMetadata = async ({
     openGraph: {
       title: `${post.title}`,
       description: `${post.details.slice(0, 400)}`,
-      url: "https://www.dailyudayan.com",
+      // url: "https://www.dailyudayan.com",
       siteName: "দৈনিক উদয়ন",
       images: [
         {

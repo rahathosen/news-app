@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Divider from "./ui/divider";
+import Divider from "../ui/divider";
 import RelativeDate from "@/lib/relativeDate";
 import getData from "@/lib/getNews";
 import { newsCategoriesGQL, allPosts } from "@/lib/getGQL";

@@ -90,7 +90,12 @@ export async function allPosts(): Promise<any> {
               id
               title
             }
-    }
+            subcategory {
+              id
+              title
+              uniqueId
+            }
+          }
         }
       `;
 

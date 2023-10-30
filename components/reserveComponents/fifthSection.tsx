@@ -1,4 +1,4 @@
-import Divider from "./ui/divider";
+import Divider from "../ui/divider";
 
 const posts = [
   {
@@ -109,7 +109,7 @@ const posts = [
 export default function FifthSection() {
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
-    <Divider />
+      <Divider />
       <div className="xl:container mx-auto max-w-7xl px-4 lg:px-2">
         <div className="mx-auto  grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-gray-200    lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {posts.map((post) => (
@@ -118,7 +118,10 @@ export default function FifthSection() {
               className="flex max-w-xl flex-col items-start "
             >
               <div className="flex items-center gap-x-4 text-xs">
-                <time dateTime={post.datetime} className="text-gray-500 dark:text-gray-400">
+                <time
+                  dateTime={post.datetime}
+                  className="text-gray-500 dark:text-gray-400"
+                >
                   {post.date}
                 </time>
                 <a
@@ -139,7 +142,6 @@ export default function FifthSection() {
                   {post.description}
                 </p>
               </div>
-             
             </article>
           ))}
         </div>

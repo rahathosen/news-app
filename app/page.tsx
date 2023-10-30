@@ -1,16 +1,16 @@
 import Image from "next/image";
-import HighlightNews from "@/components/highlight-news";
-import MiddleSection from "@/components/middleSection";
-import BottomSection from "@/components/bottomSection";
-import TopSection from "@/components/topSection";
-import SixthSection from "@/components/sixthSection";
-import SeventhSection from "@/components/seventhSection";
-import EighthSection from "@/components/eighthSection";
-import FifthSection from "@/components/fifthSection";
+import HighlightNews from "@/components/reserveComponents/highlight-news";
+import Section from "@/components/section";
+import TopSection from "@/components/reserveComponents/topSection";
+import SixthSection from "@/components/reserveComponents/sixthSection";
+import SeventhSection from "@/components/reserveComponents/seventhSection";
+import EighthSection from "@/components/reserveComponents/eighthSection";
+import FifthSection from "@/components/reserveComponents/fifthSection";
 import RowAd from "@/components/layouts/row-ad";
 import type { Metadata } from "next";
-import TopSectionGQL from "@/components/topSectionGQL";
-
+import TopSectionGQL from "@/components/reserveComponents/topSectionGQL";
+import BreakingNews from "@/components/breakingNews";
+import HomeNews from "@/components/homeNews";
 export const metadata: Metadata = {
   title: "দৈনিক উদয়ন",
   description: "দৈনিক উদয়ন, একটি বাংলা পত্রিকা",
@@ -26,18 +26,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      {/* <TopSectionGQL /> */}
-      {/* <TopSection /> */}
+      <BreakingNews />
       {/* <RowAd /> */}
-      {/* <MiddleSection /> */}
-      {/* <RowAd /> */}
-      <BottomSection />
-
-      {/* <HighlightNews/> */}
-      {/* <FifthSection />
-      <SixthSection />
-      <SeventhSection />
-      <EighthSection /> */}
+      <HomeNews />
     </main>
   );
 }
