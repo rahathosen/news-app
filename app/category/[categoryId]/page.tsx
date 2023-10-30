@@ -42,12 +42,27 @@ type Props = {
   params: { categoryId: number };
 };
 
+interface Post {
+  id: string;
+  uniqueId: string;
+  title: string;
+  category: {
+    id: number;
+    title: string;
+  };
+}
+
 export default async function Page({ params }: Props) {
   const data = await newsCategoriesGQL();
-  const allpost = await allPosts();
+  const posts = await allPosts();
   const category = data.newsCategories.find(
     (category: any) => category.id === params.categoryId
   );
+
+  const categoryPosts = posts.allPosts.filter(
+    (post: Post) => post.category.id === params.categoryId
+  );
+
   return (
     <div>
       <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
@@ -101,7 +116,7 @@ export default async function Page({ params }: Props) {
                 </div>
               </div>
               {/* Tab end */}
-              <Category allpost={allpost} />
+              <Category posts={posts} categoryPosts={categoryPosts} />
             </div>
           </div>
         </div>

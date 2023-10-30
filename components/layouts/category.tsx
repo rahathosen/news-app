@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Category({ allpost }: any) {
+export default function Category({ posts, categoryPosts }: any) {
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
       {/* divider */}
@@ -10,7 +10,7 @@ export default function Category({ allpost }: any) {
           <div className="flex flex-row flex-wrap">
             <div className="flex-shrink max-w-full w-full overflow-hidden">
               <div className="flex flex-row flex-wrap ">
-                {allpost.allPosts.map((post: any) => (
+                {categoryPosts.map((post: any) => (
                   <div
                     key={post.id}
                     className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"

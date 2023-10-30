@@ -38,16 +38,30 @@ export const generateMetadata = async ({
   };
 };
 
+interface Post {
+  id: string;
+  uniqueId: string;
+  title: string;
+  subcategory: {
+    id: number;
+    title: string;
+  };
+}
+
 export default async function Page({ params }: Props) {
   // const postbycategory = await postByCategoryGQL();
 
   const data = await newsCategoriesGQL();
-
+  const posts = await allPosts();
   const category = data.newsCategories.find(
     (category: any) => category.id === params.categoryId
   );
   const subcategory = category.newssubcategorySet.find(
     (subcategory: any) => subcategory.id === params.subCategoryId
+  );
+
+  const subCategoryPosts = posts.allPosts.filter(
+    (post: Post) => post.subcategory.id === params.subCategoryId
   );
 
   return (
@@ -93,7 +107,7 @@ export default async function Page({ params }: Props) {
                 </div>
               </div>
               {/* Tab end */}
-              {/* <SubCategory postbycategory={postbycategory} /> */}
+              <SubCategory subCategoryPosts={subCategoryPosts} />
             </div>
           </div>
         </div>
