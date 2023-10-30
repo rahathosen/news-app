@@ -79,7 +79,7 @@ export default async function Page({ params }: Props) {
                     className="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
                   >
                     <div className="flex flex-row sm:block hover-img">
-                      <Link href="">
+                      <Link href={`../news/${post.uniqueId}`}>
                         <Image
                           src={post.image}
                           alt={""}
@@ -90,7 +90,9 @@ export default async function Page({ params }: Props) {
                       </Link>
                       <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                         <h3 className="text-lg text-black dark:text-gray-400 font-bold leading-tight mb-2">
-                          <Link href="#">{post.title}</Link>
+                          <Link href={`../news/${post.uniqueId}`}>
+                            {post.title}
+                          </Link>
                         </h3>
                         <p className="hidden md:block text-gray-800 dark:text-gray-400 leading-tight mb-1">
                           {post.description.slice(0, 100) + "..."}

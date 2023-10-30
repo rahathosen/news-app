@@ -107,7 +107,9 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
         <div className="col-span-1">
-          <div className="lg:hidden">{/* <Author date={post.date} /> */}</div>
+          <div className="lg:hidden">
+            <Author post={post} />
+          </div>
           <RelatedNews />
         </div>
       </div>
