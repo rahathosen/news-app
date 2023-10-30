@@ -9,7 +9,7 @@ import { Provider } from "@/components/layouts/provider";
 import BackToTopButton from "@/components/ui/backToTopButton";
 const inter = Inter({ subsets: ["latin"] });
 import { cn } from "@/lib/utils";
-import Test from "@/components/layouts/test";
+
 import TopBottomAd from "@/components/advertisement/topBottom-ad copy";
 
 export const metadata: Metadata = {

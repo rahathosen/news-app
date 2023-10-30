@@ -65,7 +65,7 @@ export default async function Page({ params }: Props) {
       >
         <div className="hidden lg:block col-span-2">
           <div>
-            <Author  post={post}/>
+            <Author post={post} />
             <MostViewed />
           </div>
         </div>
