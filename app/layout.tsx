@@ -9,6 +9,9 @@ import { Provider } from "@/components/layouts/provider";
 import BackToTopButton from "@/components/ui/backToTopButton";
 import { cn } from "@/lib/utils";
 import TopBottomAd from "@/components/advertisement/topBottom-ad copy";
+import HeadlineNews from "@/components/headlineNews";
+import BreakingNews from "@/components/breakingNews";
+
 const inter = Inter({ subsets: ["latin"] });
 import { websiteInfoGQL, navigationGQL } from "@/lib/getGQL";
 
@@ -59,7 +62,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         <Provider attribute="class" defaultTheme="system" enableSystem>
           {/* <MainNav /> */}
           <SiteHeader navigations={navigations} webInfo={webInfo} />
+          <HeadlineNews />
           <TopBottomAd />
+          <BreakingNews />
           <div className="2xl:container mx-auto max-w-[85rem]">{children}</div>
           <BackToTopButton />
           <TopBottomAd />

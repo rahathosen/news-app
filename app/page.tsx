@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
-import BreakingNews from "@/components/breakingNews";
+import CoverNews from "@/components/coverNews";
 import HomeNews from "@/components/homeNews";
-import { newsCategoriesGQL, websiteInfoGQL, allPosts } from "@/lib/getGQL";
+import {
+  newsCategoriesGQL,
+  websiteInfoGQL,
+  breakingNewsGQL,
+  allPosts,
+  coverGQL,
+} from "@/lib/getGQL";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const webInfo = await websiteInfoGQL();
@@ -40,11 +46,19 @@ export const generateMetadata = async (): Promise<Metadata> => {
 export default async function Home() {
   const posts = await allPosts();
   const newsCategory = await newsCategoriesGQL();
+  const breakingNews = await breakingNewsGQL();
+  const coverNews = await coverGQL();
   // const webInfo = await websiteInfoGQL();
   // console.log(webInfo.websiteInfo.newsThumbnail)
+  // console.log(coverNews);
+  // console.log(breakingNews);
   return (
     <main>
-      <BreakingNews posts={posts} />
+      <CoverNews
+        coverNews={coverNews}
+        posts={posts}
+        breakingNews={breakingNews}
+      />
       <HomeNews posts={posts} newsCategory={newsCategory} />
     </main>
   );

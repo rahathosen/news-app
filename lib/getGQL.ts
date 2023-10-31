@@ -1,3 +1,5 @@
+// =================================================================================================
+
 async function fetchGraphQL(query: string): Promise<any> {
   const response = await fetch("https://django-news-server.vercel.app/gql/", {
     cache: "force-cache",
@@ -14,27 +16,9 @@ async function fetchGraphQL(query: string): Promise<any> {
   const { data } = await response.json();
   return data;
 }
-
-// Template
-
-// export async function Template(): Promise<any> {
-//   const query = `
-//         query MyQuery {
-//           newsCategories {
-//             id
-//             title
-//           }
-//         }
-//       `;
-
-//   return fetchGraphQL(query);
-// }
-// ---------------------------------------------------------------------------------
-
-// Template
+// =================================================================================================
 
 // website Info
-
 export async function websiteInfoGQL(): Promise<any> {
   const query = `
         query MyQuery {
@@ -55,7 +39,6 @@ export async function websiteInfoGQL(): Promise<any> {
 }
 
 // Post By Category
-
 export async function postByCategoryGQL(): Promise<any> {
   const query = `
   query MyQuery {
@@ -73,7 +56,6 @@ export async function postByCategoryGQL(): Promise<any> {
 }
 
 // Get All Post
-
 export async function allPosts(): Promise<any> {
   const query = `
         query MyQuery {
@@ -131,19 +113,57 @@ export async function newsCategoriesGQL(): Promise<any> {
   return fetchGraphQL(query);
 }
 
+//  list of cover News
+export async function coverGQL(): Promise<any> {
+  const query = `
+      query MyQuery {
+        cover {
+          headNews {
+            id
+            title
+            updatedAt
+            uniqueId
+            description
+            image
+          }
+        }
+      }
+    `;
+
+  return fetchGraphQL(query);
+}
+
+// list of headLines
+export async function headLinesGQL(): Promise<any> {
+  const query = `
+      query MyQuery {
+        headLines {
+          headlines {
+            id
+            title
+            uniqueId
+          }
+        }
+      }
+    `;
+
+  return fetchGraphQL(query);
+}
+
 //  list of breakingNews
 export async function breakingNewsGQL(): Promise<any> {
   const query = `
       query MyQuery {
         breakingNews {
           id
+          endAt
           items {
             id
             title
-            description
-            uniqueId
-            image
             updatedAt
+            uniqueId
+            description
+            image
           }
         }
       }
@@ -153,7 +173,6 @@ export async function breakingNewsGQL(): Promise<any> {
 }
 
 // list of navigation
-
 export async function navigationGQL(): Promise<any> {
   const query = `
       query MyQuery {
