@@ -40,12 +40,13 @@ export async function websiteInfoGQL(): Promise<any> {
         query MyQuery {
           websiteInfo {
             id
-            logo
             title
-            favicon
-            tagLine
-            address
+            url
             copyrightText
+            tagLine
+            email
+            address
+            newsThumbnail
           }
         }
       `;

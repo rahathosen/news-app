@@ -3,18 +3,40 @@ import BreakingNews from "@/components/breakingNews";
 import HomeNews from "@/components/homeNews";
 import { newsCategoriesGQL, websiteInfoGQL, allPosts } from "@/lib/getGQL";
 
-export const metadata: Metadata = {
-  title: "দৈনিক উদয়ন",
-  description: "দৈনিক উদয়ন, একটি বাংলা পত্রিকা",
-  keywords: [
-    "দৈনিক উদয়ন",
-    "Daily udayan",
-    "বাংলা নিউজ",
-    "খেলা",
-    "রাজনীতি",
-    "বাণিজ্য",
-  ],
+export const generateMetadata = async (): Promise<Metadata> => {
+  const webInfo = await websiteInfoGQL();
+  return {
+    title: `${webInfo.websiteInfo.title}`,
+    description: `${webInfo.websiteInfo.tagLine}`,
+    keywords: [
+      "বিডি নিউজ ২০",
+      "bdnews20.com",
+      "বাংলা নিউজ",
+      "খেলা",
+      "রাজনীতি",
+      "বাণিজ্য",
+    ],
+    openGraph: {
+      title: `${webInfo.websiteInfo.title}`,
+      url: `${webInfo.websiteInfo.url}`,
+      description: `${webInfo.websiteInfo.tagLine}`,
+      siteName: `${webInfo.websiteInfo.title}`,
+      images: [
+        {
+          url: `${webInfo.websiteInfo.newsThumbnail}`,
+          width: 1200,
+          height: 630,
+        },
+        {
+          url: `${webInfo.websiteInfo.newsThumbnail}`,
+          width: 800,
+          height: 600,
+        },
+      ],
+    },
+  };
 };
+
 export default async function Home() {
   const posts = await allPosts();
   const newsCategory = await newsCategoriesGQL();
