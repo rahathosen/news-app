@@ -15,8 +15,8 @@ import { websiteInfoGQL } from "@/lib/getGQL";
 export const generateMetadata = async (): Promise<Metadata> => {
   const webInfo = await websiteInfoGQL();
   return {
-    title: `${webInfo.title}`,
-    description: `${webInfo.tagLine}`,
+    title: `${webInfo.websiteInfo.title}`,
+    description: `${webInfo.websiteInfo.tagLine}`,
     keywords: [
       "বিডি নিউজ ২০",
       "bdnews20.com",
@@ -26,18 +26,18 @@ export const generateMetadata = async (): Promise<Metadata> => {
       "বাণিজ্য",
     ],
     openGraph: {
-      title: `${webInfo.title}`,
-      url: `${webInfo.url}`,
-      description: `${webInfo.tagLine}`,
-      siteName: `${webInfo.title}`,
+      title: `${webInfo.websiteInfo.title}`,
+      url: `${webInfo.websiteInfo.url}`,
+      description: `${webInfo.websiteInfo.tagLine}`,
+      siteName: `${webInfo.websiteInfo.title}`,
       images: [
         {
-          url: `${webInfo.newsThumbnail}`,
+          url: `${webInfo.websiteInfo.newsThumbnail}`,
           width: 1200,
           height: 630,
         },
         {
-          url: `${webInfo.newsThumbnail}`,
+          url: `${webInfo.websiteInfo.newsThumbnail}`,
           width: 800,
           height: 600,
         },
