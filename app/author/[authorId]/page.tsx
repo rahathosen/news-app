@@ -1,9 +1,42 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { newsCategoriesGQL, websiteInfoGQL, allPosts } from "@/lib/getGQL";
 
 type Props = {
   params: { authorId: string };
+};
+
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const posts = await allPosts();
+  const webInfo = await websiteInfoGQL();
+  const author = posts.allPosts.find(
+    (post: any) => post.reportedBy.uniqueId === params.authorId
+  )!;
+
+  return {
+    title: `${author.reportedBy.name} - ${webInfo.websiteInfo.title}`,
+    openGraph: {
+      title: `${author.reportedBy.name} - ${webInfo.websiteInfo.title}`,
+      description: `${author.reportedBy.designation}`,
+      url: `${webInfo.websiteInfo.url}`,
+      siteName: `${webInfo.websiteInfo.title}`,
+      images: [
+        {
+          url: `${author.reportedBy.image}`,
+          width: 1200,
+          height: 630,
+        },
+        {
+          url: `${author.reportedBy.image}`,
+          width: 800,
+          height: 600,
+        },
+      ],
+    },
+  };
 };
 
 export default async function Page({ params }: Props) {

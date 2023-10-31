@@ -9,7 +9,7 @@ import Author from "@/components/layouts/author";
 import Breadcrumb from "@/components/breadcrumb";
 import Badges from "@/components/ui/badges";
 import type { Metadata, ResolvingMetadata } from "next";
-import { newsCategoriesGQL, allPosts } from "@/lib/getGQL";
+import { newsCategoriesGQL, allPosts, websiteInfoGQL } from "@/lib/getGQL";
 import postcss from "postcss";
 interface Post {
   id: string;
@@ -28,16 +28,17 @@ export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
   const allpost = await allPosts();
+  const webInfo = await websiteInfoGQL();
   const post = allpost.allPosts.find(
     (post: any) => post.uniqueId === params.slug
   )!;
   return {
-    title: `${post.title}`,
+    title: `${post.title} - ${webInfo.websiteInfo.title}`,
     openGraph: {
-      title: `${post.title}`,
-      description: `${post.details.slice(0, 400)}`,
-      // url: "https://www.dailyudayan.com",
-      siteName: "দৈনিক উদয়ন",
+      title: `${post.title}  (${webInfo.websiteInfo.title})`,
+      description: `${post.description.slice(0, 400)}`,
+      url: `${webInfo.websiteInfo.url}`,
+      siteName: `${webInfo.websiteInfo.title}`,
       images: [
         {
           url: `${post.image}`,
@@ -45,7 +46,7 @@ export const generateMetadata = async ({
           height: 630,
         },
         {
-          url: `${post.imageUrl}`,
+          url: `${post.image}`,
           width: 800,
           height: 600,
         },
