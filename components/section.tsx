@@ -68,7 +68,7 @@ export default async function Section({
                               {/* <!-- author and date --> */}
                               <div className="">
                                 <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
-                                  {/* <RelativeDate date={post.date} />{" "} */}
+                                  <RelativeDate date={post.createdAt} />{" "}
                                 </div>
                               </div>
                             </div>
@@ -100,7 +100,7 @@ export default async function Section({
                                 {post.description.slice(0, 100) + "..."}
                               </p>
                               <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
-                                {/* <RelativeDate date={post.date} />{" "} */}
+                                <RelativeDate date={post.createdAt} />{" "}
                               </div>
                             </div>
                           </div>

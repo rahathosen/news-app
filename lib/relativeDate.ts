@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface Props {
   date: string;
@@ -26,27 +26,29 @@ const RelativeDate: React.FC<Props> = ({ date }) => {
   if (timeDifference > year) {
     // More than a year ago, show the exact date
     const options: Intl.DateTimeFormatOptions = {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     };
     relativeDate = inputDate.toLocaleDateString(undefined, options);
   } else if (timeDifference > month) {
     // Less than a year but more than a month ago
     const monthsAgo = Math.floor(timeDifference / month);
-    relativeDate = `${monthsAgo} ${monthsAgo === 1 ? 'month' : 'months'} ago`;
+    relativeDate = `${monthsAgo} ${monthsAgo === 1 ? "month" : "months"} ago`;
   } else if (timeDifference > day) {
     // Less than a month but more than a day ago
     const daysAgo = Math.floor(timeDifference / day);
-    relativeDate = `${daysAgo} ${daysAgo === 1 ? 'day' : 'days'} ago`;
+    relativeDate = `${daysAgo} ${daysAgo === 1 ? "day" : "days"} ago`;
   } else if (timeDifference > hour) {
     // Less than a day but more than an hour ago
     const hoursAgo = Math.floor(timeDifference / hour);
-    relativeDate = `${hoursAgo} ${hoursAgo === 1 ? 'hour' : 'hours'} ago`;
+    relativeDate = `${hoursAgo} ${hoursAgo === 1 ? "hour" : "hours"} ago`;
   } else {
     // Less than an hour ago
     const minutesAgo = Math.floor(timeDifference / minute);
-    relativeDate = `${minutesAgo} ${minutesAgo === 1 ? 'minute' : 'minutes'} ago`;
+    relativeDate = `${minutesAgo} ${
+      minutesAgo === 1 ? "minute" : "minutes"
+    } ago`;
   }
 
   return relativeDate;
