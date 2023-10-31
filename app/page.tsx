@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import CoverNews from "@/components/coverNews";
 import HomeNews from "@/components/homeNews";
+import HeadlineNews from "@/components/headlineNews";
+import BreakingNews from "@/components/breakingNews";
+
 import {
   newsCategoriesGQL,
   websiteInfoGQL,
