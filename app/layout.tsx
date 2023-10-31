@@ -7,24 +7,43 @@ import MainNav from "@/components/layouts/main-nav";
 import SiteFooter from "@/components/layouts/site-footer";
 import { Provider } from "@/components/layouts/provider";
 import BackToTopButton from "@/components/ui/backToTopButton";
-const inter = Inter({ subsets: ["latin"] });
 import { cn } from "@/lib/utils";
-
 import TopBottomAd from "@/components/advertisement/topBottom-ad copy";
+const inter = Inter({ subsets: ["latin"] });
+import { websiteInfoGQL } from "@/lib/getGQL";
 
-export const metadata: Metadata = {
-  title: "দৈনিক উদয়ন",
-  description: "দ্রুততম সময়ে সর্বশেষ খবর পেতে - দৈনিক উদয়ন",
-  keywords: [
-    "দৈনিক উদয়ন",
-    "Daily udayan",
-    "বাংলা নিউজ",
-    "খেলা",
-    "খবর",
-    "রাজনীতি",
-    "সর্বশেষ খবর",
-    "বাণিজ্য",
-  ],
+export const generateMetadata = async (): Promise<Metadata> => {
+  const webInfo = await websiteInfoGQL();
+  return {
+    title: `${webInfo.title}`,
+    description: `${webInfo.tagLine}`,
+    keywords: [
+      "বিডি নিউজ ২০",
+      "bdnews20.com",
+      "বাংলা নিউজ",
+      "খেলা",
+      "রাজনীতি",
+      "বাণিজ্য",
+    ],
+    openGraph: {
+      title: `${webInfo.title}`,
+      url: `${webInfo.url}`,
+      description: `${webInfo.tagLine}`,
+      siteName: `${webInfo.title}`,
+      images: [
+        {
+          url: `${webInfo.newsThumbnail}`,
+          width: 1200,
+          height: 630,
+        },
+        {
+          url: `${webInfo.newsThumbnail}`,
+          width: 800,
+          height: 600,
+        },
+      ],
+    },
+  };
 };
 
 interface RootLayoutProps {
@@ -32,8 +51,6 @@ interface RootLayoutProps {
 }
 
 export default async function RootLayout({ children }: RootLayoutProps) {
-  // const data = await websiteInfoGQL();
-  // console.log(data);
   return (
     <html lang="en">
       <body className={cn("", inter.className)}>
