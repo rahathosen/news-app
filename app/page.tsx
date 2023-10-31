@@ -40,6 +40,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
 export default async function Home() {
   const posts = await allPosts();
   const newsCategory = await newsCategoriesGQL();
+  // const webInfo = await websiteInfoGQL();
+  // console.log(webInfo.websiteInfo.newsThumbnail)
   return (
     <main>
       <BreakingNews posts={posts} />

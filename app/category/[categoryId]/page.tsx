@@ -6,8 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import RowAd from "@/components/advertisement/row-ad";
 import type { Metadata, ResolvingMetadata } from "next";
-import { newsCategoriesGQL, allPosts } from "@/lib/getGQL";
+import { newsCategoriesGQL, allPosts, websiteInfoGQL } from "@/lib/getGQL";
 import Category from "@/components/layouts/category";
+
 const tabs = [
   { name: "Views", href: "#", current: true },
   { name: "Editorial", href: "#", current: false },
@@ -19,17 +20,29 @@ export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
   const data = await newsCategoriesGQL();
-
+  const webInfo = await websiteInfoGQL();
   const category = data.newsCategories.find(
     (category: any) => category.id === params.categoryId
   );
 
   return {
-    title: `${category.title} - দৈনিক উদয়ন`,
+    title: `${category.title} - ${webInfo.websiteInfo.title}`,
     openGraph: {
-      title: `${category.title}`,
-      url: "https://www.dailyudayan.com",
-      siteName: "দৈনিক উদয়ন",
+      title: `${category.title} - ${webInfo.websiteInfo.title}`,
+      url: `${webInfo.websiteInfo.url}`,
+      siteName: `${webInfo.websiteInfo.title}`,
+      images: [
+        {
+          url: `${webInfo.websiteInfo.newsThumbnail}`,
+          width: 1200,
+          height: 630,
+        },
+        {
+          url: `${webInfo.websiteInfo.newsThumbnail}`,
+          width: 800,
+          height: 600,
+        },
+      ],
     },
   };
 };
