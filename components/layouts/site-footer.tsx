@@ -208,7 +208,7 @@ export default function SiteFooter({ webInfo }: any) {
         </div>
         <div className="flex w-full items-center justify-between mt-16 border-t border-gray-900/10 dark:border-gray-900/60 pt-8 sm:mt-20 lg:mt-24">
           <p className="text-xs leading-5 text-gray-500">
-            &copy; 2023 Tech Sand, Inc. All rights reserved.
+            2023 {webInfo.websiteInfo.copyrightText}. সর্বস্বত্ব সংরক্ষিত
           </p>
 
           <ThemeToggle />
