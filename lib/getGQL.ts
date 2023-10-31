@@ -46,6 +46,7 @@ export async function websiteInfoGQL(): Promise<any> {
             tagLine
             email
             address
+            newsThumbnail
           }
         }
       `;
