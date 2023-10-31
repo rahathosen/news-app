@@ -50,7 +50,7 @@ export default function SiteHeaderNavigations({
           {/* Mobile Logo (lg-hidden) */}
           <Link href="/">
             <h1 className="bg-gradient-to-br from-gray-900 lg:hidden via-gray-800 to-orange-400 font-bold text-2xl lg:text-3xl bg-clip-text text-center font-heading  tracking-[-0.02em] text-transparent drop-shadow-sm duration-300 ease-linear animate-in zoom-in-50 dark:bg-gradient-to-br dark:from-orange-200 dark:to-gray-900  md:leading-[5rem]">
-              দৈনিক উদয়ন
+              {webInfo.websiteInfo.title}
             </h1>
           </Link>
           <NavigationMenu.List className="center hidden   shadow-blackA4 m-0 lg:flex  ">

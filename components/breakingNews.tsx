@@ -34,7 +34,7 @@ export default function BreakingNews({ posts }: any) {
                       {post.description.slice(0, 350) + "..."}
                     </p>
                     <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
-                      {/* <RelativeDate date={post.date} />{" "} */}
+                      <RelativeDate date={post.createdAt} />{" "}
                     </div>
                   </div>
                 </div>
@@ -65,7 +65,7 @@ export default function BreakingNews({ posts }: any) {
                           </Link>
                         </h3>
                         <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
-                          {/* <RelativeDate date={post.date} />{" "} */}
+                          <RelativeDate date={post.createdAt} />{" "}
                         </div>
                       </div>
                     </div>

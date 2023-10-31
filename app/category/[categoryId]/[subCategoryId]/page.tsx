@@ -6,7 +6,6 @@ import {
 
 import Image from "next/image";
 import Link from "next/link";
-
 import RowAd from "@/components/advertisement/row-ad";
 import type { Metadata, ResolvingMetadata } from "next";
 import { newsCategoriesGQL, allPosts, websiteInfoGQL } from "@/lib/getGQL";
