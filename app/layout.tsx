@@ -51,17 +51,18 @@ interface RootLayoutProps {
 }
 
 export default async function RootLayout({ children }: RootLayoutProps) {
+  const webInfo = await websiteInfoGQL();
   return (
     <html lang="en">
       <body className={cn("", inter.className)}>
         <Provider attribute="class" defaultTheme="system" enableSystem>
           {/* <MainNav /> */}
-          <SiteHeader />
+          <SiteHeader webInfo={webInfo} />
           <TopBottomAd />
           <div className="2xl:container mx-auto max-w-[85rem]">{children}</div>
           <BackToTopButton />
           <TopBottomAd />
-          <SiteFooter />
+          <SiteFooter webInfo={webInfo} />
         </Provider>
         <Analytics />
       </body>
