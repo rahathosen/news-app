@@ -10,12 +10,15 @@ import Breadcrumb from "@/components/breadcrumb";
 import Badges from "@/components/ui/badges";
 import type { Metadata, ResolvingMetadata } from "next";
 import { newsCategoriesGQL, allPosts } from "@/lib/getGQL";
+import postcss from "postcss";
 interface Post {
-  title: string;
-  imageSource: string;
-  image: string;
-  details: string;
+  id: string;
   uniqueId: string;
+  title: string;
+  category: {
+    id: number;
+    title: string;
+  };
 }
 type Props = {
   params: { slug: string };
@@ -51,10 +54,14 @@ export const generateMetadata = async ({
   };
 };
 export default async function Page({ params }: Props) {
-  const allpost = await allPosts();
-  const post = allpost.allPosts.find(
+  const posts = await allPosts();
+  const post = posts.allPosts.find(
     (post: any) => post.uniqueId === params.slug
   )!;
+
+  const categoryPosts = posts.allPosts.filter(
+    (postall: Post) => postall.category.id === post.category.id
+  );
 
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
@@ -66,7 +73,7 @@ export default async function Page({ params }: Props) {
         <div className="hidden lg:block col-span-2">
           <div>
             <Author post={post} />
-            <MostViewed />
+            <MostViewed categoryPosts={categoryPosts} />
           </div>
         </div>
 
@@ -110,11 +117,11 @@ export default async function Page({ params }: Props) {
           <div className="lg:hidden">
             <Author post={post} />
           </div>
-          <RelatedNews />
+          <RelatedNews categoryPosts={categoryPosts} />
         </div>
       </div>
       <div className="px-4 py-2 lg:hidden">
-        <MostViewed />
+        <MostViewed categoryPosts={categoryPosts} />
       </div>
     </div>
   );
