@@ -38,13 +38,6 @@ export default function SubCategory({ subCategoryPosts }: any) {
                         <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                           <RelativeDate date={post.createdAt} />{" "}
                         </div>
-                        {/* <a
-                          className="text-gray-800 font-medium dark:text-gray-400"
-                          href="#"
-                        >
-                          <span className="inline-block h-3 border-l-2 border-red-600 mr-2"></span>
-                          {post.tag}
-                        </a> */}
                       </div>
                     </div>
                   </div>
