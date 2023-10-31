@@ -1,18 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import getData from "@/lib/getNews";
 
-interface Post {
-  id: number;
-  slug: string;
-  imageUrl: string;
-  title: string;
-  description: string;
-  date: string;
-}
-
-export default async function MostViewed() {
-  const posts = await getData();
+export default async function MostViewed({ categoryPosts }: any) {
   return (
     <>
       <div className="">
@@ -22,19 +11,20 @@ export default async function MostViewed() {
           </h2>
         </div>
         <ul className="post-number">
-          {posts.slice(0, 12).map((post: Post) => (
-            <li
-              key={post.id}
-              className="border-b border-gray-100 dark:border-gray-900 hover:bg-stone-300 rounded-lg dark:hover:bg-[#030b10]"
-            >
-              <Link
-                className="text-sm font-bold px-6 py-3 flex flex-row items-center text-gray-800 dark:text-gray-400"
-                href={`${post.slug}`}
+          {categoryPosts &&
+            categoryPosts.slice(0, 12).map((post: any) => (
+              <li
+                key={post.id}
+                className="border-b border-gray-100 dark:border-gray-900 hover:bg-stone-300 rounded-lg dark:hover:bg-[#030b10]"
               >
-                {post.title}
-              </Link>
-            </li>
-          ))}
+                <Link
+                  href={`../news/${post.uniqueId}`}
+                  className="text-sm font-bold px-6 py-3 flex flex-row items-center text-gray-800 dark:text-gray-400"
+                >
+                  {post.title}
+                </Link>
+              </li>
+            ))}
         </ul>
       </div>
     </>
