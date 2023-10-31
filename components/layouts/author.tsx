@@ -34,13 +34,13 @@ export default function Author({ post }: any) {
           <div className="px-6 item-center lg:pb-2 sm:pb-0 pb-2  text-sm font-medium">
             <span className="text-gray-600 dark:text-gray-600">
               <span className="font-bold dark:text-gray-500">Published:</span>{" "}
-              <RelativeDateMinimal date={post.reportedBy.updatedAt} />
+              <RelativeDateMinimal date={post.reportedBy.createdAt} />
             </span>
           </div>
           <div className="px-6  text-sm font-medium">
             <span className="text-gray-600 dark:text-gray-600">
               <span className="font-bold dark:text-gray-500">Updated:</span>{" "}
-              <RelativeDateMinimal date={post.reportedBy.createdAt} />
+              <RelativeDateMinimal date={post.reportedBy.updatedAt} />
             </span>
           </div>
         </div>

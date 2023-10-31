@@ -131,4 +131,105 @@ export async function newsCategoriesGQL(): Promise<any> {
   return fetchGraphQL(query);
 }
 
+//  list of breakingNews
+export async function breakingNewsGQL(): Promise<any> {
+  const query = `
+      query MyQuery {
+        breakingNews {
+          id
+          items {
+            id
+            title
+            description
+            uniqueId
+            image
+            updatedAt
+          }
+        }
+      }
+    `;
+
+  return fetchGraphQL(query);
+}
+
 // list of navigation
+
+export async function navigationGQL(): Promise<any> {
+  const query = `
+      query MyQuery {
+        navigation {
+          news {
+            id
+            name
+            uniqueId
+            countrySet {
+              id
+              name
+              uniqueId
+            }
+            featurepostSet {
+              id
+              title
+              uniqueId
+            }
+          }
+          news2 {
+            id
+            name
+            uniqueId
+            continent {
+              id
+              name
+              uniqueId
+            }
+            featurepostSet {
+              id
+              title
+              uniqueId
+            }
+          }
+          news3 {
+            id
+            name
+            uniqueId
+            districtSet {
+              id
+              name
+            }
+            featurepostSet {
+              id
+              title
+              uniqueId
+            }
+          }
+          news4 {
+            id
+            name
+            uniqueId
+            division {
+              id
+              name
+              uniqueId
+            }
+            featurepostSet {
+              id
+              title
+              uniqueId
+            }
+          }
+        }
+        newsCategories {
+          id
+          title
+          uniqueId
+          newssubcategorySet {
+            id
+            title
+            uniqueId
+          }
+        }
+      }
+    `;
+
+  return fetchGraphQL(query);
+}

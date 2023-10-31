@@ -70,7 +70,6 @@ export default async function Page({ params }: Props) {
                     />
                   </div>
                   <div className="mt-0 text-center sm:mt-0 sm:pt-1 sm:text-left">
-                    {/* <p className="text-sm font-medium text-gray-600">Welcome back,</p> */}
                     <div>
                       <p className="text-xl font-bold text-gray-900 dark:text-gray-400 sm:text-4xl">
                         {post.reportedBy.name}

@@ -10,7 +10,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default async function SiteHeader({ webInfo }: any) {
+export default async function SiteHeader({ webInfo, navigations }: any) {
   const newsCategories = await newsCategoriesGQL();
 
   return (
@@ -20,6 +20,7 @@ export default async function SiteHeader({ webInfo }: any) {
           <div>
             <SiteHeaderNavigations
               webInfo={webInfo}
+              navigations={navigations}
               newsCategories={newsCategories}
             />
           </div>

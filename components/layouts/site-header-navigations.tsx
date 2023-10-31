@@ -5,8 +5,6 @@ import { ReactNode, HTMLProps } from "react";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { CaretDownIcon } from "@radix-ui/react-icons";
 import { BellIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-
-import { navigation } from "../../lib/navigations";
 import Siebar from "./sitebar";
 
 export interface ListItemProps extends HTMLProps<HTMLAnchorElement> {
@@ -20,6 +18,7 @@ function classNames(...classes: string[]) {
 
 export default function SiteHeaderNavigations({
   newsCategories,
+  navigations,
   webInfo,
 }: any) {
   return (
@@ -32,19 +31,6 @@ export default function SiteHeaderNavigations({
               {webInfo.websiteInfo.title}
             </h1>
           </Link>
-
-          {/* Mobile Notification bell icon (lg-) */}
-          {/* <Link href="/" className="flex lg:hidden items-center">
-                  <h1 className=" lg:pl-8  md:pl-2 pl-2 md:pr-2  font-bold text-xl lg:text-2xl bg-clip-text text-center font-heading  tracking-[-0.02em]  drop-shadow-sm   md:leading-[5rem]">
-                    <button
-                      type="button"
-                      className="rounded-md text-gray-400 dark:text-gray-400  hover:bg-gray-100 dark:hover:bg-[#040D12] hover:text-gray-500  focus:outline-none focus:ring-2 focus:ring-inset dark:focus:ring-[#071720] focus:ring-gray-500/20"
-                    >
-                      <span className="sr-only">Open menu</span>
-                      <BellIcon className="h-6 w-6 " aria-hidden="true" />
-                    </button>
-                  </h1>
-                </Link> */}
         </div>
         <div>
           {/* Mobile Logo (lg-hidden) */}
@@ -54,21 +40,20 @@ export default function SiteHeaderNavigations({
             </h1>
           </Link>
           <NavigationMenu.List className="center hidden   shadow-blackA4 m-0 lg:flex  ">
-            {navigation.categories.map((category) => (
-              <NavigationMenu.Item key={category.name}>
-                {/* nev page */}
-                <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-gray-400 hover:font-semibold  group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
+            {/* start first category navigation */}
+            {navigations.navigation.news.map((category: any) => (
+              <NavigationMenu.Item key={category.id}>
+                <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-gray-400   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
                   {category.name}{" "}
                   <CaretDownIcon
                     className="text-gray-600 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
                     aria-hidden
                   />
                 </NavigationMenu.Trigger>
-                {/* nav sub page */}
                 <NavigationMenu.Content className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight  top-0 shadow-2xl backdrop-blur-xl dark:backdrop-blur-xl bg-white/95 dark:bg-[#040D12]/100  text-sm text-gray-500 relative ">
                   <ul className="grid grid-flow-col  py-12 ">
                     <li className="col-start-2 grid grid-cols-5 gap-x-2 gap-y-6 pr-8">
-                      {category.featured.slice(0, 10).map((item) => (
+                      {/* {category.featured.slice(0, 10).map((item) => (
                         <Link key={item.name} href="/">
                           <div className="aspect-h-1 aspect-w-2 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
                             <Image
@@ -87,42 +72,84 @@ export default function SiteHeaderNavigations({
                             </h3>
                           </div>
                         </Link>
-                      ))}
+                      ))} */}
                     </li>
                     <li>
                       <div className="col-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm pl-8">
-                        {category.sections.map((section) => (
-                          <div key={section.name}>
-                            <Link
-                              href={section.id}
-                              className="font-semibold text-base dark:text-gray-200 text-black"
-                            >
-                              {section.name}
-                            </Link>
-                            {/* </Link> */}
-                            <ul
-                              role="list"
-                              className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                            >
-                              {section.items.map((item) => (
-                                <li key={item.name} className="flex">
-                                  <Link
-                                    href={item.href}
-                                    className="hover:text-gray-900 dark:hover:text-gray-200 font-semibold dark:text-gray-400"
-                                  >
-                                    {item.name}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
+                        <ul
+                          role="list"
+                          className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                        >
+                          {" "}
+                          <Link
+                            href={`#`}
+                            className="font-semibold text-base dark:text-gray-200 text-black"
+                          >
+                            {category.name}
+                          </Link>
+                          {category.countrySet.map((item: any) => (
+                            <li key={item.id} className="flex">
+                              <Link
+                                href={`#`}
+                                className="hover:text-gray-900 dark:hover:text-gray-200 font-semibold dark:text-gray-400"
+                              >
+                                {item.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </li>
                   </ul>
                 </NavigationMenu.Content>
               </NavigationMenu.Item>
             ))}
+            {/* start second category navigation */}
+            {navigations.newsCategories.slice(1, 10).map((category: any) => (
+              <NavigationMenu.Item key={category.id}>
+                <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-gray-400   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
+                  {category.title}{" "}
+                  <CaretDownIcon
+                    className="text-gray-600 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
+                    aria-hidden
+                  />
+                </NavigationMenu.Trigger>
+                <NavigationMenu.Content className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight  top-0 shadow-2xl backdrop-blur-xl dark:backdrop-blur-xl bg-white/95 dark:bg-[#040D12]/100  text-sm text-gray-500 relative ">
+                  <ul className="grid grid-flow-col  py-12 ">
+                    <li className="col-start-2 grid grid-cols-5 gap-x-2 gap-y-6 pr-8"></li>
+                    <li>
+                      <div className="col-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm pl-8">
+                        <ul
+                          role="list"
+                          className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                        >
+                          {" "}
+                          <Link
+                            href={`/category/${category.id}`}
+                            className="font-semibold text-base dark:text-gray-200 text-black"
+                          >
+                            {category.title}
+                          </Link>
+                          {category.newssubcategorySet.map((item: any) => (
+                            <li key={item.id} className="flex">
+                              <Link
+                                href={`/category/${category.id}/${item.id}`}
+                                className="hover:text-gray-900 dark:hover:text-gray-200 font-semibold dark:text-gray-400"
+                              >
+                                {item.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                        {/* </div> */}
+                        {/* ))} */}
+                      </div>
+                    </li>
+                  </ul>
+                </NavigationMenu.Content>
+              </NavigationMenu.Item>
+            ))}
+            {/* end category navigation */}
             <Link href="/search" className="flex items-center  pl-2 ">
               <MagnifyingGlassIcon
                 className="h-5 w-5 text-gray-400 "
