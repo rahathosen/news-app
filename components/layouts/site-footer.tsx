@@ -100,7 +100,7 @@ const navigation = {
   ],
 };
 
-export default function SiteFooter() {
+export default function SiteFooter({ webInfo }: any) {
   return (
     <footer
       className="bg-stone-100 dark:bg-[#040D12] mx-auto 2xl:container max-w-full  rounded-lg"
@@ -113,10 +113,10 @@ export default function SiteFooter() {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
             <h1 className="bg-gradient-to-br from-gray-900 via-gray-800 to-orange-400 font-bold text-2xl lg:text-3xl bg-clip-text  tracking-[-0.02em] text-transparent drop-shadow-sm duration-300 ease-linear animate-in zoom-in-50 dark:bg-gradient-to-br dark:from-orange-200 dark:to-gray-900  md:leading-[5rem]">
-              দৈনিক উদয়ন
+              {webInfo.websiteInfo.title}
             </h1>
             <p className="text-sm leading-6 text-gray-600">
-              Making the world a better place and spreading the truth everyhere.
+              {webInfo.websiteInfo.tagLine}
             </p>
             <div className="flex space-x-6">
               {navigation.social.map((item) => (

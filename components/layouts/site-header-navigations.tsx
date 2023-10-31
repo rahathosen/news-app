@@ -5,7 +5,6 @@ import { ReactNode, HTMLProps } from "react";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { CaretDownIcon } from "@radix-ui/react-icons";
 import { BellIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-// import GetNavigation from "@/lib/getNavigations";
 
 import { navigation } from "../../lib/navigations";
 import Siebar from "./sitebar";
@@ -19,8 +18,10 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function SiteHeaderNavigations({  newsCategories }: any) {
-
+export default function SiteHeaderNavigations({
+  newsCategories,
+  webInfo,
+}: any) {
   return (
     <div className="flex h-16 items-center justify-center relative ">
       <NavigationMenu.Root className="relative z-50 flex w-full justify-between">
@@ -28,7 +29,7 @@ export default function SiteHeaderNavigations({  newsCategories }: any) {
           {/* Desktop Logo (lg-) */}
           <Link href="/" className=" hidden lg:block  items-center">
             <h1 className="bg-gradient-to-br lg:pl-8  md:pl-2 pl-2 from-gray-900  via-gray-800 to-orange-400 font-bold text-xl lg:text-2xl bg-clip-text text-center font-heading  tracking-[-0.02em] text-transparent drop-shadow-sm duration-300 ease-linear animate-in zoom-in-50 dark:bg-gradient-to-br dark:from-orange-200 dark:to-gray-900  md:leading-[5rem]">
-              দৈনিক উদয়ন
+              {webInfo.websiteInfo.title}
             </h1>
           </Link>
 

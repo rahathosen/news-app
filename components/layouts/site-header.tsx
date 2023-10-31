@@ -1,7 +1,6 @@
 import { ReactNode, HTMLProps } from "react";
 import SiteHeaderNavigations from "./site-header-navigations";
-import { newsCategoriesGQL, allPosts } from "@/lib/getGQL";
-
+import { newsCategoriesGQL, allPosts, websiteInfoGQL } from "@/lib/getGQL";
 export interface ListItemProps extends HTMLProps<HTMLAnchorElement> {
   title: string;
   children: ReactNode;
@@ -11,7 +10,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default async function SiteHeader() {
+export default async function SiteHeader({ webInfo }: any) {
   const newsCategories = await newsCategoriesGQL();
 
   return (
@@ -19,7 +18,10 @@ export default async function SiteHeader() {
       <div>
         <div>
           <div>
-            <SiteHeaderNavigations newsCategories={newsCategories} />
+            <SiteHeaderNavigations
+              webInfo={webInfo}
+              newsCategories={newsCategories}
+            />
           </div>
         </div>
       </div>
