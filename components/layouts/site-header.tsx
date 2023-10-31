@@ -12,6 +12,7 @@ function classNames(...classes: string[]) {
 
 export default async function SiteHeader({ webInfo, navigations }: any) {
   const newsCategories = await newsCategoriesGQL();
+  const posts = await allPosts();
 
   return (
     <div className="bg-[#F5F5F4] dark:bg-[#040D12] sticky top-0 z-10 shadow-2xl mx-auto 2xl:container max-w-full ">
@@ -19,6 +20,7 @@ export default async function SiteHeader({ webInfo, navigations }: any) {
         <div>
           <div>
             <SiteHeaderNavigations
+              posts={posts}
               webInfo={webInfo}
               navigations={navigations}
               newsCategories={newsCategories}

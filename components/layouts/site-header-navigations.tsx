@@ -6,6 +6,7 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { CaretDownIcon } from "@radix-ui/react-icons";
 import { BellIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import Siebar from "./sitebar";
+import FeaturePosts from "./featurePosts";
 
 export interface ListItemProps extends HTMLProps<HTMLAnchorElement> {
   title: string;
@@ -20,6 +21,7 @@ export default function SiteHeaderNavigations({
   newsCategories,
   navigations,
   webInfo,
+  posts,
 }: any) {
   return (
     <div className="flex h-16 items-center justify-center relative ">
@@ -116,7 +118,7 @@ export default function SiteHeaderNavigations({
                 </NavigationMenu.Trigger>
                 <NavigationMenu.Content className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight  top-0 shadow-2xl backdrop-blur-xl dark:backdrop-blur-xl bg-white/95 dark:bg-[#040D12]/100  text-sm text-gray-500 relative ">
                   <ul className="grid grid-flow-col  py-12 ">
-                    <li className="col-start-2 grid grid-cols-5 gap-x-2 gap-y-6 pr-8"></li>
+                    <FeaturePosts posts={posts} categoryId={category.id} />
                     <li>
                       <div className="col-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm pl-8">
                         <ul
