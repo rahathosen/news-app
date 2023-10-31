@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import RelativeDate from "@/lib/relativeDate";
 
 export default function Category({ posts, categoryPosts }: any) {
   return (
@@ -32,11 +33,10 @@ export default function Category({ posts, categoryPosts }: any) {
                           </Link>
                         </h3>
                         <p className="hidden md:block text-gray-800 dark:text-gray-400 leading-tight mb-1">
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: post.description.slice(0, 100) + "...",
-                            }}
-                          ></div>
+                          <div>{post.description.slice(0, 100) + "..."}</div>
+                          <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
+                            <RelativeDate date={post.createdAt} />{" "}
+                          </div>
                           {/* {post.details.slice(0, 100) + "..."} */}
                         </p>
                         {/* <a

@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import RowAd from "@/components/advertisement/row-ad";
 import type { Metadata, ResolvingMetadata } from "next";
+import RelativeDateMinimal from "@/lib/relativeDateMinimal";
 import { newsCategoriesGQL, allPosts, websiteInfoGQL } from "@/lib/getGQL";
 import Category from "@/components/layouts/category";
 

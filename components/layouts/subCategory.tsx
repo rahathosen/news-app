@@ -1,3 +1,4 @@
+import RelativeDate from "@/lib/relativeDate";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -32,8 +33,11 @@ export default function SubCategory({ subCategoryPosts }: any) {
                           </Link>
                         </h3>
                         <p className="hidden md:block text-gray-800 dark:text-gray-400 leading-tight mb-1">
-                          {post.details.slice(0, 100) + "..."}
+                          {post.description.slice(0, 100) + "..."}
                         </p>
+                        <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
+                          <RelativeDate date={post.createdAt} />{" "}
+                        </div>
                         {/* <a
                           className="text-gray-800 font-medium dark:text-gray-400"
                           href="#"
