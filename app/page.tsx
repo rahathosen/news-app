@@ -10,7 +10,9 @@ import {
   breakingNewsGQL,
   allPosts,
   coverGQL,
+  headLinesGQL,
 } from "@/lib/getGQL";
+import RowAd from "@/components/advertisement/row-ad";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const webInfo = await websiteInfoGQL();
@@ -50,6 +52,7 @@ export default async function Home() {
   const posts = await allPosts();
   const newsCategory = await newsCategoriesGQL();
   const breakingNews = await breakingNewsGQL();
+  const headLineNews = await headLinesGQL();
   const coverNews = await coverGQL();
   // const webInfo = await websiteInfoGQL();
   // console.log(webInfo.websiteInfo.newsThumbnail)
@@ -57,6 +60,9 @@ export default async function Home() {
   // console.log(breakingNews);
   return (
     <main>
+      <HeadlineNews headLineNews={headLineNews} />
+      <RowAd />
+      <BreakingNews breakingNews={breakingNews} />
       <CoverNews
         coverNews={coverNews}
         posts={posts}

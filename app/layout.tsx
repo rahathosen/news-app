@@ -60,7 +60,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         <Provider attribute="class" defaultTheme="system" enableSystem>
           <SiteHeader navigations={navigations} webInfo={webInfo} />
 
-          <TopBottomAd />
+          {/* <TopBottomAd /> */}
 
           <div className="2xl:container mx-auto max-w-[85rem]">{children}</div>
           <BackToTopButton />

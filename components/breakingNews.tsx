@@ -1,12 +1,46 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import RelativeDate from "@/lib/relativeDate";
+import { cn } from "@/lib/utils";
+import Marquee from "@/components/reserveComponents/marquee";
 
-export default function BreakingNews({}: any) {
+const ReviewCard = ({ title, uniqueId }: any) => {
+  return (
+    <figure
+      className={cn(
+        "relative w-max cursor-pointer overflow-hidden rounded-lg  p-3",
+        // light styles
+        " bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+        // dark styles
+        " dark:bg-gray-600/[.10] dark:hover:bg-gray-200/[.15]"
+      )}
+    >
+      <blockquote className="mt-2 dark:text-gray-400 text-gray-600 text-sm font-bold">
+        <Link href={`../news/${uniqueId}`}>{title}</Link>
+      </blockquote>
+    </figure>
+  );
+};
+
+export default function BreakingNews({ breakingNews }: any) {
   return (
     <div>
-      <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-lg pt-4 mb-4 pb-4">
-        <main className="px-4">breaking news</main>
+      <div className="bg-stone-100 dark:bg-[#040D12] mt-2  rounded-b-lg rounded-lg pt-2 mb-2 pb-2">
+        <main className="px-4">
+          <div className="relative flex h-full w-full flex-col items-center justify-center gap-4 overflow-hidden  ">
+            <Marquee reverse pauseOnHover className="[--duration:20s]">
+              {breakingNews.breakingNews.items.map((post: any) => (
+                <ReviewCard key={post.id} {...post} />
+              ))}
+            </Marquee>
+            <div className="pointer-events-none absolute hidden lg:block  inset-y-0 left-0 w-[9%] dark:border-gray-50/[.1] dark:bg-[#040D12] bg-[#F5F5F4]">
+              <div className="flex dark:text-gray-400 text-gray-600  font-semibold text-sm items-center pt-6">
+                <p> ব্রেকিং নিউজ</p>
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
     </div>
   );
