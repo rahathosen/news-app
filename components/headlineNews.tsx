@@ -6,21 +6,21 @@ import Marquee from "@/components/reserveComponents/marquee";
 
 const ReviewCard = ({ title, uniqueId }: any) => {
   return (
-    <figure
-      className={cn(
-        "relative w-max  cursor-pointer overflow-hidden rounded-lg  p-3",
-        // light styles
-        " bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        // dark styles
-        " dark:bg-gray-600/[.10] dark:hover:bg-gray-200/[.15]"
-      )}
-    >
-      <Link href={`../news/${uniqueId}`}>
+    <Link href={`../news/${uniqueId}`}>
+      <figure
+        className={cn(
+          "relative w-max  cursor-pointer overflow-hidden rounded-lg  p-3",
+          // light styles
+          " bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+          // dark styles
+          " dark:bg-gray-600/[.10] dark:hover:bg-gray-200/[.15]"
+        )}
+      >
         <blockquote className="mt-2 dark:text-gray-400 text-gray-600 text-sm font-bold">
           {title}
         </blockquote>
-      </Link>
-    </figure>
+      </figure>
+    </Link>
   );
 };
 
