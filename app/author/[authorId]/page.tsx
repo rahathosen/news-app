@@ -50,6 +50,7 @@ export default async function Page({ params }: Props) {
   const postsByAuthor = posts.allPosts.filter(
     (post: any) => post.reportedBy.id === author.reportedBy.id
   );
+  const postsByAuthorLength = postsByAuthor.length;
 
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
@@ -92,7 +93,7 @@ export default async function Page({ params }: Props) {
                   <span className="font-bold dark:text-gray-500">
                     Total Article Published:
                   </span>{" "}
-                  15
+                  {postsByAuthorLength}
                 </span>
               </div>
               <div className="px-6  text-sm font-medium">
@@ -100,7 +101,7 @@ export default async function Page({ params }: Props) {
                   <span className="font-bold dark:text-gray-500">
                     Last Published Article:
                   </span>{" "}
-                  Wed Sep 13, 2023 02:52 PM
+                  <RelativeDateMinimal date={author.reportedBy.updatedAt} />
                 </span>
               </div>
             </div>
