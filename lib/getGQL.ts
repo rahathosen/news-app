@@ -88,6 +88,11 @@ export async function allPosts(): Promise<any> {
               uniqueId
               updatedAt
             }
+            tag {
+              id
+              title
+              uniqueId
+            }
           }
         }
       `;
@@ -106,6 +111,20 @@ export async function newsCategoriesGQL(): Promise<any> {
             id
             title
           }
+        }
+      }
+    `;
+
+  return fetchGraphQL(query);
+}
+// list of postsTags
+export async function postsTagsGQL(): Promise<any> {
+  const query = `
+      query MyQuery {
+        postsTags {
+          id
+          title
+          uniqueId
         }
       }
     `;

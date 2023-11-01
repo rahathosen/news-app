@@ -111,7 +111,7 @@ export default async function Page({ params }: Props) {
             <h4 className="lg:pt-8 pt-4 pb-4 border-b border-white dark:border-[#071720] text-lg lg:text-2xl font-bold text-gray-600 dark:text-gray-400">
               Related Topics:
             </h4>
-            <Badges />
+            <Badges post={post} />
           </div>
         </div>
         <div className="col-span-1">
