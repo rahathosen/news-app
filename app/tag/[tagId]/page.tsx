@@ -40,12 +40,12 @@ export const generateMetadata = async ({
       siteName: `${webInfo.websiteInfo.title}`,
       images: [
         {
-          url: `${webInfo.websiteInfo.image}`,
+          url: `${webInfo.websiteInfo.newsThumbnail}`,
           width: 1200,
           height: 630,
         },
         {
-          url: `${webInfo.websiteInfo.image}`,
+          url: `${webInfo.websiteInfo.newsThumbnail}`,
           width: 800,
           height: 600,
         },
