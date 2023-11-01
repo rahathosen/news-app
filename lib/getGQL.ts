@@ -125,6 +125,7 @@ export async function postsTagsGQL(): Promise<any> {
           id
           title
           uniqueId
+          details
         }
       }
     `;
