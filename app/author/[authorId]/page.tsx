@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import RelativeDateMinimal from "@/lib/relativeDateMinimal";
 import { newsCategoriesGQL, websiteInfoGQL, allPosts } from "@/lib/getGQL";
+import RelativeDate from "@/lib/relativeDate";
 
 type Props = {
   params: { authorId: string };
@@ -135,6 +136,9 @@ export default async function Page({ params }: Props) {
                         <p className="hidden md:block text-gray-800 dark:text-gray-400 leading-tight mb-1">
                           {post.description.slice(0, 100) + "..."}
                         </p>
+                        <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
+                          <RelativeDate date={post.createdAt} />{" "}
+                        </div>
                       </div>
                     </div>
                   </div>
