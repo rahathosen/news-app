@@ -24,6 +24,36 @@ type Props = {
   params: { tagId: number };
 };
 
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const webInfo = await websiteInfoGQL();
+  const tags = await postsTagsGQL();
+  const tag = tags.postsTags.find((tag: any) => tag.id === params.tagId);
+
+  return {
+    title: `${tag.title} - ${webInfo.websiteInfo.title}`,
+    description: `${tag.details}`,
+    openGraph: {
+      title: `${tag.title} - ${webInfo.websiteInfo.title}`,
+      url: `${webInfo.websiteInfo.url}`,
+      siteName: `${webInfo.websiteInfo.title}`,
+      images: [
+        {
+          url: `${webInfo.websiteInfo.image}`,
+          width: 1200,
+          height: 630,
+        },
+        {
+          url: `${webInfo.websiteInfo.image}`,
+          width: 800,
+          height: 600,
+        },
+      ],
+    },
+  };
+};
+
 export default async function Page({ params }: Props) {
   const posts = await allPosts();
   const tags = await postsTagsGQL();
