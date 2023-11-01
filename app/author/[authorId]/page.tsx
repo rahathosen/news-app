@@ -43,9 +43,13 @@ export const generateMetadata = async ({
 export default async function Page({ params }: Props) {
   const posts = await allPosts();
 
-  const post = posts.allPosts.find(
+  const author = posts.allPosts.find(
     (post: any) => post.reportedBy.uniqueId === params.authorId
   )!;
+
+  const postsByAuthor = posts.allPosts.filter(
+    (post: any) => post.reportedBy.id === author.reportedBy.id
+  );
 
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
@@ -63,7 +67,7 @@ export default async function Page({ params }: Props) {
                   <div className="flex-shrink-0">
                     <Image
                       className="mx-auto object-cover h-24 w-24 rounded-full"
-                      src={post.reportedBy.image}
+                      src={author.reportedBy.image}
                       alt=""
                       width={40}
                       height={20}
@@ -72,11 +76,11 @@ export default async function Page({ params }: Props) {
                   <div className="mt-0 text-center sm:mt-0 sm:pt-1 sm:text-left">
                     <div>
                       <p className="text-xl font-bold text-gray-900 dark:text-gray-400 sm:text-4xl">
-                        {post.reportedBy.name}
+                        {author.reportedBy.name}
                       </p>
                     </div>
                     <p className="text-sm sm:text-lg font-medium text-gray-600 dark:text-gray-600">
-                      {post.reportedBy.designation}
+                      {author.reportedBy.designation}
                     </p>
                   </div>
                 </div>
@@ -106,7 +110,7 @@ export default async function Page({ params }: Props) {
             {/* <!-- Left --> */}
             <div className="flex-shrink max-w-full w-full overflow-hidden">
               <div className="flex flex-row flex-wrap -mx-3">
-                {posts.allPosts.slice(0, 6).map((post: any) => (
+                {postsByAuthor.map((post: any) => (
                   <div
                     key={post.id}
                     className="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
