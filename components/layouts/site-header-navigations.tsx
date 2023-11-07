@@ -57,7 +57,7 @@ export default function SiteHeaderNavigations({
               মতামত
             </Link>
             {navigations.navigation.categories
-              .slice(1, 10)
+              .slice(0, 10)
               .map((category: any) => (
                 <NavigationMenu.Item key={category.id}>
                   <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-gray-400   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
