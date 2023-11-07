@@ -36,7 +36,7 @@ export default async function HeadlineNews({ headLineNews }: any) {
               ))}
             </Marquee>
             <div className="pointer-events-none absolute hidden lg:block  inset-y-0 left-0 w-1/12 dark:border-gray-50/[.1] dark:bg-[#040D12] bg-[#F5F5F4]">
-              <div className="flex dark:text-gray-400 text-gray-600 font-semibold text-sm items-center pt-6">
+              <div className="flex dark:text-gray-400 text-gray-600 font-semibold text-sm items-center pt-4">
                 <p>শিরোনাম</p>
               </div>
             </div>

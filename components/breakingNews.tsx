@@ -12,12 +12,12 @@ const ReviewCard = ({ title, uniqueId }: any) => {
         className={cn(
           "relative w-max cursor-pointer overflow-hidden rounded-lg  p-3",
           // light styles
-          " bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+          " bg-rose-700/[.1] hover:bg-rose-800/[.5]",
           // dark styles
-          " dark:bg-gray-600/[.10] dark:hover:bg-gray-200/[.15]"
+          " dark:bg-rose-600/[.10] dark:hover:bg-rose-200/[.15]"
         )}
       >
-        <blockquote className="mt-2 dark:text-gray-400 text-gray-600 text-sm font-bold">
+        <blockquote className="mt-2 dark:text-gray-400 text-gray-950 text-base font-bold">
           {title}
         </blockquote>
       </figure>
@@ -37,7 +37,7 @@ export default function BreakingNews({ breakingNews }: any) {
               ))}
             </Marquee>
             <div className="pointer-events-none absolute hidden lg:block  inset-y-0 left-0 w-[9%] dark:border-gray-50/[.1] dark:bg-[#040D12] bg-[#F5F5F4]">
-              <div className="flex dark:text-gray-400 text-gray-600  font-semibold text-sm items-center pt-6">
+              <div className="flex dark:text-amber-400 text-amber-500  font-bold text-base items-center pt-4">
                 <p> ব্রেকিং নিউজ</p>
               </div>
             </div>
