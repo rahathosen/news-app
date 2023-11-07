@@ -3,7 +3,7 @@
 async function fetchGraphQL(query: string): Promise<any> {
   const response = await fetch("https://django-news-server.vercel.app/gql/", {
     cache: "force-cache",
-    next: { revalidate: 300 },
+    // next: { revalidate: 300 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -134,34 +134,34 @@ export async function postsTagsGQL(): Promise<any> {
 }
 
 //  list of cover News
-export async function coverGQL(): Promise<any> {
-  const query = `
-      query MyQuery {
-        cover {
-          headNews {
-            id
-            title
-            updatedAt
-            uniqueId
-            description
-            image
-          }
-        }
-      }
-    `;
+// export async function coverGQL(): Promise<any> {
+//   const query = `
+//       query MyQuery {
+//         cover {
+//           headNews {
+//             id
+//             title
+//             updatedAt
+//             uniqueId
+//             description
+//             image
+//           }
+//         }
+//       }
+//     `;
 
-  return fetchGraphQL(query);
-}
+//   return fetchGraphQL(query);
+// }
 
 // list of headLines
 export async function headLinesGQL(): Promise<any> {
   const query = `
       query MyQuery {
-        headLines {
+        HeadLine {
           headlines {
-            id
-            title
-            uniqueId
+             id
+              title
+              uniqueId
           }
         }
       }
@@ -197,74 +197,26 @@ export async function navigationGQL(): Promise<any> {
   const query = `
       query MyQuery {
         navigation {
-          news {
-            id
-            name
-            uniqueId
-            countrySet {
-              id
-              name
-              uniqueId
-            }
-            featurepostSet {
-              id
-              title
-              uniqueId
-            }
-          }
-          news2 {
-            id
-            name
-            uniqueId
-            continent {
-              id
-              name
-              uniqueId
-            }
-            featurepostSet {
-              id
-              title
-              uniqueId
-            }
-          }
-          news3 {
-            id
-            name
-            uniqueId
-            districtSet {
-              id
-              name
-            }
-            featurepostSet {
-              id
-              title
-              uniqueId
-            }
-          }
-          news4 {
-            id
-            name
-            uniqueId
-            division {
-              id
-              name
-              uniqueId
-            }
-            featurepostSet {
-              id
-              title
-              uniqueId
-            }
-          }
-        }
-        newsCategories {
-          id
-          title
-          uniqueId
-          newssubcategorySet {
+          feature {
             id
             title
             uniqueId
+            featurepostSet {
+              id
+              title
+              uniqueId
+              image
+            }
+          }
+          categories {
+            id
+            title
+            uniqueId
+            newssubcategorySet {
+              id
+              title
+              uniqueId
+            }
           }
         }
       }

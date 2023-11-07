@@ -9,7 +9,7 @@ import {
   websiteInfoGQL,
   breakingNewsGQL,
   allPosts,
-  coverGQL,
+  // coverGQL,
   headLinesGQL,
 } from "@/lib/getGQL";
 import RowAd from "@/components/advertisement/row-ad";
@@ -53,7 +53,7 @@ export default async function Home() {
   const newsCategory = await newsCategoriesGQL();
   const breakingNews = await breakingNewsGQL();
   const headLineNews = await headLinesGQL();
-  const coverNews = await coverGQL();
+  // const coverNews = await coverGQL();
   // const webInfo = await websiteInfoGQL();
   // console.log(webInfo.websiteInfo.newsThumbnail)
   // console.log(coverNews);
@@ -64,7 +64,7 @@ export default async function Home() {
       <RowAd />
       <BreakingNews breakingNews={breakingNews} />
       <CoverNews
-        coverNews={coverNews}
+        // coverNews={coverNews}
         posts={posts}
         breakingNews={breakingNews}
       />
