@@ -24,6 +24,7 @@ import Image from "next/image";
 import Link from "next/link";
 // import NewsGridTemplate from "@/components/layouts/newsGridTemplate";
 import RowAd from "@/components/advertisement/row-ad";
+import Search from "@/components/search";
 
 const country = [
   {
@@ -166,18 +167,10 @@ export default function Page() {
                    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"
                 >
                   search
-                  {/* <MagnifyingGlassIcon
-                    className="-mr-0.5 h-5 w-5"
-                    aria-hidden="true"
-                  /> */}
                 </button>
               </div>
             </div>
-            {/* search end */}
-            <h2 className="text-black dark:text-gray-400 lg:text-xl pb-4 text-lg font-bold">
-              <span className="inline-block lg:h-4 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
-              Search result for: {`"${"Dhaka Today"}"`}
-            </h2>
+
             <div className="lg:hidden pb-2">
               <figcaption className="mt-2  flex gap-x-2 text-sm leading-6 text-gray-500">
                 <InformationCircleIcon
@@ -188,15 +181,6 @@ export default function Page() {
               </figcaption>
             </div>
             <div className="flex flex-wrap gap-4">
-              {/* <div className="hidden lg:block">
-                <figcaption className="mt-2  flex gap-x-2 text-sm leading-6 text-gray-500">
-                  <InformationCircleIcon
-                    className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
-                    aria-hidden="true"
-                  />
-                  Select menu for sorting
-                </figcaption>
-              </div> */}
               <Popover open={openCountry} onOpenChange={setOpenCountry}>
                 <PopoverTrigger asChild>
                   <Button
@@ -390,7 +374,7 @@ export default function Page() {
                 </PopoverContent>
               </Popover>
             </div>
-            {/* <NewsGridTemplate /> */}
+            <Search />
           </div>
         </div>
         <div className=" lg:w-[20%] lg:pl-4">
