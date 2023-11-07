@@ -23,6 +23,7 @@ export default function SiteHeaderNavigations({
   navigations,
   webInfo,
   posts,
+  opinions,
 }: any) {
   return (
     <div className="flex h-16 items-center justify-center relative ">
@@ -50,12 +51,48 @@ export default function SiteHeaderNavigations({
             >
               সর্বশেষ
             </Link>
-            <Link
-              href={"/opinion"}
-              className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-gray-400   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none"
-            >
-              মতামত
-            </Link>
+            {/* Opinion section */}
+
+            <NavigationMenu.Item>
+              <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-gray-400   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
+                মতামত{" "}
+                <CaretDownIcon
+                  className="text-gray-600 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
+                  aria-hidden
+                />
+              </NavigationMenu.Trigger>
+              <NavigationMenu.Content className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight  top-0 shadow-2xl backdrop-blur-xl dark:backdrop-blur-xl bg-white/95 dark:bg-[#040D12]/100  text-sm text-gray-500 relative ">
+                <ul className="grid grid-flow-col  py-12 ">
+                  <li>
+                    <div className="col-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm pl-8">
+                      <ul
+                        role="list"
+                        className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                      >
+                        <Link
+                          href={`#`}
+                          className="font-semibold text-base dark:text-gray-200 text-black"
+                        >
+                          মতামত
+                        </Link>
+                        {opinions.articleCategories.map((item: any) => (
+                          <li key={item.id} className="flex">
+                            <Link
+                              href={`#`}
+                              className="hover:text-gray-900 dark:hover:text-gray-200 font-semibold dark:text-gray-400"
+                            >
+                              {item.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </NavigationMenu.Content>
+            </NavigationMenu.Item>
+
+            {/* End Opinion section */}
             {navigations.navigation.categories
               .slice(0, 10)
               .map((category: any) => (

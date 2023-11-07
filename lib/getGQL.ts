@@ -54,6 +54,24 @@ export async function postByCategoryGQL(): Promise<any> {
 
   return fetchGraphQL(query);
 }
+// Post By Category
+export async function opinionGQL(): Promise<any> {
+  const query = `
+  query MyQuery {
+    articleCategories {
+      id
+      uniqueId
+      title
+      details
+      image
+      status
+      serial
+    }
+  }
+`;
+
+  return fetchGraphQL(query);
+}
 
 // Get All Post
 export async function allPosts(): Promise<any> {
