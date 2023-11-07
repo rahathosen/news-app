@@ -3,7 +3,7 @@
 async function fetchGraphQL(query: string): Promise<any> {
   const response = await fetch("https://django-news-server.vercel.app/gql/", {
     cache: "force-cache",
-    // next: { revalidate: 300 },
+    next: { revalidate: 300 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
