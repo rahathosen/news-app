@@ -187,6 +187,20 @@ export default function Siebar({ newsCategories }: any) {
                   )}
                   className="w-full"
                 >
+                  <div className="flex flex-col space-y-2">
+                    <Link
+                      href={"/search"}
+                      className="text-sm capitalize font-semibold dark:text-gray-400"
+                    >
+                      সর্বশেষ
+                    </Link>
+                    <Link
+                      href={"#"}
+                      className="text-sm capitalize font-semibold dark:text-gray-400"
+                    >
+                      মতামত
+                    </Link>
+                  </div>
                   {newsCategories.newsCategories?.map(
                     (item: any, index: any) => (
                       <AccordionItem value={item.title} key={index}>
@@ -229,6 +243,12 @@ export default function Siebar({ newsCategories }: any) {
                     )
                   )}
                 </Accordion>
+                <Link
+                  href={"#"}
+                  className="text-sm capitalize font-semibold dark:text-gray-400"
+                >
+                  ফিচার
+                </Link>
               </div>
             </ScrollArea>
           </SheetContent>
