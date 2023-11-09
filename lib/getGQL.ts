@@ -1,16 +1,18 @@
-// =================================================================================================
 
-async function fetchGraphQL(query: string): Promise<any> {
-  const response = await fetch("https://django-news-server.vercel.app/gql/", {
+async function fetchGraphQL(query: string, variables?: object): Promise<any> {  
+  const url = "https://django-news-server.vercel.app/gql/";
+  const body = variables 
+    ? JSON.stringify({ query, variables })
+    : JSON.stringify({ query });
+
+  const response = await fetch(url, {
     cache: "force-cache",
     next: { revalidate: 300 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      query,
-    }),
+    body,
   });
 
   const { data } = await response.json();
@@ -116,6 +118,56 @@ export async function allPosts(): Promise<any> {
       `;
 
   return fetchGraphQL(query);
+}
+// Get a single Post detail
+export async function PostDetail(uId:any): Promise<any> {
+
+  const variables = {
+    postId: uId
+  };
+  const query = 
+    `query MyQuery($postId: String!) {
+        post(uId: $postId) {
+            id
+            uniqueId
+            title
+            description
+            details
+            image
+            imageSource
+            createdAt
+            updatedAt
+            category {
+              uniqueId
+              id
+              title
+            }
+            subcategory {
+              id
+              title
+              uniqueId
+            }
+            reportedBy {
+              createdAt
+              designation
+              id
+              image
+              name
+              uniqueId
+              updatedAt
+            }
+            tag {
+              id
+              title
+              uniqueId
+            }
+          }
+        }
+    `
+   
+     
+
+  return fetchGraphQL(query,variables);
 }
 
 // list of Categories

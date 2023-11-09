@@ -9,7 +9,7 @@ import Author from "@/components/layouts/author";
 import Breadcrumb from "@/components/breadcrumb";
 import Badges from "@/components/ui/badges";
 import type { Metadata, ResolvingMetadata } from "next";
-import { newsCategoriesGQL, allPosts, websiteInfoGQL } from "@/lib/getGQL";
+import { newsCategoriesGQL, allPosts,PostDetail, websiteInfoGQL } from "@/lib/getGQL";
 import postcss from "postcss";
 interface Post {
   id: string;
@@ -54,12 +54,11 @@ export const generateMetadata = async ({
     },
   };
 };
-export default async function Page({ params }: Props) {
-  const posts = await allPosts();
-  const post = posts.allPosts.find(
-    (post: any) => post.uniqueId === params.slug
-  )!;
 
+export default async function Page({ params }: Props) {
+  const singlePost = await PostDetail(params.slug)
+  const post = singlePost.post
+  const posts = await allPosts();
   const categoryPosts = posts.allPosts.filter(
     (postall: Post) => postall.category.id === post.category.id
   );
