@@ -11,8 +11,8 @@ export default async function MostViewed({ categoryPosts }: any) {
           </h2>
         </div>
         <ul className="post-number">
-          {categoryPosts &&
-            categoryPosts.slice(0, 12).map((post: any) => (
+          {categoryPosts.postByCategory &&
+            categoryPosts.postByCategory.slice(0, 12).map((post: any) => (
               <li
                 key={post.id}
                 className="border-b border-gray-100 dark:border-gray-900 hover:bg-stone-300 rounded-lg dark:hover:bg-[#030b10]"

@@ -3,28 +3,17 @@ import Link from "next/link";
 import Divider from "./ui/divider";
 import RelativeDate from "@/lib/relativeDate";
 import RowAd from "./advertisement/row-ad";
-
-interface Post {
-  id: string;
-  uniqueId: string;
-  title: string;
-  category: {
-    id: number;
-    title: string;
-  };
-}
+import {
+  postByCategoryGQL,
+} from "@/lib/getGQL";
 
 export default async function Section({
-  posts,
   categoryTitle,
-  categoryId,
+  categoryUId,
 }: any) {
-  const categoryPosts = posts.allPosts.filter(
-    (post: Post) => post.category.id === categoryId
-  );
-  const categoryLength = posts.allPosts.filter(
-    (post: Post) => post.category.id === categoryId
-  ).length;
+
+  const categoryPosts = await postByCategoryGQL(categoryUId);
+  const categoryLength = categoryPosts.postByCategory.length
 
   return (
     <div>
@@ -32,14 +21,14 @@ export default async function Section({
         <div>
           <RowAd />
           <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
-            <Divider categoryTitle={categoryTitle} categoryId={categoryId} />
+            <Divider categoryTitle={categoryTitle} categoryUId={categoryUId} />
             <div className="px-4">
               <div>
                 <div className="flex flex-row flex-wrap">
                   {/* <!-- Left --> */}
                   <div className="flex-shrink max-w-full w-full lg:w-2/3  overflow-hidden">
                     <div className="flex flex-row flex-wrap -mx-3">
-                      {categoryPosts.slice(0, 1).map((post: any) => (
+                      {categoryPosts.postByCategory.slice(0, 1).map((post: any) => (
                         <div
                           key={post.id}
                           className="flex-shrink max-w-full w-full px-3 pb-5 lg:pb-20 md:pb-20 sm:pb-20"
@@ -75,7 +64,7 @@ export default async function Section({
                           </div>
                         </div>
                       ))}
-                      {categoryPosts.slice(1, 7).map((post: any) => (
+                      {categoryPosts.postByCategory.slice(1, 7).map((post: any) => (
                         <div
                           key={post.id}
                           className="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
@@ -118,7 +107,7 @@ export default async function Section({
                           </h2>
                         </div>
                         <ul className="post-number">
-                          {categoryPosts.slice(0, 12).map((post: any) => (
+                          {categoryPosts.postByCategory.slice(0, 12).map((post: any) => (
                             <li
                               key={post.id}
                               className="border-b border-gray-100 dark:border-gray-900 hover:bg-stone-300 rounded-lg dark:hover:bg-[#030b10]"

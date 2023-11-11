@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-export default function Divider({ categoryTitle, categoryId }: any) {
+export default function Divider({ categoryTitle, categoryUId }: any) {
   return (
     <div className="relative px-4 py-4 bg-stone-100 dark:bg-[#040D12] ">
       <div className="relative flex items-center justify-between">
@@ -9,7 +9,7 @@ export default function Divider({ categoryTitle, categoryId }: any) {
           {categoryTitle}
         </h2>
         <Link
-          href={`/category/${categoryId}`}
+          href={`/category/${categoryUId}`}
           className="inline-flex items-center gap-x-1.5 rounded-full  px-3 text-sm lg:text-base font-semibold text-gray-900 "
         >
           <div className="group text-black dark:text-gray-400 hover:text-[#5C8374] dark:hover:text-[#5C8374]  transition ease-in-out duration-200">

@@ -4,6 +4,7 @@ import Divider from "./ui/divider";
 import RelativeDate from "@/lib/relativeDate";
 import Section from "./section";
 export default function HomeNews({ posts, newsCategory }: any) {
+
   return (
     <div>
       <div>
@@ -12,8 +13,7 @@ export default function HomeNews({ posts, newsCategory }: any) {
             <div>
               <Section
                 categoryTitle={category.title}
-                categoryId={category.id}
-                posts={posts}
+                categoryUId={category.uniqueId}
               />
             </div>
           </div>

@@ -9,7 +9,13 @@ import Author from "@/components/layouts/author";
 import Breadcrumb from "@/components/breadcrumb";
 import Badges from "@/components/ui/badges";
 import type { Metadata, ResolvingMetadata } from "next";
-import { newsCategoriesGQL, allPosts,PostDetail, websiteInfoGQL } from "@/lib/getGQL";
+import {
+  newsCategoriesGQL,
+  allPosts,
+  PostDetail,
+  websiteInfoGQL,
+  postByCategoryGQL,
+} from "@/lib/getGQL";
 import postcss from "postcss";
 interface Post {
   id: string;
@@ -27,11 +33,10 @@ type Props = {
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
-  const allpost = await allPosts();
   const webInfo = await websiteInfoGQL();
-  const post = allpost.allPosts.find(
-    (post: any) => post.uniqueId === params.slug
-  )!;
+  const singlePost = await PostDetail(params.slug);
+  const post = singlePost.post;
+
   return {
     title: `${post.title} - ${webInfo.websiteInfo.title}`,
     openGraph: {
@@ -56,12 +61,10 @@ export const generateMetadata = async ({
 };
 
 export default async function Page({ params }: Props) {
-  const singlePost = await PostDetail(params.slug)
-  const post = singlePost.post
-  const posts = await allPosts();
-  const categoryPosts = posts.allPosts.filter(
-    (postall: Post) => postall.category.id === post.category.id
-  );
+  const singlePost = await PostDetail(params.slug);
+  const post = singlePost.post;
+  const categoryPosts = await postByCategoryGQL(post.category.uniqueId);
+
 
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">

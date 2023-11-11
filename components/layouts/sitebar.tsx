@@ -42,6 +42,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { navigation } from "../../lib/navigations";
 import ThemeToggle from "./theme-toggle-sitebar";
 import RelativeDate from "@/lib/relativeDate";
+import { Separator } from "../ui/separator";
 
 const notifications = [
   {
@@ -107,16 +108,9 @@ export interface ListItemProps extends HTMLProps<HTMLAnchorElement> {
   children: ReactNode;
 }
 
-type Checked = DropdownMenuCheckboxItemProps["checked"];
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export default function Siebar({ newsCategories }: any) {
-  const [showStatusBar, setShowStatusBar] = useState<Checked>(true);
-  const [showActivityBar, setShowActivityBar] = useState<Checked>(false);
-  const [showPanel, setShowPanel] = useState<Checked>(false);
+ 
   return (
     <div className="flex  items-center lg:pr-6  md:pr-2 pr-0">
       <button
@@ -187,19 +181,21 @@ export default function Siebar({ newsCategories }: any) {
                   )}
                   className="w-full"
                 >
-                  <div className="flex flex-col space-y-2">
+                  <div className="flex flex-col">
                     <Link
                       href={"/search"}
                       className="text-sm capitalize font-semibold dark:text-gray-400"
                     >
                       সর্বশেষ
                     </Link>
+                    <Separator className=" my-4"/>
                     <Link
                       href={"#"}
                       className="text-sm capitalize font-semibold dark:text-gray-400"
                     >
                       মতামত
                     </Link>
+                     <Separator className="mt-2"/>
                   </div>
                   {newsCategories.newsCategories?.map(
                     (item: any, index: any) => (
@@ -225,7 +221,7 @@ export default function Siebar({ newsCategories }: any) {
                                     key={index}
                                     className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-gray-400"
                                   >
-                                    <SheetClose asChild>
+                                     <SheetClose asChild>
                                       <Link
                                         href={`/category/${item.id}/${sub.id}`}
                                       >
@@ -245,7 +241,7 @@ export default function Siebar({ newsCategories }: any) {
                 </Accordion>
                 <Link
                   href={"#"}
-                  className="text-sm capitalize font-semibold dark:text-gray-400"
+                  className="text-sm capitalize font-semibold dark:text-gray-400 "
                 >
                   ফিচার
                 </Link>

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import RelativeDate from "@/lib/relativeDate";
 
-export default function Category({ posts, categoryPosts }: any) {
+export default function Category({ categoryPosts }: any) {
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
       <div>
