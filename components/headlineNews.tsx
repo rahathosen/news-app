@@ -24,14 +24,16 @@ const ReviewCard = ({ title, uniqueId }: any) => {
   );
 };
 
-export default async function HeadlineNews({ headLineNews }: any) {
+export default async function HeadlineNews({ headlines }: any) {
+
   return (
     <div>
       <div className="bg-stone-100 dark:bg-[#040D12] mt-2  rounded-md ">
         <main className="">
+          {/* <p>headline</p> */}
           <div className="relative flex h-full w-full flex-col text-center items-center justify-center  overflow-hidden  ">
             <Marquee pauseOnHover className="[--duration:20s]">
-              {headLineNews.HeadLine.headlines.map((post: any) => (
+            {headlines[0].headlines.map((post: any) => (
                 <ReviewCard key={post.id} {...post} />
               ))}
             </Marquee>
