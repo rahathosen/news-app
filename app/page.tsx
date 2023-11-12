@@ -60,9 +60,9 @@ export default async function Home() {
   // console.log(breakingNews);
   return (
     <main>
-      {/* <HeadlineNews headLineNews={headLineNews} /> */}
+      <HeadlineNews headLineNews={headLineNews} />
       <RowAd />
-      {/* <BreakingNews breakingNews={breakingNews} /> */}
+      <BreakingNews breakingNews={breakingNews} />
       <CoverNews
         // coverNews={coverNews}
         posts={posts}
