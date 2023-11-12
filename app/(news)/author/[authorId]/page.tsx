@@ -3,9 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import RelativeDateMinimal from "@/lib/relativeDateMinimal";
 import {
-  newsCategoriesGQL,
   websiteInfoGQL,
-  allPosts,
   reporterGQL,
 } from "@/lib/getGQL";
 import RelativeDate from "@/lib/relativeDate";
@@ -20,12 +18,12 @@ export const generateMetadata = async ({
   const webInfo = await websiteInfoGQL();
   const reporterInfo = await reporterGQL(params.authorId);
   const reporter = reporterInfo.reporter
-  const output = reporter.designation ? `${reporter.designation}` : '';
+  const designation = reporter.designation ? `${reporter.designation}` : '';
   return {
     title: `${reporter.name} - ${webInfo.websiteInfo.title}`,
     openGraph: {
       title: `${reporter.name} - ${webInfo.websiteInfo.title}`,
-      description: `${output}`,
+      description: `${designation}`,
       url: `${webInfo.websiteInfo.url}`,
       siteName: `${webInfo.websiteInfo.title}`,
       images: [
