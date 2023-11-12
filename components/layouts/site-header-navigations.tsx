@@ -14,17 +14,14 @@ export interface ListItemProps extends HTMLProps<HTMLAnchorElement> {
   children: ReactNode;
 }
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
-
 export default function SiteHeaderNavigations({
   newsCategories,
   navigations,
   webInfo,
-  posts,
   opinions,
+  posts,
 }: any) {
+  // console.log(navigations.navigation.categories)
   return (
     <div className="flex h-16 items-center justify-center relative ">
       <NavigationMenu.Root className="relative z-50 flex w-full justify-between">
@@ -106,7 +103,7 @@ export default function SiteHeaderNavigations({
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight  top-0 shadow-2xl backdrop-blur-xl dark:backdrop-blur-xl bg-white/95 dark:bg-[#040D12]/100  text-sm text-gray-500 relative ">
                     <ul className="grid grid-flow-col  py-12 ">
-                      <FeaturePosts posts={posts} categoryId={category.id} />
+                      <FeaturePosts posts={posts}  categoryId={category.id}/>
                       <li>
                         <div className="col-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm pl-8">
                           <ul
@@ -150,7 +147,7 @@ export default function SiteHeaderNavigations({
                 </NavigationMenu.Trigger>
                 <NavigationMenu.Content className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight  top-0 shadow-2xl backdrop-blur-xl dark:backdrop-blur-xl bg-white/95 dark:bg-[#040D12]/100  text-sm text-gray-500 relative ">
                   <ul className="grid grid-flow-col  py-12 ">
-                    <FeatureSubPosts subFeature={post.featurepostSet} />
+                    {/* <FeatureSubPosts subFeature={post.featurepostSet} /> */}
                     <li>
                       <div className="col-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm pl-8">
                         <ul

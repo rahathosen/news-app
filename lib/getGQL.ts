@@ -42,6 +42,7 @@ export async function websiteInfoGQL(): Promise<any> {
 
 // Posts By Category
 export async function postByCategoryGQL(uId:any): Promise<any> {
+
   const variables = {
     catUId: uId
   };
@@ -86,7 +87,7 @@ export async function opinionGQL(): Promise<any> {
 export async function allPosts(): Promise<any> {
   const query = `
         query MyQuery {
-          allPosts {
+          allPosts(first: 10, skip: 0) {
             id
             uniqueId
             title
