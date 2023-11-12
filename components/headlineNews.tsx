@@ -25,8 +25,7 @@ const ReviewCard = ({ title, uniqueId }: any) => {
 };
 
 export default async function HeadlineNews({ headlines }: any) {
-  console.log('headlines news')
-  console.log(headlines)
+
   return (
     <div>
       <div className="bg-stone-100 dark:bg-[#040D12] mt-2  rounded-md ">
