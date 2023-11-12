@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Divider from "../ui/divider";
 import RelativeDate from "@/lib/relativeDate";
-import getData from "@/lib/getNews";
 import { newsCategoriesGQL, allPosts } from "@/lib/getGQL";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
@@ -27,9 +26,6 @@ export default async function TopSectionGQL() {
 
   const allpost = await allPosts();
 
-  // console.log(data);
-
-  const posts = await getData();
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
       <Divider />
@@ -89,7 +85,7 @@ export default async function TopSectionGQL() {
                     </div>
                   </div>
                 ))}
-                {posts.slice(1, 7).map((post: Post) => (
+                {allpost.allPosts.slice(1, 7).map((post: Post) => (
                   <div
                     key={post.id}
                     className="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
@@ -130,7 +126,7 @@ export default async function TopSectionGQL() {
                     </h2>
                   </div>
                   <ul className="post-number">
-                    {posts.slice(0, 12).map((post: Post) => (
+                    {allpost.allPosts.slice(0, 12).map((post: Post) => (
                       <li
                         key={post.id}
                         className="border-b border-gray-100 dark:border-gray-900 hover:bg-stone-300 rounded-lg dark:hover:bg-[#030b10]"

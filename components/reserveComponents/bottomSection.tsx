@@ -2,7 +2,9 @@ import Image from "next/image";
 import Divider from "../ui/divider";
 import RelativeDate from "@/lib/relativeDate";
 import Link from "next/link";
-import getData from "@/lib/getNews";
+import {
+  allPosts,
+} from "@/lib/getGQL";
 
 interface Post {
   id: number;
@@ -14,7 +16,7 @@ interface Post {
 }
 
 export default async function BottomSection() {
-  const posts = await getData();
+  const posts = await allPosts();
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 pb-4">
       <Divider />
@@ -24,7 +26,7 @@ export default async function BottomSection() {
           <div className="flex flex-row flex-wrap ">
             <div className="flex-shrink max-w-full w-full lg:w-2/3 overflow-hidden ">
               <div className="flex flex-row flex-wrap -mx-3">
-                {posts.slice(0, 1).map((post: Post) => (
+                {posts.allPosts.slice(0, 1).map((post: Post) => (
                   <div
                     key={post.id}
                     className="flex-shrink max-w-full w-full px-3  pb-5 lg:pb-20 md:pb-20 sm:pb-20"
