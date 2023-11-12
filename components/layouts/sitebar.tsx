@@ -39,7 +39,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { navigation } from "../../lib/navigations";
 import ThemeToggle from "./theme-toggle-sitebar";
 import RelativeDate from "@/lib/relativeDate";
 import { Separator } from "../ui/separator";
