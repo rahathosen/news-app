@@ -31,7 +31,7 @@ export default async function HeadlineNews({ headLineNews }: any) {
         <main className="">
           <div className="relative flex h-full w-full flex-col text-center items-center justify-center  overflow-hidden  ">
             <Marquee pauseOnHover className="[--duration:20s]">
-              {headLineNews.HeadLine.headlines.map((post: any) => (
+              {headLineNews.headLine.headlines.map((post: any) => (
                 <ReviewCard key={post.id} {...post} />
               ))}
             </Marquee>
