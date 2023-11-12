@@ -238,7 +238,7 @@ export async function postsTagsGQL(): Promise<any> {
 export async function headLinesGQL(): Promise<any> {
   const query = `
       query MyQuery {
-        HeadLine {
+        headLine {
           headlines {
              id
               title
