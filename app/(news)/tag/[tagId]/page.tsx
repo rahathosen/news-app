@@ -16,10 +16,10 @@ export const generateMetadata = async ({
 }: Props): Promise<Metadata> => {
   const webInfo = await websiteInfoGQL();
   const postsByTag = await postsByTagGQL(params.tagId);
-
+  const sortDetails = postsByTag.postsTag.sortDetails ? `${postsByTag.postsTag.sortDetails}` : '';
   return {
     title: `${postsByTag.postsTag.title} - ${webInfo.websiteInfo.title}`,
-    // description: `${postsByTag.postsTag.sortDetails}`,
+    description: `${sortDetails}`,
     openGraph: {
       title: `${postsByTag.postsTag.title} - ${webInfo.websiteInfo.title}`,
       url: `${webInfo.websiteInfo.url}`,
