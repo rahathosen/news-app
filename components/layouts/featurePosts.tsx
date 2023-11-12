@@ -17,7 +17,6 @@ export default  function  FeaturePosts({ posts,categoryId }: any) {
     (post: Post) => post.category.id === categoryId
   );
 
-  
   return (
     <li className="col-start-2 grid grid-cols-5 gap-x-2 gap-y-6 pr-8">
       {categoryPosts.slice(0,8).map((item: any) => (
