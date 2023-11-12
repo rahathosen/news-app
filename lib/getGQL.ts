@@ -61,6 +61,7 @@ export async function postsByTagGQL(taguId:any): Promise<any> {
             title
             image
             updatedAt
+            createdAt
             uniqueId
             description
           }

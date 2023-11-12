@@ -34,7 +34,7 @@ export default function Tag({ postsByTag }: any) {
                           <p className="hidden md:block text-gray-800 dark:text-gray-400 leading-tight mb-1">
                             <div>{post.description.slice(0, 100) + "..."}</div>
                             <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
-                              <RelativeDate date={post.updatedAt} />{" "}
+                              <RelativeDate date={post.createdAt} />{" "}
                             </div>
                           </p>
                         </div>
