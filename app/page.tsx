@@ -57,10 +57,10 @@ export default async function Home() {
   // const webInfo = await websiteInfoGQL();
   // console.log(webInfo.websiteInfo.newsThumbnail)
   // console.log(coverNews);
-  // console.log(breakingNews);
+  // console.log(headLineNews.headLine);
   return (
     <main>
-      <HeadlineNews headLineNews={headLineNews} />
+      <HeadlineNews headlines={headLineNews.headLine} />
       <RowAd />
       <BreakingNews breakingNews={breakingNews} />
       <CoverNews
