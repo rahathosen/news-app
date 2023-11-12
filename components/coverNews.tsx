@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import RelativeDate from "@/lib/relativeDate";
-
+import { Skeleton } from "@/components/ui/skeleton"
+ 
 export default function CoverNews({ coverNews, breakingNews }: any) {
   return (
     <div>
@@ -37,6 +38,13 @@ export default function CoverNews({ coverNews, breakingNews }: any) {
                 </div>
               </div>
             </div> */}
+{/* <div className="flex items-center space-x-4">
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div>
+    </div> */}
 
             <div className="flex-shrink max-w-full  w-full lg:w-1/2">
               <div className="box-one flex gap-2 sm:gap-0 flex-row flex-wrap">

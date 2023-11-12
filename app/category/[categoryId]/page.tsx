@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import RowAd from "@/components/advertisement/row-ad";
 import type { Metadata, ResolvingMetadata } from "next";
-import { newsCategoriesGQL, allPosts, websiteInfoGQL } from "@/lib/getGQL";
+import { newsCategoriesGQL, allPosts, websiteInfoGQL,postByCategoryGQL } from "@/lib/getGQL";
 import Category from "@/components/layouts/category";
 
 const tabs = [
@@ -67,15 +67,12 @@ interface Post {
 
 export default async function Page({ params }: Props) {
   const data = await newsCategoriesGQL();
-  const posts = await allPosts();
   const category = data.newsCategories.find(
     (category: any) => category.id === params.categoryId
   );
 
-  const categoryPosts = posts.allPosts.filter(
-    (post: Post) => post.category.id === params.categoryId
-  );
-
+  const postByCategory = await postByCategoryGQL(category.uniqueId);
+  const categoryPosts = postByCategory.postByCategory
   return (
     <div>
       <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
@@ -129,7 +126,7 @@ export default async function Page({ params }: Props) {
                 </div>
               </div>
               {/* Tab end */}
-              <Category posts={posts} categoryPosts={categoryPosts} />
+              <Category categoryPosts={categoryPosts} />
             </div>
           </div>
         </div>

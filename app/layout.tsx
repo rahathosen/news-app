@@ -54,18 +54,20 @@ interface RootLayoutProps {
 export default async function RootLayout({ children }: RootLayoutProps) {
   const webInfo = await websiteInfoGQL();
   const navigations = await navigationGQL();
+
+ 
+
   return (
     <html lang="en">
       <body className={cn("", inter.className)}>
         <Provider attribute="class" defaultTheme="system" enableSystem>
-          <SiteHeader navigations={navigations} webInfo={webInfo} />
-
-          {/* <TopBottomAd /> */}
-
+         <div className="mx-2">
+         <SiteHeader navigations={navigations} webInfo={webInfo} />
           <div className="2xl:container mx-auto max-w-[85rem]">{children}</div>
           <BackToTopButton />
           <TopBottomAd />
           <SiteFooter webInfo={webInfo} />
+         </div>
         </Provider>
         <Analytics />
       </body>

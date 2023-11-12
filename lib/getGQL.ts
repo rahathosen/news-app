@@ -40,23 +40,31 @@ export async function websiteInfoGQL(): Promise<any> {
   return fetchGraphQL(query);
 }
 
-// Post By Category
-export async function postByCategoryGQL(): Promise<any> {
-  const query = `
-  query MyQuery {
-    postByCategory(categoryId: 1) {
+// Posts By Category
+export async function postByCategoryGQL(uId:any): Promise<any> {
+
+  const variables = {
+    catUId: uId
+  };
+  const query = 
+    ` query MyQuery($catUId: String!) {
+      postByCategory(categoryuId: $catUId) {
+
       id
+      uniqueId
       title
+      description
       details
       image
-      uniqueId
+      imageSource
+      createdAt
+      updatedAt
     }
   }
 `;
-
-  return fetchGraphQL(query);
+  return fetchGraphQL(query,variables);
 }
-// Post By Category
+// Post By articleCategories
 export async function opinionGQL(): Promise<any> {
   const query = `
   query MyQuery {
@@ -79,7 +87,7 @@ export async function opinionGQL(): Promise<any> {
 export async function allPosts(): Promise<any> {
   const query = `
         query MyQuery {
-          allPosts {
+          allPosts(first: 10, skip: 0) {
             id
             uniqueId
             title
@@ -126,7 +134,7 @@ export async function PostDetail(uId:any): Promise<any> {
     postId: uId
   };
   const query = 
-    `query MyQuery($postId: String!) {
+    ` query MyQuery($postId: String!) {
         post(uId: $postId) {
             id
             uniqueId
@@ -177,10 +185,13 @@ export async function newsCategoriesGQL(): Promise<any> {
         newsCategories {
           id
           title
+          uniqueId
           newssubcategorySet {
             id
             title
+            uniqueId
           }
+          
         }
       }
     `;

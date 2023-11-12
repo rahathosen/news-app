@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+
 interface Post {
   id: string;
   uniqueId: string;
@@ -10,14 +11,15 @@ interface Post {
   };
 }
 
-export default function FeaturePosts({ posts, categoryId }: any) {
+export default  function  FeaturePosts({ posts,categoryId }: any) {
+
   const categoryPosts = posts.allPosts.filter(
     (post: Post) => post.category.id === categoryId
   );
 
   return (
     <li className="col-start-2 grid grid-cols-5 gap-x-2 gap-y-6 pr-8">
-      {categoryPosts.slice(0, 10).map((item: any) => (
+      {categoryPosts.slice(0,8).map((item: any) => (
         <Link key={item.id} href={`../news/${item.uniqueId}`}>
           <div className="aspect-h-1 aspect-w-2 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
             <Image

@@ -1,15 +1,17 @@
-"use client";
+"use client"
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Loading() {
-  // You can add any UI inside Loading, including a Skeleton.
+
   return (
     <div>
-      <div className="bg-stone-100 dark:bg-[#040D12] mt-2  rounded-b-lg rounded-lg pt-2 mb-2 pb-2">
-        <main className="px-4">
-          <Skeleton className="w-screen h-screen rounded-sm" />
-        </main>
+      <div className="flex items-center space-x-4 mx-auto">
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="h-20 w-[500px]" />
+        <Skeleton className="h-20 w-[500px]" />
       </div>
+    </div>
     </div>
   );
 }

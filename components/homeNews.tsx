@@ -3,17 +3,18 @@ import Link from "next/link";
 import Divider from "./ui/divider";
 import RelativeDate from "@/lib/relativeDate";
 import Section from "./section";
-export default function HomeNews({ posts, newsCategory }: any) {
+export default function HomeNews({ newsCategory }: any) {
+
   return (
     <div>
       <div>
-        {newsCategory.newsCategories.map((category: any) => (
+        {newsCategory.newsCategories.map((category: any) =>
+         (
           <div key={category.id}>
             <div>
               <Section
-                categoryTitle={category.title}
-                categoryId={category.id}
-                posts={posts}
+                categoryTitle={category.title}             
+                categoryUId={category.uniqueId}
               />
             </div>
           </div>
