@@ -2,7 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import RelativeDateMinimal from "@/lib/relativeDateMinimal";
-import { newsCategoriesGQL, websiteInfoGQL, allPosts } from "@/lib/getGQL";
+import {
+  newsCategoriesGQL,
+  websiteInfoGQL,
+  allPosts,
+  reporterGQL,
+} from "@/lib/getGQL";
 import RelativeDate from "@/lib/relativeDate";
 
 type Props = {
@@ -12,27 +17,25 @@ type Props = {
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
-  const posts = await allPosts();
   const webInfo = await websiteInfoGQL();
-  const author = posts.allPosts.find(
-    (post: any) => post.reportedBy.uniqueId === params.authorId
-  )!;
-
+  const reporterInfo = await reporterGQL(params.authorId);
+  const reporter = reporterInfo.reporter
+  const output = reporter.designation ? `${reporter.designation}` : '';
   return {
-    title: `${author.reportedBy.name} - ${webInfo.websiteInfo.title}`,
+    title: `${reporter.name} - ${webInfo.websiteInfo.title}`,
     openGraph: {
-      title: `${author.reportedBy.name} - ${webInfo.websiteInfo.title}`,
-      description: `${author.reportedBy.designation}`,
+      title: `${reporter.name} - ${webInfo.websiteInfo.title}`,
+      description: `${output}`,
       url: `${webInfo.websiteInfo.url}`,
       siteName: `${webInfo.websiteInfo.title}`,
       images: [
         {
-          url: `${author.reportedBy.image}`,
+          url: `${reporter.image}`,
           width: 1200,
           height: 630,
         },
         {
-          url: `${author.reportedBy.image}`,
+          url: `${reporter.image}`,
           width: 800,
           height: 600,
         },
@@ -42,34 +45,21 @@ export const generateMetadata = async ({
 };
 
 export default async function Page({ params }: Props) {
-  const posts = await allPosts();
-
-  const author = posts.allPosts.find(
-    (post: any) => post.reportedBy.uniqueId === params.authorId
-  )!;
-
-  const postsByAuthor = posts.allPosts.filter(
-    (post: any) => post.reportedBy.id === author.reportedBy.id
-  );
-  const postsByAuthorLength = postsByAuthor.length;
-
+  const reporterInfo = await reporterGQL(params.authorId);
+  const reporter = reporterInfo.reporter
+  const postsByAuthorLength = reporter.postSet.length;
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
       <div>
-        {/* <!-- block news --> */}
         <div className="xl:container mx-auto px-3 sm:px-4 xl:px-2">
-          {/* Author start */}
           <div className="overflow-hidden rounded-lg bg-stone-200 dark:bg-[#071720] shadow mb-4">
-            {/* <h2 className="sr-only" id="profile-overview-title">
-          Profile Overview
-        </h2> */}
             <div className="bg-stone-200 dark:bg-[#071720] p-4">
               <div className="sm:flex sm:items-center sm:justify-between">
                 <div className="sm:flex sm:space-x-7">
                   <div className="flex-shrink-0">
                     <Image
                       className="mx-auto object-cover h-24 w-24 rounded-full"
-                      src={author.reportedBy.image}
+                      src={reporter.image}
                       alt=""
                       width={40}
                       height={20}
@@ -78,11 +68,11 @@ export default async function Page({ params }: Props) {
                   <div className="mt-0 text-center sm:mt-0 sm:pt-1 sm:text-left">
                     <div>
                       <p className="text-xl font-bold text-gray-900 dark:text-gray-400 sm:text-4xl">
-                        {author.reportedBy.name}
+                        {reporter.name}
                       </p>
                     </div>
                     <p className="text-sm sm:text-lg font-medium text-gray-600 dark:text-gray-600">
-                      {author.reportedBy.designation}
+                      {reporter.designation}
                     </p>
                   </div>
                 </div>
@@ -102,7 +92,7 @@ export default async function Page({ params }: Props) {
                   <span className="font-bold dark:text-gray-500">
                     Last Published Article:
                   </span>{" "}
-                  <RelativeDateMinimal date={author.reportedBy.updatedAt} />
+                  <RelativeDateMinimal date={reporter.updatedAt} />
                 </span>
               </div>
             </div>
@@ -112,7 +102,7 @@ export default async function Page({ params }: Props) {
             {/* <!-- Left --> */}
             <div className="flex-shrink max-w-full w-full overflow-hidden">
               <div className="flex flex-row flex-wrap -mx-3">
-                {postsByAuthor.map((post: any) => (
+                {reporter.postSet.map((post: any) => (
                   <div
                     key={post.id}
                     className="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"

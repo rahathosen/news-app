@@ -43,11 +43,9 @@ export async function websiteInfoGQL(): Promise<any> {
 
 //  list of postsByTag
 export async function postsByTagGQL(taguId:any): Promise<any> {
-
   const variables = {
     tagUId: taguId
   };
-
   const query = `
       query MyQuery ($tagUId: String!){
         postsTag(uId: $tagUId) {
@@ -67,6 +65,35 @@ export async function postsByTagGQL(taguId:any): Promise<any> {
           }
         }
       }
+    `;
+
+  return fetchGraphQL(query,variables);
+}
+//  list of reporter
+export async function reporterGQL(useruId:any): Promise<any> {
+  const variables = {
+    userUId: useruId
+  };
+  const query = `
+  query reporterQuery ($userUId: String!){
+    reporter(uId: $userUId ) {
+      uniqueId
+      name
+      image
+      designation
+      details
+      updatedAt
+      postSet {
+        id
+        title
+        image
+        updatedAt
+        createdAt
+        uniqueId
+        description
+      }
+    }
+  }
     `;
 
   return fetchGraphQL(query,variables);
