@@ -40,6 +40,39 @@ export async function websiteInfoGQL(): Promise<any> {
   return fetchGraphQL(query);
 }
 
+
+//  list of postsByTag
+export async function postsByTagGQL(taguId:any): Promise<any> {
+
+  const variables = {
+    tagUId: taguId
+  };
+
+  const query = `
+      query MyQuery ($tagUId: String!){
+        postsTag(uId: $tagUId) {
+          id
+          title
+          uniqueId
+          details
+          sortDetails
+          postSet {
+            id
+            title
+            image
+            updatedAt
+            createdAt
+            uniqueId
+            description
+          }
+        }
+      }
+    `;
+
+  return fetchGraphQL(query,variables);
+}
+
+
 // Posts By Category
 export async function postByCategoryGQL(uId:any): Promise<any> {
 
@@ -214,25 +247,7 @@ export async function postsTagsGQL(): Promise<any> {
   return fetchGraphQL(query);
 }
 
-//  list of cover News
-// export async function coverGQL(): Promise<any> {
-//   const query = `
-//       query MyQuery {
-//         cover {
-//           headNews {
-//             id
-//             title
-//             updatedAt
-//             uniqueId
-//             description
-//             image
-//           }
-//         }
-//       }
-//     `;
 
-//   return fetchGraphQL(query);
-// }
 
 // list of headLines
 export async function headLinesGQL(): Promise<any> {
