@@ -9,7 +9,7 @@ export default function Badges({ post }: any) {
             key={item.id}
             className="inline-flex items-center rounded-full bg-white dark:bg-[#040D12] px-2 py-1 text-sm font-bold text-gray-600 dark:text-gray-400 ring-1 ring-inset ring-gray-500/40"
           >
-            <Link href={`../tag/${item.id}`}>{item.title}</Link>
+            <Link href={`../tag/${item.uniqueId}`}>{item.title}</Link>
           </span>
         ))}
       </div>

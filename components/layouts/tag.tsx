@@ -10,8 +10,7 @@ export default function Tag({ postsByTag }: any) {
           <div className="flex flex-row flex-wrap">
             <div className="flex-shrink max-w-full w-full overflow-hidden">
               <div className="flex flex-row flex-wrap ">
-                {postsByTag &&
-                  postsByTag.map((post: any) => (
+                {postsByTag &&  postsByTag.postSet.map((post: any) => (
                     <div
                       key={post.id}
                       className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
@@ -35,7 +34,7 @@ export default function Tag({ postsByTag }: any) {
                           <p className="hidden md:block text-gray-800 dark:text-gray-400 leading-tight mb-1">
                             <div>{post.description.slice(0, 100) + "..."}</div>
                             <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
-                              <RelativeDate date={post.createdAt} />{" "}
+                              <RelativeDate date={post.updatedAt} />{" "}
                             </div>
                           </p>
                         </div>
