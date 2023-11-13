@@ -16,6 +16,9 @@ import {
   websiteInfoGQL,
   postByCategoryGQL,
 } from "@/lib/getGQL";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import LatestNws from "@/components/latestnews";
+import OldestNews from "@/components/oldestnews";
 
 type Props = {
   params: { slug: string };
@@ -67,7 +70,20 @@ export default async function Page({ params }: Props) {
         <div className="hidden lg:block col-span-2">
           <div>
             <Author post={post} />
-            <MostViewed categoryPosts={categoryPosts} />
+            <Tabs defaultValue="lastnews" className="w-full">
+              <TabsList >
+                <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>
+                <TabsTrigger value="mostpopular">সর্বাধিক পঠিত</TabsTrigger>
+              </TabsList>
+              <TabsContent value="lastnews">
+              <LatestNws categoryPosts={categoryPosts}/>
+              </TabsContent>
+              <TabsContent value="mostpopular">
+              <OldestNews categoryPosts={categoryPosts}/>
+              </TabsContent>
+            </Tabs>
+           
+            {/* <MostViewed categoryPosts={categoryPosts} /> */}
           </div>
         </div>
 
