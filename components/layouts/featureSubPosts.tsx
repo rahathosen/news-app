@@ -14,7 +14,7 @@ export default function FeatureSubPosts({ subFeature }: any) {
   return (
     <li className="col-start-2 grid grid-cols-5 gap-x-2 gap-y-6 pr-8">
       {subFeature.slice(0, 10).map((item: any) => (
-        <Link key={item.id} href={`../news/${item.uniqueId}`}>
+        <Link key={item.id} href={`../feature/${item.uniqueId}`}>
           <div className="aspect-h-1 aspect-w-2 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
             <Image
               src={item.image}
@@ -26,7 +26,7 @@ export default function FeatureSubPosts({ subFeature }: any) {
           </div>
           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
             <h3 className="text-sm font-medium leading-tight  text-black dark:text-gray-400">
-              <Link href={`../news/${item.uniqueId}`}>{item.title}</Link>
+              <Link href={`../feature/${item.uniqueId}`}>{item.title}</Link>
             </h3>
           </div>
         </Link>
