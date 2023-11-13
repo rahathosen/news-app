@@ -1,39 +1,54 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function OldestNews({ categoryPosts }: any) {
+export default async function OldestNews({ categoryPosts,catpost }: any) {
+  const startIndex = Math.max(0, categoryPosts.postByCategory.length - 10);
+  function classNames(...classes: string[]) {
+    return classes.filter(Boolean).join(" ");
+  }
+
   return (
     <>
-      <div className="flex flex-row flex-wrap">
-        <div className="flex-shrink max-w-full w-full overflow-hidden">
-          <div className="flex flex-row flex-wrap -mx-3">
-            {categoryPosts.postByCategory &&
-              categoryPosts.postByCategory.slice(10,20).map((post: any) => (
+      <div>
+        <div className="">
+          {categoryPosts.postByCategory &&
+            categoryPosts.postByCategory.slice(startIndex).reverse().map((post: any) => (
+              <div key={post.id} className="col-span-1 flex rounded-md shadow-sm py-2">
                 <div
-                  key={post.id}
-                  className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-full px-3 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
+                  className={classNames(
+                    "flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white"
+                  )}
                 >
-                  <div className="flex flex-row sm:block hover-img">
-                    <Link href={`../news/${post.uniqueId}`}>
-                      <Image
-                        src={post.image}
-                        alt={""}
-                        width={640}
-                        height={427}
-                        className="max-w-full w-full mx-auto rounded-md"
-                      />
+                  <Link href={`../news/${post.uniqueId}`}>
+                    <Image
+                      src={post.image}
+                      alt=""
+                      width={200}
+                      height={160}
+                      className="mx-auto object-cover h-16 w-16 rounded-md"
+                    />
+                  </Link>
+                </div>
+                <div className="flex flex-1 items-center justify-between ">
+                  <div className="flex-1  px-4 py-2 text-sm">
+                  <Link href={`../news/${post.uniqueId}`}
+                      className="font-medium text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
+                    >
+                      {post.title}
                     </Link>
-                    <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                      <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-gray-400">
-                        <Link href={`../news/${post.uniqueId}`}>
-                          {post.title}
-                        </Link>
-                      </h3>
-                    </div>
+                    <p className="text-gray-500"> 
+                    <Link  href={`/category/${catpost.category.uniqueId}`}>
+                    {catpost.category.title} / 
+                    </Link>
+                    {" "}
+                    <Link  href={`/category/${catpost.category.uniqueId}/${catpost.subcategory.uniqueId}`}>
+                    {catpost.subcategory.title}
+                    </Link>
+                      </p>
                   </div>
                 </div>
-              ))}
-          </div>
+              </div>
+            ))}
         </div>
       </div>
     </>
