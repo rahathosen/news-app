@@ -110,7 +110,7 @@ export default async function Page({ params }: Props) {
               dangerouslySetInnerHTML={{
                 __html: post.details,
               }}
-            ></div>
+            />
           </p>
 
           <div>

@@ -10,24 +10,22 @@ import Breadcrumb from "@/components/breadcrumb";
 import Badges from "@/components/ui/badges";
 import type { Metadata, ResolvingMetadata } from "next";
 import {
-  newsCategoriesGQL,
-  allPosts,
-  PostDetail,
+ 
   websiteInfoGQL,
-  postByCategoryGQL,
-  fetureDetailGQL,
+  articlePostGQL
 } from "@/lib/getGQL";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 type Props = {
-  params: { featureuId: string };
+  params: { articleId: string };
 };
 
 
 export default async function Page({ params }: Props) {
-  const featurePost = await fetureDetailGQL(params.featureuId);
-  const post = featurePost.featurePost;
-
+  const webInfo = await websiteInfoGQL();
+  const articlePost = await articlePostGQL(params.articleId);
+  const post = articlePost.articlePost;
+console.log(post)
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
       {/* <Breadcrumb post={post} /> */}
@@ -61,7 +59,7 @@ export default async function Page({ params }: Props) {
           </h1>
           <figure className="mt-4">
             <Image
-              src={post.image}
+              src={ post.image || webInfo.websiteInfo.newsThumbnail}
               alt=""
               height={240}
               width={840}
@@ -77,11 +75,11 @@ export default async function Page({ params }: Props) {
             </figcaption>
           </figure>
           <p className="mt-6 text-xl leading-8 dark:text-gray-400">
-            <div
+          <div
               dangerouslySetInnerHTML={{
                 __html: post.details,
               }}
-            ></div>
+            />
           </p>
 
           {/* <div>
