@@ -255,14 +255,11 @@ export async function PostDetail(uId:any): Promise<any> {
           }
         }
     `
-   
-     
-
   return fetchGraphQL(query,variables);
 }
+
 // Get a single Feature detail
 export async function fetureDetailGQL(uId:any): Promise<any> {
-
   const variables = {
     postId: uId
   };
@@ -280,9 +277,54 @@ export async function fetureDetailGQL(uId:any): Promise<any> {
       }
     }
     `
-   
-     
+  return fetchGraphQL(query,variables);
+}
 
+//  list of all articles
+export async function allArticlesGQL(): Promise<any> {
+  const query = `
+  query articlePostQuery {
+    articlesPosts(first: 20, skip: 0) {
+      title
+      uniqueId
+      image
+      createdAt
+      description
+      imageSource
+      writter {
+        id
+        name
+        uniqueId
+      }
+    }
+  }
+    `;
+
+  return fetchGraphQL(query);
+}
+
+
+// Get a single Article detail
+export async function articlePostGQL(uId:any): Promise<any> {
+  const variables = {
+    postId: uId
+  };
+  const query = 
+    `
+    query featurePostQuery ($postId: String!) {
+      articlePost(uId: $postId) {
+        uniqueId
+        title
+        details
+        image
+        totalView
+        category {
+          uniqueId
+          title
+        }
+      }
+    }
+    `
   return fetchGraphQL(query,variables);
 }
 
@@ -402,6 +444,9 @@ export async function breakingNewsGQL(): Promise<any> {
 
   return fetchGraphQL(query);
 }
+
+
+
 
 // list of navigation
 export async function navigationGQL(): Promise<any> {

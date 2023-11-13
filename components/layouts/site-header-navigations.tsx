@@ -66,7 +66,7 @@ export default function SiteHeaderNavigations({
                         className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                       >
                         <Link
-                          href={`#`}
+                          href={`/article`}
                           className="font-semibold text-base dark:text-gray-200 text-black"
                         >
                           মতামত
@@ -74,7 +74,7 @@ export default function SiteHeaderNavigations({
                         {opinions.articleCategories.map((item: any) => (
                           <li key={item.id} className="flex">
                             <Link
-                              href={`#`}
+                              href={`/article/${item.uniqueId}`}
                               className="hover:text-gray-900 dark:hover:text-gray-200 font-semibold dark:text-gray-400"
                             >
                               {item.title}
