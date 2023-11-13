@@ -210,7 +210,7 @@ export default function Siebar({ newsCategories }: any) {
                             >
                               {/* <SheetFooter > */}
                               <SheetClose asChild>
-                                <Link href={`/category/${item.id}`}>
+                                <Link href={`/category/${item.uniqueId}`}>
                                   সকল {`${item.title}`}
                                 </Link>
                               </SheetClose>
@@ -222,7 +222,7 @@ export default function Siebar({ newsCategories }: any) {
                                   >
                                      <SheetClose asChild>
                                       <Link
-                                        href={`/category/${item.id}/${sub.id}`}
+                                        href={`/category/${item.uniqueId}/${sub.uniqueId}`}
                                       >
                                         {sub.title}
                                       </Link>

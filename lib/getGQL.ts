@@ -109,7 +109,6 @@ export async function postByCategoryGQL(uId:any): Promise<any> {
   const query = 
     ` query MyQuery($catUId: String!) {
       postByCategory(categoryuId: $catUId) {
-
       id
       uniqueId
       title
@@ -124,6 +123,31 @@ export async function postByCategoryGQL(uId:any): Promise<any> {
 `;
   return fetchGraphQL(query,variables);
 }
+// Posts By SubCategory
+export async function postBySubCategoryGQL(uId:any): Promise<any> {
+
+  const variables = {
+    subcatUId: uId
+  };
+  const query = 
+    ` query MyQuery($subcatUId: String!) {
+      postBySubCategory(subCategoryuId: $subcatUId) {
+      id
+      uniqueId
+      title
+      description
+      details
+      image
+      imageSource
+      createdAt
+      updatedAt
+    }
+  }
+`;
+  return fetchGraphQL(query,variables);
+}
+
+
 // Post By articleCategories
 export async function opinionGQL(): Promise<any> {
   const query = `
@@ -238,6 +262,29 @@ export async function PostDetail(uId:any): Promise<any> {
   return fetchGraphQL(query,variables);
 }
 
+//  category by uniqueID
+export async function newsCategorygGQL(catuId:any): Promise<any> {
+  const variables = {
+    catUId: catuId
+  };
+
+  const query = `
+      query MyQuery ($catUId: String!){
+        newsCategory(uId: $catUId){
+          title
+          uniqueId
+          newssubcategorySet {
+            title
+            uniqueId
+          }
+        }
+      }
+    `;
+
+  return fetchGraphQL(query,variables);
+}
+
+
 // list of Categories
 export async function newsCategoriesGQL(): Promise<any> {
   const query = `
@@ -257,6 +304,26 @@ export async function newsCategoriesGQL(): Promise<any> {
     `;
 
   return fetchGraphQL(query);
+}
+// list of SubCategory
+export async function newsSubCategoryGQL(subuId:any): Promise<any> {
+  const variables = {
+    subtUId: subuId
+  };
+  const query = `
+      query MyQuery ($subtUId: String!) {
+        newsSubCategory (uId: $subtUId) {
+          title
+          sortDetails
+          image
+          uniqueId
+          serial
+          status
+        }
+      }
+    `;
+
+  return fetchGraphQL(query,variables);
 }
 // list of postsTags
 export async function postsTagsGQL(): Promise<any> {

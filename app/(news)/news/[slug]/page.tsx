@@ -16,16 +16,7 @@ import {
   websiteInfoGQL,
   postByCategoryGQL,
 } from "@/lib/getGQL";
-import postcss from "postcss";
-interface Post {
-  id: string;
-  uniqueId: string;
-  title: string;
-  category: {
-    id: number;
-    title: string;
-  };
-}
+
 type Props = {
   params: { slug: string };
 };
