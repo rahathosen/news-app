@@ -3,7 +3,7 @@ import {
   InformationCircleIcon,
 } from "@heroicons/react/20/solid";
 import Image from "next/image";
-import MostViewed from "@/components/mostViewed";
+import MostViewed from "@/components/similarNews";
 import RelatedNews from "@/components/relatedNews";
 import Author from "@/components/layouts/author";
 import Breadcrumb from "@/components/breadcrumb";
@@ -59,7 +59,6 @@ export default async function Page({ params }: Props) {
   const post = singlePost.post;
   const categoryPosts = await postByCategoryGQL(post.category.uniqueId);
 
-
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
       <Breadcrumb post={post} />
@@ -76,14 +75,12 @@ export default async function Page({ params }: Props) {
                 <TabsTrigger value="mostpopular">সর্বাধিক পঠিত</TabsTrigger>
               </TabsList>
               <TabsContent value="lastnews">
-              <LatestNws categoryPosts={categoryPosts}/>
+              <LatestNws catpost={post}  categoryPosts={categoryPosts}/>
               </TabsContent>
               <TabsContent value="mostpopular">
-              <OldestNews categoryPosts={categoryPosts}/>
+              <OldestNews catpost={post} categoryPosts={categoryPosts}/>
               </TabsContent>
             </Tabs>
-           
-            {/* <MostViewed categoryPosts={categoryPosts} /> */}
           </div>
         </div>
 
@@ -126,8 +123,19 @@ export default async function Page({ params }: Props) {
         <div className="col-span-1">
           <div className="lg:hidden">
             <Author post={post} />
+            <Tabs defaultValue="lastNews" className="w-full">
+              <TabsList >
+                <TabsTrigger value="lastNews">সর্বশেষ</TabsTrigger>
+                <TabsTrigger value="oldestNews">সর্বাধিক পঠিত</TabsTrigger>
+              </TabsList>
+              <TabsContent value="lastNews">
+              <LatestNws catpost={post} categoryPosts={categoryPosts}/>
+              </TabsContent>
+              <TabsContent value="oldestNews">
+              <OldestNews catpost={post} categoryPosts={categoryPosts}/>
+              </TabsContent>
+            </Tabs>
           </div>
-          <RelatedNews categoryPosts={categoryPosts} />
         </div>
       </div>
       <div className="px-4 py-2 lg:hidden">

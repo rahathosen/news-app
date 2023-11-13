@@ -3,7 +3,7 @@ import {
   InformationCircleIcon,
 } from "@heroicons/react/20/solid";
 import Image from "next/image";
-import MostViewed from "@/components/mostViewed";
+import MostViewed from "@/components/similarNews";
 import RelatedNews from "@/components/relatedNews";
 import Author from "@/components/layouts/author";
 import Breadcrumb from "@/components/breadcrumb";

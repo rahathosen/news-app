@@ -7,7 +7,7 @@ export default async function MostViewed({ categoryPosts }: any) {
       <div className="">
         <div className="p-4 bg-stone-200 dark:bg-[#071720] rounded-lg">
           <h2 className="lg:text-xl text-lg font-bold text-black dark:text-gray-400">
-            Most Popular
+            রিলেটেড সংবাদ
           </h2>
         </div>
         <ul className="post-number">
