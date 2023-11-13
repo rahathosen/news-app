@@ -17,6 +17,7 @@ import {
   postByCategoryGQL,
   fetureDetailGQL,
 } from "@/lib/getGQL";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 type Props = {
   params: { featureuId: string };
@@ -27,7 +28,7 @@ export const generateMetadata = async ({
 }: Props): Promise<Metadata> => {
   const webInfo = await websiteInfoGQL();
   const featurePost = await fetureDetailGQL(params.featureuId);
-  const post = featurePost.featurePost
+  const post = featurePost.featurePost;
 
   return {
     title: `${post.title} - ${webInfo.websiteInfo.title}`,
@@ -52,13 +53,10 @@ export const generateMetadata = async ({
   };
 };
 
-
-
 export default async function Page({ params }: Props) {
-  
   const featurePost = await fetureDetailGQL(params.featureuId);
-  const post = featurePost.featurePost
-  
+  const post = featurePost.featurePost;
+
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
       {/* <Breadcrumb post={post} /> */}
@@ -68,6 +66,19 @@ export default async function Page({ params }: Props) {
       >
         <div className="hidden lg:block col-span-2">
           <div>
+            <Tabs defaultValue="lastnews" className="w-full">
+              <TabsList >
+                <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>
+                <TabsTrigger value="mostpopular">সর্বাধিক পঠিত</TabsTrigger>
+              </TabsList>
+              <TabsContent value="lastnews">
+              সর্বশেষ সংবাদ here.
+              </TabsContent>
+              <TabsContent value="mostpopular">
+              সর্বাধিক পঠিত here.
+              </TabsContent>
+            </Tabs>
+
             {/* <Author post={post} /> */}
             {/* <MostViewed categoryPosts={categoryPosts} /> */}
           </div>
