@@ -40,7 +40,6 @@ export async function websiteInfoGQL(): Promise<any> {
   return fetchGraphQL(query);
 }
 
-
 //  list of postsByTag
 export async function postsByTagGQL(taguId:any): Promise<any> {
   const variables = {
@@ -99,7 +98,6 @@ export async function reporterGQL(useruId:any): Promise<any> {
   return fetchGraphQL(query,variables);
 }
 
-
 // Posts By Category
 export async function postByCategoryGQL(uId:any): Promise<any> {
 
@@ -146,7 +144,6 @@ export async function postBySubCategoryGQL(uId:any): Promise<any> {
 `;
   return fetchGraphQL(query,variables);
 }
-
 
 // Post By articleCategories
 export async function opinionGQL(): Promise<any> {
@@ -211,6 +208,8 @@ export async function allPosts(): Promise<any> {
 
   return fetchGraphQL(query);
 }
+
+
 // Get a single Post detail
 export async function PostDetail(uId:any): Promise<any> {
 
@@ -261,6 +260,31 @@ export async function PostDetail(uId:any): Promise<any> {
 
   return fetchGraphQL(query,variables);
 }
+// Get a single Feature detail
+export async function fetureDetailGQL(uId:any): Promise<any> {
+
+  const variables = {
+    postId: uId
+  };
+  const query = 
+    `
+    query featurePostQuery ($postId: String!) {
+      featurePost(featurePostuId: $postId) {
+        uniqueId
+        title
+        image
+        description
+        details
+        createdAt
+        imageSource
+      }
+    }
+    `
+   
+     
+
+  return fetchGraphQL(query,variables);
+}
 
 //  category by uniqueID
 export async function newsCategorygGQL(catuId:any): Promise<any> {
@@ -283,7 +307,6 @@ export async function newsCategorygGQL(catuId:any): Promise<any> {
 
   return fetchGraphQL(query,variables);
 }
-
 
 // list of Categories
 export async function newsCategoriesGQL(): Promise<any> {
@@ -341,8 +364,6 @@ export async function postsTagsGQL(): Promise<any> {
   return fetchGraphQL(query);
 }
 
-
-
 // list of headLines
 export async function headLinesGQL(): Promise<any> {
   const query = `
@@ -387,6 +408,16 @@ export async function navigationGQL(): Promise<any> {
   const query = `
       query MyQuery {
         navigation {
+          categories {
+            id
+            title
+            uniqueId
+            newssubcategorySet {
+              id
+              title
+              uniqueId
+            }
+          }
           feature {
             id
             title
@@ -396,16 +427,6 @@ export async function navigationGQL(): Promise<any> {
               title
               uniqueId
               image
-            }
-          }
-          categories {
-            id
-            title
-            uniqueId
-            newssubcategorySet {
-              id
-              title
-              uniqueId
             }
           }
         }
