@@ -39,7 +39,7 @@ export default function Breadcrumb({ post }: any) {
               aria-hidden="true"
             />
             <Link
-              href={`/category/${post.category.id}`}
+              href={`/category/${post.category.uniqueId}`}
               className="pl-4 text-lg font-bold text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700"
               // aria-current={page.current ? "page" : undefined}
             >
@@ -52,7 +52,7 @@ export default function Breadcrumb({ post }: any) {
               aria-hidden="true"
             />
             <Link
-              href={`/category/${post.category.id}/${post.subcategory.id}`}
+              href={`/category/${post.category.uniqueId}/${post.subcategory.uniqueId}`}
               className="ml-4 text-lg font-bold text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700"
             >
               {post.subcategory.title}

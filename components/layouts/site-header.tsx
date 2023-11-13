@@ -18,7 +18,7 @@ export default async function SiteHeader({ webInfo, navigations }: any) {
         <div>
           <div>
             <SiteHeaderNavigations
-            posts={posts}
+              posts={posts}
               opinions={opinions}
               webInfo={webInfo}
               navigations={navigations}

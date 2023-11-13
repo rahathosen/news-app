@@ -6,24 +6,17 @@ import Image from "next/image";
 import Link from "next/link";
 import RowAd from "@/components/advertisement/row-ad";
 import type { Metadata, ResolvingMetadata } from "next";
-import { newsCategoriesGQL, allPosts, websiteInfoGQL,postByCategoryGQL } from "@/lib/getGQL";
+import { newsCategoriesGQL, allPosts, websiteInfoGQL,postByCategoryGQL,newsCategorygGQL } from "@/lib/getGQL";
 import Category from "@/components/layouts/category";
 
-const tabs = [
-  { name: "Views", href: "#", current: true },
-  { name: "Editorial", href: "#", current: false },
-  { name: "In Focus", href: "#", current: false },
-  { name: "Letters to the Editor", href: "#", current: false },
-];
+
 
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
-  const data = await newsCategoriesGQL();
   const webInfo = await websiteInfoGQL();
-  const category = data.newsCategories.find(
-    (category: any) => category.id === params.categoryId
-  );
+  const newsCategory = await newsCategorygGQL(params.categoryId);
+  const category = newsCategory.newsCategory
 
   return {
     title: `${category.title} - ${webInfo.websiteInfo.title}`,
@@ -52,24 +45,13 @@ function classNames(...classes: string[]) {
 }
 
 type Props = {
-  params: { categoryId: number };
+  params: { categoryId: string };
 };
 
-interface Post {
-  id: string;
-  uniqueId: string;
-  title: string;
-  category: {
-    id: number;
-    title: string;
-  };
-}
 
 export default async function Page({ params }: Props) {
-  const data = await newsCategoriesGQL();
-  const category = data.newsCategories.find(
-    (category: any) => category.id === params.categoryId
-  );
+  const newsCategory = await newsCategorygGQL(params.categoryId);
+  const category = newsCategory.newsCategory
 
   const postByCategory = await postByCategoryGQL(category.uniqueId);
   const categoryPosts = postByCategory.postByCategory
@@ -88,20 +70,6 @@ export default async function Page({ params }: Props) {
                   <label htmlFor="tabs" className="sr-only">
                     Select a tab
                   </label>
-                  {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
-                  {/* mobile dropdown menu */}
-                  {/* {tabs && (
-                  <select
-                    id="tabs"
-                    name="tabs"
-                    className="block w-full rounded-md border-red-700 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                    defaultValue={tabs.find((tab: any) => tab.current)?.name}
-                  >
-                    {tabs.map((tab) => (
-                      <option key={tab.name}>{tab.name}</option>
-                    ))}
-                  </select>
-                )} */}
                 </div>
                 <div className="no-scrollbar overflow-x-auto">
                   <div className="border-b border-gray-200 dark:border-[#071720]">
@@ -109,14 +77,14 @@ export default async function Page({ params }: Props) {
                       {category.newssubcategorySet.map((tab: any) => (
                         <Link
                           key={tab.title}
-                          href={`${category.id}/${tab.id}`}
+                          href={`${category.uniqueId}/${tab.uniqueId}`}
                           className={classNames(
                             tab.current
                               ? "dark:border-gray-500 border-black text-black dark:text-gray-200"
                               : "border-transparent text-gray-500 hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700",
                             "whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium"
                           )}
-                          aria-current={tab.current ? "page" : undefined}
+                          
                         >
                           {tab.title}
                         </Link>

@@ -21,7 +21,6 @@ export default function SiteHeaderNavigations({
   opinions,
   posts,
 }: any) {
-
   return (
     <div className="flex h-16 items-center justify-center relative ">
       <NavigationMenu.Root className="relative z-50 flex w-full justify-between">
@@ -95,7 +94,9 @@ export default function SiteHeaderNavigations({
               .map((category: any) => (
                 <NavigationMenu.Item key={category.id}>
                   <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-gray-400   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
-                    {category.title}{" "}
+                    <Link href={`/category/${category.uniqueId}`}>
+                      {category.title}
+                    </Link>
                     <CaretDownIcon
                       className="text-gray-600 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
                       aria-hidden
@@ -103,7 +104,7 @@ export default function SiteHeaderNavigations({
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight  top-0 shadow-2xl backdrop-blur-xl dark:backdrop-blur-xl bg-white/95 dark:bg-[#040D12]/100  text-sm text-gray-500 relative ">
                     <ul className="grid grid-flow-col  py-12 ">
-                      <FeaturePosts posts={posts}  categoryId={category.id}/>
+                      <FeaturePosts posts={posts} categoryId={category.id} />
                       <li>
                         <div className="col-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm pl-8">
                           <ul
@@ -112,7 +113,7 @@ export default function SiteHeaderNavigations({
                           >
                             {" "}
                             <Link
-                              href={`/category/${category.id}`}
+                              href={`/category/${category.uniqueId}`}
                               className="font-semibold text-base dark:text-gray-200 text-black"
                             >
                               {category.title}
@@ -120,7 +121,7 @@ export default function SiteHeaderNavigations({
                             {category.newssubcategorySet.map((item: any) => (
                               <li key={item.id} className="flex">
                                 <Link
-                                  href={`/category/${category.id}/${item.id}`}
+                                  href={`/category/${category.uniqueId}/${item.uniqueId}`}
                                   className="hover:text-gray-900 dark:hover:text-gray-200 font-semibold dark:text-gray-400"
                                 >
                                   {item.title}
