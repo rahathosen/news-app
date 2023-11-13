@@ -51,7 +51,9 @@ export default function SiteHeaderNavigations({
 
             <NavigationMenu.Item>
               <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-gray-400   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
-                মতামত{" "}
+               <Link href={`/article`}>
+               মতামত
+               </Link>
                 <CaretDownIcon
                   className="text-gray-600 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
                   aria-hidden
@@ -66,7 +68,7 @@ export default function SiteHeaderNavigations({
                         className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
                       >
                         <Link
-                          href={`#`}
+                          href={`/article`}
                           className="font-semibold text-base dark:text-gray-200 text-black"
                         >
                           মতামত
@@ -74,7 +76,7 @@ export default function SiteHeaderNavigations({
                         {opinions.articleCategories.map((item: any) => (
                           <li key={item.id} className="flex">
                             <Link
-                              href={`#`}
+                              href={`/article/${item.uniqueId}`}
                               className="hover:text-gray-900 dark:hover:text-gray-200 font-semibold dark:text-gray-400"
                             >
                               {item.title}
@@ -140,7 +142,8 @@ export default function SiteHeaderNavigations({
             {navigations.navigation.feature.map((post: any) => (
               <NavigationMenu.Item key={post.id}>
                 <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-gray-400   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
-                  ফিচার{" "}
+                  <Link href={`/feature`}>ফিচার</Link>
+                  {" "}
                   <CaretDownIcon
                     className="text-gray-600 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
                     aria-hidden

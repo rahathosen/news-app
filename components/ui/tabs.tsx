@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import * as TabsPrimitive from "@radix-ui/react-tabs"
-
 import { cn } from "@/lib/utils"
 
 const Tabs = TabsPrimitive.Root
@@ -14,7 +13,7 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-12 w-full items-center justify-around rounded-lg bg-gray-200 p-1 text-gray-400 dark:bg-[#071720] dark:text-gray-400",
+      "inline-flex h-12 w-full items-center justify-around rounded-lg bg-stone-200 p-1 text-stone-400 dark:bg-[#071720] dark:text-stone-400",
       className
     )}
     {...props}
@@ -29,7 +28,7 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex text-md text-gray-600 w-full font-bold items-center justify-center whitespace-nowrap rounded-md px-4 py-[10px] text-sm  ring-offset-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow dark:ring-offset-gray-950 dark:focus-visible:ring-gray-300 dark:data-[state=active]:bg-[#040D12] dark:data-[state=active]:text-gray-50",
+      "inline-flex text-md text-stone-600 w-full font-bold items-center justify-center whitespace-nowrap rounded-md px-4 py-[10px] text-sm  ring-offset-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow dark:ring-offset-stone-950 dark:focus-visible:ring-stone-300 dark:data-[state=active]:bg-[#040D12] dark:data-[state=active]:text-stone-50",
       className
     )}
     {...props}
@@ -44,7 +43,7 @@ const TabsContent = React.forwardRef<
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      "mt-2 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 dark:ring-offset-[#071720] dark:focus-visible:ring-gray-300",
+      "mt-2 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-950 focus-visible:ring-offset-2 dark:ring-offset-[#071720] dark:focus-visible:ring-stone-300",
       className
     )}
     {...props}

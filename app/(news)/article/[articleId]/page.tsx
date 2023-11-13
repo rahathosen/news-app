@@ -10,77 +10,46 @@ import Breadcrumb from "@/components/breadcrumb";
 import Badges from "@/components/ui/badges";
 import type { Metadata, ResolvingMetadata } from "next";
 import {
-  newsCategoriesGQL,
-  allPosts,
-  PostDetail,
+ 
   websiteInfoGQL,
-  postByCategoryGQL,
+  articlePostGQL
 } from "@/lib/getGQL";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import LatestNws from "@/components/latestnews";
-import OldestNews from "@/components/oldestnews";
 
 type Props = {
-  params: { slug: string };
+  params: { articleId: string };
 };
 
-export const generateMetadata = async ({
-  params,
-}: Props): Promise<Metadata> => {
-  const webInfo = await websiteInfoGQL();
-  const singlePost = await PostDetail(params.slug);
-  const post = singlePost.post;
-
-  return {
-    title: `${post.title} - ${webInfo.websiteInfo.title}`,
-    openGraph: {
-      title: `${post.title}  (${webInfo.websiteInfo.title})`,
-      description: `${post.description.slice(0, 400)}`,
-      url: `${webInfo.websiteInfo.url}`,
-      siteName: `${webInfo.websiteInfo.title}`,
-      images: [
-        {
-          url: `${post.image}`,
-          width: 1200,
-          height: 630,
-        },
-        {
-          url: `${post.image}`,
-          width: 800,
-          height: 600,
-        },
-      ],
-    },
-  };
-};
 
 export default async function Page({ params }: Props) {
-  const singlePost = await PostDetail(params.slug);
-  const post = singlePost.post;
-  const categoryPosts = await postByCategoryGQL(post.category.uniqueId);
-
+  const webInfo = await websiteInfoGQL();
+  const articlePost = await articlePostGQL(params.articleId);
+  const post = articlePost.articlePost;
+console.log(post)
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
-      <Breadcrumb post={post} />
+      {/* <Breadcrumb post={post} /> */}
       <div
         role="list"
         className="grid grid-cols-1 md:px-4 px-4  gap-y-2 lg:grid-cols-7 xl:gap-x-2"
       >
         <div className="hidden lg:block col-span-2">
           <div>
-            <Author post={post} />
             <Tabs defaultValue="lastnews" className="w-full">
               <TabsList >
                 <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>
                 <TabsTrigger value="mostpopular">সর্বাধিক পঠিত</TabsTrigger>
               </TabsList>
               <TabsContent value="lastnews">
-              <LatestNws catpost={post}  categoryPosts={categoryPosts}/>
+              সর্বশেষ সংবাদ here.
               </TabsContent>
               <TabsContent value="mostpopular">
-              <OldestNews catpost={post} categoryPosts={categoryPosts}/>
+              সর্বাধিক পঠিত here.
               </TabsContent>
             </Tabs>
+
+            {/* <Author post={post} /> */}
+            {/* <MostViewed categoryPosts={categoryPosts} /> */}
           </div>
         </div>
 
@@ -90,7 +59,7 @@ export default async function Page({ params }: Props) {
           </h1>
           <figure className="mt-4">
             <Image
-              src={post.image}
+              src={ post.image || webInfo.websiteInfo.newsThumbnail}
               alt=""
               height={240}
               width={840}
@@ -106,41 +75,30 @@ export default async function Page({ params }: Props) {
             </figcaption>
           </figure>
           <p className="mt-6 text-xl leading-8 dark:text-gray-400">
-            <div
+          <div
               dangerouslySetInnerHTML={{
                 __html: post.details,
               }}
             />
           </p>
 
-          <div>
+          {/* <div>
             <h4 className="lg:pt-8 pt-4 pb-4 border-b border-white dark:border-[#071720] text-lg lg:text-2xl font-bold text-gray-600 dark:text-gray-400">
               Related Topics:
             </h4>
             <Badges post={post} />
-          </div>
+          </div> */}
         </div>
-        <div className="col-span-1">
+        {/* <div className="col-span-1">
           <div className="lg:hidden">
             <Author post={post} />
-            <Tabs defaultValue="lastNews" className="w-full">
-              <TabsList >
-                <TabsTrigger value="lastNews">সর্বশেষ</TabsTrigger>
-                <TabsTrigger value="oldestNews">সর্বাধিক পঠিত</TabsTrigger>
-              </TabsList>
-              <TabsContent value="lastNews">
-              <LatestNws catpost={post} categoryPosts={categoryPosts}/>
-              </TabsContent>
-              <TabsContent value="oldestNews">
-              <OldestNews catpost={post} categoryPosts={categoryPosts}/>
-              </TabsContent>
-            </Tabs>
           </div>
-        </div>
+          <RelatedNews categoryPosts={categoryPosts} />
+        </div> */}
       </div>
-      <div className="px-4 py-2 lg:hidden">
+      {/* <div className="px-4 py-2 lg:hidden">
         <MostViewed categoryPosts={categoryPosts} />
-      </div>
+      </div> */}
     </div>
   );
 }
