@@ -20,12 +20,41 @@ type Props = {
   params: { articleId: string };
 };
 
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const webInfo = await websiteInfoGQL();
+  const articlePost = await articlePostGQL(params.articleId);
+  const post = articlePost.articlePost;
+
+  return {
+    title: `${post.title} - ${webInfo.websiteInfo.title}`,
+    openGraph: {
+      title: `${post.title}  (${webInfo.websiteInfo.title})`,
+      description: `${post.description.slice(0, 400)}`,
+      url: `${webInfo.websiteInfo.url}`,
+      siteName: `${webInfo.websiteInfo.title}`,
+      images: [
+        {
+          url: `${ post.image || webInfo.websiteInfo.newsThumbnail}`,
+          width: 1200,
+          height: 630,
+        },
+        {
+          url: `${ post.image || webInfo.websiteInfo.newsThumbnail}`,
+          width: 800,
+          height: 600,
+        },
+      ],
+    },
+  };
+};
+
 
 export default async function Page({ params }: Props) {
   const webInfo = await websiteInfoGQL();
   const articlePost = await articlePostGQL(params.articleId);
   const post = articlePost.articlePost;
-console.log(post)
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
       {/* <Breadcrumb post={post} /> */}
@@ -35,6 +64,7 @@ console.log(post)
       >
         <div className="hidden lg:block col-span-2">
           <div>
+          <Author post={post} />
             <Tabs defaultValue="lastnews" className="w-full">
               <TabsList >
                 <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>
@@ -47,9 +77,6 @@ console.log(post)
               সর্বাধিক পঠিত here.
               </TabsContent>
             </Tabs>
-
-            {/* <Author post={post} /> */}
-            {/* <MostViewed categoryPosts={categoryPosts} /> */}
           </div>
         </div>
 

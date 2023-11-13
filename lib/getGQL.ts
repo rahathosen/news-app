@@ -274,6 +274,15 @@ export async function fetureDetailGQL(uId:any): Promise<any> {
         details
         createdAt
         imageSource
+        reportedBy {
+          createdAt
+          designation
+          id
+          image
+          name
+          uniqueId
+          updatedAt
+        }
       }
     }
     `
@@ -312,7 +321,6 @@ export async function allArticlesGQL(): Promise<any> {
       image
       createdAt
       description
-      imageSource
       category {
         title
         uniqueId
@@ -337,11 +345,22 @@ export async function articlePostGQL(uId:any): Promise<any> {
         uniqueId
         title
         details
+        description
         image
+        imageSource
         totalView
         category {
           uniqueId
           title
+        }
+        reportedBy {
+          createdAt
+          designation
+          id
+          image
+          name
+          uniqueId
+          updatedAt
         }
       }
     }

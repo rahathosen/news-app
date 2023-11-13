@@ -31,7 +31,7 @@ export default function Breadcrumb({ post }: any) {
             </Link>
           </div>
         </li>
-        {/* {post.category.map((page) => ( */}
+
         <li className="flex">
           <div className="flex items-center">
             <ChevronRightIcon
@@ -41,7 +41,6 @@ export default function Breadcrumb({ post }: any) {
             <Link
               href={`/category/${post.category.uniqueId}`}
               className="pl-4 text-lg font-bold text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700"
-              // aria-current={page.current ? "page" : undefined}
             >
               {post.category.title}
             </Link>
@@ -59,7 +58,6 @@ export default function Breadcrumb({ post }: any) {
             </Link>
           </div>
         </li>
-        {/* ))} */}
       </ol>
       <div className="lg:pr-6 pr-4">
         <ShareIcon className="h-5 w-5 flex-shrink-0 text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700" />
