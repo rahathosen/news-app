@@ -280,6 +280,28 @@ export async function fetureDetailGQL(uId:any): Promise<any> {
   return fetchGraphQL(query,variables);
 }
 
+//  list of all Feature Posts
+export async function featurePostsGQL(): Promise<any> {
+  const query = `
+  query featurePostsQuery {
+    featurePosts {
+      title
+      uniqueId
+      image
+      imageSource
+      createdAt
+      description
+      category {
+        title
+        uniqueId
+        
+      }
+    }
+  }
+    `;
+
+  return fetchGraphQL(query);
+}
 //  list of all articles
 export async function allArticlesGQL(): Promise<any> {
   const query = `
@@ -291,9 +313,8 @@ export async function allArticlesGQL(): Promise<any> {
       createdAt
       description
       imageSource
-      writter {
-        id
-        name
+      category {
+        title
         uniqueId
       }
     }

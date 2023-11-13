@@ -23,35 +23,6 @@ type Props = {
   params: { featureuId: string };
 };
 
-export const generateMetadata = async ({
-  params,
-}: Props): Promise<Metadata> => {
-  const webInfo = await websiteInfoGQL();
-  const featurePost = await fetureDetailGQL(params.featureuId);
-  const post = featurePost.featurePost;
-
-  return {
-    title: `${post.title} - ${webInfo.websiteInfo.title}`,
-    openGraph: {
-      title: `${post.title}  (${webInfo.websiteInfo.title})`,
-      description: `${post.description.slice(0, 400)}`,
-      url: `${webInfo.websiteInfo.url}`,
-      siteName: `${webInfo.websiteInfo.title}`,
-      images: [
-        {
-          url: `${post.image}`,
-          width: 1200,
-          height: 630,
-        },
-        {
-          url: `${post.image}`,
-          width: 800,
-          height: 600,
-        },
-      ],
-    },
-  };
-};
 
 export default async function Page({ params }: Props) {
   const featurePost = await fetureDetailGQL(params.featureuId);

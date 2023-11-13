@@ -189,7 +189,7 @@ export default function Siebar({ newsCategories }: any) {
                     </Link>
                     <Separator className=" my-4"/>
                     <Link
-                      href={"#"}
+                      href={"/article"}
                       className="text-sm capitalize font-semibold dark:text-gray-400"
                     >
                       মতামত
@@ -239,7 +239,7 @@ export default function Siebar({ newsCategories }: any) {
                   )}
                 </Accordion>
                 <Link
-                  href={"#"}
+                  href={"/feature"}
                   className="text-sm capitalize font-semibold dark:text-gray-400 "
                 >
                   ফিচার
