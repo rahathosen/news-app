@@ -39,12 +39,12 @@ export const generateMetadata = async ({
       siteName: `${webInfo.websiteInfo.title}`,
       images: [
         {
-          url: `${post.image}`,
+          url: `${post.image || webInfo.websiteInfo.newsThumbnail}`,
           width: 1200,
           height: 630,
         },
         {
-          url: `${post.image}`,
+          url: `${post.image || webInfo.websiteInfo.newsThumbnail}`,
           width: 800,
           height: 600,
         },
@@ -66,6 +66,7 @@ export default async function Page({ params }: Props) {
       >
         <div className="hidden lg:block col-span-2">
           <div>
+          <Author post={post} />
             <Tabs defaultValue="lastnews" className="w-full">
               <TabsList >
                 <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>
@@ -79,7 +80,7 @@ export default async function Page({ params }: Props) {
               </TabsContent>
             </Tabs>
 
-            {/* <Author post={post} /> */}
+           
             {/* <MostViewed categoryPosts={categoryPosts} /> */}
           </div>
         </div>
