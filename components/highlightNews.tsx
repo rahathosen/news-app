@@ -218,7 +218,7 @@ export default function HighlightNews() {
                     alt={""}
                     width={640}
                     height={427}
-                    className="max-w-full w-full h-full mx-auto rounded-md bg-gray-50"
+                    className="max-w-full w-full h-full object-cover mx-auto rounded-md bg-gray-50"
                   />
             </div>
             <div className="pt-4">

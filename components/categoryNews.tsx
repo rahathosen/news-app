@@ -153,7 +153,7 @@ export default function CategoryNews() {
                 alt={""}
                 width={640}
                 height={427}
-                className="max-w-full w-full h-10 mx-auto rounded-md pt-4"
+                className="max-w-full w-full h-24 object-cover mx-auto rounded-md "
               />
             </div>
           </div>
