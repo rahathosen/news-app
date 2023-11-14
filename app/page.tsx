@@ -67,15 +67,15 @@ export default async function Home() {
     <main>
       <HeadlineNews headlines={headLineNews.headLine} />
       <RowAd />
+      <BreakingNews breakingNews={breakingNews} />
       <HighlightNews/>
     
       <CategoryNews/>
-      <BreakingNews breakingNews={breakingNews} />
       {/* <CoverNews
         posts={posts}
         breakingNews={breakingNews}
       /> */}
-      <HomeNews posts={posts} newsCategory={newsCategory} />
+      {/* <HomeNews posts={posts} newsCategory={newsCategory} /> */}
     </main>
   );
 }
