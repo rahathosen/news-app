@@ -120,7 +120,7 @@ export default function HighlightNews() {
             {posts.slice(0, 1).map((post) => (
               <article
                 key={post.id}
-                className="flex max-w-xl flex-col items-start "
+                className="flex flex-col "
               >
                 <h3 className="mb-3 text-2xl font-semibold leading-6 text-black dark:text-white  group-hover:text-gray-600 dark:group-hover:text-gray-500">
                   <a href={post.href}>
@@ -164,7 +164,7 @@ export default function HighlightNews() {
           </div>
           <div className="col-span-3 ">
           {Array(5).fill(null).map((_, index: any) => (
-              <div key={index} className="col-span-1 flex rounded-md shadow-sm pb-3">
+              <div key={index} className="col-span-1 flex rounded-md shadow-sm pb-5">
                 <div className="flex flex-1 items-center justify-between  ">
                   <div className="flex-1  lg:px-4 text-sm">
                   <Link href={`../news/`}
@@ -209,13 +209,13 @@ export default function HighlightNews() {
             ))}
           </div>
           <div className="flex flex-col col-span-2 lg:pl-4 ">
-            <div>
+            <div className=" h-[50%]">
             <Image
                     src={"https://images.unsplash.com/photo-1657934787560-cbecc866430a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"}
                     alt={""}
                     width={640}
                     height={427}
-                    className="max-w-full w-full mx-auto rounded-md bg-gray-50"
+                    className="max-w-full w-full h-full mx-auto rounded-md bg-gray-50"
                   />
             </div>
             <div className="pt-4">

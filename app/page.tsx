@@ -14,6 +14,10 @@ import {
 } from "@/lib/getGQL";
 import RowAd from "@/components/advertisement/row-ad";
 import HighlightNews from "@/components/highlightNews";
+import CategoryNews from "@/components/categoryNews";
+import TopSection from "@/components/reserveComponents/topSection";
+import EighthSection from "@/components/reserveComponents/eighthSection";
+import BottomSection from "@/components/reserveComponents/bottomSection";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const webInfo = await websiteInfoGQL();
@@ -61,15 +65,16 @@ export default async function Home() {
   // console.log(headLineNews.headLine);
   return (
     <main>
-      {/* <HeadlineNews headlines={headLineNews.headLine} /> */}
+      <HeadlineNews headlines={headLineNews.headLine} />
       <RowAd />
       <HighlightNews/>
-      {/* <BreakingNews breakingNews={breakingNews} /> */}
-      <CoverNews
-        // coverNews={coverNews}
+    
+      <CategoryNews/>
+      <BreakingNews breakingNews={breakingNews} />
+      {/* <CoverNews
         posts={posts}
         breakingNews={breakingNews}
-      />
+      /> */}
       <HomeNews posts={posts} newsCategory={newsCategory} />
     </main>
   );

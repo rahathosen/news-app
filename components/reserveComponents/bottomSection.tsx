@@ -63,7 +63,7 @@ export default async function BottomSection() {
                   </div>
                 ))}
 
-                {posts.slice(1, 7).map((post: Post) => (
+                {posts.allPosts.slice(1, 7).map((post: Post) => (
                   <div
                     key={post.id}
                     className="flex-shrink max-w-full w-full sm:w-1/3 px-3 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
@@ -104,7 +104,7 @@ export default async function BottomSection() {
                     </h2>
                   </div>
                   <ul className="post-number">
-                    {posts.slice(0, 12).map((post: Post) => (
+                    {posts.allPosts.slice(0, 12).map((post: Post) => (
                       <li
                         key={post.id}
                         className="border-b border-gray-100 dark:border-gray-900 hover:bg-stone-300 rounded-lg dark:hover:bg-[#030b10]"
