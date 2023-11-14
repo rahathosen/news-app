@@ -13,6 +13,7 @@ import {
   headLinesGQL,
 } from "@/lib/getGQL";
 import RowAd from "@/components/advertisement/row-ad";
+import HighlightNews from "@/components/highlightNews";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const webInfo = await websiteInfoGQL();
@@ -62,6 +63,7 @@ export default async function Home() {
     <main>
       {/* <HeadlineNews headlines={headLineNews.headLine} /> */}
       <RowAd />
+      <HighlightNews/>
       {/* <BreakingNews breakingNews={breakingNews} /> */}
       <CoverNews
         // coverNews={coverNews}

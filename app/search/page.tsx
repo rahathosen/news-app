@@ -115,9 +115,7 @@ const zip = [
   },
 ];
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
+
 
 export default function Page() {
   const [openCountry, setOpenCountry] = React.useState(false);
@@ -374,7 +372,7 @@ export default function Page() {
                 </PopoverContent>
               </Popover>
             </div>
-            <Search />
+            {/* <Search /> */}
           </div>
         </div>
         <div className=" lg:w-[20%] lg:pl-4">
