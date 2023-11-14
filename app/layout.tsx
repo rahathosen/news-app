@@ -65,7 +65,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
          <SiteHeader navigations={navigations} webInfo={webInfo} />
           <div className="2xl:container mx-auto max-w-[85rem]">{children}</div>
           <BackToTopButton />
-          <TopBottomAd />
+          {/* <TopBottomAd /> */}
           <SiteFooter webInfo={webInfo} />
          </div>
         </Provider>
