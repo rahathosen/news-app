@@ -4,10 +4,10 @@ import DropdownSelect from "./dropdownSelect";
 const posts = [
   {
     id: 1,
-    title: "Govt move to check prices falls flat, Govt move to check prices falls flat",
+    title: "কর্পোরেট অ্যাকাডেমির উদ্যোগে নতুন আয়কর আইনের ওপর সেমিনার",
     href: "#",
     description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
+      "শুক্রবার (২৭ অক্টোবর) রাজধানীর কেআইবি অডিটোরিয়ামে প্রায় ৬০০ জনের বেশি প্রফেসনালের উপস্থিতিতে অ্যানালাইসিস অব ইনকাম ট্যাক্স ল-২০২৩ শিরোনামে এ সেমিনার ও প্রফেশনাল মিট-আপের আয়োজন করা হয়। শুক্রবার (২৭ অক্টোবর) রাজধানীর কেআইবি ",
     date: "Mar 16, 2020",
     datetime: "2020-03-16",
     category: { title: "Marketing", href: "#" },
@@ -135,12 +135,15 @@ export default function HighlightNews() {
                   >
                     {post.date}
                   </time>
-                  <a
-                    href={post.category.href}
-                    className="relative rounded-full bg-white dark:bg-[#0c2525f8] dark:text-gray-400 px-3 py-1.5 font-medium text-gray-60  hover:bg-gray-100"
-                  >
-                    {post.category.title} / Sports
-                  </a>
+                  <p className="text-red-600 font-semibold dark:text-red-700"> 
+                    <Link  href={`/category/$`}>
+                   category /
+                    </Link>
+                    {" "}
+                    <Link  href={`/category/`}>
+                  subcategory
+                    </Link>
+                      </p>
                 </div>
                 <div className="group relative">
                   <p className="mt-3 line-clamp-3 text-sm leading-6 text-gray-600 dark:text-gray-400 ">
@@ -168,11 +171,11 @@ export default function HighlightNews() {
                 <div className="flex flex-1 items-center justify-between  ">
                   <div className="flex-1  lg:px-4 text-sm">
                   <Link href={`../news/`}
-                      className="font-bold  text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
+                      className="font-bold text-base text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
                     >
-                     Govt move to check prices falls flat Govt move to check prices falls flat Govt move to check prices falls flat
+                    কোনোক্রমেই আলুর কেজি ৪০ থেকে ৪৫ টাকার বেশি হতে পারে না
                     </Link>
-                    <p className="text-gray-500"> 
+                    <p className="text-red-600 text-xs font-semibold dark:text-red-700"> 
                     <Link  href={`/category/$`}>
                    category /
                     </Link>
@@ -183,15 +186,15 @@ export default function HighlightNews() {
                       </p>
                       <time
                    
-                    className="text-gray-500 dark:text-gray-400"
+                    className="text-gray-500 text-xs dark:text-gray-400"
                   >
-                    2020-03-16
+                   Mar 16, 2020
                   </time>
                   </div>
                 </div>
                 <div
                   className={classNames(
-                    "flex w-24 flex-shrink-0 items-center top-0 justify-center rounded-l-md text-sm font-medium text-white"
+                    "flex w-32 flex-shrink-0 items-center top-0 justify-center rounded-l-md text-sm font-medium text-white"
                   )}
                 >
                   <Link href={`../news/`}>
