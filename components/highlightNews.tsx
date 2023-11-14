@@ -220,7 +220,7 @@ export default function HighlightNews() {
             </div>
             <div className="pt-4">
             <div className="p-4 mb-4 bg-stone-200 dark:bg-[#071720] rounded-lg">
-                          <h2 className="lg:text-xl text-lg font-bold text-black dark:text-gray-400">
+                          <h2 className=" text-lg font-bold text-center text-black dark:text-gray-400">
                           এলাকা ভিত্তিক সংবাদ
                           </h2>
                         </div>
