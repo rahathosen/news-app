@@ -125,7 +125,7 @@ export default function Siebar({ newsCategories }: any) {
             <SheetHeader>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button className="absolute left-4 top-6 rounded-md opacity-70 dark:text-gray-400 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-gray-100 dark:ring-offset-gray-950 dark:focus:ring-gray-300 dark:data-[state=open]:bg-gray-800">
+                  <button className="absolute left-4 top-6 rounded-md opacity-70 dark:text-white ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-gray-100 dark:ring-offset-gray-950 dark:focus:ring-gray-300 dark:data-[state=open]:bg-gray-800">
                     <BellIcon className="h-5 w-5" />
                     <span className="sr-only">notification area</span>
                   </button>
@@ -183,14 +183,14 @@ export default function Siebar({ newsCategories }: any) {
                   <div className="flex flex-col">
                     <Link
                       href={"/search"}
-                      className="text-sm capitalize font-semibold dark:text-gray-400"
+                      className="text-sm capitalize font-semibold dark:text-white"
                     >
                       সর্বশেষ
                     </Link>
                     <Separator className=" my-4"/>
                     <Link
                       href={"/article"}
-                      className="text-sm capitalize font-semibold dark:text-gray-400"
+                      className="text-sm capitalize font-semibold dark:text-white"
                     >
                       মতামত
                     </Link>
@@ -199,14 +199,14 @@ export default function Siebar({ newsCategories }: any) {
                   {newsCategories.newsCategories?.map(
                     (item: any, index: any) => (
                       <AccordionItem value={item.title} key={index}>
-                        <AccordionTrigger className="text-sm capitalize font-semibold dark:text-gray-400">
+                        <AccordionTrigger className="text-sm capitalize font-semibold dark:text-white">
                           {item.title}
                         </AccordionTrigger>
                         <AccordionContent>
                           <div className="flex flex-col space-y-2">
                             <div
                               key={index}
-                              className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-gray-400"
+                              className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
                             >
                               {/* <SheetFooter > */}
                               <SheetClose asChild>
@@ -218,7 +218,7 @@ export default function Siebar({ newsCategories }: any) {
                                 (sub: any, index: any) => (
                                   <div
                                     key={index}
-                                    className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-gray-400"
+                                    className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
                                   >
                                      <SheetClose asChild>
                                       <Link
@@ -240,7 +240,7 @@ export default function Siebar({ newsCategories }: any) {
                 </Accordion>
                 <Link
                   href={"/feature"}
-                  className="text-sm capitalize font-semibold dark:text-gray-400 "
+                  className="text-sm capitalize font-semibold dark:text-white "
                 >
                   ফিচার
                 </Link>

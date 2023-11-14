@@ -43,14 +43,14 @@ export default function SiteHeaderNavigations({
             {/* start second category navigation */}
             <Link
               href={"/search"}
-              className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-gray-400   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none"
+              className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-white   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none"
             >
               সর্বশেষ
             </Link>
             {/* Opinion section */}
 
             <NavigationMenu.Item>
-              <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-gray-400   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
+              <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-white   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
                <Link href={`/article`}>
                মতামত
                </Link>
@@ -77,7 +77,7 @@ export default function SiteHeaderNavigations({
                           <li key={item.id} className="flex">
                             <Link
                               href={`/article/${item.uniqueId}`}
-                              className="hover:text-gray-900 dark:hover:text-gray-200 font-semibold dark:text-gray-400"
+                              className="hover:text-gray-900 dark:hover:text-gray-200 font-semibold dark:text-white"
                             >
                               {item.title}
                             </Link>
@@ -95,7 +95,7 @@ export default function SiteHeaderNavigations({
               .slice(0, 10)
               .map((category: any) => (
                 <NavigationMenu.Item key={category.id}>
-                  <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-gray-400   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
+                  <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-white   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
                     <Link href={`/category/${category.uniqueId}`}>
                       {category.title}
                     </Link>
@@ -124,7 +124,7 @@ export default function SiteHeaderNavigations({
                               <li key={item.id} className="flex">
                                 <Link
                                   href={`/category/${category.uniqueId}/${item.uniqueId}`}
-                                  className="hover:text-gray-900 dark:hover:text-gray-200 font-semibold dark:text-gray-400"
+                                  className="hover:text-gray-900 dark:hover:text-gray-200 font-semibold dark:text-white"
                                 >
                                   {item.title}
                                 </Link>
@@ -141,7 +141,7 @@ export default function SiteHeaderNavigations({
             {/* Feature section */}
             {navigations.navigation.feature.map((post: any) => (
               <NavigationMenu.Item key={post.id}>
-                <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-gray-400   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
+                <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-white   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
                   <Link href={`/feature`}>ফিচার</Link>
                   {" "}
                   <CaretDownIcon

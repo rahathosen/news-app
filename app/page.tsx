@@ -65,9 +65,9 @@ export default async function Home() {
   // console.log(headLineNews.headLine);
   return (
     <main>
-      <HeadlineNews headlines={headLineNews.headLine} />
+      {/* <HeadlineNews headlines={headLineNews.headLine} /> */}
       <RowAd />
-      <BreakingNews breakingNews={breakingNews} />
+      {/* <BreakingNews breakingNews={breakingNews} /> */}
       <HighlightNews/>
     
       <CategoryNews/>

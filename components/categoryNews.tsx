@@ -10,7 +10,7 @@ export default function CategoryNews() {
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
       <div className="mx-auto px-4">
         <div className="relative flex items-center justify-between pb-4">
-          <h2 className="text-black dark:text-gray-400 lg:text-3xl text-xl font-bold">
+          <h2 className="text-black dark:text-white lg:text-3xl text-xl font-bold">
             <span className="inline-block lg:h-6 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
             অপরাধ
           </h2>
