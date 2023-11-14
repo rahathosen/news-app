@@ -1,4 +1,3 @@
-"use client";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Loading() {
@@ -7,7 +6,7 @@ export default function Loading() {
     <div>
       <div className="bg-stone-100 dark:bg-[#040D12] mt-2  rounded-b-lg rounded-lg pt-2 mb-2 pb-2">
         <main className=" mx-auto ">
-          <Skeleton className="w-screen h-screen rounded-sm" />
+          <h1>home page loading</h1>
         </main>
       </div>
     </div>

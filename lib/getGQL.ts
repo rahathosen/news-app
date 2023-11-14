@@ -485,9 +485,6 @@ export async function breakingNewsGQL(): Promise<any> {
   return fetchGraphQL(query);
 }
 
-
-
-
 // list of navigation
 export async function navigationGQL(): Promise<any> {
   const query = `
