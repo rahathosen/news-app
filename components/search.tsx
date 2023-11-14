@@ -2,15 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { allPosts } from "@/lib/getGQL";
 import RelativeDate from "@/lib/relativeDate";
-export default async function Search({}: any) {
-  const lastPosts = await allPosts();
+
+
+export default async function Search() {
+  const posts = await allPosts();
   return (
     <div>
       <div className="pt-6">
         <div className="flex flex-row flex-wrap">
           <div className="flex-shrink max-w-full w-full overflow-hidden">
             <div className="flex flex-row flex-wrap ">
-              {lastPosts.allPosts.map((post: any) => (
+              {posts.allPosts.slice(0,8).map((post: any) => (
                 <div
                   key={post.id}
                   className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"

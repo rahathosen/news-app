@@ -56,7 +56,7 @@ export default async function TopSection() {
             {/* Article */}
             <div className="flex-shrink max-w-full  w-full lg:w-1/2">
               <div className="box-one flex gap-2 sm:gap-0 flex-row flex-wrap">
-                {posts.slice(1, 5).map((post: Post) => (
+                {posts.allPosts.slice(1, 5).map((post: Post) => (
                   <article
                     key={post.id}
                     className="flex-shrink max-w-full w-full sm:w-1/2"
