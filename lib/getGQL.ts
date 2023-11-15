@@ -6,8 +6,8 @@ async function fetchGraphQL(query: string, variables?: object): Promise<any> {
     : JSON.stringify({ query });
 
   const response = await fetch(url, {
-    cache: "force-cache",
-    next: { revalidate: 300 },
+    // cache: "force-cache",
+    // next: { revalidate: 300 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -116,6 +116,14 @@ export async function postByCategoryGQL(uId:any): Promise<any> {
       imageSource
       createdAt
       updatedAt
+      category {
+        title
+        uniqueId
+      }
+      subcategory {
+        title
+        uniqueId
+      }
     }
   }
 `;

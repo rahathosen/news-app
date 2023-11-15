@@ -72,7 +72,7 @@ export default function CategoryNews() {
               </div>
               {/* hilight news */}
               <div className="group  overflow-hidden rounded-md sm:aspect-none sm:relative sm:h-full">
-                <div className="flex flex-row sm:block hover-img">
+                <div className="flex flex-row sm:block hover-img dark:hover-img-dark">
                   <Link href={`../news/`}>
                     <Image
                       src={imagurl}
@@ -88,6 +88,9 @@ export default function CategoryNews() {
                       কোনোক্রমেই আলুর কেজি ৪০ থেকে ৪৫ টাকার বেশি হতে পারে না
                       </Link>
                     </h3>
+                    <p className="hidden md:block   text-sm leading-6 text-gray-600 dark:text-gray-400 mb-1">
+                        কোনোক্রমেই আলুর কেজি ৪০ থেকে ৪৫ টাকার বেশি হতে পারে না
+                        </p>
 
                     <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                       Mar 16, 2020
@@ -119,7 +122,7 @@ export default function CategoryNews() {
                     key={index}
                     className="flex-shrink max-w-full w-full sm:w-1/4 px-2 pb-2 lg:pb-0 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
                   >
-                    <div className="flex flex-row sm:block hover-img">
+                    <div className="flex flex-row sm:block hover-img dark:hover-img-dark">
                       <Link href={`../news/`}>
                         <Image
                           src={imagurl}
