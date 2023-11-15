@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function LatestNws({ categoryPosts,catpost }: any) {
+export default async function LatestNws({ categoryPosts }: any) {
 
   function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
   }
-  console.log(catpost)
 
   return (
     <>

@@ -75,10 +75,10 @@ export default async function Page({ params }: Props) {
                 <TabsTrigger value="mostpopular">সর্বাধিক পঠিত</TabsTrigger>
               </TabsList>
               <TabsContent value="lastnews">
-              <LatestNws catpost={post}  categoryPosts={categoryPosts}/>
+              <LatestNws  categoryPosts={categoryPosts}/>
               </TabsContent>
               <TabsContent value="mostpopular">
-              <OldestNews catpost={post} categoryPosts={categoryPosts}/>
+              <OldestNews categoryPosts={categoryPosts}/>
               </TabsContent>
             </Tabs>
           </div>
