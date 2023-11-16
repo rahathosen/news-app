@@ -70,12 +70,11 @@ export default async function Home() {
       {/* <BreakingNews breakingNews={breakingNews} /> */}
       <HighlightNews/>
     
-      <CategoryNews/>
       {/* <CoverNews
         posts={posts}
         breakingNews={breakingNews}
       /> */}
-      {/* <HomeNews posts={posts} newsCategory={newsCategory} /> */}
+      <HomeNews posts={posts} newsCategory={newsCategory} />
     </main>
   );
 }

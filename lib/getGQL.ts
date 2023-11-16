@@ -129,6 +129,30 @@ export async function postByCategoryGQL(uId:any): Promise<any> {
 `;
   return fetchGraphQL(query,variables);
 }
+// Posts By Category
+export async function postsByCategoryGQL(uId:any): Promise<any> {
+  const variables = {
+    catUId: uId
+  };
+  const query = 
+    ` query postByCategoryQuery($catUId: String!) {
+        postByCategory(categoryuId: $catUId, first: 10) {
+          id
+          uniqueId
+          title
+          image
+          description
+          details
+          updatedAt
+          isHighlightOnSection
+        }
+      }
+`;
+  return fetchGraphQL(query,variables);
+}
+
+
+
 // Posts By SubCategory
 export async function postBySubCategoryGQL(uId:any): Promise<any> {
 
@@ -165,6 +189,24 @@ export async function opinionGQL(): Promise<any> {
       image
       status
       serial
+    }
+  }
+`;
+
+  return fetchGraphQL(query);
+}
+// Category By Section
+export async function sectionGQL(): Promise<any> {
+  const query = `
+  query sectionBoxQuery {
+    sectionBox {
+      backgroundColor
+      image
+      serial
+      category {
+        uniqueId
+        title
+      }
     }
   }
 `;

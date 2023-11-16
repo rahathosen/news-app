@@ -1,18 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { postByCategoryGQL } from "@/lib/getGQL";
 
 const imagurl =
   "https://images.unsplash.com/photo-1657934787560-cbecc866430a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80";
 
-export default function CategoryNews() {
+export default async function CategoryNews({categoryUId,categoryTitle}:any) {
+
+  const post = await postByCategoryGQL(categoryUId)
+console.log(post)
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
       <div className="mx-auto px-4">
         <div className="relative flex items-center justify-between pb-4">
           <h2 className="text-black dark:text-white lg:text-3xl text-xl font-bold">
             <span className="inline-block lg:h-6 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
-            অপরাধ
+            {categoryTitle}
           </h2>
           <Link
             href={`/category/`}
