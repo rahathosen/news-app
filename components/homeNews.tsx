@@ -3,19 +3,20 @@ import Link from "next/link";
 import Divider from "./ui/divider";
 import RelativeDate from "@/lib/relativeDate";
 import Section from "./section";
-export default function HomeNews({ newsCategory }: any) {
+import CategoryNews from "./categoryNews";
+import { sectionGQL } from "@/lib/getGQL";
+export default async function HomeNews({ newsCategory }: any) {
 
+ const sectionbox = await sectionGQL();
+ const section = sectionbox.sectionBox 
   return (
     <div>
       <div>
-        {newsCategory.newsCategories.map((category: any) =>
+        {section.map((box: any) =>
          (
-          <div key={category.id}>
+          <div key={box.category.uniqueId}>
             <div>
-              <Section
-                categoryTitle={category.title}             
-                categoryUId={category.uniqueId}
-              />
+              <CategoryNews categoryTitle = {box.category.title}  categoryUId={box.category.uniqueId}/>
             </div>
           </div>
         ))}

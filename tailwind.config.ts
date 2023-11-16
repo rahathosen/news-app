@@ -37,6 +37,18 @@ const config: Config = {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(calc(-10% - var(--gap)/2))" },
         },
+         shimmer: {
+          from: { backgroundPosition: '200% 0' },
+          to: { backgroundPosition: '-200% 0' },
+        },
+        "background-shine": {
+          "from": {
+            "backgroundPosition": "0 0"
+          },
+          "to": {
+            "backgroundPosition": "-200% 0"
+          }
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -82,6 +94,9 @@ const config: Config = {
         marquee: "marquee var(--duration) linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "background-shine": "background-shine 2s linear infinite",
+        shimmer: 'shimmer 8s ease-in-out infinite',
+        
       },
     },
     animation: {

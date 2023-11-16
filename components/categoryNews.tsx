@@ -1,18 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { postByCategoryGQL } from "@/lib/getGQL";
 
 const imagurl =
   "https://images.unsplash.com/photo-1657934787560-cbecc866430a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80";
 
-export default function CategoryNews() {
+export default async function CategoryNews({categoryUId,categoryTitle}:any) {
+
+  const post = await postByCategoryGQL(categoryUId)
+console.log(post)
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
       <div className="mx-auto px-4">
         <div className="relative flex items-center justify-between pb-4">
           <h2 className="text-black dark:text-white lg:text-3xl text-xl font-bold">
             <span className="inline-block lg:h-6 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
-            অপরাধ
+            {categoryTitle}
           </h2>
           <Link
             href={`/category/`}
@@ -72,7 +76,7 @@ export default function CategoryNews() {
               </div>
               {/* hilight news */}
               <div className="group  overflow-hidden rounded-md sm:aspect-none sm:relative sm:h-full">
-                <div className="flex flex-row sm:block hover-img">
+                <div className="flex flex-row sm:block hover-img dark:hover-img-dark">
                   <Link href={`../news/`}>
                     <Image
                       src={imagurl}
@@ -88,6 +92,9 @@ export default function CategoryNews() {
                       কোনোক্রমেই আলুর কেজি ৪০ থেকে ৪৫ টাকার বেশি হতে পারে না
                       </Link>
                     </h3>
+                    <p className="hidden md:block   text-sm leading-6 text-gray-600 dark:text-gray-400 mb-1">
+                        কোনোক্রমেই আলুর কেজি ৪০ থেকে ৪৫ টাকার বেশি হতে পারে না
+                        </p>
 
                     <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                       Mar 16, 2020
@@ -119,7 +126,7 @@ export default function CategoryNews() {
                     key={index}
                     className="flex-shrink max-w-full w-full sm:w-1/4 px-2 pb-2 lg:pb-0 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
                   >
-                    <div className="flex flex-row sm:block hover-img">
+                    <div className="flex flex-row sm:block hover-img dark:hover-img-dark">
                       <Link href={`../news/`}>
                         <Image
                           src={imagurl}

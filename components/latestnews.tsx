@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function LatestNws({ categoryPosts,catpost }: any) {
+export default async function LatestNws({ categoryPosts }: any) {
 
   function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
@@ -37,12 +37,12 @@ export default async function LatestNws({ categoryPosts,catpost }: any) {
                       {post.title}
                     </Link>
                     <p className="text-gray-500"> 
-                    <Link  href={`/category/${catpost.category.uniqueId}`}>
-                    {catpost.category.title} / 
+                    <Link  href={`/category/${post.category.uniqueId}`}>
+                    {post.category.title} / 
                     </Link>
                     {" "}
-                    <Link  href={`/category/${catpost.category.uniqueId}/${catpost.subcategory.uniqueId}`}>
-                    {catpost.subcategory.title}
+                    <Link  href={`/category/${post.category.uniqueId}/${post.subcategory.uniqueId}`}>
+                    {post.subcategory.title}
                     </Link>
                       </p>
                   </div>
