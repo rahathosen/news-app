@@ -6,7 +6,7 @@ async function fetchGraphQL(query: string, variables?: object): Promise<any> {
     : JSON.stringify({ query });
 
   const response = await fetch(url, {
-    // cache: "force-cache",
+    cache: "no-store",
     // next: { revalidate: 300 },
     method: "POST",
     headers: {
@@ -604,6 +604,7 @@ export async function navigationGQL(): Promise<any> {
             id
             title
             uniqueId
+            image
             featurepostSet {
               id
               title
