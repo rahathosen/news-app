@@ -3,7 +3,12 @@ import RelativeDate from "@/lib/relativeDate";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { featurePostsGQL, websiteInfoGQL, allfeatureGQL } from "@/lib/getGQL";
+import {
+  websiteInfoGQL,
+  featuerCategoryByFeatuerGQL,
+  featureGQL
+} from "@/lib/getGQL";
+import { ChevronRightIcon } from "@radix-ui/react-icons";
 
 export const generateMetadata = async ({}): Promise<Metadata> => {
   const webInfo = await websiteInfoGQL();
@@ -32,19 +37,34 @@ export const generateMetadata = async ({}): Promise<Metadata> => {
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
-export default async function Page() {
+
+type Props = {
+  params: { featuredetail: string };
+};
+
+export default async function Page({ params }: Props) {
   const webInfo = await websiteInfoGQL();
-  const featurelist = await allfeatureGQL();
-  const features = featurelist.allFeature;
-  const allFeaturePosts = await featurePostsGQL();
-  const allposts = allFeaturePosts.featurePosts;
+  const featurePosts = await featureGQL(params.featuredetail);
+  const featureCategory = await featuerCategoryByFeatuerGQL(
+    params.featuredetail
+  );
+  const featurePost = featurePosts.feature.featurepostSet;
   return (
     <>
+      {}
       <div className="bg-stone-100 dark:bg-[#040D12] mt-8  sm:mt-4 2xl:p-8 rounded-b-lg rounded-t-lg   pt-4 mb-4 pb-4">
         <div className="px-4 ">
           <h2 className="text-black dark:text-gray-400 lg:text-3xl text-xl font-bold">
             <span className="inline-block lg:h-6 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
-            ফিচার
+            <Link href={`/feature`}>ফিচার</Link>
+            <span className="inline-block lg:px-4 px-2 lg:h-[28px] h-[25px] items-center ">
+              {" "}
+              <ChevronRightIcon
+                className="lg:h-10 h-8 w-8 lg:w-10 text-gray-300 dark:text-[#071720]"
+                aria-hidden="true"
+              />
+            </span>
+            {featurePosts.feature.title}
           </h2>
           <div className="pb-4">
             <div className="sm:hidden">
@@ -55,20 +75,23 @@ export default async function Page() {
             <div className="no-scrollbar overflow-x-auto">
               <div className="border-b border-gray-200 dark:border-[#071720]">
                 <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-                  {features.map((tab: any) => (
-                    <Link
-                      key={tab.title}
-                      href={`/feature/${tab.uniqueId}`}
-                      className={classNames(
-                        tab.current
-                          ? "dark:border-gray-500 border-black text-black dark:text-gray-200"
-                          : "border-transparent text-gray-500 hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700",
-                        "whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium"
-                      )}
-                    >
-                      {tab.title}
-                    </Link>
-                  ))}
+                  
+                  {featureCategory.featuerCategoriesByFeatueruid.map(
+                    (tab: any) => (
+                      <Link
+                        key={tab.uniqueId}
+                        href={`/feature/${featurePosts.feature.uniqueId}/${tab.uniqueId}`}
+                        className={classNames(
+                          tab.current
+                            ? "dark:border-gray-500 border-black text-black dark:text-gray-200"
+                            : "border-transparent text-gray-500 hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700",
+                          "whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium"
+                        )}
+                      >
+                        {tab.title}
+                      </Link>
+                    )
+                  )}
                 </nav>
               </div>
             </div>
@@ -79,13 +102,13 @@ export default async function Page() {
               <div className="flex flex-row flex-wrap">
                 <div className="flex-shrink max-w-full w-full overflow-hidden">
                   <div className="flex flex-row flex-wrap ">
-                    {allposts.map((post: any) => (
+                    {featurePost.map((post: any) => (
                       <div
                         key={post.id}
                         className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
                       >
                         <div className="flex flex-row sm:block hover-img max-h-18">
-                          <Link href={`../feature/details/${post.uniqueId}`}>
+                        <Link href={`../feature/details/${post.uniqueId}`}>
                             <Image
                               src={
                                 post.image || webInfo.websiteInfo.newsThumbnail
@@ -99,7 +122,7 @@ export default async function Page() {
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                             <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-gray-400">
                               <Link
-                                href={`../feature/${post.feature.uniqueId}/${post.category.uniqueId}`}
+                                href={`/feature/${featurePosts.feature.uniqueId}/${post.category.uniqueId}`}
                               >
                                 <span className="text-red-600 dark:text-red-800">
                                   {" "}
