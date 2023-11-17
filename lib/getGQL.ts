@@ -116,6 +116,7 @@ export async function postByCategoryGQL(uId:any): Promise<any> {
       imageSource
       createdAt
       updatedAt
+      isHighlightOnSection
       category {
         title
         uniqueId
@@ -129,29 +130,6 @@ export async function postByCategoryGQL(uId:any): Promise<any> {
 `;
   return fetchGraphQL(query,variables);
 }
-// Posts By Category
-export async function postsByCategoryGQL(uId:any): Promise<any> {
-  const variables = {
-    catUId: uId
-  };
-  const query = 
-    ` query postByCategoryQuery($catUId: String!) {
-        postByCategory(categoryuId: $catUId, first: 10) {
-          id
-          uniqueId
-          title
-          image
-          description
-          details
-          updatedAt
-          isHighlightOnSection
-        }
-      }
-`;
-  return fetchGraphQL(query,variables);
-}
-
-
 
 // Posts By SubCategory
 export async function postBySubCategoryGQL(uId:any): Promise<any> {
@@ -258,7 +236,6 @@ export async function allPosts(): Promise<any> {
 
   return fetchGraphQL(query);
 }
-
 
 // Get a single Post detail
 export async function PostDetail(uId:any): Promise<any> {
@@ -381,7 +358,6 @@ export async function allArticlesGQL(): Promise<any> {
 
   return fetchGraphQL(query);
 }
-
 
 // Get a single Article detail
 export async function articlePostGQL(uId:any): Promise<any> {
@@ -530,6 +506,80 @@ export async function breakingNewsGQL(): Promise<any> {
           }
         }
       }
+    `;
+
+  return fetchGraphQL(query);
+}
+//  a main News
+export async function mainNewsGQL(): Promise<any> {
+  const query = `
+  query mainNewsQuery {
+    mainNews {
+      headNews {
+        uniqueId
+        title
+        image
+        description
+        details
+        createdAt
+        updatedAt
+        category {
+          uniqueId
+          title
+        }
+        subcategory {
+          title
+          uniqueId
+        }
+      }
+    }
+  }
+    `;
+
+  return fetchGraphQL(query);
+}
+//  List of home HighlightedNews
+export async function homeHighlightedNewsGQL(): Promise<any> {
+  const query = `
+  query homeHighlightedNewsQuery {
+    homeHighlightedNews {
+      highlightedNews {
+        uniqueId
+        title
+        image
+        description
+        createdAt
+        updatedAt
+        category {
+          uniqueId
+          title
+        }
+        subcategory {
+          title
+          uniqueId
+        }
+      }
+    }
+  }
+    `;
+
+  return fetchGraphQL(query);
+}
+//  List of top 10 PostByCategory This Week
+export async function top10PostByCategoryThisWeekGQL(): Promise<any> {
+  const query = `
+  query top10PostByCategoryThisWeekQuery {
+    top10PostByCategoryThisWeek(categoryuId: "Sports") {
+      uniqueId
+      title
+      image
+      description
+      details
+      createdAt
+      isHighlightOnSection
+      
+    }
+  }
     `;
 
   return fetchGraphQL(query);
