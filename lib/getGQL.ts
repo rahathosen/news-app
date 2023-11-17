@@ -6,8 +6,8 @@ async function fetchGraphQL(query: string, variables?: object): Promise<any> {
     : JSON.stringify({ query });
 
   const response = await fetch(url, {
-    cache: "no-store",
-    // next: { revalidate: 300 },
+    cache: "default",
+    next: { revalidate: 300 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
