@@ -7,7 +7,6 @@ import { CaretDownIcon } from "@radix-ui/react-icons";
 import { BellIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import Siebar from "./sitebar";
 import FeaturePosts from "./featurePosts";
-import FeatureSubPosts from "./featureSubPosts";
 
 export interface ListItemProps extends HTMLProps<HTMLAnchorElement> {
   title: string;
@@ -51,9 +50,7 @@ export default function SiteHeaderNavigations({
 
             <NavigationMenu.Item>
               <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-white   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
-               <Link href={`/article`}>
-               মতামত
-               </Link>
+                <Link href={`/article`}>মতামত</Link>
                 <CaretDownIcon
                   className="text-gray-600 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
                   aria-hidden
@@ -138,40 +135,40 @@ export default function SiteHeaderNavigations({
                 </NavigationMenu.Item>
               ))}
             {/* end category navigation */}
-            {/* Feature section */}
-            {navigations.navigation.feature.map((post: any) => (
-              <NavigationMenu.Item key={post.id}>
-                <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-white   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
-                  <Link href={`/feature`}>ফিচার</Link>
-                  {" "}
-                  <CaretDownIcon
-                    className="text-gray-600 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
-                    aria-hidden
-                  />
-                </NavigationMenu.Trigger>
-                <NavigationMenu.Content className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight  top-0 shadow-2xl backdrop-blur-xl dark:backdrop-blur-xl bg-white/95 dark:bg-[#040D12]/100  text-sm text-gray-500 relative ">
-                  <ul className="grid grid-flow-col  py-12 ">
-                    <FeatureSubPosts subFeature={post.featurepostSet} />
-                    <li>
-                      <div className="col-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm pl-8">
-                        <ul
-                          role="list"
-                          className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-                        >
-                          {" "}
-                          <Link
-                            href={`/category/${post.id}`}
-                            className="font-semibold text-base dark:text-gray-200 text-black"
-                          >
-                            {post.title}
-                          </Link>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </NavigationMenu.Content>
-              </NavigationMenu.Item>
-            ))}
+
+            {/* Feature section start*/}
+            <NavigationMenu.Item>
+              <NavigationMenu.Trigger className="text-sm font-medium text-black hover:dark:text-gray-600 hover:text-gray-400 dark:text-white   group flex select-none items-center justify-between gap-0 rounded-md px-3 py-2 text-[15px] leading-none">
+                <Link href={`/feature`}>ফিচার</Link>{" "}
+                <CaretDownIcon
+                  className="text-gray-600 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
+                  aria-hidden
+                />
+              </NavigationMenu.Trigger>
+              <NavigationMenu.Content className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight  top-0 shadow-2xl backdrop-blur-xl dark:backdrop-blur-xl bg-white/95 dark:bg-[#040D12]/100  text-sm text-gray-500 relative ">
+                <ul className=" py-4 px-4 ">
+                  <li className="relative overflow-hidden col-start-2 grid grid-cols-5 gap-x-2 gap-y-6 ">
+                    {navigations.navigation.feature.map((item: any) => (
+                      <Link key={item.id} href={`../news/${item.uniqueId}`}>
+                        <div className="relative aspect-h-1 aspect-w-2 rounded-md bg-gray-100 group-hover:opacity-75">
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            width={440}
+                            height={320}
+                            className="absolute inset-0 object-cover object-center brightness-50 rounded-md"
+                          />
+                          <h3 className="absolute inset-0 flex items-center justify-center w-full h-full text-lg font-bold text-white">
+                            {item.title}
+                          </h3>
+                        </div>
+                      </Link>
+                    ))}
+                  </li>
+                </ul>
+              </NavigationMenu.Content>
+            </NavigationMenu.Item>
+
             {/* End Feature section */}
             <Link href="/search" className="flex items-center  pl-2 ">
               <MagnifyingGlassIcon

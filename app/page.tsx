@@ -9,15 +9,14 @@ import {
   websiteInfoGQL,
   breakingNewsGQL,
   allPosts,
-  // coverGQL,
+  mainNewsGQL,
+  homeHighlightedNewsGQL,
   headLinesGQL,
+  allArticlesGQL, 
 } from "@/lib/getGQL";
 import RowAd from "@/components/advertisement/row-ad";
 import HighlightNews from "@/components/highlightNews";
-import CategoryNews from "@/components/categoryNews";
-import TopSection from "@/components/reserveComponents/topSection";
-import EighthSection from "@/components/reserveComponents/eighthSection";
-import BottomSection from "@/components/reserveComponents/bottomSection";
+import OpnionNews from "@/components/opinion";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const webInfo = await websiteInfoGQL();
@@ -58,23 +57,22 @@ export default async function Home() {
   const newsCategory = await newsCategoriesGQL();
   const breakingNews = await breakingNewsGQL();
   const headLineNews = await headLinesGQL();
-  // const coverNews = await coverGQL();
-  // const webInfo = await websiteInfoGQL();
-  // console.log(webInfo.websiteInfo.newsThumbnail)
-  // console.log(coverNews);
-  // console.log(headLineNews.headLine);
+  const mainNews = await mainNewsGQL();
+  const homeHighlightedNews = await homeHighlightedNewsGQL();
+  const allArticles = await allArticlesGQL();
+  const articles = allArticles.articlesPosts;
+  const webInfo = await websiteInfoGQL();
+
   return (
     <main>
       {/* <HeadlineNews headlines={headLineNews.headLine} /> */}
-      <RowAd />
       {/* <BreakingNews breakingNews={breakingNews} /> */}
-      <HighlightNews/>
-    
-      {/* <CoverNews
-        posts={posts}
-        breakingNews={breakingNews}
-      /> */}
+      
+      <RowAd />
+      <HighlightNews mainNews={mainNews} homeHighlightedNews={homeHighlightedNews}/>
+      <OpnionNews webInfo={webInfo} articles={articles} />
       <HomeNews posts={posts} newsCategory={newsCategory} />
+    
     </main>
   );
 }
