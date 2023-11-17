@@ -285,59 +285,6 @@ export async function PostDetail(uId:any): Promise<any> {
   return fetchGraphQL(query,variables);
 }
 
-// Get a single Feature detail
-export async function fetureDetailGQL(uId:any): Promise<any> {
-  const variables = {
-    postId: uId
-  };
-  const query = 
-    `
-    query featurePostQuery ($postId: String!) {
-      featurePost(featurePostuId: $postId) {
-        uniqueId
-        title
-        image
-        description
-        details
-        createdAt
-        imageSource
-        reportedBy {
-          createdAt
-          designation
-          id
-          image
-          name
-          uniqueId
-          updatedAt
-        }
-      }
-    }
-    `
-  return fetchGraphQL(query,variables);
-}
-
-//  list of all Feature Posts
-export async function featurePostsGQL(): Promise<any> {
-  const query = `
-  query featurePostsQuery {
-    featurePosts {
-      title
-      uniqueId
-      image
-      imageSource
-      createdAt
-      description
-      category {
-        title
-        uniqueId
-        
-      }
-    }
-  }
-    `;
-
-  return fetchGraphQL(query);
-}
 //  list of all articles
 export async function allArticlesGQL(): Promise<any> {
   const query = `
@@ -585,6 +532,189 @@ export async function top10PostByCategoryThisWeekGQL(): Promise<any> {
   return fetchGraphQL(query);
 }
 
+
+
+// Get a single Feature detail
+export async function fetureDetailGQL(uId:any): Promise<any> {
+  const variables = {
+    postId: uId
+  };
+  const query = 
+    `
+    query featurePostQuery ($postId: String!) {
+      featurePost(featurePostuId: $postId) {
+        uniqueId
+        title
+        image
+        description
+        details
+        createdAt
+        imageSource
+        reportedBy {
+          createdAt
+          designation
+          id
+          image
+          name
+          uniqueId
+          updatedAt
+        }
+      }
+    }
+    `
+  return fetchGraphQL(query,variables);
+}
+
+//  list of all Feature Posts
+export async function featurePostsGQL(): Promise<any> {
+  const query = `
+  query featurePostsQuery {
+    featurePosts {
+      title
+      uniqueId
+      image
+      imageSource
+      createdAt
+      description
+      category {
+        title
+        uniqueId  
+      }
+      feature {
+        title
+        uniqueId
+      }
+    }
+  }
+    `;
+
+  return fetchGraphQL(query);
+}
+
+//  featuer 
+export async function featureGQL(fetureuId:any): Promise<any> {
+  const variables = {
+    catUId: fetureuId
+  };
+
+  const query = `
+      query MyQuery ($catUId: String!){
+        feature(featureId: $catUId) {
+          uniqueId
+          image
+          title
+          sortDetails
+          featurepostSet {
+            title
+            image
+            createdAt
+            description
+            uniqueId
+            category {
+              title
+              uniqueId
+            }
+          }
+        }
+      } 
+    `;
+
+  return fetchGraphQL(query,variables);
+}
+
+//  featuer posts by category
+export async function featurePostByCategoryGQL(fetureuId:any): Promise<any> {
+  const variables = {
+    catUId: fetureuId
+  };
+
+  const query = `
+      query MyQuery ($catUId: String!){
+          featurePostByCategory(categoryuId: $catUId) {
+            title
+            uniqueId
+            image
+            description
+            createdAt
+          }
+        }
+    `;
+
+  return fetchGraphQL(query,variables);
+}
+
+
+
+//  category by featuer Category By Featuer
+export async function featuerCategoryByFeatuerGQL(fetureuId:any): Promise<any> {
+  const variables = {
+    catUId: fetureuId
+  };
+
+  const query = `
+      query MyQuery ($catUId: String!){
+        featuerCategoriesByFeatueruid(featureUId: $catUId) {
+          title
+          uniqueId
+          image
+          feature {
+            title
+            uniqueId
+            image
+          }
+          featurepostSet {
+            title
+            uniqueId
+            image
+          }
+        }
+      } 
+    `;
+
+  return fetchGraphQL(query,variables);
+}
+
+//  featuer Category
+export async function featuerCategoryGQL(fetureuId:any): Promise<any> {
+  const variables = {
+    catUId: fetureuId
+  };
+  const query = `
+      query featurePostsQuery ($catUId: String!){
+        featuerCategory(categoryuId: $catUId) {
+          title
+          uniqueId
+          featurepostSet {
+            title
+            uniqueId
+            image
+            description
+            createdAt
+          }
+        }
+      } 
+    `;
+
+  return fetchGraphQL(query,variables);
+}
+
+
+
+
+// list of Features
+export async function allfeatureGQL(): Promise<any> {
+  const query = `
+  query MyQuery {
+    allFeature {
+      title
+      uniqueId
+      image
+    }
+  }
+    `;
+
+  return fetchGraphQL(query);
+}
 // list of navigation
 export async function navigationGQL(): Promise<any> {
   const query = `
@@ -610,6 +740,11 @@ export async function navigationGQL(): Promise<any> {
               title
               uniqueId
               image
+              feature {
+                title
+                uniqueId
+                image
+              }
             }
           }
         }

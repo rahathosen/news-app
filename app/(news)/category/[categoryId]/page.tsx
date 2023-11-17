@@ -9,8 +9,6 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { newsCategoriesGQL, allPosts, websiteInfoGQL,postByCategoryGQL,newsCategorygGQL } from "@/lib/getGQL";
 import Category from "@/components/layouts/category";
 
-
-
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
@@ -47,7 +45,6 @@ function classNames(...classes: string[]) {
 type Props = {
   params: { categoryId: string };
 };
-
 
 export default async function Page({ params }: Props) {
   const newsCategory = await newsCategorygGQL(params.categoryId);

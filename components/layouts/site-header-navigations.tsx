@@ -149,7 +149,7 @@ export default function SiteHeaderNavigations({
                 <ul className=" py-4 px-4 ">
                   <li className="relative overflow-hidden col-start-2 grid grid-cols-5 gap-x-2 gap-y-6 ">
                     {navigations.navigation.feature.map((item: any) => (
-                      <Link key={item.id} href={`../news/${item.uniqueId}`}>
+                      <Link key={item.id} href={`../feature/${item.uniqueId}`}>
                         <div className="relative aspect-h-1 aspect-w-2 rounded-md bg-gray-100 group-hover:opacity-75">
                           <Image
                             src={item.image}
