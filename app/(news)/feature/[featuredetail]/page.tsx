@@ -10,12 +10,18 @@ import {
 } from "@/lib/getGQL";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 
-export const generateMetadata = async ({}): Promise<Metadata> => {
+type Props = {
+  params: { featuredetail: string };
+};
+
+
+export const generateMetadata = async ({params}:Props): Promise<Metadata> => {
+  const featurePosts = await featureGQL(params.featuredetail);
   const webInfo = await websiteInfoGQL();
   return {
-    title: `ফিচার - ${webInfo.websiteInfo.title}`,
+    title: `ফিচার(${featurePosts.feature.title}) - ${webInfo.websiteInfo.title}`,
     openGraph: {
-      title: `ফিচার - ${webInfo.websiteInfo.title}`,
+      title: `ফিচার(${featurePosts.feature.title}) - ${webInfo.websiteInfo.title}`,
       // description: `${post.description.slice(0, 400)}`,
       url: `${webInfo.websiteInfo.url}`,
       siteName: `${webInfo.websiteInfo.title}`,
@@ -38,9 +44,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-type Props = {
-  params: { featuredetail: string };
-};
+
 
 export default async function Page({ params }: Props) {
   const webInfo = await websiteInfoGQL();
