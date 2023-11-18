@@ -26,17 +26,36 @@ export default function SiteHeaderNavigations({
         <div>
           {/* Desktop Logo (lg-) */}
           <Link href="/" className=" hidden lg:block  items-center">
-            <h1 className="bg-gradient-to-br lg:pl-8  md:pl-2 pl-2 from-gray-900  via-gray-800 to-orange-400 font-bold text-xl lg:text-2xl bg-clip-text text-center font-heading  tracking-[-0.02em] text-transparent drop-shadow-sm duration-300 ease-linear animate-in zoom-in-50 dark:bg-gradient-to-br dark:from-orange-200 dark:to-gray-900  md:leading-[5rem]">
-              {webInfo.websiteInfo.title}
-            </h1>
+            <div className="flex lg:flex-1">
+              <div className=" pl-4">
+                <span className="sr-only"> {webInfo.websiteInfo.title}</span>
+                <Image
+                  className="h-10 w-auto rounded-md"
+                  src={webInfo.websiteInfo.logo}
+                  alt={webInfo.websiteInfo.title}
+                  width={280}
+                  height={220} 
+                />
+              </div>
+            </div>
           </Link>
         </div>
         <div>
           {/* Mobile Logo (lg-hidden) */}
           <Link href="/">
-            <h1 className="bg-gradient-to-br from-gray-900 lg:hidden via-gray-800 to-orange-400 font-bold text-2xl lg:text-3xl bg-clip-text text-center font-heading  tracking-[-0.02em] text-transparent drop-shadow-sm duration-300 ease-linear animate-in zoom-in-50 dark:bg-gradient-to-br dark:from-orange-200 dark:to-gray-900  md:leading-[5rem]">
-              {webInfo.websiteInfo.title}
-            </h1>
+            <div className="lg:hidden flex">
+              <div className="">
+                <span className="sr-only">{webInfo.websiteInfo.title}</span>
+                <Image
+                  className="h-14 w-auto rounded-md"
+                  src={webInfo.websiteInfo.logo}
+                  alt={webInfo.websiteInfo.title}
+                  width={280}
+                  height={220} 
+                />
+              </div>
+            </div>
+            
           </Link>
           <NavigationMenu.List className="center hidden   shadow-blackA4 m-0 lg:flex  ">
             {/* start second category navigation */}

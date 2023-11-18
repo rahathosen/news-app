@@ -33,6 +33,7 @@ export async function websiteInfoGQL(): Promise<any> {
             email
             address
             newsThumbnail
+            logo
           }
         }
       `;
@@ -725,9 +726,6 @@ export async function featuerCategoryGQL(fetureuId:any): Promise<any> {
 
   return fetchGraphQL(query,variables);
 }
-
-
-
 
 // list of Features
 export async function allfeatureGQL(): Promise<any> {

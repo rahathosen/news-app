@@ -23,7 +23,7 @@ import {
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
 
-  const btnDefault = "mr-2 p-1 dark:text-zinc-500 text-zinc-700";
+  const btnDefault = "mr-2 p-1 dark:text-zinc-200 text-zinc-700";
 
   return (
     <div

@@ -13,7 +13,7 @@ export default async function SiteHeader({ webInfo, navigations }: any) {
   const posts = await allPosts();
   const opinions = await opinionGQL();
   return (
-    <div className="bg-[#e6e6d3] dark:bg-[#040D12] sticky top-0 z-10 shadow-2xl mx-auto 2xl:container max-w-full ">
+    <div className="bg-white dark:bg-[#040D12] sticky top-0 z-10 shadow-2xl mx-auto 2xl:container max-w-full ">
       <div>
         <div>
           <div>
