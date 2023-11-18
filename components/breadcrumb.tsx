@@ -34,10 +34,10 @@ export default function Breadcrumb({ post }: any) {
 
         <li className="flex">
           <div className="flex items-center">
-            <ChevronRightIcon
-              className="h-5 w-5 flex-shrink-0 text-gray-300 dark:text-[#071720]"
-              aria-hidden="true"
-            />
+          <ChevronRightIcon
+                className="h-5 w-5 flex-shrink-0 text-gray-600 dark:text-gray-600"
+                aria-hidden="true"
+              />
             <Link
               href={`/category/${post.category.uniqueId}`}
               className="pl-4 text-lg font-bold text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700"
@@ -46,10 +46,10 @@ export default function Breadcrumb({ post }: any) {
             </Link>
           </div>
           <div className="pl-4 flex items-center">
-            <ChevronRightIcon
-              className="h-5 w-5 flex-shrink-0 text-gray-300 dark:text-[#071720]"
-              aria-hidden="true"
-            />
+          <ChevronRightIcon
+                className="h-5 w-5 flex-shrink-0 text-gray-600 dark:text-gray-600"
+                aria-hidden="true"
+              />
             <Link
               href={`/category/${post.category.uniqueId}/${post.subcategory.uniqueId}`}
               className="ml-4 text-lg font-bold text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700"

@@ -104,7 +104,7 @@ export default async function Page({ params }: Props) {
                   <div className="flex flex-row flex-wrap ">
                     {featurePost.map((post: any) => (
                       <div
-                        key={post.id}
+                        key={post.uniqueId}
                         className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
                       >
                         <div className="flex flex-row sm:block hover-img max-h-18">

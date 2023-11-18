@@ -559,6 +559,14 @@ export async function fetureDetailGQL(uId:any): Promise<any> {
           uniqueId
           updatedAt
         }
+        category {
+          title
+          uniqueId
+          feature {
+            title
+            uniqueId
+          }
+        }
       }
     }
     `
