@@ -650,6 +650,26 @@ export async function featurePostByCategoryGQL(fetureuId:any): Promise<any> {
 
   return fetchGraphQL(query,variables);
 }
+//  article By Category
+export async function articleByCategoryGQL(articlecuId:any): Promise<any> {
+  const variables = {
+    catUId: articlecuId
+  };
+
+  const query = `
+      query MyQuery ($catUId: String!){
+        articleByCategory(categoryuId: $catUId) {
+          title
+          image
+          createdAt
+          description
+          uniqueId
+        }
+        }
+    `;
+
+  return fetchGraphQL(query,variables);
+}
 
 
 
