@@ -1,14 +1,7 @@
 "use client";
-
 import ThemeToggle from "./theme-toggle";
 import Link from "next/link";
 import Image from "next/image";
-
-interface NavigationItem {
-  name: string;
-  href: string;
-  icon?: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
-}
 
 const navigation = {
   solutions: [
@@ -112,10 +105,19 @@ export default function SiteFooter({ webInfo }: any) {
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-2 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-            <h1 className="bg-gradient-to-br from-gray-900 via-gray-800 to-orange-400 font-bold text-2xl lg:text-3xl bg-clip-text  tracking-[-0.02em] text-transparent drop-shadow-sm duration-300 ease-linear animate-in zoom-in-50 dark:bg-gradient-to-br dark:from-orange-200 dark:to-gray-900  md:leading-[5rem]">
-              {webInfo.websiteInfo.title}
-            </h1>
-            <p className="text-sm leading-6 text-gray-600">
+          <div className="flex">
+              <div className="">
+                <span className="sr-only">{webInfo.websiteInfo.title}</span>
+                <Image
+                  className="h-20 w-auto rounded-md"
+                  src={webInfo.websiteInfo.logo}
+                  alt={webInfo.websiteInfo.title}
+                  width={280}
+                  height={220} 
+                />
+              </div>
+            </div>
+            <p className="text-sm leading-6 text-gray-600 dark:text-gray-400">
               {webInfo.websiteInfo.tagLine}
             </p>
             <div className="flex space-x-6">
