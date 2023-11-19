@@ -172,7 +172,7 @@ export default function Siebar({ newsCategories }: any) {
               </SheetDescription>
             </SheetHeader>
             <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pt-8 pl-6">
-              <div className="pl-1 pr-7">
+              <div className="pl-1 pr-7 mb-6 ">
                 <Accordion
                   type="multiple"
                   defaultValue={newsCategories.newsCategories.map(
@@ -198,14 +198,14 @@ export default function Siebar({ newsCategories }: any) {
                   </div>
                   {newsCategories.newsCategories?.map(
                     (item: any, index: any) => (
-                      <AccordionItem value={item.title} key={index}>
+                      <AccordionItem value={item.title} key={item.uniqueId}>
                         <AccordionTrigger className="text-sm capitalize font-semibold dark:text-white">
                           {item.title}
                         </AccordionTrigger>
                         <AccordionContent>
                           <div className="flex flex-col space-y-2">
                             <div
-                              key={index}
+                              key={item.uniqueId}
                               className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
                             >
                               {/* <SheetFooter > */}
@@ -217,7 +217,7 @@ export default function Siebar({ newsCategories }: any) {
                               {item.newssubcategorySet?.map(
                                 (sub: any, index: any) => (
                                   <div
-                                    key={index}
+                                    key={sub.uniqueId}
                                     className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
                                   >
                                      <SheetClose asChild>
@@ -238,10 +238,10 @@ export default function Siebar({ newsCategories }: any) {
                     )
                   )}
                 </Accordion>
+                <span className="pt-4"></span>
                 <Link
                   href={"/feature"}
-                  className="text-sm capitalize font-semibold dark:text-white "
-                >
+                  className="text-sm capitalize font-semibold dark:text-white pt-4">
                   ফিচার
                 </Link>
               </div>

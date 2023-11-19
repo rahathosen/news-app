@@ -651,6 +651,7 @@ export async function featurePostByCategoryGQL(fetureuId:any): Promise<any> {
 
   return fetchGraphQL(query,variables);
 }
+
 //  article By Category
 export async function articleByCategoryGQL(articlecuId:any): Promise<any> {
   const variables = {
@@ -671,8 +672,23 @@ export async function articleByCategoryGQL(articlecuId:any): Promise<any> {
 
   return fetchGraphQL(query,variables);
 }
+//  article Category
+export async function articleCategoryGQL(articlecuId:any): Promise<any> {
+  const variables = {
+    catUId: articlecuId
+  };
 
+  const query = `
+      query MyQuery ($catUId: String!){
+        articleCategory(categoryuId: $catUId) {
+          title
+          uniqueId
+        }
+        }
+    `;
 
+  return fetchGraphQL(query,variables);
+}
 
 //  category by featuer Category By Featuer
 export async function featuerCategoryByFeatuerGQL(fetureuId:any): Promise<any> {
@@ -741,6 +757,7 @@ export async function allfeatureGQL(): Promise<any> {
 
   return fetchGraphQL(query);
 }
+
 // list of navigation
 export async function navigationGQL(): Promise<any> {
   const query = `

@@ -13,7 +13,7 @@ export default async function LatestNws({ categoryPosts }: any) {
         <div className="">
           {categoryPosts.postByCategory &&
             categoryPosts.postByCategory.slice(0, 10).map((post: any) => (
-              <div key={post.id} className="col-span-1 flex rounded-md shadow-sm py-2">
+              <div key={post.uniqueId} className="col-span-1 flex rounded-md shadow-sm py-2">
                 <div
                   className={classNames(
                     "flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white"
@@ -22,7 +22,7 @@ export default async function LatestNws({ categoryPosts }: any) {
                   <Link href={`../news/${post.uniqueId}`}>
                     <Image
                       src={post.image}
-                      alt=""
+                      alt={post.title}
                       width={200}
                       height={160}
                       className="mx-auto object-cover h-16 w-16 rounded-md"

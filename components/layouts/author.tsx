@@ -12,7 +12,7 @@ export default function Author({ post }: any) {
                 <Image
                   className="mx-auto object-cover h-16 w-16 rounded-full"
                   src={post.reportedBy.image}
-                  alt=""
+                  alt={post.reportedBy.title}
                   width={40}
                   height={20}
                 />
