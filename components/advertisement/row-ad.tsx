@@ -22,7 +22,7 @@ export default function RowAd() {
 
             <div className="absolute top-0 inset-0 text-center items-center px-2 py-2">
               <h4 className="text-xl  font-semibold tracking-tight text-white">
-                Advertisement
+               
               </h4>
             </div>
           </div>

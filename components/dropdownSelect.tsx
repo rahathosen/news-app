@@ -117,56 +117,13 @@ export default function DropdownSelect() {
   return (
     <div>
       <div className="flex flex-wrap gap-4">
-        <Popover open={openCountry} onOpenChange={setOpenCountry}>
-          <PopoverTrigger asChild>
-            <Button
-              variant="outline"
-              role="combobox"
-              aria-expanded={openCountry}
-              className=" w-full dark:text-gray-400 justify-between"
-            >
-              {valueCountry
-                ? country.find((framework) => framework.value === valueCountry)
-                    ?.label
-                : "দেশ সিলেক্ট করুন"}
-              <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent className=" w-full p-0">
-            <Command>
-              <CommandInput placeholder="Search Country..." className="h-9" />
-              <CommandEmpty>No framework found.</CommandEmpty>
-              <CommandGroup>
-                {country.map((framework) => (
-                  <CommandItem
-                    key={framework.value}
-                    onSelect={(currentValue) => {
-                      setValueCountry(
-                        currentValue === valueCountry ? "" : currentValue
-                      );
-                      setOpenCountry(false);
-                    }}
-                  >
-                    {framework.label}
-                    <CheckIcon
-                      className={cn(
-                        "ml-auto h-4 w-4",
-                        valueCountry === framework.value
-                          ? "opacity-100"
-                          : "opacity-0"
-                      )}
-                    />
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            </Command>
-          </PopoverContent>
-        </Popover>
+      
         <Popover open={openDivision} onOpenChange={setOpenDivision}>
           <PopoverTrigger asChild>
             <Button
               variant="outline"
               role="combobox"
+              aria-label="বিভাগ সিলেক্ট করুন"
               aria-expanded={openDivision}
               className=" w-full justify-between dark:text-gray-400"
             >
@@ -213,6 +170,7 @@ export default function DropdownSelect() {
             <Button
               variant="outline"
               role="combobox"
+              aria-label="জেলা সিলেক্ট করুন"
               aria-expanded={openDistrict}
               className=" w-full justify-between dark:text-gray-400"
             >
@@ -259,12 +217,13 @@ export default function DropdownSelect() {
             <Button
               variant="outline"
               role="combobox"
+              aria-label="উপজেলা সিলেক্ট করুন"
               aria-expanded={openZip}
               className=" w-full justify-between dark:text-gray-400"
             >
               {valueZip
                 ? zip.find((framework) => framework.value === valueZip)?.label
-                : "জিপকোড সিলেক্ট করুন"}
+                : "উপজেলা সিলেক্ট করুন"}
               <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
             </Button>
           </PopoverTrigger>

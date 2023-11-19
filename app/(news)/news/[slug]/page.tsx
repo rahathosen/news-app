@@ -91,7 +91,7 @@ export default async function Page({ params }: Props) {
           <figure className="mt-4">
             <Image
               src={post.image}
-              alt=""
+              alt={post.title}
               height={240}
               width={840}
               className="aspect-video rounded-xl bg-gray-50 object-cover"

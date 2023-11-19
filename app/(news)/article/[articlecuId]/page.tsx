@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import RelativeDate from "@/lib/relativeDate";
 import type { Metadata, ResolvingMetadata } from "next";
-import { postBySubCategoryGQL,opinionGQL,allArticlesGQL,websiteInfoGQL,articleByCategoryGQL } from "@/lib/getGQL";
+import { articleCategoryGQL,opinionGQL,allArticlesGQL,websiteInfoGQL,articleByCategoryGQL } from "@/lib/getGQL";
 import SubCategory from "@/components/layouts/subCategory";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -18,12 +18,13 @@ function classNames(...classes: string[]) {
 }
 
 
-export const generateMetadata = async ({}): Promise<Metadata> => {
+export const generateMetadata = async ({params}:Props): Promise<Metadata> => {
   const webInfo = await websiteInfoGQL();
+  const articleCategory = await articleCategoryGQL(params.articlecuId);
   return {
-    title: `মতামত - ${webInfo.websiteInfo.title}`,
+    title: `মতামত - ${articleCategory.articleCategory.title}`,
     openGraph: {
-      title: `মতামত - ${webInfo.websiteInfo.title}`,
+      title: ` মতামত - ${articleCategory.articleCategory.title}`,
       // description: `${post.description.slice(0, 400)}`,
       url: `${webInfo.websiteInfo.url}`,
       siteName: `${webInfo.websiteInfo.title}`,
@@ -52,7 +53,8 @@ export default async function Page({ params }: Props) {
   const articles = allArticles.articlesPosts;
   const opinions = await opinionGQL();
   const articleByCategory = await articleByCategoryGQL(params.articlecuId);
-
+  const articleCategory = await articleCategoryGQL(params.articlecuId);
+ 
  
   return (
     <div className="bg-stone-100 dark:bg-[#040D12] mt-8  sm:mt-4 2xl:p-8 rounded-b-lg rounded-t-lg   pt-4 mb-4 pb-4">
@@ -61,6 +63,14 @@ export default async function Page({ params }: Props) {
         <span className="inline-block lg:h-6 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
        <Link href={'/article'}>
        মতামত</Link>
+       <span className="inline-block lg:px-4 px-2 lg:h-[28px] h-[25px] items-center ">
+              {" "}
+              <ChevronRightIcon
+                className="lg:h-10 h-8 w-8 lg:w-10 text-gray-300 dark:text-[#071720]"
+                aria-hidden="true"
+              />
+            </span>
+            {articleCategory.articleCategory.title}
       </h2>
       <div className="pb-4">
         <div className="sm:hidden">

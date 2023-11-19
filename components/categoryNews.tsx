@@ -58,7 +58,7 @@ export default async function CategoryNews({
                     <Link href={`../news/${post.uniqueId}`}>
                       <Image
                         src={post.image}
-                        alt={""}
+                        alt={post.title}
                         width={640}
                         height={427}
                         className="max-w-full w-full rounded-md mx-auto h-auto   object-cover"
@@ -91,7 +91,7 @@ export default async function CategoryNews({
                   <Link href={`../news/${post.uniqueId}`}>
                     <Image
                       src={post.image}
-                      alt={""}
+                      alt={post.title}
                       width={640}
                       height={427}
                       className="max-w-full w-full mx-auto rounded-md"
@@ -119,7 +119,7 @@ export default async function CategoryNews({
               <div className="group  overflow-hidden rounded-lg sm:aspect-none sm:relative sm:h-full">
                 <Image
                   src={imagurl}
-                  alt={""}
+                  alt="ad"
                   width={440}
                   height={227}
                   className="object-cover object-center group-hover:opacity-75   sm:absolute sm:inset-0 sm:h-full sm:w-full"
@@ -141,7 +141,7 @@ export default async function CategoryNews({
                       <Link href={`../news/${post.uniqueId}`}>
                         <Image
                           src={post.image}
-                          alt={""}
+                          alt={post.title}
                           width={640}
                           height={427}
                           className="max-w-full w-full mx-auto rounded-md"
@@ -168,7 +168,7 @@ export default async function CategoryNews({
             <div>
               <Image
                 src={imagurl}
-                alt={""}
+                alt="ad"
                 width={640}
                 height={427}
                 className="max-w-full w-full h-24 object-cover mx-auto rounded-md "
@@ -194,7 +194,7 @@ export default async function CategoryNews({
                   <Link href={`../news/${post.uniqueId}`}>
                     <Image
                       src={post.image}
-                      alt=""
+                      alt={post.title}
                       width={200}
                       height={160}
                       className="mx-auto object-cover h-16 w-16 rounded-md"
@@ -235,7 +235,7 @@ export default async function CategoryNews({
                   <Link href={`../news/${post.uniqueId}`}>
                     <Image
                       src={post.image}
-                      alt=""
+                      alt={post.title}
                       width={200}
                       height={160}
                       className="mx-auto object-cover h-16 w-16 rounded-md"

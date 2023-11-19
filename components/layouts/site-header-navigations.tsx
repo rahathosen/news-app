@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ReactNode, HTMLProps } from "react";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { CaretDownIcon } from "@radix-ui/react-icons";
-import { BellIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import Siebar from "./sitebar";
 import FeaturePosts from "./featurePosts";
 
@@ -19,6 +19,7 @@ export default function SiteHeaderNavigations({
   webInfo,
   opinions,
   posts,
+  articles,
 }: any) {
   return (
     <div className="flex h-16 items-center justify-center relative ">
@@ -34,7 +35,7 @@ export default function SiteHeaderNavigations({
                   src={webInfo.websiteInfo.logo}
                   alt={webInfo.websiteInfo.title}
                   width={280}
-                  height={220} 
+                  height={220}
                 />
               </div>
             </div>
@@ -51,11 +52,10 @@ export default function SiteHeaderNavigations({
                   src={webInfo.websiteInfo.logo}
                   alt={webInfo.websiteInfo.title}
                   width={280}
-                  height={220} 
+                  height={220}
                 />
               </div>
             </div>
-            
           </Link>
           <NavigationMenu.List className="center hidden   shadow-blackA4 m-0 lg:flex  ">
             {/* start second category navigation */}
@@ -77,6 +77,34 @@ export default function SiteHeaderNavigations({
               </NavigationMenu.Trigger>
               <NavigationMenu.Content className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight  top-0 shadow-2xl backdrop-blur-xl dark:backdrop-blur-xl bg-white/95 dark:bg-[#040D12]/100  text-sm text-gray-500 relative ">
                 <ul className="grid grid-flow-col  py-12 ">
+                  <li className="col-start-2 grid grid-cols-5 gap-x-2 gap-y-6 pr-8">
+                    {articles.slice(0, 8).map((item: any) => (
+                      <Link
+                        key={item.id}
+                        href={`../article/details/${item.uniqueId}`}
+                      >
+                        <div className="aspect-h-1 aspect-w-2 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
+                          <Image
+                            src={
+                              item.image || webInfo.websiteInfo.newsThumbnail
+                            }
+                            alt={item.title}
+                            width={240}
+                            height={120}
+                            className="object-cover  object-center"
+                          />
+                        </div>
+                        <div className="py-0 sm:py-3 pl-3 sm:pl-0">
+                          <h3 className="text-sm font-medium leading-tight  text-black dark:text-gray-400">
+                            <Link href={`../news/${item.uniqueId}`}>
+                              {item.title}
+                            </Link>
+                          </h3>
+                        </div>
+                      </Link>
+                    ))}
+                  </li>
+
                   <li>
                     <div className="col-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm pl-8">
                       <ul
