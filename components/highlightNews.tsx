@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import DropdownSelect from "./dropdownSelect";
+// import DropdownSelect from "./dropdownSelect";
+import LocationDropdowns from "./dropdownSelect";
 import RelativeDate from "@/lib/relativeDate";
 import { Button } from "./ui/button";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
@@ -13,7 +14,7 @@ export default function HighlightNews({ mainNews, homeHighlightedNews }: any) {
   const homePosts = homeHighlightedNews.homeHighlightedNews.highlightedNews;
 
   return (
-    <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
+    <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
       <div className=" mx-auto px-4">
         <div className="grid grid-cols-1 gap-y-2 lg:grid-cols-9 xl:gap-x-2">
           <div className="col-span-4">
@@ -125,10 +126,10 @@ export default function HighlightNews({ mainNews, homeHighlightedNews }: any) {
                 </h2>
               </div>
 
-              <DropdownSelect />
+           <LocationDropdowns/>
 
               <Button
-                className="w-full dark:bg-[#071720]  mt-4"
+                className="w-full bg-[#E7E5E4] dark:bg-[#071720]  mt-4"
                 variant={"secondary"}
               >
                 <MagnifyingGlassIcon className="mr-2 h-4 w-4" /> সার্চ করুন
