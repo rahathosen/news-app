@@ -37,7 +37,7 @@ const navigation = {
 
 export default function Page() {
   return (
-    <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
+    <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
       <div role="list" className=" md:px-4 px-4 gap-x-2 gap-y-2  xl:gap-x-2">
         <div className=" mt-16 grid  grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
           <div className="md:grid md:grid-cols-2 items-start place-items-center md:gap-8">

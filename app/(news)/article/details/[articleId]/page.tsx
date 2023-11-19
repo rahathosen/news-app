@@ -14,9 +14,8 @@ import Breadcrumb from "@/components/breadcrumb";
 import Badges from "@/components/ui/badges";
 import type { Metadata, ResolvingMetadata } from "next";
 import {
- 
   websiteInfoGQL,
-  articlePostGQL
+  articlePostGQL,
 } from "@/lib/getGQL";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
@@ -61,7 +60,7 @@ export default async function Page({ params }: Props) {
   const articlePost = await articlePostGQL(params.articleId);
   const post = articlePost.articlePost;
   return (
-    <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
+    <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
       {/* breadcumb start */}
       <nav
       className="flex justify-between border-b xl:container mx-auto px-3 sm:px-4 xl:px-2 mb-4 border-white dark:border-[#071720] bg-stone-100 dark:bg-[#040D12] "
@@ -101,12 +100,12 @@ export default async function Page({ params }: Props) {
                 className="h-5 w-5 flex-shrink-0 text-gray-600 dark:text-gray-600"
                 aria-hidden="true"
               />
-            {/* <Link
+            <Link
               href={`/article/`}
               className="ml-4 text-lg font-bold text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700"
             >
-              {post.subcategory.title}
-            </Link> */}
+              {post.category.title}
+            </Link>
           </div>
         </li>
       </ol>

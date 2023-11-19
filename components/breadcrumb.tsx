@@ -13,7 +13,7 @@ const pages = [
 export default function Breadcrumb({ post }: any) {
   return (
     <nav
-      className="flex justify-between border-b xl:container mx-auto px-3 sm:px-4 xl:px-2 mb-4 border-white dark:border-[#071720] bg-stone-100 dark:bg-[#040D12] "
+      className="flex justify-between border-b xl:container mx-auto px-3 sm:px-4 xl:px-2 mb-4 border-stone-200 dark:border-[#071720] bg-white dark:bg-[#040D12] "
       aria-label="Breadcrumb"
     >
       <ol

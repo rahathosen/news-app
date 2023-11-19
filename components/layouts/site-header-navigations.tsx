@@ -79,29 +79,28 @@ export default function SiteHeaderNavigations({
                 <ul className="grid grid-flow-col  py-12 ">
                   <li className="col-start-2 grid grid-cols-5 gap-x-2 gap-y-6 pr-8">
                     {articles.slice(0, 8).map((item: any) => (
-                      <Link
-                        key={item.id}
-                        href={`../article/details/${item.uniqueId}`}
-                      >
+                      <div key={item.uniqueId}>
                         <div className="aspect-h-1 aspect-w-2 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
-                          <Image
-                            src={
-                              item.image || webInfo.websiteInfo.newsThumbnail
-                            }
-                            alt={item.title}
-                            width={240}
-                            height={120}
-                            className="object-cover  object-center"
-                          />
+                          <Link href={`/article/details/${item.uniqueId}`}>
+                            <Image
+                              src={
+                                item.image || webInfo.websiteInfo.newsThumbnail
+                              }
+                              alt={item.title}
+                              width={240}
+                              height={120}
+                              className="object-cover  object-center"
+                            />
+                          </Link>
                         </div>
                         <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                           <h3 className="text-sm font-medium leading-tight  text-black dark:text-gray-400">
-                            <Link href={`../news/${item.uniqueId}`}>
+                          <Link href={`/article/details/${item.uniqueId}`}>
                               {item.title}
                             </Link>
                           </h3>
                         </div>
-                      </Link>
+                      </div>
                     ))}
                   </li>
 

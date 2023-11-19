@@ -6,7 +6,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 export default function CoverNews({ coverNews, breakingNews }: any) {
   return (
     <div>
-      <div className="bg-stone-100 dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-lg pt-4 mb-4 pb-4">
+      <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-lg pt-4 mb-4 pb-4">
         <main className="px-4">
           <div className="flex flex-row flex-wrap">
             {/* <div className="flex-shrink max-w-full w-full lg:w-1/3  lg:pr-2 pb-5 lg:pb-20 md:pb-20 sm:pb-20">
