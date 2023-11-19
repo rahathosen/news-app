@@ -129,8 +129,8 @@ export default async function Page({ params }: Props) {
                             {post.title}
                           </Link>
                         </h3>
-                        <div className="hidden lg:line-clamp-3 md:block text-gray-800 dark:text-gray-400 leading-tight mb-1">
-                          <div>{post.description}</div>
+                        <div className="hidden  md:block text-gray-800 dark:text-gray-400 leading-tight mb-1">
+                          <div> {post.description.slice(0, 70) + "..."}</div>
                           <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                             <RelativeDate date={post.createdAt} />{" "}
                           </div>
