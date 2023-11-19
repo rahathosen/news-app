@@ -141,6 +141,7 @@ const LocationDropdowns: React.FC = () => {
           <Button
             variant="outline"
             role="combobox"
+            aria-label="বিভাগ সিলেক্ট করুন"
             aria-expanded={divisionOpen}
             className="w-full justify-between dark:text-gray-400"
           >
@@ -186,6 +187,7 @@ const LocationDropdowns: React.FC = () => {
           <Button
             variant="outline"
             role="combobox"
+            aria-label="জেলা সিলেক্ট করুন"
             aria-expanded={districtOpen}
             className="w-full justify-between mt-2 dark:text-gray-400"
           >
@@ -230,6 +232,7 @@ const LocationDropdowns: React.FC = () => {
           <Button
             variant="outline"
             role="combobox"
+            aria-label="উপজেলা সিলেক্ট করুন"
             aria-expanded={upazilaOpen}
             className="w-full justify-between mt-2 dark:text-gray-400"
           >

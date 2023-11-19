@@ -45,7 +45,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
                               src={
                                 post.image || webInfo.websiteInfo.newsThumbnail
                               }
-                              alt={""}
+                              alt={post.title}
                               width={640}
                               height={427}
                               className="max-w-full aspect-[3/4] object-cover w-full mx-auto max-h-[12.7rem] rounded-md"
