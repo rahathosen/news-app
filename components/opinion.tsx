@@ -54,7 +54,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                             <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-gray-400">
                               <Link
-                                href={`/article/${post.category.uniqueId}/${post.category.uniqueId}`}
+                                href={`/article/${post.category.uniqueId}`}
                               >
                                 <span className="text-red-600 dark:text-red-800">
                                   {" "}
