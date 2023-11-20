@@ -6,8 +6,8 @@ async function fetchGraphQL(query: string, variables?: object): Promise<any> {
     : JSON.stringify({ query });
 
   const response = await fetch(url, {
-    cache: "default",
-    next: { revalidate: 300 },
+    cache: "reload",
+    // next: { revalidate: 300 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -444,7 +444,7 @@ export async function breakingNewsGQL(): Promise<any> {
         breakingNews {
           id
           endAt
-          items {
+          post {
             id
             title
             updatedAt

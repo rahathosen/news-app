@@ -185,7 +185,7 @@ export default async function CategoryNews({
               {/* latest news */}
               <TabsContent value="lastnews">
               {posts.slice(0, 10).map((post: any) => (
-              <div key={post.id} className="col-span-1 flex rounded-md shadow-sm py-2">
+              <div key={post.id} className="col-span-1 flex rounded-md shadow-sm">
                 <div
                   className={classNames(
                     "flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white"
@@ -202,19 +202,22 @@ export default async function CategoryNews({
                   </Link>
                 </div>
                 <div className="flex flex-1 items-center justify-between  ">
-                  <div className="flex-1  px-4 py-2 text-sm">
+                  <div className="  px-4 py-2 text-sm  text-red-600  font-semibold">
+                  
+                    <Link   href={`/category/${post.category.uniqueId}/${post.subcategory.uniqueId}`}
+                    className="text-sm hover:text-red-900">
+                      
+                    {post.subcategory.title}
+                    </Link>
+                    {" / "}
                   <Link href={`../news/${post.uniqueId}`}
                       className="font-medium text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
                     >
                       {post.title}
                     </Link>
-                    <div className="flex  justify-between text-gray-500"> 
-                    <div>
-                    <Link  href={`/category/${post.category.uniqueId}/${post.subcategory.uniqueId}`}>
-                    {post.subcategory.title}
-                    </Link>
-                    </div>
-                    <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
+                    <div className="flex  justify-between text-sm text-red-600 hover:text-red-900 font-semibold"> 
+                    
+                    <div className="text-gray-600 font-medium text-sm pt-2  dark:text-gray-600">
                         <RelativeDate date={post.createdAt} />{" "}
                         </div>
                       </div>

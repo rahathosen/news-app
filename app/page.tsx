@@ -62,12 +62,13 @@ export default async function Home() {
   const allArticles = await allArticlesGQL();
   const articles = allArticles.articlesPosts;
   const webInfo = await websiteInfoGQL();
-
+  
   return (
     <main>
       <HeadlineNews headlines={headLineNews.headLine} /> 
       <RowAd />
-      <BreakingNews breakingNews={breakingNews} />
+      {breakingNews.breakingNews? <BreakingNews breakingNews={breakingNews.breakingNews} />:null }
+      
       <HighlightNews mainNews={mainNews} homeHighlightedNews={homeHighlightedNews}/>
       <OpnionNews webInfo={webInfo} articles={articles} />
       <HomeNews posts={posts} newsCategory={newsCategory} />
