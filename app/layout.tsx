@@ -9,6 +9,7 @@ import { Provider } from "@/components/layouts/provider";
 import BackToTopButton from "@/components/ui/backToTopButton";
 import { cn } from "@/lib/utils";
 import TopBottomAd from "@/components/advertisement/topBottom-ad copy";
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ["latin"] });
 import { websiteInfoGQL, navigationGQL } from "@/lib/getGQL";
@@ -71,6 +72,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         </Provider>
         <Analytics />
       </body>
+      <script async src="https://cdn.splitbee.io/sb.js"/>
     </html>
   );
 }

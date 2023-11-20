@@ -37,7 +37,7 @@ export default function BreakingNews({ breakingNews }: any) {
               ))}
             </Marquee>
             <div className=" absolute hidden lg:block  inset-y-0 left-0 w-[9%] dark:border-gray-50/[.1] dark:bg-[#040D12] rounded-md bg-[#F5F5F4]">
-              <div className="flex dark:text-amber-400 text-amber-500  font-bold text-base items-center pt-4 pl-2">
+              <div className="flex dark:text-red-700 text-red-600  font-bold text-base items-center pt-4 pl-2">
                 <p> ব্রেকিং নিউজ</p>
               </div>
             </div>
