@@ -1,3 +1,4 @@
+import RelativeDate from "@/lib/relativeDate";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -31,20 +32,20 @@ export default async function LatestNws({ categoryPosts }: any) {
                 </div>
                 <div className="flex flex-1 items-center justify-between  ">
                   <div className="flex-1  px-4 py-2 text-sm">
+                    <Link
+                 href={`/category/${post.category.uniqueId}/${post.subcategory.uniqueId}`}
+                  className=" text-red-600 hover:text-red-900 font-semibold"
+                >
+                  {post.subcategory.title}{"/ "}
+                </Link>
                   <Link href={`../news/${post.uniqueId}`}
                       className="font-medium text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
                     >
                       {post.title}
                     </Link>
-                    <p className="text-gray-500"> 
-                    <Link  href={`/category/${post.category.uniqueId}`}>
-                    {post.category.title} / 
-                    </Link>
-                    {" "}
-                    <Link  href={`/category/${post.category.uniqueId}/${post.subcategory.uniqueId}`}>
-                    {post.subcategory.title}
-                    </Link>
-                      </p>
+                    <div className="text-gray-500 text-xs"> 
+                    <RelativeDate date={post.createdAt} />{" "}
+                      </div>
                   </div>
                 </div>
               </div>
