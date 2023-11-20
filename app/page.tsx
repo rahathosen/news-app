@@ -67,7 +67,7 @@ export default async function Home() {
     <main>
       <HeadlineNews headlines={headLineNews.headLine} /> 
       <RowAd />
-      <BreakingNews breakingNews={breakingNews} />
+      <BreakingNews breakingNews={breakingNews.breakingNews} />
       <HighlightNews mainNews={mainNews} homeHighlightedNews={homeHighlightedNews}/>
       <OpnionNews webInfo={webInfo} articles={articles} />
       <HomeNews posts={posts} newsCategory={newsCategory} />
