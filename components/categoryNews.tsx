@@ -72,7 +72,12 @@ export default async function CategoryNews({
                         </h2>
                       </Link>
                       <p className="mt-2 mb-2  text-sm leading-6 text-gray-600 dark:text-gray-400  hidden sm:inline-block">
-                        {post.description}
+                      {/* {post.details.slice(0, 100) + "..."} */}
+                      <div
+              dangerouslySetInnerHTML={{
+                __html: post.details.slice(0, 600) + "...",
+              }}
+            />
                       </p>
                       {/* <!-- author and date --> */}
                       <div className="">
@@ -103,8 +108,12 @@ export default async function CategoryNews({
                         {post.title}
                       </Link>
                     </h3>
-                    <p className="hidden md:block lg:line-clamp-3  text-sm leading-6 text-gray-600 dark:text-gray-400 mb-1">
-                    {post.description}
+                    <p className="hidden md:block lg:line-clamp-2  text-sm leading-6 text-gray-600 dark:text-gray-400 mb-1">
+                    <div
+              dangerouslySetInnerHTML={{
+                __html: post.details.slice(0, 70) + "...",
+              }}
+            />
                     </p>
 
                     <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
@@ -154,7 +163,11 @@ export default async function CategoryNews({
                           </Link>
                         </h3>
                         <p className="hidden md:block lg:line-clamp-3  text-sm leading-6 text-gray-600 dark:text-gray-400 mb-1">
-                       {post.description}
+                        <div
+              dangerouslySetInnerHTML={{
+                __html: post.details.slice(0, 45) + "...",
+              }}
+            />
                         </p>
                         <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                         <RelativeDate date={post.createdAt} />{" "}
@@ -185,7 +198,7 @@ export default async function CategoryNews({
               {/* latest news */}
               <TabsContent value="lastnews">
               {posts.slice(0, 10).map((post: any) => (
-              <div key={post.id} className="col-span-1 flex rounded-md shadow-sm">
+              <div key={post.id} className="col-span-1 flex rounded-md shadow-sm py-2">
                 <div
                   className={classNames(
                     "flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white"
@@ -202,7 +215,7 @@ export default async function CategoryNews({
                   </Link>
                 </div>
                 <div className="flex flex-1 items-center justify-between  ">
-                  <div className="  px-4 py-2 text-sm  text-red-600  font-semibold">
+                  <div className="  px-4 py-2 line-clamp-3 text-sm  text-red-600  font-semibold">
                   
                     <Link   href={`/category/${post.category.uniqueId}/${post.subcategory.uniqueId}`}
                     className="text-sm hover:text-red-900">
@@ -211,7 +224,7 @@ export default async function CategoryNews({
                     </Link>
                     {" / "}
                   <Link href={`../news/${post.uniqueId}`}
-                      className="font-medium text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
+                      className="font-medium  text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
                     >
                       {post.title}
                     </Link>
@@ -246,23 +259,26 @@ export default async function CategoryNews({
                   </Link>
                 </div>
                 <div className="flex flex-1 items-center justify-between ">
-                  <div className="flex-1  px-4 py-2 text-sm">
-                  <Link href={`../news/${post.uniqueId}`}
-                      className="font-medium text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
-                    >
-                      {post.title}
-                    </Link>
-                    <div className="flex  justify-between text-gray-500"> 
-                    <div>
-                    <Link  href={`/category/${post.category.uniqueId}/${post.subcategory.uniqueId}`}>
-                    {post.subcategory.title}
-                    </Link>
-                    </div>
-                    <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
-                        <RelativeDate date={post.createdAt} />{" "}
-                        </div>
+                <div className="  px-4 py-2 text-sm  text-red-600  font-semibold">
+                  
+                  <Link   href={`/category/${post.category.uniqueId}/${post.subcategory.uniqueId}`}
+                  className="text-sm hover:text-red-900">
+                    
+                  {post.subcategory.title}
+                  </Link>
+                  {" / "}
+                <Link href={`../news/${post.uniqueId}`}
+                    className="font-medium text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
+                  >
+                    {post.title}
+                  </Link>
+                  <div className="flex  justify-between text-sm text-red-600 hover:text-red-900 font-semibold"> 
+                  
+                  <div className="text-gray-600 font-medium text-sm pt-2  dark:text-gray-600">
+                      <RelativeDate date={post.createdAt} />{" "}
                       </div>
-                  </div>
+                    </div>
+                </div>
                 </div>
               </div>
             ))}
