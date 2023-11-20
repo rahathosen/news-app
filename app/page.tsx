@@ -62,7 +62,7 @@ export default async function Home() {
   const allArticles = await allArticlesGQL();
   const articles = allArticles.articlesPosts;
   const webInfo = await websiteInfoGQL();
-  
+
   return (
     <main>
       <HeadlineNews headlines={headLineNews.headLine} /> 

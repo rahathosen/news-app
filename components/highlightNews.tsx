@@ -55,7 +55,11 @@ export default function HighlightNews({ mainNews, homeHighlightedNews }: any) {
                 </Link>
               </div>
               <p className="mt-4  text-sm leading-6 text-gray-600 dark:text-gray-400 ">
-                {mainPost.description}
+              <div
+              dangerouslySetInnerHTML={{
+                __html: mainPost.details.slice(0, 700) + "...",
+              }}
+            />
               </p>
             </article>
           </div>
