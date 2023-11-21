@@ -96,7 +96,7 @@ const navigation = {
 export default function SiteFooter({ webInfo }: any) {
   return (
     <footer
-      className="bg-white dark:bg-[#040D12] mx-auto 2xl:container max-w-full  rounded-lg"
+      className="bg-white dark:bg-[#040D12] mx-auto 2xl:container max-w-full -mt-6  rounded-lg"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">

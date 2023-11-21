@@ -6,8 +6,7 @@ import RelativeDate from "@/lib/relativeDate";
 import { Button } from "./ui/button";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import CoverRectangleAd from "./advertisement/coverRectangleAd";
-import CoverLeaderboardAd from "./advertisement/coverLeaderboardAd";
-import MobileCoverLeaderboardAd from "./advertisement/mobileCoverLeaderboardAd";
+import SmallBannerAd from "./advertisement/smallBannerAd";
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
@@ -17,7 +16,7 @@ export default function HighlightNews({ mainNews, homeHighlightedNews }: any) {
   const homePosts = homeHighlightedNews.homeHighlightedNews.highlightedNews;
 
   return (
-    <div className="bg-white dark:bg-[#040D12]  2xl:p-8 rounded-b-lg rounded-t-lg  mb-4 pb-4">
+    <div className="bg-white dark:bg-[#040D12]   2xl:p-8 rounded-b-lg rounded-t-lg">
       <div className=" mx-auto px-4">
         <div className="grid grid-cols-1 gap-y-2 lg:grid-cols-9 xl:gap-x-2">
           <div className="col-span-4 pt-2">
@@ -60,7 +59,7 @@ export default function HighlightNews({ mainNews, homeHighlightedNews }: any) {
               <p className="mt-4  text-sm leading-6 text-gray-600 dark:text-gray-400 ">
               <div
               dangerouslySetInnerHTML={{
-                __html: mainPost.details.slice(0, 500) + "...",
+                __html: mainPost.details.slice(0, 300) + "...",
               }}
             />
               </p>
@@ -116,7 +115,7 @@ export default function HighlightNews({ mainNews, homeHighlightedNews }: any) {
           </div>
           <div className="flex flex-col col-span-2 lg:pl-4 ">
             <div className="">
-             <CoverRectangleAd/>
+            <SmallBannerAd />
             </div>
             <div className="pt-4">
               <div className="p-2 mb-4 bg-stone-200 dark:bg-[#071720] rounded-lg">
@@ -134,14 +133,12 @@ export default function HighlightNews({ mainNews, homeHighlightedNews }: any) {
                 <MagnifyingGlassIcon className="mr-2 h-4 w-4" /> সার্চ করুন
               </Button>
             </div>
+            <div className="pt-4">
+            <CoverRectangleAd/>
+            </div>
           </div>
         </div>
-        <div className="my-2 hidden md:block">
-        <CoverLeaderboardAd/>
-      </div>
-      <div className="my-2 block md:hidden">
-      <MobileCoverLeaderboardAd/>
-      </div>
+       
        
         
       </div>

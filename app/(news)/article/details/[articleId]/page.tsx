@@ -60,7 +60,7 @@ export default async function Page({ params }: Props) {
   const articlePost = await articlePostGQL(params.articleId);
   const post = articlePost.articlePost;
   return (
-    <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
+    <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  mb-4">
       {/* breadcumb start */}
       <nav
       className="flex justify-between border-b xl:container mx-auto px-3 sm:px-4 xl:px-2 mb-4 border-white dark:border-[#071720] bg-stone-100 dark:bg-[#040D12] "

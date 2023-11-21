@@ -60,7 +60,7 @@ export default async function Page({ params }: Props) {
   const categoryPosts = await postByCategoryGQL(post.category.uniqueId);
 
   return (
-    <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
+    <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  mb-4">
       <Breadcrumb post={post} />
       <div
         role="list"
@@ -137,9 +137,6 @@ export default async function Page({ params }: Props) {
             </Tabs>
           </div>
         </div>
-      </div>
-      <div className="px-4 py-2 lg:hidden">
-        <MostViewed categoryPosts={categoryPosts} />
       </div>
     </div>
   );

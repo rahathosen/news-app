@@ -7,6 +7,7 @@ import LeaderboardAd from "./advertisement/leaderboardAd";
 import CoverRectangleAd from "./advertisement/coverRectangleAd";
 import SmallBannerAd from "./advertisement/smallBannerAd";
 import MobileLeaderboardAd from "./advertisement/mobileLeaderboardAd";
+import MPUAd from "./advertisement/mediumRectangleMPUAd";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -20,7 +21,7 @@ export default async function CategoryNews({
   const startIndex = Math.max(0, posts.length - 10);
 
   return (
-    <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
+    <div className="bg-white dark:bg-[#040D12] 2xl:p-8 rounded-b-lg rounded-t-lg">
       <div className="mx-auto px-4">
         <div className="relative flex items-center justify-between pb-4">
           <h2 className="text-black dark:text-white lg:text-3xl text-xl font-bold">
@@ -72,11 +73,11 @@ export default async function CategoryNews({
                           {post.title}
                         </h2>
                       </Link>
-                      <p className="mt-2 mb-2  text-sm leading-6 text-gray-600 dark:text-gray-400  hidden sm:inline-block">
+                      <p className="mt-2 mb-2  text-sm  text-gray-600 dark:text-gray-400  hidden sm:inline-block">
                         {/* {post.details.slice(0, 100) + "..."} */}
                         <div
                           dangerouslySetInnerHTML={{
-                            __html: post.details.slice(0, 500) + "...",
+                            __html: post.details.slice(0, 310) + "...",
                           }}
                         />
                       </p>
@@ -110,10 +111,10 @@ export default async function CategoryNews({
                       <h3 className="text-base font-bold leading-tight text-black  dark:text-white mb-2">
                         <Link href={`../news/`}>{post.title}</Link>
                       </h3>
-                      <p className="hidden md:block lg:line-clamp-2  text-sm leading-6 text-gray-600 dark:text-gray-400 mb-1">
+                      <p className="hidden md:block lg:line-clamp-2  text-sm  text-gray-600 dark:text-gray-400 mb-1">
                         <div
                           dangerouslySetInnerHTML={{
-                            __html: post.details.slice(0, 70) + "...",
+                            __html: post.details.slice(0, 90) + "...",
                           }}
                         />
                       </p>
@@ -127,16 +128,18 @@ export default async function CategoryNews({
               </div>
               {/* ad */}
               <div>
-                <CoverRectangleAd />
+                <MPUAd/>
               </div>
             </div>
             {/* 4 card */}
-            <div className="flex flex-wrap pt-2">
-              {posts.slice(0, 4).map((post: any) => (
+            <div className="flex flex-wrap md:pt-2 lg:-mt-14">
+              {posts.slice(0, 4).map((post: any, index: number) => (
                 <div
-                  key={post.uniqueId}
-                  className="flex-shrink max-w-full w-full sm:w-1/4 px-2 pb-2 lg:pb-0 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
-                >
+                key={post.uniqueId}
+                className={`flex-shrink max-w-full w-full sm:w-1/4 pb-2 lg:pb-0 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900 
+                  ${index !== 0 ? 'sm:pl-2' : ''} ${index !== posts.length - 1 ? 'sm:pr-2' : ''}`}
+              >
+
                   <div className="flex flex-row sm:block hover-img dark:hover-img-dark">
                     <Link href={`../news/${post.uniqueId}`}>
                       <Image
@@ -153,7 +156,7 @@ export default async function CategoryNews({
                           {post.title}
                         </Link>
                       </h3>
-                      <p className="hidden md:block lg:line-clamp-3  text-sm leading-6 text-gray-600 dark:text-gray-400 mb-1">
+                      <p className="hidden md:block lg:line-clamp-3  text-sm  text-gray-600 dark:text-gray-400 mb-1">
                         <div
                           dangerouslySetInnerHTML={{
                             __html: post.details.slice(0, 45) + "...",
@@ -168,18 +171,13 @@ export default async function CategoryNews({
                 </div>
               ))}
             </div>
-            {/* ad */}
-            <div>
-              <div className="my-2 hidden md:block">
-                <LeaderboardAd />
-              </div>
-              <div className="my-2 block md:hidden">
-                <MobileLeaderboardAd />
-              </div>
-            </div>
           </div>
           {/* part two */}
           <div className="col-span-3 lg:pl-2">
+          {/* Ad */}
+          <div className="lg:mb-4">
+          <SmallBannerAd />
+          </div>
             <Tabs defaultValue="lastnews" className="w-full">
               <TabsList>
                 <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>
@@ -187,7 +185,7 @@ export default async function CategoryNews({
               </TabsList>
               {/* latest news */}
               <TabsContent value="lastnews">
-                {posts.slice(0, 10).map((post: any) => (
+                {posts.slice(0, 8).map((post: any) => (
                   <div
                     key={post.id}
                     className="col-span-1 flex rounded-md shadow-sm py-2"
@@ -283,7 +281,6 @@ export default async function CategoryNews({
                   ))}
               </TabsContent>
             </Tabs>
-            <SmallBannerAd />
           </div>
         </div>
       </div>
