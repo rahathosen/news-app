@@ -4,6 +4,8 @@ import RelativeDate from "@/lib/relativeDate";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
+import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
 
 export const generateMetadata = async ({}): Promise<Metadata> => {
   const webInfo = await websiteInfoGQL();
@@ -42,6 +44,7 @@ export default async function Page() {
 
   return (
     <>
+    <OtherPageSuperLeadeAd/>
       <div className="bg-white dark:bg-[#040D12] mt-8  sm:mt-4 2xl:p-8 rounded-b-lg rounded-t-lg   pt-4 mb-4 pb-4">
         <div className="px-4 ">
           <h2 className="text-black dark:text-gray-400 lg:text-3xl text-xl font-bold">
@@ -141,6 +144,7 @@ export default async function Page() {
           </div>
         </div>
       </div>
+      <OtherPageLeaderboardAd/>
     </>
   );
 }

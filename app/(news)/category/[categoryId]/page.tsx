@@ -7,6 +7,8 @@ import Link from "next/link";
 import type { Metadata, ResolvingMetadata } from "next";
 import { newsCategoriesGQL, allPosts, websiteInfoGQL,postByCategoryGQL,newsCategorygGQL } from "@/lib/getGQL";
 import Category from "@/components/layouts/category";
+import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
+import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
 
 export const generateMetadata = async ({
   params,
@@ -53,7 +55,9 @@ export default async function Page({ params }: Props) {
   const categoryPosts = postByCategory.postByCategory
   return (
     <div>
-      <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
+      <OtherPageSuperLeadeAd/>
+      
+      <div className="bg-white dark:bg-[#040D12] 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
         <div>
           <div className="relative xl:container mx-auto px-3 sm:px-4 xl:px-2 py-4 ">
             <div className="relative">
@@ -95,6 +99,7 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
       </div>
+      <OtherPageLeaderboardAd/>
     </div>
   );
 }

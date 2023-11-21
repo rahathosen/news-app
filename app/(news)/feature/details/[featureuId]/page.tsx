@@ -23,6 +23,8 @@ import {
 } from "@/lib/getGQL";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
+import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
+import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
 
 type Props = {
   params: { featureuId: string };
@@ -63,8 +65,9 @@ export default async function Page({ params }: Props) {
   const post = featurePost.featurePost;
 
   return (
-    <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  mb-4">
-      {/* breadcumb start */}
+   <div>
+    <OtherPageSuperLeadeAd/>
+     <div className="bg-white dark:bg-[#040D12] 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  b-4">
       <nav
         className="flex justify-between border-b xl:container mx-auto px-3 sm:px-4 xl:px-2 mb-4 border-stone-200 dark:border-[#071720] bg-white dark:bg-[#040D12] "
         aria-label="Breadcrumb"
@@ -199,5 +202,7 @@ export default async function Page({ params }: Props) {
           <MostViewed categoryPosts={categoryPosts} />
         </div> */}
     </div>
+    <OtherPageLeaderboardAd/>
+   </div>
   );
 }

@@ -5,6 +5,8 @@ import Link from "next/link";
 import type { Metadata, ResolvingMetadata } from "next";
 import { postBySubCategoryGQL,newsCategorygGQL,newsSubCategoryGQL,websiteInfoGQL } from "@/lib/getGQL";
 import SubCategory from "@/components/layouts/subCategory";
+import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
+import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
 
 type Props = {
   params: { categoryId: string; subCategoryId: string };
@@ -57,7 +59,8 @@ export default async function Page({ params }: Props) {
  
   return (
     <div>
-      <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
+      <OtherPageSuperLeadeAd/>
+      <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg">
         <div>
           <div className="relative xl:container mx-auto px-3 sm:px-4 xl:px-2 py-4">
             <div className="relative">
@@ -107,6 +110,7 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
       </div>
+      <OtherPageLeaderboardAd/>
     </div>
   );
 }

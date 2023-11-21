@@ -9,6 +9,8 @@ import {
   featureGQL
 } from "@/lib/getGQL";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
+import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
+import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
 
 type Props = {
   params: { featuredetail: string };
@@ -55,8 +57,8 @@ export default async function Page({ params }: Props) {
   const featurePost = featurePosts.feature.featurepostSet;
   return (
     <>
-      {}
-      <div className="bg-stone-100 dark:bg-[#040D12] mt-8  sm:mt-4 2xl:p-8 rounded-b-lg rounded-t-lg   pt-4 mb-4 pb-4">
+      <OtherPageSuperLeadeAd/>
+      <div className="bg-stone-100 dark:bg-[#040D12]   sm:mt-4 2xl:p-8 rounded-b-lg rounded-t-lg   pt-4 mb-4 pb-4">
         <div className="px-4 ">
           <h2 className="text-black dark:text-gray-400 lg:text-3xl text-xl font-bold">
             <span className="inline-block lg:h-6 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
@@ -169,6 +171,7 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
       </div>
+      <OtherPageLeaderboardAd/>
     </>
   );
 }
