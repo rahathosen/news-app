@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Divider from "./ui/divider";
 import RelativeDate from "@/lib/relativeDate";
-import RowAd from "./advertisement/row-ad";
 import {
   postByCategoryGQL,
 } from "@/lib/getGQL";
@@ -19,7 +18,6 @@ export default async function Section({
     <div>
       {categoryLength > 0 ? (
         <div>
-          {/* <RowAd /> */}
           <div className=" dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
             <Divider categoryTitle={categoryTitle} categoryUId={categoryUId} />
             <div className="px-4">

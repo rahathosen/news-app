@@ -27,7 +27,7 @@ const ReviewCard = ({ post }: any) => {
 
 export default function BreakingNews({ breakingNews }: any) {
   return (
-    <div className="">
+    <div className="mb-2">
       <div className="bg-red-600 dark:bg-red-900 rounded-md ">
           <div className="relative flex h-full w-full flex-col items-center justify-center gap-4 overflow-hidden">
             <Marquee reverse pauseOnHover className="[--duration:20s]">

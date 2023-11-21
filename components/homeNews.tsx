@@ -5,7 +5,8 @@ import RelativeDate from "@/lib/relativeDate";
 import Section from "./section";
 import CategoryNews from "./categoryNews";
 import { sectionGQL } from "@/lib/getGQL";
-export default async function HomeNews({ newsCategory }: any) {
+import MPUAd from "./advertisement/mediumRectangleMPUAd";
+export default async function HomeNews({  }: any) {
 
  const sectionbox = await sectionGQL();
  const section = sectionbox.sectionBox 
@@ -18,6 +19,7 @@ export default async function HomeNews({ newsCategory }: any) {
             <div>
               <CategoryNews categoryTitle = {box.category.title}  categoryUId={box.category.uniqueId}/>
             </div>
+            <MPUAd/>
           </div>
         ))}
       </div>

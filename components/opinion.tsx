@@ -1,8 +1,8 @@
-"use client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import RelativeDate from "@/lib/relativeDate";
 import Image from "next/image";
 import Link from "next/link";
+import SmallBannerAd from "./advertisement/smallBannerAd";
 
 export default function OpnionNews({ webInfo, articles }: any) {
   return (
@@ -67,9 +67,11 @@ export default function OpnionNews({ webInfo, articles }: any) {
                               </Link>
                             </h3>
                             <p className="hidden md:block  text-gray-800 dark:text-gray-400 leading-tight mb-1">
-                              <div>
-                                {post.description.slice(0, 70) + "..."}
-                              </div>
+                            <div
+              dangerouslySetInnerHTML={{
+                __html: post.details.slice(0, 70) ,
+              }}
+            />
                               <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                                 <RelativeDate date={post.createdAt} />{" "}
                               </div>
@@ -93,6 +95,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
                   সর্বাধিক পঠিত here.
                 </TabsContent>
               </Tabs>
+              <SmallBannerAd />
             </div>
           </div>
         </div>
