@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import CoverNews from "@/components/coverNews";
 import HomeNews from "@/components/homeNews";
 import HeadlineNews from "@/components/headlineNews";
 import BreakingNews from "@/components/breakingNews";
-
 import {
   newsCategoriesGQL,
   websiteInfoGQL,
@@ -12,12 +10,14 @@ import {
   mainNewsGQL,
   homeHighlightedNewsGQL,
   headLinesGQL,
-  allArticlesGQL, 
+  allArticlesGQL,
 } from "@/lib/getGQL";
-import RowAd from "@/components/advertisement/row-ad";
 import HighlightNews from "@/components/highlightNews";
 import OpnionNews from "@/components/opinion";
-
+import CoverLeaderboardAd from "@/components/advertisement/coverLeaderboardAd";
+import HomeBillboardAd from "@/components/advertisement/homeBillboardAd";
+import MobileHomeBillboardAd from "@/components/advertisement/mobileHomeBillboardAd";
+import MPUAd from "@/components/advertisement/mediumRectangleMPUAd";
 export const generateMetadata = async (): Promise<Metadata> => {
   const webInfo = await websiteInfoGQL();
   return {
@@ -66,13 +66,22 @@ export default async function Home() {
   return (
     <main>
       <HeadlineNews headlines={headLineNews.headLine} /> 
-      <RowAd />
+      <div className="my-2 hidden md:block">
+        <HomeBillboardAd />
+      </div>
+      <div className="my-2 block md:hidden">
+        <MobileHomeBillboardAd />
+      </div>
       {breakingNews.breakingNews? <BreakingNews breakingNews={breakingNews.breakingNews} />:null }
-      
-      <HighlightNews mainNews={mainNews} homeHighlightedNews={homeHighlightedNews}/>
+
+      <HighlightNews
+        mainNews={mainNews}
+        homeHighlightedNews={homeHighlightedNews}
+      />
+      <MPUAd/>
       <OpnionNews webInfo={webInfo} articles={articles} />
+      <MPUAd/>
       <HomeNews posts={posts} newsCategory={newsCategory} />
-    
     </main>
   );
 }

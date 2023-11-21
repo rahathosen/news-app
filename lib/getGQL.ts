@@ -296,6 +296,7 @@ export async function allArticlesGQL(): Promise<any> {
       image
       createdAt
       description
+      details
       category {
         title
         uniqueId
@@ -534,6 +535,28 @@ export async function top10PostByCategoryThisWeekGQL(): Promise<any> {
 }
 
 
+
+// Get a single ad
+export async function adGQL(uId:number): Promise<any> {
+  const variables = {
+    postId: uId
+  };
+  const query = 
+    `
+    query adsByBoxPositionQuery ($postId: Int!) {
+      adsByBoxPosition(boxPosition: $postId) {
+        uniqueId
+        title
+        image
+        link
+        totalView
+        status
+        stopAt
+      }
+    }
+    `
+  return fetchGraphQL(query,variables);
+}
 
 // Get a single Feature detail
 export async function fetureDetailGQL(uId:any): Promise<any> {

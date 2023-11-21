@@ -22,8 +22,6 @@ import {
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
-// import NewsGridTemplate from "@/components/layouts/newsGridTemplate";
-import RowAd from "@/components/advertisement/row-ad";
 import Search from "@/components/search";
 
 const country = [

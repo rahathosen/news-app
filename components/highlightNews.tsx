@@ -5,6 +5,9 @@ import LocationDropdowns from "./dropdownSelect";
 import RelativeDate from "@/lib/relativeDate";
 import { Button } from "./ui/button";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import CoverRectangleAd from "./advertisement/coverRectangleAd";
+import CoverLeaderboardAd from "./advertisement/coverLeaderboardAd";
+import MobileCoverLeaderboardAd from "./advertisement/mobileCoverLeaderboardAd";
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
@@ -14,10 +17,10 @@ export default function HighlightNews({ mainNews, homeHighlightedNews }: any) {
   const homePosts = homeHighlightedNews.homeHighlightedNews.highlightedNews;
 
   return (
-    <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
+    <div className="bg-white dark:bg-[#040D12]  2xl:p-8 rounded-b-lg rounded-t-lg  mb-4 pb-4">
       <div className=" mx-auto px-4">
         <div className="grid grid-cols-1 gap-y-2 lg:grid-cols-9 xl:gap-x-2">
-          <div className="col-span-4">
+          <div className="col-span-4 pt-2">
             <article className="flex flex-col ">
               <Link
                 href={`/news/${mainPost.uniqueId}`}
@@ -57,14 +60,14 @@ export default function HighlightNews({ mainNews, homeHighlightedNews }: any) {
               <p className="mt-4  text-sm leading-6 text-gray-600 dark:text-gray-400 ">
               <div
               dangerouslySetInnerHTML={{
-                __html: mainPost.details.slice(0, 700) + "...",
+                __html: mainPost.details.slice(0, 500) + "...",
               }}
             />
               </p>
             </article>
           </div>
-          <div className="col-span-3 ">
-            {homePosts.slice(0, 6).map((post: any) => (
+          <div className="col-span-3 pt-2">
+            {homePosts.slice(0, 5).map((post: any) => (
               <div
                 key={post.uniqueId}
                 className="col-span-1 flex rounded-md shadow-sm pb-5"
@@ -112,16 +115,8 @@ export default function HighlightNews({ mainNews, homeHighlightedNews }: any) {
             ))}
           </div>
           <div className="flex flex-col col-span-2 lg:pl-4 ">
-            <div className=" h-[50%]">
-              <Image
-                src={
-                  "https://images.unsplash.com/photo-1657934787560-cbecc866430a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                }
-                alt="ad"
-                width={640}
-                height={427}
-                className="max-w-full w-full h-full object-cover mx-auto rounded-md bg-gray-50"
-              />
+            <div className="">
+             <CoverRectangleAd/>
             </div>
             <div className="pt-4">
               <div className="p-2 mb-4 bg-stone-200 dark:bg-[#071720] rounded-lg">
@@ -141,6 +136,14 @@ export default function HighlightNews({ mainNews, homeHighlightedNews }: any) {
             </div>
           </div>
         </div>
+        <div className="my-2 hidden md:block">
+        <CoverLeaderboardAd/>
+      </div>
+      <div className="my-2 block md:hidden">
+      <MobileCoverLeaderboardAd/>
+      </div>
+       
+        
       </div>
     </div>
   );
