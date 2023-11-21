@@ -18,6 +18,7 @@ import CoverLeaderboardAd from "@/components/advertisement/coverLeaderboardAd";
 import HomeBillboardAd from "@/components/advertisement/homeBillboardAd";
 import MobileHomeBillboardAd from "@/components/advertisement/mobileHomeBillboardAd";
 import MPUAd from "@/components/advertisement/mediumRectangleMPUAd";
+import MobileCoverLeaderboardAd from "@/components/advertisement/mobileCoverLeaderboardAd";
 export const generateMetadata = async (): Promise<Metadata> => {
   const webInfo = await websiteInfoGQL();
   return {
@@ -78,9 +79,27 @@ export default async function Home() {
         mainNews={mainNews}
         homeHighlightedNews={homeHighlightedNews}
       />
-      <MPUAd/>
+      {/* LearBoard */}
+      <div>
+        <div className="my-2 hidden md:block">
+          <CoverLeaderboardAd />
+        </div>
+        <div className="my-2 block md:hidden">
+          <MobileCoverLeaderboardAd />
+        </div>
+      </div>
+
       <OpnionNews webInfo={webInfo} articles={articles} />
-      <MPUAd/>
+      {/* LearBoard */}
+      <div>
+        <div className="my-2 hidden md:block">
+          <CoverLeaderboardAd />
+        </div>
+        <div className="my-2 block md:hidden">
+          <MobileCoverLeaderboardAd />
+        </div>
+      </div>
+
       <HomeNews posts={posts} newsCategory={newsCategory} />
     </main>
   );

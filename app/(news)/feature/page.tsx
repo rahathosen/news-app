@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { featurePostsGQL, websiteInfoGQL, allfeatureGQL } from "@/lib/getGQL";
+import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
+import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
 
 export const generateMetadata = async ({}): Promise<Metadata> => {
   const webInfo = await websiteInfoGQL();
@@ -40,7 +42,8 @@ export default async function Page() {
   const allposts = allFeaturePosts.featurePosts;
   return (
     <>
-      <div className=" dark:bg-[#040D12] mt-8  sm:mt-4 2xl:p-8 rounded-b-lg rounded-t-lg   pt-4 mb-4 pb-4">
+    <OtherPageSuperLeadeAd/>
+      <div className=" dark:bg-[#040D12]  2xl:p-8 rounded-b-lg rounded-t-lg   pt-4 mb-4 pb-4">
         <div className="px-4 ">
           <h2 className="text-black dark:text-gray-400 lg:text-3xl text-xl font-bold">
             <span className="inline-block lg:h-6 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
@@ -142,6 +145,7 @@ export default async function Page() {
           </div>
         </div>
       </div>
+      <OtherPageLeaderboardAd/>
     </>
   );
 }

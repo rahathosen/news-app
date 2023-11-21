@@ -19,6 +19,8 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import LatestNws from "@/components/latestnews";
 import OldestNews from "@/components/oldestnews";
+import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
+import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
 
 type Props = {
   params: { slug: string };
@@ -60,87 +62,88 @@ export default async function Page({ params }: Props) {
   const categoryPosts = await postByCategoryGQL(post.category.uniqueId);
 
   return (
-    <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
-      <Breadcrumb post={post} />
-      <div
-        role="list"
-        className="grid grid-cols-1 md:px-4 px-4  gap-y-2 lg:grid-cols-7 xl:gap-x-2"
-      >
-        <div className="hidden lg:block col-span-2">
-          <div>
-            <Author post={post} />
-            <Tabs defaultValue="lastnews" className="w-full">
-              <TabsList >
-                <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>
-                <TabsTrigger value="mostpopular">সর্বাধিক পঠিত</TabsTrigger>
-              </TabsList>
-              <TabsContent value="lastnews">
-              <LatestNws  categoryPosts={categoryPosts}/>
-              </TabsContent>
-              <TabsContent value="mostpopular">
-              <OldestNews categoryPosts={categoryPosts}/>
-              </TabsContent>
-            </Tabs>
+    <div>
+      <OtherPageSuperLeadeAd/>
+      <div className="bg-white dark:bg-[#040D12]  2xl:p-8 rounded-b-lg rounded-t-lg">
+        <Breadcrumb post={post} />
+        <div
+          role="list"
+          className="grid grid-cols-1 md:px-4 px-4  gap-y-2 lg:grid-cols-7 xl:gap-x-2"
+        >
+          <div className="hidden lg:block col-span-2">
+            <div>
+              <Author post={post} />
+              <Tabs defaultValue="lastnews" className="w-full">
+                <TabsList>
+                  <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>
+                  <TabsTrigger value="mostpopular">সর্বাধিক পঠিত</TabsTrigger>
+                </TabsList>
+                <TabsContent value="lastnews">
+                  <LatestNws categoryPosts={categoryPosts} />
+                </TabsContent>
+                <TabsContent value="mostpopular">
+                  <OldestNews categoryPosts={categoryPosts} />
+                </TabsContent>
+              </Tabs>
+            </div>
           </div>
-        </div>
 
-        <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700 lg:px-4 col-start-auto col-span-4 ">
-          <h1 className="mt-2 pb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl text-center ">
-            {post.title}
-          </h1>
-          <figure className="mt-4">
-            <Image
-              src={post.image}
-              alt={post.title}
-              height={240}
-              width={840}
-              className="aspect-video rounded-xl bg-gray-50 object-cover"
-            />
-
-            <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
-              <InformationCircleIcon
-                className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
-                aria-hidden="true"
+          <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700 lg:px-4 col-start-auto col-span-4 ">
+            <h1 className="mt-2 pb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl text-center ">
+              {post.title}
+            </h1>
+            <figure className="mt-4">
+              <Image
+                src={post.image}
+                alt={post.title}
+                height={240}
+                width={840}
+                className="aspect-video rounded-xl bg-gray-50 object-cover"
               />
-              {post.imageSource}
-            </figcaption>
-          </figure>
-          <p className="mt-6 text-xl leading-8 dark:text-gray-400">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: post.details,
-              }}
-            />
-          </p>
 
-          <div>
-            <h4 className="lg:pt-8 pt-4 pb-4 border-b border-white dark:border-[#071720] text-lg lg:text-2xl font-bold text-gray-600 dark:text-gray-400">
-              Related Topics:
-            </h4>
-            <Badges post={post} />
+              <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+                <InformationCircleIcon
+                  className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
+                  aria-hidden="true"
+                />
+                {post.imageSource}
+              </figcaption>
+            </figure>
+            <p className="mt-6 text-xl leading-8 dark:text-gray-400">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: post.details,
+                }}
+              />
+            </p>
+
+            <div>
+              <h4 className="lg:pt-8 pt-4 pb-4 border-b border-white dark:border-[#071720] text-lg lg:text-2xl font-bold text-gray-600 dark:text-gray-400">
+                Related Topics:
+              </h4>
+              <Badges post={post} />
+            </div>
           </div>
-        </div>
-        <div className="col-span-1">
-          <div className="lg:hidden">
-            <Author post={post} />
-            <Tabs defaultValue="lastNews" className="w-full">
-              <TabsList >
-                <TabsTrigger value="lastNews">সর্বশেষ</TabsTrigger>
-                <TabsTrigger value="oldestNews">সর্বাধিক পঠিত</TabsTrigger>
-              </TabsList>
-              <TabsContent value="lastNews">
-              <LatestNws catpost={post} categoryPosts={categoryPosts}/>
-              </TabsContent>
-              <TabsContent value="oldestNews">
-              <OldestNews catpost={post} categoryPosts={categoryPosts}/>
-              </TabsContent>
-            </Tabs>
+          <div className="col-span-1">
+            <div className="lg:hidden">
+              <Author post={post} />
+              <Tabs defaultValue="lastNews" className="w-full">
+                <TabsList>
+                  <TabsTrigger value="lastNews">সর্বশেষ</TabsTrigger>
+                  <TabsTrigger value="oldestNews">সর্বাধিক পঠিত</TabsTrigger>
+                </TabsList>
+                <TabsContent value="lastNews">
+                  <LatestNws catpost={post} categoryPosts={categoryPosts} />
+                </TabsContent>
+                <TabsContent value="oldestNews">
+                  <OldestNews catpost={post} categoryPosts={categoryPosts} />
+                </TabsContent>
+              </Tabs>
+            </div>
           </div>
         </div>
       </div>
-      <div className="px-4 py-2 lg:hidden">
-        <MostViewed categoryPosts={categoryPosts} />
-      </div>
+      <OtherPageLeaderboardAd/>
     </div>
   );
 }

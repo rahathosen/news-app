@@ -3,7 +3,7 @@ import Image from "next/image";
 import { adGQL } from "@/lib/getGQL";
 
 export default async function OtherPageSuperLeadeAd() {
-  const adbox = await adGQL(1);
+  const adbox = await adGQL(10);
   const ad = adbox.adsByBoxPosition
   return (
     <div className="my-2 flex justify-center items-center">

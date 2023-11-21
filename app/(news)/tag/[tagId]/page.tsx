@@ -6,6 +6,8 @@ import {
 } from "@/lib/getGQL";
 
 import Tag from "@/components/layouts/tag";
+import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
+import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
 
 type Props = {
   params: { tagId: string };
@@ -46,6 +48,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <div>
+      <OtherPageSuperLeadeAd/>
       <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  pb-4">
         <div>
           <div className= "">
@@ -66,6 +69,7 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
       </div>
+      <OtherPageLeaderboardAd/>
     </div>
   );
 }
