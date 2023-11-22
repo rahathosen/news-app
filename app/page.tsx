@@ -69,7 +69,7 @@ export default async function Home() {
 
   return (
     <main>
-      {/* <HeadlineNews headlines={headLineNews.headLine} /> */}
+      <HeadlineNews headlines={headLineNews.headLine} />
       {/*Billboard Ad  */}
       <div className="my-2 hidden md:block">
         <HomeBillboardAd />
@@ -78,9 +78,9 @@ export default async function Home() {
         <MobileHomeBillboardAd />
       </div>
 
-      {/* {breakingNews.breakingNews ? (
+      {breakingNews.breakingNews ? (
         <BreakingNews breakingNews={breakingNews.breakingNews} />
-      ) : null} */}
+      ) : null}
 
       <HighlightNews
         mainNews={mainNews}
