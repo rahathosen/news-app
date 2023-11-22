@@ -12,6 +12,7 @@ import {
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
 import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
+import SmallBannerAd from "@/components/advertisement/smallBannerAd";
 
 type Props = {
   params: {featuredetail:string , categoryuid: string};
@@ -138,7 +139,7 @@ export default async function Page({ params }: Props) {
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-gray-400">
+                            <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-white">
                             <Link href={`../details/${post.uniqueId}`}>
                                 {post.title}
                               </Link>
@@ -160,6 +161,9 @@ export default async function Page({ params }: Props) {
               </div>
             </div>
             <div className="col-start-auto col-span-2 ">
+            <div className="lg:mb-4">
+              <SmallBannerAd />
+            </div>
               <Tabs defaultValue="lastnews" className="w-full">
                 <TabsList>
                   <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>

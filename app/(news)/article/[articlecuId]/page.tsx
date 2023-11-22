@@ -14,6 +14,7 @@ import SubCategory from "@/components/layouts/subCategory";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
 import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
+import SmallBannerAd from "@/components/advertisement/smallBannerAd";
 
 type Props = {
   params: { articlecuId: string };
@@ -147,6 +148,9 @@ export default async function Page({ params }: Props) {
             </div>
           </div>
           <div className="col-start-auto col-span-2 ">
+          <div className="lg:mb-4">
+              <SmallBannerAd />
+            </div>
             <Tabs defaultValue="lastnews" className="w-full">
               <TabsList>
                 <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>

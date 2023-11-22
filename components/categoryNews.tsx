@@ -21,7 +21,7 @@ export default async function CategoryNews({
   const startIndex = Math.max(0, posts.length - 10);
 
   return (
-    <div className="bg-white dark:bg-[#040D12] 2xl:p-8 rounded-b-lg rounded-t-lg">
+    <div className="bg-white dark:bg-[#040D12] pt-4 2xl:p-8 rounded-b-lg rounded-t-lg">
       <div className="mx-auto px-4">
         <div className="relative flex items-center justify-between pb-4">
           <h2 className="text-black dark:text-white lg:text-3xl text-xl font-bold">

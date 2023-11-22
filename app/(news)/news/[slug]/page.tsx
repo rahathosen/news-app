@@ -21,6 +21,7 @@ import LatestNws from "@/components/latestnews";
 import OldestNews from "@/components/oldestnews";
 import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
 import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
+import DetailsPageAd from "@/components/advertisement/detailsPageAd";
 
 type Props = {
   params: { slug: string };
@@ -64,7 +65,7 @@ export default async function Page({ params }: Props) {
   return (
     <div>
       <OtherPageSuperLeadeAd/>
-      <div className="bg-white dark:bg-[#040D12]  2xl:p-8 rounded-b-lg rounded-t-lg">
+      <div className="bg-white dark:bg-[#040D12]  2xl:p-8 rounded-b-lg rounded-t-lg pt-4">
         <Breadcrumb post={post} />
         <div
           role="list"
@@ -123,6 +124,9 @@ export default async function Page({ params }: Props) {
               </h4>
               <Badges post={post} />
             </div>
+          </div>
+          <div className="hidden lg:block col-span-1">
+            <DetailsPageAd/>
           </div>
           <div className="col-span-1">
             <div className="lg:hidden">

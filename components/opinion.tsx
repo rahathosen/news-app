@@ -13,7 +13,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
   const startIndex = Math.max(0, articles.length - 4);
   return (
     <>
-      <div className="bg-white dark:bg-[#040D12]  2xl:p-8 rounded-b-lg rounded-t-lg">
+      <div className="bg-white dark:bg-[#040D12]  2xl:p-8 rounded-b-lg rounded-t-lg pt-4">
         <div className="mx-auto ">
           <div className="relative flex items-center justify-between px-4 pb-4">
             <h2 className="text-black dark:text-white lg:text-3xl text-xl font-bold">
