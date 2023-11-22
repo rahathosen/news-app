@@ -101,7 +101,7 @@ export default function LocationDropdowns({ allDivision }: any) {
               {allDivision.map((division: any) => (
                 <CommandItem
                   key={division.uniqueId}
-                  value={division.uniqueId}
+                  value={division.uniqueId.toLowerCase()}
                   onSelect={(currentValue) => {
                     setDivisionValue(
                       currentValue === divisionValue ? undefined : currentValue
@@ -115,7 +115,7 @@ export default function LocationDropdowns({ allDivision }: any) {
                   <CheckIcon
                     className={cn(
                       "ml-auto h-4 w-4",
-                      divisionValue === division.uniqueId
+                      divisionValue === division.uniqueId.toLowerCase()
                         ? "opacity-100"
                         : "opacity-0"
                     )}

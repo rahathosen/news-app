@@ -186,7 +186,7 @@ export default async function CategoryNews({
               <TabsContent value="lastnews">
                 {posts.slice(0, 8).map((post: any) => (
                   <div
-                    key={post.id}
+                    key={post.uniqueId}
                     className="col-span-1 flex rounded-md shadow-sm py-2"
                   >
                     <div
@@ -236,7 +236,7 @@ export default async function CategoryNews({
                   .reverse()
                   .map((post: any) => (
                     <div
-                      key={post.id}
+                      key={post.uniqueId}
                       className="col-span-1 flex rounded-md shadow-sm py-2"
                     >
                       <div
