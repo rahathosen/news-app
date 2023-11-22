@@ -1,13 +1,13 @@
-
-async function fetchGraphQL(query: string, variables?: object): Promise<any> {  
+async function fetchGraphQL(query: string, variables?: object): Promise<any> {
   const url = "https://django-news-server.vercel.app/gql/";
-  const body = variables 
+  const body = variables
     ? JSON.stringify({ query, variables })
     : JSON.stringify({ query });
 
   const response = await fetch(url, {
+    // cache:'no-store',
     cache: "reload",
-    next: { revalidate: 300 },
+    // next: { revalidate: 300 },
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -42,9 +42,9 @@ export async function websiteInfoGQL(): Promise<any> {
 }
 
 //  list of postsByTag
-export async function postsByTagGQL(taguId:any): Promise<any> {
+export async function postsByTagGQL(taguId: any): Promise<any> {
   const variables = {
-    tagUId: taguId
+    tagUId: taguId,
   };
   const query = `
       query MyQuery ($tagUId: String!){
@@ -67,12 +67,12 @@ export async function postsByTagGQL(taguId:any): Promise<any> {
       }
     `;
 
-  return fetchGraphQL(query,variables);
+  return fetchGraphQL(query, variables);
 }
 //  list of reporter
-export async function reporterGQL(useruId:any): Promise<any> {
+export async function reporterGQL(useruId: any): Promise<any> {
   const variables = {
-    userUId: useruId
+    userUId: useruId,
   };
   const query = `
   query reporterQuery ($userUId: String!){
@@ -96,17 +96,15 @@ export async function reporterGQL(useruId:any): Promise<any> {
   }
     `;
 
-  return fetchGraphQL(query,variables);
+  return fetchGraphQL(query, variables);
 }
 
 // Posts By Category
-export async function postByCategoryGQL(uId:any): Promise<any> {
-
+export async function postByCategoryGQL(uId: any): Promise<any> {
   const variables = {
-    catUId: uId
+    catUId: uId,
   };
-  const query = 
-    ` query MyQuery($catUId: String!) {
+  const query = ` query MyQuery($catUId: String!) {
       postByCategory(categoryuId: $catUId) {
       id
       uniqueId
@@ -129,17 +127,15 @@ export async function postByCategoryGQL(uId:any): Promise<any> {
     }
   }
 `;
-  return fetchGraphQL(query,variables);
+  return fetchGraphQL(query, variables);
 }
 
 // Posts By SubCategory
-export async function postBySubCategoryGQL(uId:any): Promise<any> {
-
+export async function postBySubCategoryGQL(uId: any): Promise<any> {
   const variables = {
-    subcatUId: uId
+    subcatUId: uId,
   };
-  const query = 
-    ` query MyQuery($subcatUId: String!) {
+  const query = ` query MyQuery($subcatUId: String!) {
       postBySubCategory(subCategoryuId: $subcatUId) {
       id
       uniqueId
@@ -153,7 +149,7 @@ export async function postBySubCategoryGQL(uId:any): Promise<any> {
     }
   }
 `;
-  return fetchGraphQL(query,variables);
+  return fetchGraphQL(query, variables);
 }
 
 // Post By articleCategories
@@ -239,13 +235,11 @@ export async function allPosts(): Promise<any> {
 }
 
 // Get a single Post detail
-export async function PostDetail(uId:any): Promise<any> {
-
+export async function PostDetail(uId: any): Promise<any> {
   const variables = {
-    postId: uId
+    postId: uId,
   };
-  const query = 
-    ` query MyQuery($postId: String!) {
+  const query = ` query MyQuery($postId: String!) {
         post(uId: $postId) {
             id
             uniqueId
@@ -282,8 +276,8 @@ export async function PostDetail(uId:any): Promise<any> {
             }
           }
         }
-    `
-  return fetchGraphQL(query,variables);
+    `;
+  return fetchGraphQL(query, variables);
 }
 
 //  list of all articles
@@ -309,12 +303,11 @@ export async function allArticlesGQL(): Promise<any> {
 }
 
 // Get a single Article detail
-export async function articlePostGQL(uId:any): Promise<any> {
+export async function articlePostGQL(uId: any): Promise<any> {
   const variables = {
-    postId: uId
+    postId: uId,
   };
-  const query = 
-    `
+  const query = `
     query featurePostQuery ($postId: String!) {
       articlePost(uId: $postId) {
         uniqueId
@@ -339,14 +332,14 @@ export async function articlePostGQL(uId:any): Promise<any> {
         }
       }
     }
-    `
-  return fetchGraphQL(query,variables);
+    `;
+  return fetchGraphQL(query, variables);
 }
 
 //  category by uniqueID
-export async function newsCategorygGQL(catuId:any): Promise<any> {
+export async function newsCategorygGQL(catuId: any): Promise<any> {
   const variables = {
-    catUId: catuId
+    catUId: catuId,
   };
 
   const query = `
@@ -362,7 +355,7 @@ export async function newsCategorygGQL(catuId:any): Promise<any> {
       }
     `;
 
-  return fetchGraphQL(query,variables);
+  return fetchGraphQL(query, variables);
 }
 
 // list of Categories
@@ -386,9 +379,9 @@ export async function newsCategoriesGQL(): Promise<any> {
   return fetchGraphQL(query);
 }
 // list of SubCategory
-export async function newsSubCategoryGQL(subuId:any): Promise<any> {
+export async function newsSubCategoryGQL(subuId: any): Promise<any> {
   const variables = {
-    subtUId: subuId
+    subtUId: subuId,
   };
   const query = `
       query MyQuery ($subtUId: String!) {
@@ -403,7 +396,7 @@ export async function newsSubCategoryGQL(subuId:any): Promise<any> {
       }
     `;
 
-  return fetchGraphQL(query,variables);
+  return fetchGraphQL(query, variables);
 }
 // list of postsTags
 export async function postsTagsGQL(): Promise<any> {
@@ -535,15 +528,12 @@ export async function top10PostByCategoryThisWeekGQL(): Promise<any> {
   return fetchGraphQL(query);
 }
 
-
-
 // Get a single ad
-export async function adGQL(uId:number): Promise<any> {
+export async function adGQL(uId: number): Promise<any> {
   const variables = {
-    postId: uId
+    postId: uId,
   };
-  const query = 
-    `
+  const query = `
     query adsByBoxPositionQuery ($postId: Int!) {
       adsByBoxPosition(boxPosition: $postId) {
         uniqueId
@@ -555,17 +545,16 @@ export async function adGQL(uId:number): Promise<any> {
         stopAt
       }
     }
-    `
-  return fetchGraphQL(query,variables);
+    `;
+  return fetchGraphQL(query, variables);
 }
 
 // Get a single Feature detail
-export async function fetureDetailGQL(uId:any): Promise<any> {
+export async function fetureDetailGQL(uId: any): Promise<any> {
   const variables = {
-    postId: uId
+    postId: uId,
   };
-  const query = 
-    `
+  const query = `
     query featurePostQuery ($postId: String!) {
       featurePost(featurePostuId: $postId) {
         uniqueId
@@ -594,8 +583,8 @@ export async function fetureDetailGQL(uId:any): Promise<any> {
         }
       }
     }
-    `
-  return fetchGraphQL(query,variables);
+    `;
+  return fetchGraphQL(query, variables);
 }
 
 //  list of all Feature Posts
@@ -625,10 +614,10 @@ export async function featurePostsGQL(): Promise<any> {
   return fetchGraphQL(query);
 }
 
-//  featuer 
-export async function featureGQL(fetureuId:any): Promise<any> {
+//  featuer
+export async function featureGQL(fetureuId: any): Promise<any> {
   const variables = {
-    catUId: fetureuId
+    catUId: fetureuId,
   };
 
   const query = `
@@ -654,13 +643,66 @@ export async function featureGQL(fetureuId:any): Promise<any> {
       } 
     `;
 
-  return fetchGraphQL(query,variables);
+  return fetchGraphQL(query, variables);
+}
+
+// all Districts
+export async function districtsGQL(): Promise<any> {
+  const query = `
+  query MyQuery {
+    districts(first: 64) {
+      name
+      uniqueId
+    }
+  }
+    `;
+
+  return fetchGraphQL(query);
+}
+// all Divisions
+export async function divisionsGQL(): Promise<any> {
+  const query = `
+  query MyQuery {
+    divisions(first: 10) {
+      name
+      uniqueId
+      districtSet {
+        name
+        uniqueId
+        upozilaSet {
+          name
+          uniqueId
+        }
+      }
+    }
+  }
+    `;
+
+  return fetchGraphQL(query);
+}
+
+//  Post by Division
+export async function postByDivisionGQL(divisionuId: any): Promise<any> {
+  const variables = {
+    divUId: divisionuId,
+  };
+
+  const query = `
+      query MyQuery ($divUId: String!){
+        postByDivision(divisionuId: $divUId, first: 10) {
+          title
+          uniqueId
+        }
+        }
+    `;
+
+  return fetchGraphQL(query, variables);
 }
 
 //  featuer posts by category
-export async function featurePostByCategoryGQL(fetureuId:any): Promise<any> {
+export async function featurePostByCategoryGQL(fetureuId: any): Promise<any> {
   const variables = {
-    catUId: fetureuId
+    catUId: fetureuId,
   };
 
   const query = `
@@ -676,13 +718,13 @@ export async function featurePostByCategoryGQL(fetureuId:any): Promise<any> {
         }
     `;
 
-  return fetchGraphQL(query,variables);
+  return fetchGraphQL(query, variables);
 }
 
 //  article By Category
-export async function articleByCategoryGQL(articlecuId:any): Promise<any> {
+export async function articleByCategoryGQL(articlecuId: any): Promise<any> {
   const variables = {
-    catUId: articlecuId
+    catUId: articlecuId,
   };
 
   const query = `
@@ -698,12 +740,12 @@ export async function articleByCategoryGQL(articlecuId:any): Promise<any> {
         }
     `;
 
-  return fetchGraphQL(query,variables);
+  return fetchGraphQL(query, variables);
 }
 //  article Category
-export async function articleCategoryGQL(articlecuId:any): Promise<any> {
+export async function articleCategoryGQL(articlecuId: any): Promise<any> {
   const variables = {
-    catUId: articlecuId
+    catUId: articlecuId,
   };
 
   const query = `
@@ -715,13 +757,15 @@ export async function articleCategoryGQL(articlecuId:any): Promise<any> {
         }
     `;
 
-  return fetchGraphQL(query,variables);
+  return fetchGraphQL(query, variables);
 }
 
 //  category by featuer Category By Featuer
-export async function featuerCategoryByFeatuerGQL(fetureuId:any): Promise<any> {
+export async function featuerCategoryByFeatuerGQL(
+  fetureuId: any
+): Promise<any> {
   const variables = {
-    catUId: fetureuId
+    catUId: fetureuId,
   };
 
   const query = `
@@ -744,13 +788,13 @@ export async function featuerCategoryByFeatuerGQL(fetureuId:any): Promise<any> {
       } 
     `;
 
-  return fetchGraphQL(query,variables);
+  return fetchGraphQL(query, variables);
 }
 
 //  featuer Category
-export async function featuerCategoryGQL(fetureuId:any): Promise<any> {
+export async function featuerCategoryGQL(fetureuId: any): Promise<any> {
   const variables = {
-    catUId: fetureuId
+    catUId: fetureuId,
   };
   const query = `
       query featurePostsQuery ($catUId: String!){
@@ -769,7 +813,7 @@ export async function featuerCategoryGQL(fetureuId:any): Promise<any> {
       } 
     `;
 
-  return fetchGraphQL(query,variables);
+  return fetchGraphQL(query, variables);
 }
 
 // list of Features

@@ -1,9 +1,12 @@
-"use client"
-// Import necessary types from React
-import React, { useState } from "react";
-import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons";
+"use client";
 
-// Import types from your utility library and UI components
+import React, { useState } from "react";
+import {
+  CaretSortIcon,
+  CheckIcon,
+  MagnifyingGlassIcon,
+} from "@radix-ui/react-icons";
+
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,124 +22,60 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-// Define types for division, district, and upazila
+
 type Division = {
-  value: string;
-  label: string;
+  name: string;
+  uniqueId: string;
+  districtSet: District[];
 };
 
 type District = {
-  value: string;
-  label: string;
+  name: string;
+  uniqueId: string;
+  upozilaSet: Upozila[];
 };
 
-type Upazila = {
-  value: string;
-  label: string;
+type Upozila = {
+  name: string;
+  uniqueId: string;
 };
 
-// Define the data for divisions, districts, and upazilas
-const divisions: Division[] = [
-  {
-    value: "dhaka",
-    label: "Dhaka",
-  },
-  {
-    value: "chittagong",
-    label: "Chittagong",
-  },
-  // Add more divisions as needed
-];
 
-const districts: Record<string, District[]> = {
-  dhaka: [
-    {
-      value: "dhakaCity",
-      label: "Dhaka City",
-    },
-    {
-      value: "gazipur",
-      label: "Gazipur",
-    },
-    // Add more districts for Dhaka as needed
-  ],
-  chittagong: [
-    {
-      value: "chittagongCity",
-      label: "Chittagong City",
-    },
-    {
-      value: "coxsbazar",
-      label: "Cox's Bazar",
-    },
-    // Add more districts for Chittagong as needed
-  ],
-  // Add more divisions with their respective districts as needed
-};
 
-const upazilas: Record<string, Upazila[]> = {
-  dhakaCity: [
-    {
-      value: "gulshan",
-      label: "Gulshan",
-    },
-    {
-      value: "mohammadpur",
-      label: "Mohammadpur",
-    },
-    // Add more upazilas for Dhaka City as needed
-  ],
-  gazipur: [
-    {
-      value: "tongi",
-      label: "Tongi",
-    },
-    {
-      value: "kapasia",
-      label: "Kapasia",
-    },
-    // Add more upazilas for Gazipur as needed
-  ],
-  chittagongCity: [
-    {
-      value: "kotwali",
-      label: "Kotwali",
-    },
-    {
-      value: "doubleMooring",
-      label: "Double Mooring",
-    },
-    // Add more upazilas for Chittagong City as needed
-  ],
-  coxsbazar: [
-    {
-      value: "coxsbazarSadar",
-      label: "Cox's Bazar Sadar",
-    },
-    {
-      value: "ukhiya",
-      label: "Ukhiya",
-    },
-    // Add more upazilas for Cox's Bazar as needed
-  ],
-  // Add more districts with their respective upazilas as needed
-};
-
-// Define the component
-const LocationDropdowns: React.FC = () => {
+export default function LocationDropdowns({ allDivision }: any) {
   const [divisionOpen, setDivisionOpen] = useState(false);
-  const [divisionValue, setDivisionValue] = useState<string | undefined>(undefined);
+  const [divisionValue, setDivisionValue] = useState<string | undefined>(
+    undefined
+  );
 
   const [districtOpen, setDistrictOpen] = useState(false);
-  const [districtValue, setDistrictValue] = useState<string | undefined>(undefined);
+  const [districtValue, setDistrictValue] = useState<string | undefined>(
+    undefined
+  );
 
   const [upazilaOpen, setUpazilaOpen] = useState(false);
-  const [upazilaValue, setUpazilaValue] = useState<string | undefined>(undefined);
-
+  const [upazilaValue, setUpazilaValue] = useState<string | undefined>(
+    undefined
+  );
+  const handleSearch = () => {
+    if (divisionValue) {
+      alert(divisionValue);
+    }
+    if (districtValue) {
+      alert(districtValue);
+    }
+    if (upazilaValue) {
+      alert(upazilaValue);
+    }
+  };
+  
   return (
     <div>
       {/* Division Dropdown */}
-      <Popover open={divisionOpen} onOpenChange={(open) => setDivisionOpen(open)}>
+      <Popover
+        open={divisionOpen}
+        onOpenChange={(open) => setDivisionOpen(open)}
+      >
         <PopoverTrigger asChild>
           <Button
             variant="outline"
@@ -146,7 +85,10 @@ const LocationDropdowns: React.FC = () => {
             className="w-full justify-between dark:text-gray-400"
           >
             {divisionValue
-              ? divisions.find((division) => division.value === divisionValue)?.label || ""
+              ? allDivision.find(
+                  (division: any) =>
+                    division.uniqueId.toLowerCase() === divisionValue
+                )?.name || ""
               : "বিভাগ সিলেক্ট করুন..."}
             <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </Button>
@@ -156,22 +98,26 @@ const LocationDropdowns: React.FC = () => {
             <CommandInput placeholder="Search division..." className="h-9" />
             <CommandEmpty>No division found.</CommandEmpty>
             <CommandGroup>
-              {divisions.map((division) => (
+              {allDivision.map((division: any) => (
                 <CommandItem
-                  key={division.value}
-                  value={division.value}
+                  key={division.uniqueId}
+                  value={division.uniqueId}
                   onSelect={(currentValue) => {
-                    setDivisionValue(currentValue === divisionValue ? undefined : currentValue);
+                    setDivisionValue(
+                      currentValue === divisionValue ? undefined : currentValue
+                    );
                     setDistrictValue(undefined);
                     setUpazilaValue(undefined);
                     setDivisionOpen(false);
                   }}
                 >
-                  {division.label}
+                  {division.name}
                   <CheckIcon
                     className={cn(
                       "ml-auto h-4 w-4",
-                      divisionValue === division.value ? "opacity-100" : "opacity-0"
+                      divisionValue === division.uniqueId
+                        ? "opacity-100"
+                        : "opacity-0"
                     )}
                   />
                 </CommandItem>
@@ -182,7 +128,10 @@ const LocationDropdowns: React.FC = () => {
       </Popover>
 
       {/* District Dropdown */}
-      <Popover open={districtOpen} onOpenChange={(open) => setDistrictOpen(open)}>
+      <Popover
+        open={districtOpen}
+        onOpenChange={(open) => setDistrictOpen(open)}
+      >
         <PopoverTrigger asChild>
           <Button
             variant="outline"
@@ -192,7 +141,15 @@ const LocationDropdowns: React.FC = () => {
             className="w-full justify-between mt-2 dark:text-gray-400"
           >
             {districtValue
-              ? districts[divisionValue || ""]?.find((district) => district.value === districtValue)?.label || ""
+              ? allDivision
+                  .find(
+                    (division: any) =>
+                      division.uniqueId.toLowerCase() === divisionValue
+                  )
+                  ?.districtSet.find(
+                    (district: any) =>
+                      district.uniqueId.toLowerCase() === districtValue
+                  )?.name || ""
               : "জেলা সিলেক্ট করুন..."}
             <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </Button>
@@ -202,21 +159,30 @@ const LocationDropdowns: React.FC = () => {
             <CommandInput placeholder="Search district..." className="h-9" />
             <CommandEmpty>No district found.</CommandEmpty>
             <CommandGroup>
-              {districts[divisionValue || ""]?.map((district) => (
+              {(
+                allDivision.find(
+                  (division: any) =>
+                    division.uniqueId.toLowerCase() === divisionValue
+                )?.districtSet || []
+              ).map((district: any) => (
                 <CommandItem
-                  key={district.value}
-                  value={district.value}
+                  key={district.uniqueId.toLowerCase()}
+                  value={district.uniqueId.toLowerCase()}
                   onSelect={(currentValue) => {
-                    setDistrictValue(currentValue === districtValue ? undefined : currentValue);
+                    setDistrictValue(
+                      currentValue === districtValue ? undefined : currentValue
+                    );
                     setUpazilaValue(undefined);
                     setDistrictOpen(false);
                   }}
                 >
-                  {district.label}
+                  {district.name}
                   <CheckIcon
                     className={cn(
                       "ml-auto h-4 w-4",
-                      districtValue === district.value ? "opacity-100" : "opacity-0"
+                      districtValue === district.uniqueId.toLowerCase()
+                        ? "opacity-100"
+                        : "opacity-0"
                     )}
                   />
                 </CommandItem>
@@ -237,7 +203,19 @@ const LocationDropdowns: React.FC = () => {
             className="w-full justify-between mt-2 dark:text-gray-400"
           >
             {upazilaValue
-              ? upazilas[districtValue || ""]?.find((upazila) => upazila.value === upazilaValue)?.label || ""
+              ? allDivision
+                  .find(
+                    (division: any) =>
+                      division.uniqueId.toLowerCase() === divisionValue
+                  )
+                  ?.districtSet.find(
+                    (district: any) =>
+                      district.uniqueId.toLowerCase() === districtValue
+                  )
+                  ?.upozilaSet.find(
+                    (upazila: any) =>
+                      upazila.uniqueId.toLowerCase() === upazilaValue
+                  )?.name || ""
               : "উপজেলা সিলেক্ট করুন..."}
             <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
           </Button>
@@ -247,30 +225,49 @@ const LocationDropdowns: React.FC = () => {
             <CommandInput placeholder="Search upazila..." className="h-9" />
             <CommandEmpty>No upazila found.</CommandEmpty>
             <CommandGroup>
-              {upazilas[districtValue || ""]?.map((upazila) => (
-                <CommandItem
-                  key={upazila.value}
-                  value={upazila.value}
-                  onSelect={(currentValue) => {
-                    setUpazilaValue(currentValue === upazilaValue ? undefined : currentValue);
-                    setUpazilaOpen(false);
-                  }}
-                >
-                  {upazila.label}
-                  <CheckIcon
-                    className={cn(
-                      "ml-auto h-4 w-4",
-                      upazilaValue === upazila.value ? "opacity-100" : "opacity-0"
-                    )}
-                  />
-                </CommandItem>
-              ))}
+              {allDivision
+                .find(
+                  (division: any) =>
+                    division.uniqueId.toLowerCase() === divisionValue
+                )
+                ?.districtSet.find(
+                  (district: any) =>
+                    district.uniqueId.toLowerCase() === districtValue
+                )
+                ?.upozilaSet.map((upazila: any) => (
+                  <CommandItem
+                    key={upazila.uniqueId.toLowerCase()}
+                    value={upazila.uniqueId.toLowerCase()}
+                    onSelect={(currentValue) => {
+                      setUpazilaValue(
+                        currentValue === upazilaValue ? undefined : currentValue
+                      );
+                      setUpazilaOpen(false);
+                    }}
+                  >
+                    {upazila.name}
+                    <CheckIcon
+                      className={cn(
+                        "ml-auto h-4 w-4",
+                        upazilaValue === upazila.uniqueId.toLowerCase()
+                          ? "opacity-100"
+                          : "opacity-0"
+                      )}
+                    />
+                  </CommandItem>
+                ))}
             </CommandGroup>
           </Command>
         </PopoverContent>
       </Popover>
+      <Button
+        aria-label="search button"
+        className="w-full bg-[#E7E5E4] dark:bg-[#071720]  mt-4"
+        variant={"secondary"}
+        onClick={handleSearch}
+      >
+        <MagnifyingGlassIcon className="mr-2 h-4 w-4" /> সার্চ করুন
+      </Button>
     </div>
   );
-};
-
-export default LocationDropdowns;
+}
