@@ -1,20 +1,27 @@
 import Link from "next/link";
 import Image from "next/image";
 // import DropdownSelect from "./dropdownSelect";
-import LocationDropdowns from "./dropdownSelect";
+import  LocationDropdowns  from "./dropdownSelect";
 import RelativeDate from "@/lib/relativeDate";
 import { Button } from "./ui/button";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import CoverRectangleAd from "./advertisement/coverRectangleAd";
 import SmallBannerAd from "./advertisement/smallBannerAd";
+import { divisionsGQL,districtsGQL } from "@/lib/getGQL";
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
-
-export default function HighlightNews({ mainNews, homeHighlightedNews }: any) {
+interface Division {
+  name: string;
+  uniqueId: string;
+}
+export default async function HighlightNews({ mainNews, homeHighlightedNews }: any) {
   const mainPost = mainNews.mainNews.headNews;
   const homePosts = homeHighlightedNews.homeHighlightedNews.highlightedNews;
-
+  const Divisions = await divisionsGQL();
+  const allDivision = Divisions.divisions
+  const alldistricts = await districtsGQL();
+  const allDis = alldistricts.districts
   return (
     <div className="bg-white dark:bg-[#040D12] pt-4  2xl:p-8 rounded-b-lg rounded-t-lg">
       <div className=" mx-auto px-4">
@@ -124,14 +131,7 @@ export default function HighlightNews({ mainNews, homeHighlightedNews }: any) {
                 </h2>
               </div>
 
-           <LocationDropdowns/>
-
-              <Button
-                className="w-full bg-[#E7E5E4] dark:bg-[#071720]  mt-4"
-                variant={"secondary"}
-              >
-                <MagnifyingGlassIcon className="mr-2 h-4 w-4" /> সার্চ করুন
-              </Button>
+          <LocationDropdowns allDivision={allDivision}/>
             </div>
             <div className="pt-4">
             <CoverRectangleAd/>

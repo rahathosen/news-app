@@ -11,6 +11,7 @@ import {
   homeHighlightedNewsGQL,
   headLinesGQL,
   allArticlesGQL,
+  divisionsGQL,
 } from "@/lib/getGQL";
 import HighlightNews from "@/components/highlightNews";
 import OpnionNews from "@/components/opinion";
@@ -64,22 +65,29 @@ export default async function Home() {
   const articles = allArticles.articlesPosts;
   const webInfo = await websiteInfoGQL();
 
+  const division = await divisionsGQL();
+
   return (
     <main>
-      <HeadlineNews headlines={headLineNews.headLine} /> 
+      <HeadlineNews headlines={headLineNews.headLine} />
+      {/*Billboard Ad  */}
       <div className="my-2 hidden md:block">
         <HomeBillboardAd />
       </div>
       <div className="my-2 block md:hidden">
         <MobileHomeBillboardAd />
       </div>
-      {breakingNews.breakingNews? <BreakingNews breakingNews={breakingNews.breakingNews} />:null }
+
+      {breakingNews.breakingNews ? (
+        <BreakingNews breakingNews={breakingNews.breakingNews} />
+      ) : null}
 
       <HighlightNews
         mainNews={mainNews}
         homeHighlightedNews={homeHighlightedNews}
       />
-      {/* LearBoard */}
+
+      {/* LearBoard Ad*/}
       <div>
         <div className="my-2 hidden md:block">
           <CoverLeaderboardAd />
