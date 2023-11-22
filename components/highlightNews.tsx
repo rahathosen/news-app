@@ -16,7 +16,7 @@ export default function HighlightNews({ mainNews, homeHighlightedNews }: any) {
   const homePosts = homeHighlightedNews.homeHighlightedNews.highlightedNews;
 
   return (
-    <div className="bg-white dark:bg-[#040D12]   2xl:p-8 rounded-b-lg rounded-t-lg">
+    <div className="bg-white dark:bg-[#040D12] pt-4  2xl:p-8 rounded-b-lg rounded-t-lg">
       <div className=" mx-auto px-4">
         <div className="grid grid-cols-1 gap-y-2 lg:grid-cols-9 xl:gap-x-2">
           <div className="col-span-4 pt-2">

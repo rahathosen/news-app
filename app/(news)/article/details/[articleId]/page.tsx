@@ -18,6 +18,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
 import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
 import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
+import DetailsPageAd from "@/components/advertisement/detailsPageAd";
 
 type Props = {
   params: { articleId: string };
@@ -170,6 +171,9 @@ export default async function Page({ params }: Props) {
             <Badges post={post} />
           </div> */}
         </div>
+        <div className="hidden lg:block col-span-1">
+            <DetailsPageAd/>
+          </div>
         {/* <div className="col-span-1">
           <div className="lg:hidden">
             <Author post={post} />

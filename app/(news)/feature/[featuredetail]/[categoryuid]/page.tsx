@@ -7,18 +7,20 @@ import {
   websiteInfoGQL,
   featuerCategoryByFeatuerGQL,
   featureGQL,
-  featuerCategoryGQL
+  featuerCategoryGQL,
 } from "@/lib/getGQL";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
 import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
+import SmallBannerAd from "@/components/advertisement/smallBannerAd";
 
 type Props = {
-  params: {featuredetail:string , categoryuid: string};
+  params: { featuredetail: string; categoryuid: string };
 };
 
-
-export const generateMetadata = async ({params}:Props): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
   const featurePosts = await featureGQL(params.featuredetail);
   const featureSubCategory = await featuerCategoryGQL(params.categoryuid);
   const webInfo = await websiteInfoGQL();
@@ -48,19 +50,18 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-
 export default async function Page({ params }: Props) {
   const webInfo = await websiteInfoGQL();
   const featurePosts = await featureGQL(params.featuredetail);
   const featureCategory = await featuerCategoryByFeatuerGQL(
     params.featuredetail
-    );
-    const featureSubCategory = await featuerCategoryGQL(params.categoryuid);
-    const featureSubCategoryPosts = featureSubCategory.featuerCategory
+  );
+  const featureSubCategory = await featuerCategoryGQL(params.categoryuid);
+  const featureSubCategoryPosts = featureSubCategory.featuerCategory;
 
   return (
     <>
-    <OtherPageSuperLeadeAd/>
+      <OtherPageSuperLeadeAd />
       <div className="bg-white dark:bg-[#040D12] mt-8  sm:mt-4 2xl:p-8 rounded-b-lg rounded-t-lg   pt-4 mb-4 pb-4">
         <div className="px-4 ">
           <h2 className="text-black dark:text-gray-400 lg:text-3xl text-xl font-bold">
@@ -74,8 +75,9 @@ export default async function Page({ params }: Props) {
               />
             </span>
             <Link href={`/feature/${featurePosts.feature.uniqueId}`}>
-            {featurePosts.feature.title}</Link>
-             <span className="inline-block lg:px-4 px-2 lg:h-[28px] h-[25px] items-center ">
+              {featurePosts.feature.title}
+            </Link>
+            <span className="inline-block lg:px-4 px-2 lg:h-[28px] h-[25px] items-center ">
               {" "}
               <ChevronRightIcon
                 className="lg:h-10 h-8 w-8 lg:w-10 text-gray-300 dark:text-[#071720]"
@@ -93,7 +95,6 @@ export default async function Page({ params }: Props) {
             <div className="no-scrollbar overflow-x-auto">
               <div className="border-b border-gray-200 dark:border-[#071720]">
                 <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-                  
                   {featureCategory.featuerCategoriesByFeatueruid.map(
                     (tab: any) => (
                       <Link
@@ -126,7 +127,7 @@ export default async function Page({ params }: Props) {
                         className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
                       >
                         <div className="flex flex-row sm:block hover-img max-h-18">
-                        <Link href={`../details/${post.uniqueId}`}>
+                          <Link href={`../details/${post.uniqueId}`}>
                             <Image
                               src={
                                 post.image || webInfo.websiteInfo.newsThumbnail
@@ -138,19 +139,21 @@ export default async function Page({ params }: Props) {
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-gray-400">
-                            <Link href={`../details/${post.uniqueId}`}>
+                            <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-white">
+                              <Link href={`../details/${post.uniqueId}`}>
                                 {post.title}
                               </Link>
                             </h3>
                             <p className="hidden md:block text-gray-800 dark:text-gray-400 leading-tight mb-1">
-                              <div>
-                                {post.description.slice(0, 100) + "..."}
-                              </div>
-                              <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
-                                <RelativeDate date={post.createdAt} />{" "}
-                              </div>
+                              <div
+                                dangerouslySetInnerHTML={{
+                                  __html: post.details.slice(0, 40) + "...",
+                                }}
+                              />
                             </p>
+                            <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
+                              <RelativeDate date={post.createdAt} />{" "}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -160,6 +163,9 @@ export default async function Page({ params }: Props) {
               </div>
             </div>
             <div className="col-start-auto col-span-2 ">
+              <div className="lg:mb-4">
+                <SmallBannerAd />
+              </div>
               <Tabs defaultValue="lastnews" className="w-full">
                 <TabsList>
                   <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>
@@ -174,7 +180,7 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
       </div>
-      <OtherPageLeaderboardAd/>
+      <OtherPageLeaderboardAd />
     </>
   );
 }

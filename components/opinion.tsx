@@ -13,7 +13,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
   const startIndex = Math.max(0, articles.length - 4);
   return (
     <>
-      <div className="bg-white dark:bg-[#040D12]  2xl:p-8 rounded-b-lg rounded-t-lg">
+      <div className="bg-white dark:bg-[#040D12]  2xl:p-8 rounded-b-lg rounded-t-lg pt-4">
         <div className="mx-auto ">
           <div className="relative flex items-center justify-between px-4 pb-4">
             <h2 className="text-black dark:text-white lg:text-3xl text-xl font-bold">
@@ -58,7 +58,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-gray-400">
+                            <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-white">
                               <Link href={`/article/${post.category.uniqueId}`}>
                                 <span className="text-red-600 dark:text-red-800">
                                   {" "}
@@ -98,7 +98,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-gray-400">
+                            <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-white">
                               <Link href={`/article/${post.category.uniqueId}`}>
                                 <span className="text-red-600 dark:text-red-800">
                                   {" "}
@@ -138,7 +138,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-gray-400">
+                            <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-white">
                               <Link href={`/article/${post.category.uniqueId}`}>
                                 <span className="text-red-600 dark:text-red-800">
                                   {" "}
