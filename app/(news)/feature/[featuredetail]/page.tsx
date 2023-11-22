@@ -142,13 +142,15 @@ export default async function Page({ params }: Props) {
                               </Link>
                             </h3>
                             <p className="hidden md:block text-gray-800 dark:text-gray-400 leading-tight mb-1">
-                              <div>
-                                {post.description.slice(0, 100) + "..."}
-                              </div>
+                            <div
+                          dangerouslySetInnerHTML={{
+                            __html: post.details.slice(0, 40) + "...",
+                          }}
+                        />
+                            </p>
                               <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                                 <RelativeDate date={post.createdAt} />{" "}
                               </div>
-                            </p>
                           </div>
                         </div>
                       </div>

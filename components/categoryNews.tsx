@@ -74,7 +74,6 @@ export default async function CategoryNews({
                         </h2>
                       </Link>
                       <p className="mt-2 mb-2  text-sm  text-gray-600 dark:text-gray-400  hidden sm:inline-block">
-                        {/* {post.details.slice(0, 100) + "..."} */}
                         <div
                           dangerouslySetInnerHTML={{
                             __html: post.details.slice(0, 310) + "...",

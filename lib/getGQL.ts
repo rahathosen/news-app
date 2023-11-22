@@ -497,6 +497,7 @@ export async function homeHighlightedNewsGQL(): Promise<any> {
         title
         image
         description
+        details
         createdAt
         updatedAt
         category {
@@ -608,6 +609,7 @@ export async function featurePostsGQL(): Promise<any> {
       imageSource
       createdAt
       description
+      details
       category {
         title
         uniqueId  
@@ -641,6 +643,7 @@ export async function featureGQL(fetureuId:any): Promise<any> {
             image
             createdAt
             description
+            details
             uniqueId
             category {
               title
@@ -667,6 +670,7 @@ export async function featurePostByCategoryGQL(fetureuId:any): Promise<any> {
             uniqueId
             image
             description
+            details
             createdAt
           }
         }
@@ -688,6 +692,7 @@ export async function articleByCategoryGQL(articlecuId:any): Promise<any> {
           image
           createdAt
           description
+          details
           uniqueId
         }
         }
@@ -757,6 +762,7 @@ export async function featuerCategoryGQL(fetureuId:any): Promise<any> {
             uniqueId
             image
             description
+            details
             createdAt
           }
         }
