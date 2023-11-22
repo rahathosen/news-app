@@ -176,7 +176,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
                 <TabsContent value="lastnews">
                 {articles.slice(0, 4).map((post: any) => (
                   <div
-                    key={post.id}
+                    key={post.uniqueId}
                     className="col-span-1 flex rounded-md shadow-sm py-2"
                   >
                     <div
@@ -216,7 +216,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
                 {articles.slice(startIndex)
                   .reverse().map((post: any) => (
                   <div
-                    key={post.id}
+                    key={post.uniqueId}
                     className="col-span-1 flex rounded-md shadow-sm py-2"
                   >
                     <div
