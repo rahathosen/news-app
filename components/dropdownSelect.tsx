@@ -21,7 +21,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
+import Link from "next/link";
 
 type Division = {
   name: string;
@@ -39,8 +39,6 @@ type Upozila = {
   name: string;
   uniqueId: string;
 };
-
-
 
 export default function LocationDropdowns({ allDivision }: any) {
   const [divisionOpen, setDivisionOpen] = useState(false);
@@ -68,7 +66,7 @@ export default function LocationDropdowns({ allDivision }: any) {
       alert(upazilaValue);
     }
   };
-  
+
   return (
     <div>
       {/* Division Dropdown */}
@@ -260,14 +258,14 @@ export default function LocationDropdowns({ allDivision }: any) {
           </Command>
         </PopoverContent>
       </Popover>
-      <Button
-        aria-label="search button"
-        className="w-full bg-[#E7E5E4] dark:bg-[#071720]  mt-4"
-        variant={"secondary"}
-        onClick={handleSearch}
-      >
-        <MagnifyingGlassIcon className="mr-2 h-4 w-4" /> সার্চ করুন
-      </Button>
+
+<Link
+href={`/search?selectedValue=${divisionValue}&selectedValue=${districtValue}&selectedValue=${upazilaValue}`}
+className="w-full bg-[#E7E5E4] dark:bg-[#071720] mt-4 p-2 flex items-center justify-center text-sm rounded-md text-gray-600 dark:text-white hover:opacity-75"
+>
+<MagnifyingGlassIcon className="mr-2 h-4 w-4" />
+সার্চ করুন
+</Link>
     </div>
   );
 }
