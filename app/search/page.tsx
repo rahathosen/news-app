@@ -11,9 +11,27 @@ import {
   postByDivisionGQL,
   postByDistrictGQL,
   postByUpozilatGQL,
+  divisionsGQL,
 } from "@/lib/getGQL";
+import LocationDropdowns from "@/components/dropdownSelect";
 
 export default async function Page({ searchParams }: any) {
+  const Divisions = await divisionsGQL();
+  const allDivision = Divisions.divisions;
+
+  if (
+    !searchParams ||
+    !searchParams.selectedValue ||
+    searchParams.selectedValue.length !== 3
+  ) {
+    // Handle the case where searchParams is not provided or doesn't have the expected structure
+    return (
+      <div>
+        <Search />
+      </div>
+    );
+  }
+
   const postByDivision = await postByDivisionGQL(
     searchParams.selectedValue[0].charAt(0).toUpperCase() +
       searchParams.selectedValue[0].slice(1)
@@ -90,7 +108,7 @@ export default async function Page({ searchParams }: any) {
                   </div>
                 </div>
               </div>
-            ) :  districtPosts && districtPosts.length > 0 ?  (
+            ) : districtPosts && districtPosts.length > 0 ? (
               <div>
                 <div className="flex flex-row flex-wrap">
                   <div className="flex-shrink max-w-full w-full overflow-hidden">
@@ -186,22 +204,23 @@ export default async function Page({ searchParams }: any) {
                   </div>
                 </div>
               </div>
-            ) : <div>No posts found</div>}
-
-
+            ) : (
+              <div>No posts found</div>
+            )}
           </div>
           <div className="col-start-auto col-span-2 ">
             <div className="">
               <SmallBannerAd />
             </div>
-            <Tabs defaultValue="lastnews" className="w-full">
+            <LocationDropdowns allDivision={allDivision} />
+            {/* <Tabs defaultValue="lastnews" className="w-full">
               <TabsList>
                 <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>
                 <TabsTrigger value="mostpopular">সর্বাধিক পঠিত</TabsTrigger>
               </TabsList>
               <TabsContent value="lastnews">সর্বশেষ সংবাদ here.</TabsContent>
               <TabsContent value="mostpopular">সর্বাধিক পঠিত here.</TabsContent>
-            </Tabs>
+            </Tabs> */}
           </div>
         </div>
       </div>
