@@ -690,8 +690,66 @@ export async function postByDivisionGQL(divisionuId: any): Promise<any> {
   const query = `
       query MyQuery ($divUId: String!){
         postByDivision(divisionuId: $divUId, first: 10) {
-          title
-          uniqueId
+            title
+            uniqueId
+            image
+            description
+            details
+            createdAt
+            division {
+              name
+              uniqueId
+    }
+        }
+        }
+    `;
+
+  return fetchGraphQL(query, variables);
+}
+//  Post by Division
+export async function postByDistrictGQL(districtuId: any): Promise<any> {
+  const variables = {
+    disUId: districtuId,
+  };
+
+  const query = `
+      query MyQuery ($disUId: String!){
+        postByDistrict(districtuId: $disUId) {
+            title
+            uniqueId
+            image
+            description
+            details
+            createdAt
+            district {
+              name
+              uniqueId
+            }
+        }
+        }
+    `;
+
+  return fetchGraphQL(query, variables);
+}
+//  Post by Division
+export async function postByUpozilatGQL(upozilauId: any): Promise<any> {
+  const variables = {
+    upoUId: upozilauId,
+  };
+
+  const query = `
+      query MyQuery ($upoUId: String!){
+        postByUpozila(upozilauId: $upoUId) {
+            title
+            uniqueId
+            image
+            description
+            details
+            createdAt
+             upozila {
+              name
+              uniqueId
+    }
         }
         }
     `;
