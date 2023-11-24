@@ -42,74 +42,19 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import ThemeToggle from "./theme-toggle-sitebar";
 import RelativeDate from "@/lib/relativeDate";
 import { Separator } from "../ui/separator";
-
-const notifications = [
-  {
-    id: 1,
-    title: "5 Reasons Why You Should Eat More Fruit Every Day",
-    href: "/news",
-    date: "Oct 11, 2023",
-    datetime: "2023-03-16",
-  },
-  {
-    id: 2,
-    title: "5 Reasons Why You Should Eat More Fruit Every Day",
-    href: "/news",
-    date: "Oct 10, 2023",
-    datetime: "2023-03-16",
-  },
-  {
-    id: 3,
-    title: "5 Reasons Why You Should Eat More Fruit Every Day",
-    href: "/news",
-    date: "Mar 16, 2023",
-    datetime: "2023-03-16",
-  },
-  {
-    id: 4,
-    title: "5 Reasons Why You Should Eat More Fruit Every Day",
-    href: "/news",
-    date: "Feb 16, 2023",
-    datetime: "2023-03-16",
-  },
-  {
-    id: 5,
-    title: "5 Reasons Why You Should Eat More Fruit Every Day",
-    href: "/news",
-    date: "Mar 16, 2023",
-    datetime: "2023-03-16",
-  },
-  {
-    id: 6,
-    title: "5 Reasons Why You Should Eat More Fruit Every Day",
-    href: "/news",
-    date: "Mar 16, 2022",
-    datetime: "2023-03-16",
-  },
-  {
-    id: 7,
-    title: "5 Reasons Why You Should Eat More Fruit Every Day",
-    href: "/news",
-    date: "Mar 16, 2021",
-    datetime: "2023-03-16",
-  },
-  {
-    id: 8,
-    title: "5 Reasons Why You Should Eat More Fruit Every Day",
-    href: "/news",
-    date: "Mar 16, 2020",
-    datetime: "2023-03-16",
-  },
-];
+import NotificationPosts from "../notificationPosts";
 
 export interface ListItemProps extends HTMLProps<HTMLAnchorElement> {
   title: string;
   children: ReactNode;
 }
 
-
-export default function Siebar({ newsCategories }: any) {
- 
+export default function Siebar({
+  newsCategories,
+  posts,
+  opinions,
+  navigations,
+}: any) {
   return (
     <div className="flex  items-center lg:pr-6  md:pr-2 pr-0">
       <button
@@ -135,35 +80,19 @@ export default function Siebar({ newsCategories }: any) {
                   <DropdownMenuSeparator />
                   <ScrollArea className="h-[calc(50vh-4rem)] py-2 rounded-2xl ">
                     <div>
-                      {notifications.map((post) => (
-                        <div
-                          key={post.id}
-                          className="flex flex-col gap-2  rounded-md text-sm p-2 "
-                        >
-                          <SheetClose asChild>
-                            <Link
-                              className="dark:bg-[#071720] bg-gray-100 hover:bg-gray-200 dark:hover:bg-[#0e232e] p-3 rounded-md"
-                              href={"/news"}
-                            >
-                              <p>{post.title}</p>
-                              <div className="text-neutral-400 font-medium text-sm  dark:text-neutral-600">
-                                <RelativeDate date={post.date} />{" "}
-                              </div>
-                            </Link>
-                          </SheetClose>
-                        </div>
-                      ))}
+                      <NotificationPosts posts={posts.allPosts} />
                     </div>
                   </ScrollArea>
-
                   <DropdownMenuSeparator />
                   <DropdownMenuLabel className="text-center">
-                    <Link
-                      className="rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 p-2"
-                      href="/notification"
-                    >
-                      View All Notification
-                    </Link>
+                    <SheetClose asChild>
+                      <Link
+                        className="rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 p-2"
+                        href="/search"
+                      >
+                        View All Notification
+                      </Link>
+                    </SheetClose>
                   </DropdownMenuLabel>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -173,6 +102,57 @@ export default function Siebar({ newsCategories }: any) {
             </SheetHeader>
             <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pt-8 pl-6">
               <div className="pl-1 pr-7 mb-6 ">
+                <Link
+                  href={"/search"}
+                  className="text-sm capitalize font-semibold dark:text-white"
+                >
+                  সর্বশেষ
+                </Link>
+                <Separator className=" mt-4" />
+                <Accordion
+                  type="multiple"
+                  defaultValue={opinions.articleCategories.map(
+                    (item: any) => item.title
+                  )}
+                  className="w-full"
+                >
+                  {opinions.articleCategories
+                    ?.slice(0, 1)
+                    .map((item: any, index: any) => (
+                      <AccordionItem value={item.title} key={item.uniqueId}>
+                        <AccordionTrigger className="text-sm capitalize font-semibold dark:text-white">
+                          মতামত
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="flex flex-col space-y-2">
+                            <div
+                              key={item.uniqueId}
+                              className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
+                            >
+                              <SheetClose asChild>
+                                <Link href={`/article`}>সকল মতামত</Link>
+                              </SheetClose>
+                              {opinions.articleCategories?.map(
+                                (sub: any, index: any) => (
+                                  <div
+                                    key={sub.uniqueId}
+                                    className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
+                                  >
+                                    <SheetClose asChild>
+                                      <Link href={`/article/${sub.uniqueId}`}>
+                                        {sub.title}
+                                      </Link>
+                                    </SheetClose>
+                                  </div>
+                                )
+                              )}
+                              {/* </SheetFooter> */}
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                </Accordion>
                 <Accordion
                   type="multiple"
                   defaultValue={newsCategories.newsCategories.map(
@@ -180,22 +160,7 @@ export default function Siebar({ newsCategories }: any) {
                   )}
                   className="w-full"
                 >
-                  <div className="flex flex-col">
-                    <Link
-                      href={"/search"}
-                      className="text-sm capitalize font-semibold dark:text-white"
-                    >
-                      সর্বশেষ
-                    </Link>
-                    <Separator className=" my-4"/>
-                    <Link
-                      href={"/article"}
-                      className="text-sm capitalize font-semibold dark:text-white"
-                    >
-                      মতামত
-                    </Link>
-                     <Separator className="mt-2"/>
-                  </div>
+                  <div className="flex flex-col"></div>
                   {newsCategories.newsCategories?.map(
                     (item: any, index: any) => (
                       <AccordionItem value={item.title} key={item.uniqueId}>
@@ -220,7 +185,7 @@ export default function Siebar({ newsCategories }: any) {
                                     key={sub.uniqueId}
                                     className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
                                   >
-                                     <SheetClose asChild>
+                                    <SheetClose asChild>
                                       <Link
                                         href={`/category/${item.uniqueId}/${sub.uniqueId}`}
                                       >
@@ -238,12 +203,50 @@ export default function Siebar({ newsCategories }: any) {
                     )
                   )}
                 </Accordion>
-                <span className="pt-4"></span>
-                <Link
-                  href={"/feature"}
-                  className="text-sm capitalize font-semibold dark:text-white pt-4">
-                  ফিচার
-                </Link>
+                <Accordion
+                  type="multiple"
+                  defaultValue={navigations.navigation.feature.map(
+                    (item: any) => item.title
+                  )}
+                  className="w-full"
+                >
+                  {navigations.navigation.feature
+                    ?.slice(0, 1)
+                    .map((item: any, index: any) => (
+                      <AccordionItem value={item.title} key={item.uniqueId}>
+                        <AccordionTrigger className="text-sm capitalize font-semibold dark:text-white">
+                          ফিচার
+                        </AccordionTrigger>
+                        <AccordionContent>
+                          <div className="flex flex-col space-y-2">
+                            <div
+                              key={item.uniqueId}
+                              className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
+                            >
+                              <SheetClose asChild>
+                                <Link href={`/feature`}>সকল ফিচার</Link>
+                              </SheetClose>
+                              {navigations.navigation.feature?.map(
+                                (sub: any, index: any) => (
+                                  <div
+                                    key={sub.uniqueId}
+                                    className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
+                                  >
+                                    <SheetClose asChild>
+                                      <Link href={`/feature/${sub.uniqueId}`}>
+                                        {sub.title}
+                                      </Link>
+                                    </SheetClose>
+                                  </div>
+                                )
+                              )}
+                              {/* </SheetFooter> */}
+                            </div>
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                </Accordion>
               </div>
             </ScrollArea>
           </SheetContent>

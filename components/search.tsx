@@ -67,10 +67,10 @@ export default async function Search() {
                                   __html: post.details.slice(0, 50) + "...",
                                 }}
                               />
+                            </p>
                               <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                                 <RelativeDate date={post.createdAt} />{" "}
                               </div>
-                            </p>
                           </div>
                         </div>
                       </div>

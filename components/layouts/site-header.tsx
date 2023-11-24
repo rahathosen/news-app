@@ -7,7 +7,6 @@ export interface ListItemProps extends HTMLProps<HTMLAnchorElement> {
   children: ReactNode;
 }
 
-
 export default async function SiteHeader({ webInfo, navigations }: any) {
   const newsCategories = await newsCategoriesGQL();
   const posts = await allPosts();

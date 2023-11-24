@@ -228,7 +228,7 @@ export default function SiteHeaderNavigations({
           </NavigationMenu.List>
         </div>
         {/* sitebar hamburger menu */}
-        <Siebar newsCategories={newsCategories} />
+        <Siebar newsCategories={newsCategories} posts={posts} opinions={opinions} navigations={navigations}/>
         <div className=" absolute top-full left-0 flex w-full  justify-center ">
           <NavigationMenu.Viewport className="data-[state=open]:animate-scaleIn data-[state=closed]:animate-scaleOut relative mt-[10px] h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-md drop-shadow-2xl  transition-[width,_height] duration-300 " />
         </div>

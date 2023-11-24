@@ -91,6 +91,7 @@ export async function reporterGQL(useruId: any): Promise<any> {
         createdAt
         uniqueId
         description
+        details
       }
     }
   }
