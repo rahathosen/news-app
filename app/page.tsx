@@ -11,7 +11,6 @@ import {
   homeHighlightedNewsGQL,
   headLinesGQL,
   allArticlesGQL,
-  divisionsGQL,
 } from "@/lib/getGQL";
 import HighlightNews from "@/components/highlightNews";
 import OpnionNews from "@/components/opinion";
@@ -65,7 +64,7 @@ export default async function Home() {
   const articles = allArticles.articlesPosts;
   const webInfo = await websiteInfoGQL();
 
-  const division = await divisionsGQL();
+
 
   return (
     <main>

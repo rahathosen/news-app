@@ -213,14 +213,6 @@ export default async function Page({ searchParams }: any) {
               <SmallBannerAd />
             </div>
             <LocationDropdowns allDivision={allDivision} />
-            {/* <Tabs defaultValue="lastnews" className="w-full">
-              <TabsList>
-                <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>
-                <TabsTrigger value="mostpopular">সর্বাধিক পঠিত</TabsTrigger>
-              </TabsList>
-              <TabsContent value="lastnews">সর্বশেষ সংবাদ here.</TabsContent>
-              <TabsContent value="mostpopular">সর্বাধিক পঠিত here.</TabsContent>
-            </Tabs> */}
           </div>
         </div>
       </div>
