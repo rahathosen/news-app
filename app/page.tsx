@@ -65,10 +65,11 @@ export default async function Home() {
   const webInfo = await websiteInfoGQL();
 
 
-
   return (
     <main>
-      <HeadlineNews headlines={headLineNews.headLine} />
+      {headLineNews.headLine[0].headlines.length > 0 ? (
+        <HeadlineNews headlines={headLineNews.headLine} />
+      ) : null}
       {/*Billboard Ad  */}
       <div className="my-2 hidden md:block">
         <HomeBillboardAd />
