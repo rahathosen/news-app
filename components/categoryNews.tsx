@@ -57,7 +57,7 @@ export default async function CategoryNews({
                     className="relative hover-img dark:hover-img-dark   "
                   >
                     {/* <!--thumbnail--> */}
-                    <Link href={`../news/${post.uniqueId}`}>
+                    <Link href={`/news/${post.uniqueId}`}>
                       <Image
                         src={post.image}
                         alt={post.title}
@@ -68,7 +68,7 @@ export default async function CategoryNews({
                     </Link>
                     <div className="pt-4">
                       {/* <!--title--> */}
-                      <Link href={`../news/${post.uniqueId}`}>
+                      <Link href={`/news/${post.uniqueId}`}>
                         <h2 className="text-2xl font-bold capitalize text-black  dark:text-white ">
                           {post.title}
                         </h2>
@@ -97,7 +97,7 @@ export default async function CategoryNews({
                     key={post.uniqueId}
                     className="flex flex-row sm:block hover-img dark:hover-img-dark"
                   >
-                    <Link href={`../news/${post.uniqueId}`}>
+                    <Link href={`/news/${post.uniqueId}`}>
                       <Image
                         src={post.image}
                         alt={post.title}
@@ -108,7 +108,7 @@ export default async function CategoryNews({
                     </Link>
                     <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                       <h3 className="text-base font-bold leading-tight text-black  dark:text-white mb-2">
-                        <Link href={`../news/`}>{post.title}</Link>
+                        <Link href={`/news/${post.uniqueId}`}>{post.title}</Link>
                       </h3>
                       <p className="hidden md:block lg:line-clamp-2  text-sm  text-gray-600 dark:text-gray-400 mb-1">
                         <div

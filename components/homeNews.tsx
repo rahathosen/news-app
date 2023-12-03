@@ -4,17 +4,13 @@ import Divider from "./ui/divider";
 import RelativeDate from "@/lib/relativeDate";
 import Section from "./section";
 import CategoryNews from "./categoryNews";
-import { sectionGQL,postByDivisionGQL } from "@/lib/getGQL";
+import { sectionGQL, postByDivisionGQL } from "@/lib/getGQL";
 import CoverLeaderboardAd from "./advertisement/coverLeaderboardAd";
 import MobileCoverLeaderboardAd from "./advertisement/mobileCoverLeaderboardAd";
-
 
 export default async function HomeNews({}: any) {
   const sectionbox = await sectionGQL();
   const section = sectionbox.sectionBox;
-  // const divisionPosts= await postByDivisionGQL('Dhaka');
-  // console.log(divisionPosts)
-
   return (
     <div>
       <div>
