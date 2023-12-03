@@ -13,7 +13,7 @@ export default async function SmallBannerAd() {
         alt={ad.title}
         width={300}
         height={50}
-        className="max-w-max w-full max-h-max object-cover rounded-md"
+        className="max-w-max w-full max-h-max object-cover"
       />
     </Link>
   </div>

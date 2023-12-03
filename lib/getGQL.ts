@@ -5,29 +5,29 @@ async function fetchGraphQL(query: string, variables?: object): Promise<any> {
     ? JSON.stringify({ query, variables })
     : JSON.stringify({ query });
 
-    try {
-      const response = await fetch(url, {
-        cache:'default',
-        // cache: "reload",
-        next: { revalidate: 300 },
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body,
-      });
-  
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-  
-      const { data } = await response.json();
-      return data;
-    } catch (error) {
-      console.error('GraphQL error:', error);
+  try {
+    const response = await fetch(url, {
+      cache: "default",
+      // cache: "reload",
+      next: { revalidate: 300 },
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    });
 
-      return {};
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
+
+    const { data } = await response.json();
+    return data;
+  } catch (error) {
+    console.error("GraphQL error:", error);
+
+    return {};
+  }
 }
 // =================================================================================================
 
