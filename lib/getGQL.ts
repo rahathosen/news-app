@@ -1,22 +1,33 @@
+
 async function fetchGraphQL(query: string, variables?: object): Promise<any> {
   const url = "https://django-news-server.vercel.app/gql/";
   const body = variables
     ? JSON.stringify({ query, variables })
     : JSON.stringify({ query });
 
-  const response = await fetch(url, {
-    // cache:'no-store',
-    cache: "reload",
-    next: { revalidate: 300 },
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body,
-  });
+    try {
+      const response = await fetch(url, {
+        cache:'no-store',
+        // cache: "reload",
+        next: { revalidate: 300 },
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body,
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const { data } = await response.json();
+      return data;
+    } catch (error) {
+      console.error('GraphQL error:', error);
 
-  const { data } = await response.json();
-  return data;
+      return {};
+    }
 }
 // =================================================================================================
 
