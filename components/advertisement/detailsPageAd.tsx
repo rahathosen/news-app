@@ -7,10 +7,10 @@ export default async function DetailsPageAd() {
   const ad = adbox.adsByBoxPosition;
   return (
     <div className="my-2 flex justify-center items-center">
-    <Link href="#">
+    <Link href={ad.link}>
       <Image
         src={ad.image}
-        alt={""}
+        alt={ad.title}
         width={160}
         height={600}
         className="max-w-max w-full max-h-max object-cover rounded-md"
