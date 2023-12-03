@@ -14,7 +14,7 @@ export default async function MobileCoverLeaderboardAd() {
             alt={ad.title}
             width={320}
             height={100}
-            className="max-w-max w-full max-h-max object-cover rounded-md"
+            className="max-w-max w-full max-h-max object-cover"
           />
         </Link>
       </div>
