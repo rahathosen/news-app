@@ -87,16 +87,21 @@ export default async function Home() {
       />
 
       {/* LearBoard Ad*/}
-      <div>
-        <div className="my-2 hidden md:block">
-          <CoverLeaderboardAd />
-        </div>
-        <div className="my-2 block md:hidden">
-          <MobileCoverLeaderboardAd />
-        </div>
-      </div>
 
-      <OpnionNews webInfo={webInfo} articles={articles} />
+      {articles.length > 0 ? (
+        <div>
+          <div>
+            <div className="my-2 hidden md:block">
+              <CoverLeaderboardAd />
+            </div>
+            <div className="my-2 block md:hidden">
+              <MobileCoverLeaderboardAd />
+            </div>
+          </div>
+          <OpnionNews webInfo={webInfo} articles={articles} />
+        </div>
+      ) : null}
+      {/* <OpnionNews webInfo={webInfo} articles={articles} /> */}
       {/* LearBoard */}
       <div>
         <div className="my-2 hidden md:block">
