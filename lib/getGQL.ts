@@ -7,9 +7,9 @@ async function fetchGraphQL(query: string, variables?: object): Promise<any> {
 
   try {
     const response = await fetch(url, {
-      cache: "default",
+      cache: "no-cache",
       // cache: "reload",
-      next: { revalidate: 300 },
+      // next: { revalidate: 300 },
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -193,6 +193,9 @@ export async function sectionGQL(): Promise<any> {
       category {
         uniqueId
         title
+        postSet {
+          title
+        }
       }
     }
   }
