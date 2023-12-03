@@ -3,20 +3,38 @@ import Image from "next/image";
 import { adGQL } from "@/lib/getGQL";
 
 export default async function MobileHomeBillboardAd() {
-  const adbox = await adGQL(2);
-  const ad = adbox.adsByBoxPosition
-  return (
-    <div className="my-2 flex justify-center items-center">
-    <Link href="#">
-      <Image
-        src={ad.image}
-        alt={""}
-        width={320}
-        height={100}
-        className="max-w-max w-full max-h-max object-cover rounded-md"
-      />
-    </Link>
-  </div>
-  
-  );
+  try {
+    const adbox = await adGQL(20);
+    const ad = adbox.adsByBoxPosition;
+    return (
+      <div className="my-2 flex justify-center items-center">
+        <Link href={ad.link}>
+          <Image
+            src={ad.image}
+            alt={ad.title}
+            width={320}
+            height={100}
+            className="max-w-max w-full max-h-max object-cover rounded-md"
+          />
+        </Link>
+      </div>
+    );
+  } catch (error) {
+    return (
+      <div className="relative my-2 flex justify-center items-center">
+        <Link href="#">
+          <Image
+            src="https://res.cloudinary.com/dfbhz3cfv/image/upload/v1700556439/ki76mkjwkft8ey195wzh.png"
+            alt={"mobile home billboard ad"}
+            width={320}
+            height={100}
+            className="max-w-max w-full max-h-max object-cover rounded-md"
+          />
+          <div className="absolute inset-0 left-1/2 top-4 flex -translate-x-1/2 transform justify-center px-2 text-white">
+            <h1 className="text-3xl font-bold text-black">BD News 20</h1>
+          </div>
+        </Link>
+      </div>
+    );
+  }
 }
