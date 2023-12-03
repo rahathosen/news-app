@@ -15,7 +15,7 @@ export default async function CoverLeaderboardAd() {
             alt={ad.title}
             width={728}
             height={90}
-            className="max-w-max w-full max-h-max object-cover rounded-md"
+            className="max-w-max w-full max-h-max object-cover"
           />
         </Link>
       </div>
