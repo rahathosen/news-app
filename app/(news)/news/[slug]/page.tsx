@@ -22,6 +22,7 @@ import OldestNews from "@/components/oldestnews";
 import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
 import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
 import DetailsPageAd from "@/components/advertisement/detailsPageAd";
+import YouTubePlayer from "@/components/youTubePlayer";
 
 type Props = {
   params: { slug: string };
@@ -64,7 +65,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <div>
-      <OtherPageSuperLeadeAd/>
+      <OtherPageSuperLeadeAd />
       <div className="bg-white dark:bg-[#040D12]  2xl:p-8 rounded-b-lg rounded-t-lg pt-4">
         <Breadcrumb post={post} />
         <div
@@ -93,23 +94,49 @@ export default async function Page({ params }: Props) {
             <h1 className="mt-2 pb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl text-center ">
               {post.title}
             </h1>
-            <figure className="mt-4">
-              <Image
-                src={post.image}
-                alt={post.title}
-                height={240}
-                width={840}
-                className="aspect-video rounded-xl bg-gray-50 object-cover"
-              />
-
-              <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
-                <InformationCircleIcon
-                  className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
-                  aria-hidden="true"
+            {post.image ? (
+              <figure className="mt-4">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  height={240}
+                  width={840}
+                  className="aspect-video rounded-xl bg-gray-50 object-cover"
                 />
-                {post.imageSource}
-              </figcaption>
-            </figure>
+
+                <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+                  <InformationCircleIcon
+                    className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
+                    aria-hidden="true"
+                  />
+                  {post.imageSource}
+                </figcaption>
+              </figure>
+            ) : null}
+
+            {post.description ? (
+              <p className="my-6 text-xl font-semibold leading-8 dark:text-gray-400">
+                <div>{post.description}</div>
+              </p>
+            ) : null}
+
+            {/* Video  */}
+            {post.videoLink ? (
+              <>
+                <figure className="mt-4">
+                  <YouTubePlayer videoUrl={post.videoLink} />
+                  {/* {post.videoLink} */}
+                  <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+                    <InformationCircleIcon
+                      className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
+                      aria-hidden="true"
+                    />
+                    {post.videoSource}
+                  </figcaption>
+                </figure>
+              </>
+            ) : null}
+
             <p className="mt-6 text-xl leading-8 dark:text-gray-400">
               <div
                 dangerouslySetInnerHTML={{
@@ -118,15 +145,17 @@ export default async function Page({ params }: Props) {
               />
             </p>
 
-            <div>
-              <h4 className="lg:pt-8 pt-4 pb-4 border-b border-white dark:border-[#071720] text-lg lg:text-2xl font-bold text-gray-600 dark:text-gray-400">
-                Related Topics:
-              </h4>
-              <Badges post={post} />
-            </div>
+            {post.tag.length > 0 ? (
+              <div>
+                <h4 className="lg:pt-8 pt-4 pb-4 border-b border-white dark:border-[#071720] text-lg lg:text-2xl font-bold text-gray-600 dark:text-gray-400">
+                  রিলেটেড ট্যাগ:
+                </h4>
+                <Badges post={post} />
+              </div>
+            ) : null}
           </div>
           <div className="hidden lg:block col-span-1">
-            <DetailsPageAd/>
+            <DetailsPageAd />
           </div>
           <div className="col-span-1">
             <div className="lg:hidden">
@@ -147,7 +176,7 @@ export default async function Page({ params }: Props) {
           </div>
         </div>
       </div>
-      <OtherPageLeaderboardAd/>
+      <OtherPageLeaderboardAd />
     </div>
   );
 }
