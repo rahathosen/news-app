@@ -263,6 +263,8 @@ export async function PostDetail(uId: any): Promise<any> {
             details
             image
             imageSource
+            videoLink
+            videoSource
             createdAt
             updatedAt
             category {
