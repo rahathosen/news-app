@@ -8,6 +8,7 @@ import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import CoverRectangleAd from "./advertisement/coverRectangleAd";
 import SmallBannerAd from "./advertisement/smallBannerAd";
 import { divisionsGQL,districtsGQL } from "@/lib/getGQL";
+import { PollForm } from "./poll";
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
@@ -133,8 +134,10 @@ export default async function HighlightNews({ mainNews, homeHighlightedNews }: a
 
           <LocationDropdowns allDivision={allDivision}/>
             </div>
-            <div className="pt-4">
-            <CoverRectangleAd/>
+            <div className="mt-4 border rounded-md dark:border-gray-950 border-gray-300 pl-4 py-4 ">
+              <PollForm/>
+              {/* Ad */}
+            {/* <CoverRectangleAd/> */}
             </div>
           </div>
         </div>

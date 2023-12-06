@@ -101,7 +101,6 @@ export default async function Home() {
           <OpnionNews webInfo={webInfo} articles={articles} />
         </div>
       ) : null}
-      {/* <OpnionNews webInfo={webInfo} articles={articles} /> */}
       {/* LearBoard */}
       <div>
         <div className="my-2 hidden md:block">
