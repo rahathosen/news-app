@@ -9,6 +9,7 @@ import { Provider } from "@/components/layouts/provider";
 import BackToTopButton from "@/components/ui/backToTopButton";
 import { cn } from "@/lib/utils";
 import Script from 'next/script'
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ["latin"] });
 import { websiteInfoGQL, navigationGQL } from "@/lib/getGQL";
@@ -64,6 +65,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
          <div className="mx-2">
          <SiteHeader navigations={navigations} webInfo={webInfo} />
           <div className="2xl:container mx-auto max-w-[85rem]">{children}</div>
+          <Toaster />
           <BackToTopButton />
           <SiteFooter webInfo={webInfo} />
          </div>
