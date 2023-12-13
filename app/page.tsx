@@ -63,7 +63,7 @@ export default async function Home() {
   const allArticles = await allArticlesGQL();
   const articles = allArticles.articlesPosts;
   const webInfo = await websiteInfoGQL();
-
+  console.log(mainNews.mainNews);
   return (
     <main>
       {headLineNews.headLine[0].headlines.length > 0 ? (
@@ -81,13 +81,14 @@ export default async function Home() {
         <BreakingNews breakingNews={breakingNews.breakingNews} />
       ) : null}
 
-      <HighlightNews
-        mainNews={mainNews}
-        homeHighlightedNews={homeHighlightedNews}
-      />
+      {mainNews.mainNews === null ? null : (
+        <HighlightNews
+          mainNews={mainNews}
+          homeHighlightedNews={homeHighlightedNews}
+        />
+      )}
 
       {/* LearBoard Ad*/}
-
       {articles.length > 0 ? (
         <div>
           <div>
