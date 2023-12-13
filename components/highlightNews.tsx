@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 // import DropdownSelect from "./dropdownSelect";
-import  LocationDropdowns  from "./dropdownSelect";
+import LocationDropdowns from "./dropdownSelect";
 import RelativeDate from "@/lib/relativeDate";
 import { Button } from "./ui/button";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import CoverRectangleAd from "./advertisement/coverRectangleAd";
 import SmallBannerAd from "./advertisement/smallBannerAd";
-import { divisionsGQL,districtsGQL } from "@/lib/getGQL";
+import { divisionsGQL, districtsGQL } from "@/lib/getGQL";
 import { PollForm } from "./poll";
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -16,13 +16,16 @@ interface Division {
   name: string;
   uniqueId: string;
 }
-export default async function HighlightNews({ mainNews, homeHighlightedNews }: any) {
+export default async function HighlightNews({
+  mainNews,
+  homeHighlightedNews,
+}: any) {
   const mainPost = mainNews.mainNews.headNews;
   const homePosts = homeHighlightedNews.homeHighlightedNews.highlightedNews;
   const Divisions = await divisionsGQL();
-  const allDivision = Divisions.divisions
+  const allDivision = Divisions.divisions;
   const alldistricts = await districtsGQL();
-  const allDis = alldistricts.districts
+  const allDis = alldistricts.districts;
   return (
     <div className="bg-white dark:bg-[#040D12] pt-4  2xl:p-8 rounded-b-lg rounded-t-lg">
       <div className=" mx-auto px-4">
@@ -65,11 +68,11 @@ export default async function HighlightNews({ mainNews, homeHighlightedNews }: a
                 </Link>
               </div>
               <p className="mt-4  text-sm leading-6 text-gray-600 dark:text-gray-400 ">
-              <div
-              dangerouslySetInnerHTML={{
-                __html: mainPost.details.slice(0, 300) + "...",
-              }}
-            />
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: mainPost.details.slice(0, 300) + "...",
+                  }}
+                />
               </p>
             </article>
           </div>
@@ -123,7 +126,7 @@ export default async function HighlightNews({ mainNews, homeHighlightedNews }: a
           </div>
           <div className="flex flex-col col-span-2 lg:pl-4 ">
             <div className="">
-            <SmallBannerAd />
+              <SmallBannerAd />
             </div>
             <div className="pt-4">
               <div className="p-2 mb-4 bg-stone-200 dark:bg-[#071720] rounded-lg">
@@ -132,18 +135,19 @@ export default async function HighlightNews({ mainNews, homeHighlightedNews }: a
                 </h2>
               </div>
 
-          <LocationDropdowns allDivision={allDivision}/>
+              <LocationDropdowns allDivision={allDivision} />
             </div>
-            <div className="mt-4 border rounded-md dark:border-gray-950 border-gray-300 pl-4 py-4 ">
-              <PollForm/>
-              {/* Ad */}
-            {/* <CoverRectangleAd/> */}
+            {/* poll */}
+            {/* <div className="mt-4 border rounded-md dark:border-gray-950 border-gray-300 pl-4 py-4 ">
+              <PollForm />
+            </div> */}
+
+            {/* Ad */}
+            <div className="mt-4">
+              <CoverRectangleAd />
             </div>
           </div>
         </div>
-       
-       
-        
       </div>
     </div>
   );
