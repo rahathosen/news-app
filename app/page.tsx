@@ -69,6 +69,7 @@ export default async function Home() {
       {headLineNews.headLine[0].headlines.length > 0 ? (
         <HeadlineNews headlines={headLineNews.headLine} />
       ) : null}
+
       {/*Billboard Ad  */}
       <div className="my-2 hidden md:block">
         <HomeBillboardAd />
@@ -82,15 +83,12 @@ export default async function Home() {
       ) : null}
 
       {mainNews.mainNews === null ? null : (
-        <HighlightNews
-          mainNews={mainNews}
-          homeHighlightedNews={homeHighlightedNews}
-        />
-      )}
-
-      {/* LearBoard Ad*/}
-      {articles.length > 0 ? (
-        <div>
+        <>
+          <HighlightNews
+            mainNews={mainNews}
+            homeHighlightedNews={homeHighlightedNews}
+          />
+          {/* LearBoard Ad*/}
           <div>
             <div className="my-2 hidden md:block">
               <CoverLeaderboardAd />
@@ -99,9 +97,15 @@ export default async function Home() {
               <MobileCoverLeaderboardAd />
             </div>
           </div>
+        </>
+      )}
+
+      {articles.length > 0 ? (
+        <div>
           <OpnionNews webInfo={webInfo} articles={articles} />
         </div>
       ) : null}
+
       {/* LearBoard */}
       <div>
         <div className="my-2 hidden md:block">
