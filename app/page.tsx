@@ -63,7 +63,6 @@ export default async function Home() {
   const allArticles = await allArticlesGQL();
   const articles = allArticles.articlesPosts;
   const webInfo = await websiteInfoGQL();
-  console.log(mainNews.mainNews);
   return (
     <main>
       {headLineNews.headLine[0].headlines.length > 0 ? (

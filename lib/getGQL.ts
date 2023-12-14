@@ -1,6 +1,12 @@
-
 async function fetchGraphQL(query: string, variables?: object): Promise<any> {
-  const url = "https://django-news-server.vercel.app/gql/";
+  const url = process.env.NEXT_PUBLIC_GRAPHQL_URL;
+
+  if (!url) {
+    throw new Error(
+      "GraphQL endpoint URL is not defined in the environment variables."
+    );
+  }
+
   const body = variables
     ? JSON.stringify({ query, variables })
     : JSON.stringify({ query });
