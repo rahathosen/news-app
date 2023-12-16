@@ -71,7 +71,7 @@ export default async function CategoryNews({
                           <div className="pt-4">
                             {/* <!--title--> */}
                             <Link href={`/news/${post.uniqueId}`}>
-                              <h2 className="text-2xl font-bold capitalize text-black  dark:text-white ">
+                              <h2 className="lg:text-2xl text-xl font-bold capitalize text-black  dark:text-white ">
                                 {post.title}
                               </h2>
                             </Link>
@@ -105,7 +105,7 @@ export default async function CategoryNews({
                               alt={post.title}
                               width={640}
                               height={427}
-                              className="max-w-full w-full mx-auto rounded-md"
+                              className="sm:max-w-full w-full max-w-min max-h-20 sm:max-h-full sm:w-full mx-auto rounded-md"
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
@@ -151,7 +151,7 @@ export default async function CategoryNews({
                               alt={post.title}
                               width={640}
                               height={427}
-                              className="max-w-full w-full mx-auto rounded-md"
+                              className="sm:max-w-full w-full max-w-min max-h-20 sm:max-h-full sm:w-full mx-auto rounded-md"
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
