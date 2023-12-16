@@ -8,8 +8,6 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 export default function OpnionNews({ webInfo, articles }: any) {
-
-
   const startIndex = Math.max(0, articles.length - 4);
   return (
     <>
@@ -45,20 +43,20 @@ export default function OpnionNews({ webInfo, articles }: any) {
                         key={post.uniqueId}
                         className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
                       >
-                        <div className="flex flex-row sm:block hover-img max-h-18">
+                        <div className="flex flex-row sm:block hover-img  ">
                           <Link href={`/article/details/${post.uniqueId}`}>
                             <Image
                               src={
                                 post.image || webInfo.websiteInfo.newsThumbnail
                               }
                               alt={post.title}
-                              width={640}
-                              height={427}
-                              className="max-w-full aspect-[3/4] object-cover w-full mx-auto max-h-[12.7rem] rounded-md"
+                              width={1040}
+                              height={840}
+                              className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-min max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-white">
+                            <h3 className="lg:text-base text-sm font-bold leading-tight mb-2 text-black dark:text-white">
                               <Link href={`/article/${post.category.uniqueId}`}>
                                 <span className="text-red-600 dark:text-red-800">
                                   {" "}
@@ -70,8 +68,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
                                 {post.title}
                               </Link>
                             </h3>
-                            <p className="hidden md:block  text-gray-800 dark:text-gray-400 leading-tight mb-1">
-                              
+                            <p className="  text-gray-800 dark:text-gray-400 leading-tight mb-1">
                               <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                                 <RelativeDate date={post.createdAt} />{" "}
                               </div>
@@ -85,7 +82,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
                         key={post.uniqueId}
                         className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
                       >
-                        <div className="flex flex-row sm:block hover-img max-h-18">
+                        <div className="flex flex-row sm:block hover-img">
                           <Link href={`/article/details/${post.uniqueId}`}>
                             <Image
                               src={
@@ -94,11 +91,11 @@ export default function OpnionNews({ webInfo, articles }: any) {
                               alt={post.title}
                               width={640}
                               height={427}
-                              className="max-w-full aspect-[3/4] object-cover w-full mx-auto max-h-[12.7rem] rounded-md"
+                              className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-min max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-white">
+                            <h3 className="lg:text-base text-sm font-bold leading-tight mb-2 text-black dark:text-white">
                               <Link href={`/article/${post.category.uniqueId}`}>
                                 <span className="text-red-600 dark:text-red-800">
                                   {" "}
@@ -110,8 +107,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
                                 {post.title}
                               </Link>
                             </h3>
-                            <p className="hidden md:block  text-gray-800 dark:text-gray-400 leading-tight mb-1">
-                              
+                            <p className=" text-gray-800 dark:text-gray-400 leading-tight mb-1">
                               <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                                 <RelativeDate date={post.createdAt} />{" "}
                               </div>
@@ -120,12 +116,12 @@ export default function OpnionNews({ webInfo, articles }: any) {
                         </div>
                       </div>
                     ))}
-                    {articles.slice(0,2).map((post: any) => (
+                    {articles.slice(0, 2).map((post: any) => (
                       <div
                         key={post.uniqueId}
                         className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
                       >
-                        <div className="flex flex-row sm:block hover-img max-h-18">
+                        <div className="flex flex-row sm:block hover-img ">
                           <Link href={`/article/details/${post.uniqueId}`}>
                             <Image
                               src={
@@ -134,11 +130,11 @@ export default function OpnionNews({ webInfo, articles }: any) {
                               alt={post.title}
                               width={640}
                               height={427}
-                              className="max-w-full aspect-[3/4] object-cover w-full mx-auto max-h-[12.7rem] rounded-md"
+                              className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-min max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-white">
+                            <h3 className="lg:text-base text-sm font-bold leading-tight mb-2 text-black dark:text-white">
                               <Link href={`/article/${post.category.uniqueId}`}>
                                 <span className="text-red-600 dark:text-red-800">
                                   {" "}
@@ -150,8 +146,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
                                 {post.title}
                               </Link>
                             </h3>
-                            <p className="hidden md:block  text-gray-800 dark:text-gray-400 leading-tight mb-1">
-                              
+                            <p className="  text-gray-800 dark:text-gray-400 leading-tight mb-1">
                               <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                                 <RelativeDate date={post.createdAt} />{" "}
                               </div>
@@ -166,7 +161,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
             </div>
             <div className="col-start-auto col-span-2 ">
               <div className="-mt-2">
-              <MPUAd/>
+                <MPUAd />
               </div>
               <Tabs defaultValue="lastnews" className="w-full">
                 <TabsList>
@@ -174,83 +169,85 @@ export default function OpnionNews({ webInfo, articles }: any) {
                   <TabsTrigger value="mostpopular">সর্বাধিক পঠিত</TabsTrigger>
                 </TabsList>
                 <TabsContent value="lastnews">
-                {articles.slice(0, 4).map((post: any) => (
-                  <div
-                    key={post.uniqueId}
-                    className="col-span-1 flex rounded-md shadow-sm py-2"
-                  >
+                  {articles.slice(0, 4).map((post: any) => (
                     <div
-                      className={classNames(
-                        "flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white"
-                      )}
+                      key={post.uniqueId}
+                      className="col-span-1 flex rounded-md shadow-sm py-2"
                     >
-                      <Link href={`../news/${post.uniqueId}`}>
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          width={200}
-                          height={160}
-                          className="mx-auto object-cover h-16 w-16 rounded-md"
-                        />
-                      </Link>
-                    </div>
-                    <div className="flex flex-1 items-center justify-between  ">
-                      <div className="  px-4 py-2 line-clamp-3 text-sm  text-red-600  font-semibold">
-                        <Link
-                          href={`../news/${post.uniqueId}`}
-                          className="font-medium  text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
-                        >
-                          {post.title}
+                      <div
+                        className={classNames(
+                          "flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white"
+                        )}
+                      >
+                        <Link href={`../news/${post.uniqueId}`}>
+                          <Image
+                            src={post.image}
+                            alt={post.title}
+                            width={200}
+                            height={160}
+                            className="mx-auto object-cover h-16 w-16 rounded-md"
+                          />
                         </Link>
-                        <div className="flex  justify-between text-sm text-red-600 hover:text-red-900 font-semibold">
-                          <div className="text-gray-600 font-medium text-sm pt-2  dark:text-gray-600">
-                            <RelativeDate date={post.createdAt} />{" "}
+                      </div>
+                      <div className="flex flex-1 items-center justify-between  ">
+                        <div className="  px-4 py-2 line-clamp-3 text-sm  text-red-600  font-semibold">
+                          <Link
+                            href={`../news/${post.uniqueId}`}
+                            className="font-medium  text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
+                          >
+                            {post.title}
+                          </Link>
+                          <div className="flex  justify-between text-sm text-red-600 hover:text-red-900 font-semibold">
+                            <div className="text-gray-600 font-medium text-sm pt-2  dark:text-gray-600">
+                              <RelativeDate date={post.createdAt} />{" "}
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
                 </TabsContent>
                 <TabsContent value="mostpopular">
-                {articles.slice(startIndex)
-                  .reverse().map((post: any) => (
-                  <div
-                    key={post.uniqueId}
-                    className="col-span-1 flex rounded-md shadow-sm py-2"
-                  >
-                    <div
-                      className={classNames(
-                        "flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white"
-                      )}
-                    >
-                      <Link href={`../news/${post.uniqueId}`}>
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          width={200}
-                          height={160}
-                          className="mx-auto object-cover h-16 w-16 rounded-md"
-                        />
-                      </Link>
-                    </div>
-                    <div className="flex flex-1 items-center justify-between  ">
-                      <div className="  px-4 py-2 line-clamp-3 text-sm  text-red-600  font-semibold">
-                        <Link
-                          href={`../news/${post.uniqueId}`}
-                          className="font-medium  text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
+                  {articles
+                    .slice(startIndex)
+                    .reverse()
+                    .map((post: any) => (
+                      <div
+                        key={post.uniqueId}
+                        className="col-span-1 flex rounded-md shadow-sm py-2"
+                      >
+                        <div
+                          className={classNames(
+                            "flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white"
+                          )}
                         >
-                          {post.title}
-                        </Link>
-                        <div className="flex  justify-between text-sm text-red-600 hover:text-red-900 font-semibold">
-                          <div className="text-gray-600 font-medium text-sm pt-2  dark:text-gray-600">
-                            <RelativeDate date={post.createdAt} />{" "}
+                          <Link href={`../news/${post.uniqueId}`}>
+                            <Image
+                              src={post.image}
+                              alt={post.title}
+                              width={200}
+                              height={160}
+                              className="mx-auto object-cover h-16 w-16 rounded-md"
+                            />
+                          </Link>
+                        </div>
+                        <div className="flex flex-1 items-center justify-between  ">
+                          <div className="  px-4 py-2 line-clamp-3 text-sm  text-red-600  font-semibold">
+                            <Link
+                              href={`../news/${post.uniqueId}`}
+                              className="font-medium  text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
+                            >
+                              {post.title}
+                            </Link>
+                            <div className="flex  justify-between text-sm text-red-600 hover:text-red-900 font-semibold">
+                              <div className="text-gray-600 font-medium text-sm pt-2  dark:text-gray-600">
+                                <RelativeDate date={post.createdAt} />{" "}
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                ))}
+                    ))}
                 </TabsContent>
               </Tabs>
               {/* <SmallBannerAd /> */}
