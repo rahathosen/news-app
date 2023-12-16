@@ -30,10 +30,10 @@ export default async function MPUAd() {
             alt={"default medium rectangle MPU ad"}
             width={300}
             height={250}
-            className="max-w-max w-full max-h-max object-cover rounded-md"
+            className="max-w-max w-full max-h-max object-cover"
           />
           <div className="absolute inset-0 left-1/2 top-4 flex -translate-x-1/2 transform justify-center px-2 text-white">
-            <h1 className="text-3xl font-bold text-black">BD News 20</h1>
+            <h1 className="lg:text-xl text-sm font-bold text-black">BD News 20</h1>
           </div>
         </Link>
       </div>
