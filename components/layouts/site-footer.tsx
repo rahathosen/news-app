@@ -4,30 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navigation = {
-  solutions: [
-    { name: "Author", href: "/author" },
-    { name: "Sitemap", href: "/sitemap" },
-    { name: "News", href: "/news" },
-    { name: "Advertisement", href: "#" },
-  ],
-  today: [
-    { name: "weather", href: "#" },
-    { name: "Currency", href: "#" },
-    { name: "newsletter", href: "#" },
-    { name: "Feature", href: "#" },
-  ],
-  company: [
-    { name: "About", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Contact Us", href: "#" },
-    { name: "Jobs", href: "#" },
-  ],
-  legal: [
-    { name: "Comment Policy", href: "#" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Claim", href: "#" },
-    { name: "Terms", href: "#" },
-  ],
   social: [
     {
       name: "Facebook",
@@ -65,19 +41,6 @@ const navigation = {
       ),
     },
     {
-      name: "GitHub",
-      href: "#",
-      icon: (props: React.SVGProps<SVGSVGElement>) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path
-            fillRule="evenodd"
-            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-    },
-    {
       name: "YouTube",
       href: "#",
       icon: (props: React.SVGProps<SVGSVGElement>) => (
@@ -103,9 +66,9 @@ export default function SiteFooter({ webInfo }: any) {
         Footer
       </h2>
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-2 lg:px-8 lg:pt-32">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+        <div className="xl:grid xl:grid-cols-2 xl:gap-8">
           <div className="space-y-8">
-          <div className="flex">
+            <div className="flex">
               <div className="">
                 <span className="sr-only">{webInfo.websiteInfo.title}</span>
                 <Image
@@ -113,13 +76,14 @@ export default function SiteFooter({ webInfo }: any) {
                   src={webInfo.websiteInfo.logo}
                   alt={webInfo.websiteInfo.title}
                   width={280}
-                  height={220} 
+                  height={220}
                 />
+                <p className="text-sm leading-6 text-gray-600 dark:text-gray-400 pl-1 pt-4 font-semibold">
+                  {webInfo.websiteInfo.tagLine}
+                </p>
               </div>
             </div>
-            <p className="text-sm leading-6 text-gray-600 dark:text-gray-400">
-              {webInfo.websiteInfo.tagLine}
-            </p>
+
             <div className="flex space-x-6">
               {navigation.social.map((item) => (
                 <Link
@@ -133,87 +97,91 @@ export default function SiteFooter({ webInfo }: any) {
               ))}
             </div>
           </div>
-          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+          <div className="mt-16 grid grid-cols-1 gap-8 xl:col-span-1 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
-                  Solutions
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.solutions.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-gray-600 hover:text-gray-900"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
+              <div className="mt-10 md:mt-0 space-y-4 text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300">
+                <ul className="">
+                  সম্পাদক:
+                  <li className="text-sm text-gray-500 dark:text-gray-400">
+                    {webInfo.websiteInfo.headEditor}
+                  </li>
+                </ul>
+                <ul className="">
+                  নির্বাহী সম্পাদক:
+                  <li className="text-sm text-gray-500 dark:text-gray-400">
+                    {" "}
+                    {webInfo.websiteInfo.editorAdmin}
+                  </li>
+                </ul>
+                <ul className="">
+                  বার্তা সম্পাদক:{" "}
+                  <li className="text-sm text-gray-500 dark:text-gray-400">
+                    {webInfo.websiteInfo.editorNews}
+                  </li>
                 </ul>
               </div>
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
-                  Today
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.today.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-gray-600 hover:text-gray-900"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
+              <div className="mt-10 md:mt-0 space-y-4 text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300">
+                <ul className="">
+                  Address
+                  <li className="text-sm text-gray-500 dark:text-gray-400">
+                    {webInfo.websiteInfo.address}
+                  </li>
+                </ul>
+                <ul className="">
+                  Phone
+                  <li className="text-sm text-gray-500 dark:text-gray-400">
+                    {" "}
+                    {webInfo.websiteInfo.contact1}
+                  </li>
+                </ul>
+                <ul className="">
+                  Email{" "}
+                  <li className="text-sm text-gray-500 dark:text-gray-400">
+                    {webInfo.websiteInfo.email}
+                  </li>
                 </ul>
               </div>
             </div>
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
-                  Company
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.company.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-gray-600 hover:text-gray-900"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
-                  Legal
-                </h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.legal.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-gray-600 hover:text-gray-900"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+          </div>
+          <div className="flex lg:flex-row flex-col justify-between  mt-10 md:mt-0 lg:space-y-0 space-y-4">
+            <Link href={"/contact"}>
+              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
+                যোগাযোগ
+              </h3>
+            </Link>
+            <Link href={"/terms-and-conditions"}>
+              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
+                শার্তাবলি ও নীতিমালা
+              </h3>
+            </Link>
+            <Link href={"/privacy-and-policy"}>
+              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
+                গোপনিয়তা নীতি
+              </h3>
+            </Link>
+            <Link href={"/advertisement"}>
+              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
+                বিজ্ঞাপন
+              </h3>
+            </Link>
+            <Link href={"/about"}>
+              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
+                আমাদের সম্পর্কে{" "}
+              </h3>
+            </Link>
           </div>
         </div>
         <div className="flex w-full items-center justify-between mt-16 border-t border-gray-900/10 dark:border-gray-900/60 pt-8 sm:mt-20 lg:mt-24">
           <p className="text-xs leading-5 text-gray-500">
             2023 {webInfo.websiteInfo.copyrightText}. সর্বস্বত্ব সংরক্ষিত
           </p>
-
-          <ThemeToggle />
+          <p className=" text-xs leading-5 text-gray-500">
+            Developed By <span className="font-bold">TECHSAND</span>
+          </p>
+          <div className="hidden lg:block">
+            {" "}
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </footer>
