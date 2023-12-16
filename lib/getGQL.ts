@@ -47,10 +47,24 @@ export async function websiteInfoGQL(): Promise<any> {
             url
             copyrightText
             tagLine
-            email
-            address
             newsThumbnail
             logo
+            email
+            address
+            contact1
+            headEditor
+            editorAdmin
+            editorNews
+            aboutUs
+            contactUs
+            advertisementPolicy
+            privacyPolicy
+            commentPolicy
+            facebookUrl
+            instagramUrl
+            telegram
+            youtubeUrl
+            twitterUrl
           }
         }
       `;
