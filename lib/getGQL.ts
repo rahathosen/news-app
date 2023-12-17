@@ -22,11 +22,9 @@ async function fetchGraphQL(query: string, variables?: object): Promise<any> {
       },
       body,
     });
-
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
-
     const { data } = await response.json();
     return data;
   } catch (error) {
@@ -223,7 +221,6 @@ export async function sectionGQL(): Promise<any> {
 
   return fetchGraphQL(query);
 }
-
 // Get All Post
 export async function allPosts(): Promise<any> {
   const query = `
@@ -268,7 +265,6 @@ export async function allPosts(): Promise<any> {
 
   return fetchGraphQL(query);
 }
-
 // Get a single Post detail
 export async function PostDetail(uId: any): Promise<any> {
   const variables = {
