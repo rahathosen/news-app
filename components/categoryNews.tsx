@@ -15,6 +15,7 @@ export default async function CategoryNews({
   categoryUId,
   categoryTitle,
   catSetPost,
+  webInfo,
 }: any) {
   const categoryPosts = await postByCategoryGQL(categoryUId);
   const posts = categoryPosts.postByCategory;
@@ -61,7 +62,7 @@ export default async function CategoryNews({
                           {/* <!--thumbnail--> */}
                           <Link href={`/news/${post.uniqueId}`}>
                             <Image
-                              src={post.image}
+                              src={post.image || webInfo.websiteInfo.newsThumbnail}
                               alt={post.title}
                               width={640}
                               height={427}
@@ -101,7 +102,7 @@ export default async function CategoryNews({
                         >
                           <Link href={`/news/${post.uniqueId}`}>
                             <Image
-                              src={post.image}
+                              src={post.image || webInfo.websiteInfo.newsThumbnail}
                               alt={post.title}
                               width={640}
                               height={427}
@@ -147,7 +148,7 @@ export default async function CategoryNews({
                         <div className="flex flex-row sm:block hover-img dark:hover-img-dark">
                           <Link href={`../news/${post.uniqueId}`}>
                             <Image
-                              src={post.image}
+                              src={post.image || webInfo.websiteInfo.newsThumbnail}
                               alt={post.title}
                               width={640}
                               height={427}
@@ -203,7 +204,7 @@ export default async function CategoryNews({
                           >
                             <Link href={`../news/${post.uniqueId}`}>
                               <Image
-                                src={post.image}
+                                src={post.image || webInfo.websiteInfo.newsThumbnail}
                                 alt={post.title}
                                 width={200}
                                 height={160}
@@ -253,7 +254,7 @@ export default async function CategoryNews({
                             >
                               <Link href={`../news/${post.uniqueId}`}>
                                 <Image
-                                  src={post.image}
+                                  src={post.image || webInfo.websiteInfo.newsThumbnail}
                                   alt={post.title}
                                   width={200}
                                   height={160}

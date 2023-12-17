@@ -84,6 +84,7 @@ export default async function Home() {
       {mainNews.mainNews === null ? null : (
         <>
           <HighlightNews
+            webInfo={webInfo}
             mainNews={mainNews}
             homeHighlightedNews={homeHighlightedNews}
           />

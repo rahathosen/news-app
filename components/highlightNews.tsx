@@ -19,6 +19,7 @@ interface Division {
 export default async function HighlightNews({
   mainNews,
   homeHighlightedNews,
+  webInfo,
 }: any) {
   const mainPost = mainNews.mainNews.headNews;
   const homePosts = homeHighlightedNews.homeHighlightedNews.highlightedNews;
@@ -26,6 +27,7 @@ export default async function HighlightNews({
   const allDivision = Divisions.divisions;
   const alldistricts = await districtsGQL();
   const allDis = alldistricts.districts;
+
   return (
     <div className="bg-white dark:bg-[#040D12] pt-4  2xl:p-8 rounded-b-lg rounded-t-lg">
       <div className=" mx-auto px-4">
@@ -59,7 +61,7 @@ export default async function HighlightNews({
               <div className=" mt-3 flex items-center hover-img dark:hover-img-dark">
                 <Link href={`/news/${mainPost.uniqueId}`}>
                   <Image
-                    src={mainPost.image}
+                    src={mainPost.image || webInfo.websiteInfo.newsThumbnail}
                     alt={mainPost.title}
                     width={640}
                     height={427}
@@ -113,7 +115,7 @@ export default async function HighlightNews({
                     className="hover-img dark:hover-img-dark"
                   >
                     <Image
-                      src={post.image}
+                      src={post.image || webInfo.websiteInfo.newsThumbnail}
                       alt={post.title}
                       width={200}
                       height={160}
