@@ -8,18 +8,23 @@ export default async function HomeNews({}: any) {
   return (
     <div>
       <div>
-        {section.map((box: any) => (
-          <div key={box.category.uniqueId}>
-            <div>
-              <CategoryNews
-                webInfo={webInfo}
-                catSetPost={box.category}
-                categoryTitle={box.category.title}
-                categoryUId={box.category.uniqueId}
-              />
-            </div>
-          </div>
-        ))}
+        {section ? (
+          <>
+            {" "}
+            {section.map((box: any) => (
+              <div key={box.category.uniqueId}>
+                <div>
+                  <CategoryNews
+                    webInfo={webInfo}
+                    catSetPost={box.category}
+                    categoryTitle={box.category.title}
+                    categoryUId={box.category.uniqueId}
+                  />
+                </div>
+              </div>
+            ))}
+          </>
+        ) : null}
       </div>
     </div>
   );

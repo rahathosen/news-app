@@ -88,7 +88,7 @@ export default async function HighlightNews({
                   <div className="flex-1  lg:px-4 text-sm">
                     <Link
                       href={`../news/${post.uniqueId}`}
-                      className="font-bold text-base text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
+                      className="font-bold text-base line-clamp-2 text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
                     >
                       {post.title}
                     </Link>
