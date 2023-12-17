@@ -90,6 +90,7 @@ export async function postsByTagGQL(taguId: any): Promise<any> {
             updatedAt
             createdAt
             uniqueId
+            details
             description
           }
         }
