@@ -94,10 +94,10 @@ export default async function HighlightNews({
                     </Link>
                     <p className="text-red-600 text-xs font-semibold dark:text-red-700">
                       <Link href={`/category/${post.category.uniqueId}`}>
-                        {mainPost.category.title}/
+                        {post.category.title}/
                       </Link>{" "}
-                      <Link href={`/category/${mainPost.category.uniqueId}/${mainPost.subcategory.uniqueId}`}>
-                        {mainPost.subcategory.title}
+                      <Link href={`/category/${post.category.uniqueId}/${post.subcategory.uniqueId}`}>
+                        {post.subcategory.title}
                       </Link>
                     </p>
                     <time className="text-gray-500 text-xs dark:text-gray-400">
