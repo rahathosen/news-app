@@ -44,7 +44,7 @@ export const generateMetadata = async ({
 
 export default async function Page({ params }: Props) {
   const postsByTag = await postsByTagGQL(params.tagId);
-  const postsByTagLength = postsByTag.postsTag.postSet.length;
+  // const postsByTagLength = postsByTag.postsTag.postSet.length;
 
   return (
     <div>
@@ -55,7 +55,7 @@ export default async function Page({ params }: Props) {
             <div className="relative">
               <h2 className=" text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700 lg:text-3xl pb-4 text-xl font-bold">
                 <span className="inline-block lg:h-6 h-4 lg:border-l-4 border-l-[3px] border-red-600 mr-2"></span>
-                {postsByTag.postsTag.title} ({postsByTagLength})
+                {postsByTag.postsTag.title}
               </h2>
               <div>
                 <div className="sm:hidden">
