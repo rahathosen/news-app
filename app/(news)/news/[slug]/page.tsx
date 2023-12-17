@@ -104,13 +104,15 @@ export default async function Page({ params }: Props) {
                   className="aspect-video rounded-xl bg-gray-50 object-cover"
                 />
 
-                <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
-                  <InformationCircleIcon
-                    className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
-                    aria-hidden="true"
-                  />
-                  {post.imageSource}
-                </figcaption>
+                {post.imageSource ? (
+                  <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+                    <InformationCircleIcon
+                      className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
+                      aria-hidden="true"
+                    />
+                    {post.imageSource}
+                  </figcaption>
+                ) : null}
               </figure>
             ) : null}
 
@@ -137,7 +139,7 @@ export default async function Page({ params }: Props) {
               </>
             ) : null}
 
-            <p className="mt-6 text-xl leading-8 dark:text-gray-400">
+            <p className="mt-6 text-lg leading-8 dark:text-gray-400">
               <div
                 dangerouslySetInnerHTML={{
                   __html: post.details,

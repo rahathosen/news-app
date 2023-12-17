@@ -26,6 +26,7 @@ import Link from "next/link";
 import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
 import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
 import DetailsPageAd from "@/components/advertisement/detailsPageAd";
+import YouTubePlayer from "@/components/youTubePlayer";
 
 type Props = {
   params: { featureuId: string };
@@ -162,24 +163,52 @@ export default async function Page({ params }: Props) {
             <h1 className="mt-2 pb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl text-center ">
               {post.title}
             </h1>
-            <figure className="mt-4">
-              <Image
-                src={post.image}
-                alt=""
-                height={240}
-                width={840}
-                className="aspect-video rounded-xl bg-gray-50 object-cover"
-              />
-
-              <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
-                <InformationCircleIcon
-                  className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
-                  aria-hidden="true"
+            {post.image ? (
+              <figure className="mt-4">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  height={240}
+                  width={840}
+                  className="aspect-video rounded-xl bg-gray-50 object-cover"
                 />
-                {post.imageSource}
-              </figcaption>
-            </figure>
-            <p className="mt-6 text-xl leading-8 dark:text-gray-400">
+
+                {post.imageSource ? (
+                  <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+                    <InformationCircleIcon
+                      className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
+                      aria-hidden="true"
+                    />
+                    {post.imageSource}
+                  </figcaption>
+                ) : null}
+              </figure>
+            ) : null}
+
+            {post.description ? (
+              <p className="my-6 text-xl font-semibold leading-8 dark:text-gray-400">
+                <div>{post.description}</div>
+              </p>
+            ) : null}
+
+            {/* Video  */}
+            {post.videoLink ? (
+              <>
+                <figure className="mt-4 dark:bg-[#001219] bg-[#E7E5E4] px-4 pt-4 lg:pb-10 pb-6 rounded-xl drop-shadow-lg">
+                  <YouTubePlayer videoUrl={post.videoLink} />
+                  {/* {post.videoLink} */}
+                  <figcaption className="mt-6 flex gap-x-2 text-sm leading-6 text-gray-700 dark:text-gray-400">
+                    <InformationCircleIcon
+                      className="mt-0.5 h-5 w-5 flex-none text-gray-600 dark:text-gray-700"
+                      aria-hidden="true"
+                    />
+                    {post.videoSource}
+                  </figcaption>
+                </figure>
+              </>
+            ) : null}
+
+            <p className="mt-6 text-lg leading-8 dark:text-gray-400">
               <div
                 dangerouslySetInnerHTML={{
                   __html: post.details,
