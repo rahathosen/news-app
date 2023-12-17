@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { allPosts, divisionsGQL, websiteInfoGQL   } from "@/lib/getGQL";
 import RelativeDate from "@/lib/relativeDate";
-import SmallBannerAd from "./advertisement/smallBannerAd";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import LocationDropdowns from "./dropdownSelect";
 import MPUAd from "./advertisement/mediumRectangleMPUAd";
@@ -57,7 +56,7 @@ export default async function Search() {
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-white">
+                            <h3 className="text-lg font-bold leading-tight line-clamp-3 mb-2 text-black dark:text-white">
                               <Link href={`../news/${post.uniqueId}`}>
                                 {post.title}
                               </Link>

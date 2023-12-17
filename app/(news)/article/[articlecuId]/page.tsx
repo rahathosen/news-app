@@ -124,7 +124,7 @@ export default async function Page({ params }: Props) {
                           />
                         </Link>
                         <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                          <h3 className="text-lg font-bold leading-tight mb-2 text-black dark:text-white">
+                          <h3 className="text-lg font-bold leading-tight line-clamp-3 mb-2 text-black dark:text-white">
                             <Link href={`../article/details/${post.uniqueId}`}>
                               {post.title}
                             </Link>
