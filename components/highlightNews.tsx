@@ -44,7 +44,7 @@ export default async function HighlightNews({
                 <time className="text-gray-500 dark:text-gray-400">
                   <RelativeDate date={mainPost.createdAt} />{" "}
                 </time>
-                <p className="text-red-600 font-semibold dark:text-red-700">
+                <p className="text-red-600  dark:text-red-800 hover:text-red-800 dark:hover:text-red-600 font-semibold">
                   <Link href={`/category/${mainPost.category.uniqueId}`}>
                     {mainPost.category.title}/
                   </Link>{" "}
@@ -92,7 +92,7 @@ export default async function HighlightNews({
                     >
                       {post.title}
                     </Link>
-                    <p className="text-red-600 text-xs font-semibold dark:text-red-700">
+                    <p className="text-red-600  dark:text-red-800 hover:text-red-800 dark:hover:text-red-600 text-xs font-semibold">
                       <Link href={`/category/${post.category.uniqueId}`}>
                         {post.category.title}/
                       </Link>{" "}

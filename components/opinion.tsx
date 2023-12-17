@@ -43,8 +43,8 @@ export default function OpnionNews({ webInfo, articles }: any) {
                         key={post.uniqueId}
                         className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
                       >
-                        <div className="flex flex-row sm:block hover-img  ">
-                          <Link href={`/article/details/${post.uniqueId}`}>
+                        <div className="flex flex-row sm:block">
+                          <Link className="hover-img dark:hover-img-dark" href={`/article/details/${post.uniqueId}`}>
                             <Image
                               src={
                                 post.image || webInfo.websiteInfo.newsThumbnail
@@ -56,15 +56,15 @@ export default function OpnionNews({ webInfo, articles }: any) {
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="lg:text-base text-sm font-bold leading-tight line-clamp-3 mb-2 text-black dark:text-white">
+                            <h3 className="lg:text-base text-sm font-bold leading-tight line-clamp-3 mb-2 text-black dark:text-white ">
                               <Link href={`/article/${post.category.uniqueId}`}>
-                                <span className="text-red-600 dark:text-red-800">
+                                <span className="text-red-600 dark:text-red-800 hover:text-red-800 dark:hover:text-red-600">
                                   {" "}
                                   {post.category.title}
                                 </span>
                               </Link>{" "}
                               {" / "}
-                              <Link href={`/article/details/${post.uniqueId}`}>
+                              <Link className="hover:text-gray-600 dark:hover:text-gray-500" href={`/article/details/${post.uniqueId}`}>
                                 {post.title}
                               </Link>
                             </h3>

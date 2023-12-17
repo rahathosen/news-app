@@ -120,7 +120,7 @@ export default function SiteHeaderNavigations({
                           <li key={item.id} className="flex">
                             <Link
                               href={`/article/${item.uniqueId}`}
-                              className="hover:text-gray-900 dark:hover:text-gray-200 font-semibold dark:text-white"
+                              className="dark:hover:text-gray-200  dark:text-gray-400 hover:text-gray-900 font-semibold"
                             >
                               {item.title}
                             </Link>
@@ -167,7 +167,7 @@ export default function SiteHeaderNavigations({
                               <li key={item.id} className="flex">
                                 <Link
                                   href={`/category/${category.uniqueId}/${item.uniqueId}`}
-                                  className="hover:text-gray-900 dark:hover:text-gray-200 font-semibold dark:text-white"
+                                  className=" dark:hover:text-gray-200  dark:text-gray-400 hover:text-gray-900 font-semibold"
                                 >
                                   {item.title}
                                 </Link>

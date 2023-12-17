@@ -104,7 +104,7 @@ export default function Siebar({
               <div className="pl-1 pr-7 mb-6 ">
                 <Link
                   href={"/search"}
-                  className="text-sm capitalize font-semibold dark:text-white"
+                  className="text-sm capitalize font-semibold dark:text-white hover:text-black transition-colors hover:dark:text-gray-400"
                 >
                   সর্বশেষ
                 </Link>
@@ -127,16 +127,16 @@ export default function Siebar({
                           <div className="flex flex-col space-y-2">
                             <div
                               key={item.uniqueId}
-                              className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
+                              className="transition-colors  py-[1px] "
                             >
                               <SheetClose asChild>
-                                <Link href={`/article`}>সকল মতামত</Link>
+                                <Link className="dark:text-gray-500 transition-colors hover:text-black hover:dark:text-white" href={`/article`}>সকল মতামত</Link>
                               </SheetClose>
                               {opinions.articleCategories?.map(
                                 (sub: any, index: any) => (
                                   <div
                                     key={sub.uniqueId}
-                                    className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
+                                    className="transition-colors text-gray-600 hover:text-black dark:text-gray-500 py-[1px] hover:dark:text-white"
                                   >
                                     <SheetClose asChild>
                                       <Link href={`/article/${sub.uniqueId}`}>
@@ -171,11 +171,11 @@ export default function Siebar({
                           <div className="flex flex-col space-y-2">
                             <div
                               key={item.uniqueId}
-                              className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
+                              className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white "
                             >
                               {/* <SheetFooter > */}
                               <SheetClose asChild>
-                                <Link href={`/category/${item.uniqueId}`}>
+                                <Link className="text-gray-600 hover:text-black dark:text-gray-500 dark:hover:text-white" href={`/category/${item.uniqueId}`}>
                                   সকল {`${item.title}`}
                                 </Link>
                               </SheetClose>
@@ -183,10 +183,11 @@ export default function Siebar({
                                 (sub: any, index: any) => (
                                   <div
                                     key={sub.uniqueId}
-                                    className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
+                                    className="transition-colors py-[1px]"
                                   >
                                     <SheetClose asChild>
                                       <Link
+                                      className="text-gray-600 hover:text-black dark:text-gray-500 dark:hover:text-white"
                                         href={`/category/${item.uniqueId}/${sub.uniqueId}`}
                                       >
                                         {sub.title}
@@ -221,19 +222,19 @@ export default function Siebar({
                           <div className="flex flex-col space-y-2">
                             <div
                               key={item.uniqueId}
-                              className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
+                              className="transition-colors  py-[1px] "
                             >
                               <SheetClose asChild>
-                                <Link href={`/feature`}>সকল ফিচার</Link>
+                                <Link className="text-gray-600 hover:text-black dark:text-gray-500 dark:hover:text-white" href={`/feature`}>সকল ফিচার</Link>
                               </SheetClose>
                               {navigations.navigation.feature?.map(
                                 (sub: any, index: any) => (
                                   <div
                                     key={sub.uniqueId}
-                                    className="transition-colors dark:text-gray-500 py-[1px] hover:dark:text-white"
+                                    className="transition-colors  py-[1px]"
                                   >
                                     <SheetClose asChild>
-                                      <Link href={`/feature/${sub.uniqueId}`}>
+                                      <Link className="text-gray-600 hover:text-black dark:text-gray-500 dark:hover:text-white" href={`/feature/${sub.uniqueId}`}>
                                         {sub.title}
                                       </Link>
                                     </SheetClose>
