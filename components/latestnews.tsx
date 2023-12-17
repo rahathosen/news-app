@@ -1,9 +1,13 @@
 import RelativeDate from "@/lib/relativeDate";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  websiteInfoGQL,
+} from "@/lib/getGQL";
+
 
 export default async function LatestNws({ categoryPosts }: any) {
-
+  const webInfo = await websiteInfoGQL();
   function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
   }
@@ -22,7 +26,7 @@ export default async function LatestNws({ categoryPosts }: any) {
                 >
                   <Link href={`../news/${post.uniqueId}`}>
                     <Image
-                      src={post.image}
+                      src={post.image || webInfo.websiteInfo.newsThumbnail}
                       alt={post.title}
                       width={200}
                       height={160}
