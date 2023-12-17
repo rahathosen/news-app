@@ -6,11 +6,9 @@ import type { Metadata, ResolvingMetadata } from "next";
 import {
   articleCategoryGQL,
   opinionGQL,
-  allArticlesGQL,
   websiteInfoGQL,
   articleByCategoryGQL,
 } from "@/lib/getGQL";
-import SubCategory from "@/components/layouts/subCategory";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
 import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
@@ -54,8 +52,6 @@ export const generateMetadata = async ({
 
 export default async function Page({ params }: Props) {
   const webInfo = await websiteInfoGQL();
-  const allArticles = await allArticlesGQL();
-  const articles = allArticles.articlesPosts;
   const opinions = await opinionGQL();
   const articleByCategory = await articleByCategoryGQL(params.articlecuId);
   const articleCategory = await articleCategoryGQL(params.articlecuId);

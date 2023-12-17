@@ -48,6 +48,7 @@ type Props = {
 };
 
 export default async function Page({ params }: Props) {
+  const webInfo = await websiteInfoGQL();
   const newsCategory = await newsCategorygGQL(params.categoryId);
   const category = newsCategory.newsCategory
 
@@ -94,7 +95,7 @@ export default async function Page({ params }: Props) {
                 </div>
               </div>
               {/* Tab end */}
-              <Category categoryPosts={categoryPosts} />
+              <Category webInfo={webInfo} categoryPosts={categoryPosts} />
             </div>
           </div>
         </div>
