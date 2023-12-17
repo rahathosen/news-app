@@ -34,12 +34,12 @@ export const generateMetadata = async ({
   const webInfo = await websiteInfoGQL();
   const singlePost = await PostDetail(params.slug);
   const post = singlePost.post;
-
+  const description = post.description ? `${post.description.slice(0, 400)}`:" ";
   return {
     title: `${post.title} - ${webInfo.websiteInfo.title}`,
     openGraph: {
       title: `${post.title}  (${webInfo.websiteInfo.title})`,
-      description: `${post.description.slice(0, 400)}`,
+      description: description,
       url: `${webInfo.websiteInfo.url}`,
       siteName: `${webInfo.websiteInfo.title}`,
       images: [

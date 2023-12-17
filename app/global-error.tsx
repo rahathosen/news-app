@@ -1,4 +1,6 @@
 "use client";
+import { Button } from "@/components/ui/button";
+import { ReloadIcon } from "@radix-ui/react-icons";
 
 export default function GlobalError({
   error,
@@ -14,9 +16,10 @@ export default function GlobalError({
           <main className="grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8">
             <div className="text-center">
               <p className="text-xl font-semibold text-gray-900 dark:text-gray-400">
-                Global Server Under Maintenance, Come Back Again Soon
+                Server Under Maintenance, Come Back Again Soon
               </p>
-              <button onClick={() => reset()}>Try again</button>
+              <Button className="my-6" onClick={() => reset()}>
+              <ReloadIcon className="mr-2 h-4 w-4" /> Try again</Button>
             </div>
           </main>
         </div>
