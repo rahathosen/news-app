@@ -31,7 +31,7 @@ export default  function  FeaturePosts({ webInfo ,posts,categoryId }: any) {
             />
           </div>
           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-            <h3 className="text-sm font-medium leading-tight  text-black dark:text-gray-400">
+            <h3 className="text-sm font-medium leading-tight  text-black dark:text-white">
               <Link href={`/news/${item.uniqueId}`}>{item.title}</Link>
             </h3>
           </div>
