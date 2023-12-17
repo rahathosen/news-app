@@ -19,7 +19,7 @@ export default async function CategoryNews({
 }: any) {
   const categoryPosts = await postByCategoryGQL(categoryUId);
   const posts = categoryPosts.postByCategory;
-  const startIndex = Math.max(0, posts.length - 10);
+  // const startIndex = Math.max(0, posts.length - 10);
   return (
     <>
       {catSetPost.postSet.length > 0 ? (
@@ -62,11 +62,13 @@ export default async function CategoryNews({
                           {/* <!--thumbnail--> */}
                           <Link href={`/news/${post.uniqueId}`}>
                             <Image
-                              src={post.image || webInfo.websiteInfo.newsThumbnail}
+                              src={
+                                post.image || webInfo.websiteInfo.newsThumbnail
+                              }
                               alt={post.title}
                               width={640}
                               height={427}
-                              className="max-w-full w-full rounded-md mx-auto h-auto   object-cover"
+                              className="sm:max-w-full sm:max-h-[20rem] max-w-full max-h-40 sm:w-full sm:h-80   aspect-[3/4]  mx-auto object-cover rounded-md"
                             />
                           </Link>
                           <div className="pt-4">
@@ -79,7 +81,7 @@ export default async function CategoryNews({
                             <p className="mt-2 mb-2  text-sm  text-gray-600 dark:text-gray-400  hidden sm:inline-block">
                               <div
                                 dangerouslySetInnerHTML={{
-                                  __html: post.details.slice(0, 310) + "...",
+                                  __html: post.details.slice(0, 410) + "...",
                                 }}
                               />
                             </p>
@@ -102,15 +104,17 @@ export default async function CategoryNews({
                         >
                           <Link href={`/news/${post.uniqueId}`}>
                             <Image
-                              src={post.image || webInfo.websiteInfo.newsThumbnail}
+                              src={
+                                post.image || webInfo.websiteInfo.newsThumbnail
+                              }
                               alt={post.title}
                               width={640}
                               height={427}
-                              className="sm:max-w-full w-full max-w-min max-h-20 sm:max-h-full sm:w-full mx-auto rounded-md"
+                              className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="text-base font-bold leading-tight text-black  dark:text-white mb-2">
+                            <h3 className="text-base font-bold leading-tight md:line-clamp-2 text-black  dark:text-white mb-2">
                               <Link href={`/news/${post.uniqueId}`}>
                                 {post.title}
                               </Link>
@@ -131,12 +135,12 @@ export default async function CategoryNews({
                       ))}
                     </div>
                     {/* ad */}
-                    <div>
+                    <div >
                       <MPUAd />
                     </div>
                   </div>
                   {/* 4 card */}
-                  <div className="flex flex-wrap md:pt-2 lg:-mt-14">
+                  <div className="flex flex-wrap md:pt-2 md:-mt-20  xl:lg:-mt-[6.5rem] -mt-0">
                     {posts.slice(0, 4).map((post: any, index: number) => (
                       <div
                         key={post.uniqueId}
@@ -148,15 +152,17 @@ export default async function CategoryNews({
                         <div className="flex flex-row sm:block hover-img dark:hover-img-dark">
                           <Link href={`../news/${post.uniqueId}`}>
                             <Image
-                              src={post.image || webInfo.websiteInfo.newsThumbnail}
+                              src={
+                                post.image || webInfo.websiteInfo.newsThumbnail
+                              }
                               alt={post.title}
                               width={640}
                               height={427}
-                              className="sm:max-w-full w-full max-w-min max-h-20 sm:max-h-full sm:w-full mx-auto rounded-md"
+                              className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="text-base font-bold leading-tight text-black  dark:text-white mb-2">
+                            <h3 className="text-base font-bold line-clamp-3 leading-tight text-black  dark:text-white mb-2">
                               <Link href={`../news/${post.uniqueId}`}>
                                 {post.title}
                               </Link>
@@ -204,7 +210,10 @@ export default async function CategoryNews({
                           >
                             <Link href={`../news/${post.uniqueId}`}>
                               <Image
-                                src={post.image || webInfo.websiteInfo.newsThumbnail}
+                                src={
+                                  post.image ||
+                                  webInfo.websiteInfo.newsThumbnail
+                                }
                                 alt={post.title}
                                 width={200}
                                 height={160}
@@ -240,7 +249,7 @@ export default async function CategoryNews({
                     {/* oldest news */}
                     <TabsContent value="mostpopular">
                       {posts
-                        .slice(startIndex)
+                        // .slice(startIndex)
                         .reverse()
                         .map((post: any) => (
                           <div
@@ -254,7 +263,10 @@ export default async function CategoryNews({
                             >
                               <Link href={`../news/${post.uniqueId}`}>
                                 <Image
-                                  src={post.image || webInfo.websiteInfo.newsThumbnail}
+                                  src={
+                                    post.image ||
+                                    webInfo.websiteInfo.newsThumbnail
+                                  }
                                   alt={post.title}
                                   width={200}
                                   height={160}
