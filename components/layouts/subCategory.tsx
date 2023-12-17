@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SmallBannerAd from "@/components/advertisement/smallBannerAd";
 
-export default function SubCategory({ subcategoryByPosts }: any) {
+export default function SubCategory({ webInfo,subcategoryByPosts }: any) {
   return (
     <div className="bg-white dark:bg-[#040D12] mt-4 2xl:p-8 rounded-b-lg rounded-t-lg pt-4 mb-4 pb-4">
       <div className="grid grid-cols-1 px-2  gap-y-2 lg:grid-cols-7 xl:gap-x-2">
@@ -20,7 +20,7 @@ export default function SubCategory({ subcategoryByPosts }: any) {
                     <div className="flex flex-row sm:block hover-img max-h-18">
                       <Link href={`../../news/${post.uniqueId}`}>
                         <Image
-                          src={post.image}
+                          src={post.image || webInfo.websiteInfo.newsThumbnail}
                           alt={""}
                           width={640}
                           height={427}

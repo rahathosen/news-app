@@ -38,7 +38,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
               <div className="flex flex-row flex-wrap">
                 <div className="flex-shrink max-w-full w-full overflow-hidden">
                   <div className="flex flex-row flex-wrap ">
-                    {articles.map((post: any) => (
+                    {articles.slice(0, 8).map((post: any) => (
                       <div
                         key={post.uniqueId}
                         className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
@@ -52,84 +52,6 @@ export default function OpnionNews({ webInfo, articles }: any) {
                               alt={post.title}
                               width={1040}
                               height={840}
-                              className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-min max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
-                            />
-                          </Link>
-                          <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="lg:text-base text-sm font-bold leading-tight mb-2 text-black dark:text-white">
-                              <Link href={`/article/${post.category.uniqueId}`}>
-                                <span className="text-red-600 dark:text-red-800">
-                                  {" "}
-                                  {post.category.title}
-                                </span>
-                              </Link>{" "}
-                              {" / "}
-                              <Link href={`/article/details/${post.uniqueId}`}>
-                                {post.title}
-                              </Link>
-                            </h3>
-                            <p className="  text-gray-800 dark:text-gray-400 leading-tight mb-1">
-                              <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
-                                <RelativeDate date={post.createdAt} />{" "}
-                              </div>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                    {articles.map((post: any) => (
-                      <div
-                        key={post.uniqueId}
-                        className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
-                      >
-                        <div className="flex flex-row sm:block hover-img">
-                          <Link href={`/article/details/${post.uniqueId}`}>
-                            <Image
-                              src={
-                                post.image || webInfo.websiteInfo.newsThumbnail
-                              }
-                              alt={post.title}
-                              width={640}
-                              height={427}
-                              className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-min max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
-                            />
-                          </Link>
-                          <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="lg:text-base text-sm font-bold leading-tight mb-2 text-black dark:text-white">
-                              <Link href={`/article/${post.category.uniqueId}`}>
-                                <span className="text-red-600 dark:text-red-800">
-                                  {" "}
-                                  {post.category.title}
-                                </span>
-                              </Link>{" "}
-                              {" / "}
-                              <Link href={`/article/details/${post.uniqueId}`}>
-                                {post.title}
-                              </Link>
-                            </h3>
-                            <p className=" text-gray-800 dark:text-gray-400 leading-tight mb-1">
-                              <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
-                                <RelativeDate date={post.createdAt} />{" "}
-                              </div>
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                    {articles.slice(0, 2).map((post: any) => (
-                      <div
-                        key={post.uniqueId}
-                        className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
-                      >
-                        <div className="flex flex-row sm:block hover-img ">
-                          <Link href={`/article/details/${post.uniqueId}`}>
-                            <Image
-                              src={
-                                post.image || webInfo.websiteInfo.newsThumbnail
-                              }
-                              alt={post.title}
-                              width={640}
-                              height={427}
                               className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-min max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
                             />
                           </Link>

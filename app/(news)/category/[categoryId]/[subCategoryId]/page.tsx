@@ -49,6 +49,7 @@ export const generateMetadata = async ({
 
 export default async function Page({ params }: Props) {
 
+  const webInfo = await websiteInfoGQL();
   const newsCategory = await newsCategorygGQL(params.categoryId);
   const category = newsCategory.newsCategory
   
@@ -105,7 +106,7 @@ export default async function Page({ params }: Props) {
                 </div>
               </div>
               {/* Tab end */}
-              <SubCategory subcategoryByPosts={subcategoryByPosts} />
+              <SubCategory webInfo={webInfo} subcategoryByPosts={subcategoryByPosts} />
             </div>
           </div>
         </div>

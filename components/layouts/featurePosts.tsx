@@ -11,7 +11,7 @@ interface Post {
   };
 }
 
-export default  function  FeaturePosts({ posts,categoryId }: any) {
+export default  function  FeaturePosts({ webInfo ,posts,categoryId }: any) {
 
   const categoryPosts = posts.allPosts.filter(
     (post: Post) => post.category.id === categoryId
@@ -23,7 +23,7 @@ export default  function  FeaturePosts({ posts,categoryId }: any) {
         <Link key={item.id} href={`/news/${item.uniqueId}`}>
           <div className="aspect-h-1 aspect-w-2 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
             <Image
-              src={item.image}
+              src={item.image || webInfo.websiteInfo.newsThumbnail}
               alt={item.title}
               width={240}
               height={120}
