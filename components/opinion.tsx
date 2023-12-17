@@ -44,7 +44,10 @@ export default function OpnionNews({ webInfo, articles }: any) {
                         className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
                       >
                         <div className="flex flex-row sm:block">
-                          <Link className="hover-img dark:hover-img-dark" href={`/article/details/${post.uniqueId}`}>
+                          <Link
+                            className="hover-img dark:hover-img-dark"
+                            href={`/article/details/${post.uniqueId}`}
+                          >
                             <Image
                               src={
                                 post.image || webInfo.websiteInfo.newsThumbnail
@@ -64,7 +67,10 @@ export default function OpnionNews({ webInfo, articles }: any) {
                                 </span>
                               </Link>{" "}
                               {" / "}
-                              <Link className="hover:text-gray-600 dark:hover:text-gray-500" href={`/article/details/${post.uniqueId}`}>
+                              <Link
+                                className="hover:text-gray-600 dark:hover:text-gray-500"
+                                href={`/article/details/${post.uniqueId}`}
+                              >
                                 {post.title}
                               </Link>
                             </h3>
@@ -101,7 +107,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
                           "flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white"
                         )}
                       >
-                        <Link href={`../news/${post.uniqueId}`}>
+                        <Link href={`/article/details/${post.uniqueId}`}>
                           <Image
                             src={post.image}
                             alt={post.title}
@@ -113,8 +119,15 @@ export default function OpnionNews({ webInfo, articles }: any) {
                       </div>
                       <div className="flex flex-1 items-center justify-between  ">
                         <div className="  px-4 py-2 line-clamp-3 text-sm  text-red-600  font-semibold">
+                          <Link href={`/article/${post.category.uniqueId}`}>
+                            <span className="text-red-600 dark:text-red-800 hover:text-red-800 dark:hover:text-red-600">
+                              {" "}
+                              {post.category.title}
+                            </span>
+                          </Link>{" "}
+                          {" / "}
                           <Link
-                            href={`../news/${post.uniqueId}`}
+                            href={`/article/details/${post.uniqueId}`}
                             className="font-medium  text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
                           >
                             {post.title}
@@ -143,7 +156,7 @@ export default function OpnionNews({ webInfo, articles }: any) {
                             "flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white"
                           )}
                         >
-                          <Link href={`../news/${post.uniqueId}`}>
+                          <Link href={`/article/details/${post.uniqueId}`}>
                             <Image
                               src={post.image}
                               alt={post.title}
@@ -155,8 +168,15 @@ export default function OpnionNews({ webInfo, articles }: any) {
                         </div>
                         <div className="flex flex-1 items-center justify-between  ">
                           <div className="  px-4 py-2 line-clamp-3 text-sm  text-red-600  font-semibold">
+                            <Link href={`/article/${post.category.uniqueId}`}>
+                              <span className="text-red-600 dark:text-red-800 hover:text-red-800 dark:hover:text-red-600">
+                                {" "}
+                                {post.category.title}
+                              </span>
+                            </Link>{" "}
+                            {" / "}
                             <Link
-                              href={`../news/${post.uniqueId}`}
+                              href={`/article/details/${post.uniqueId}`}
                               className="font-medium  text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-400"
                             >
                               {post.title}
