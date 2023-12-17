@@ -48,7 +48,7 @@ export default async function HighlightNews({
                   <Link href={`/category/${mainPost.category.uniqueId}`}>
                     {mainPost.category.title}/
                   </Link>{" "}
-                  <Link href={`/category/${mainPost.subcategory.uniqueId}`}>
+                  <Link href={`/category/${mainPost.category.uniqueId}/${mainPost.subcategory.uniqueId}`}>
                     {mainPost.subcategory.title}
                   </Link>
                 </p>
@@ -96,7 +96,7 @@ export default async function HighlightNews({
                       <Link href={`/category/${post.category.uniqueId}`}>
                         {mainPost.category.title}/
                       </Link>{" "}
-                      <Link href={`/category/${mainPost.subcategory.uniqueId}`}>
+                      <Link href={`/category/${mainPost.category.uniqueId}/${mainPost.subcategory.uniqueId}`}>
                         {mainPost.subcategory.title}
                       </Link>
                     </p>
