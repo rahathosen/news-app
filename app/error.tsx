@@ -18,7 +18,7 @@ export default function Error({
 
   const router = useRouter();
   return (
-    <div className="bg-stone-100 dark:bg-[#040D12] my-2 rounded-t-lg pt-4">
+    <div className="bg-white dark:bg-[#040D12] my-2 rounded-t-lg pt-4">
       <main className="grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8">
         <Button className="my-6" type="button" onClick={() => router.back()}>
         <ResetIcon className="mr-2 h-4 w-4" />  Back To Previus
