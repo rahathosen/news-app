@@ -19,6 +19,7 @@ import Link from "next/link";
 import OtherPageLeaderboardAd from "@/components/advertisement/OtherPageLeaderboardAd";
 import OtherPageSuperLeadeAd from "@/components/advertisement/otherPageSuperLeadeAd";
 import DetailsPageAd from "@/components/advertisement/detailsPageAd";
+import YouTubePlayer from "@/components/youTubePlayer";
 
 type Props = {
   params: { articleId: string };
@@ -59,133 +60,163 @@ export default async function Page({ params }: Props) {
   const articlePost = await articlePostGQL(params.articleId);
   const post = articlePost.articlePost;
   return (
-   <div>
-    <OtherPageSuperLeadeAd/>
-     <div className="bg-white dark:bg-[#040D12] 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  mb-4">
-      <nav
-        className="flex justify-between border-b xl:container mx-auto px-3 sm:px-4 xl:px-2 mb-4 border-white dark:border-[#071720] bg-stone-100 dark:bg-[#040D12] "
-        aria-label="Breadcrumb"
-      >
-        <ol
-          role="list"
-          className="mx-auto flex w-full max-w-screen-xl space-x-4 mb-4 px-4 sm:px-6 lg:px-8"
+    <div>
+      <OtherPageSuperLeadeAd />
+      <div className="bg-white dark:bg-[#040D12] 2xl:p-8 rounded-b-lg rounded-t-lg pt-4  mb-4">
+        <nav
+          className="flex justify-between border-b xl:container mx-auto px-3 sm:px-4 xl:px-2 mb-4 border-white dark:border-[#071720] bg-stone-100 dark:bg-[#040D12] "
+          aria-label="Breadcrumb"
         >
-          <li className="flex">
-            <div className=" flex items-center">
-              <Link
-                href="/"
-                className="text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700"
-              >
-                <HomeIcon
-                  className="h-5 w-5 flex-shrink-0"
+          <ol
+            role="list"
+            className="mx-auto flex w-full max-w-screen-xl space-x-4 mb-4 px-4 sm:px-6 lg:px-8"
+          >
+            <li className="flex">
+              <div className=" flex items-center">
+                <Link
+                  href="/"
+                  className="text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700"
+                >
+                  <HomeIcon
+                    className="h-5 w-5 flex-shrink-0"
+                    aria-hidden="true"
+                  />
+                  <span className="sr-only">Home</span>
+                </Link>
+              </div>
+            </li>
+
+            <li className="flex">
+              <div className="flex items-center">
+                <ChevronRightIcon
+                  className="h-5 w-5 flex-shrink-0 text-gray-600 dark:text-gray-600"
                   aria-hidden="true"
                 />
-                <span className="sr-only">Home</span>
-              </Link>
-            </div>
-          </li>
-
-          <li className="flex">
-            <div className="flex items-center">
-              <ChevronRightIcon
-                className="h-5 w-5 flex-shrink-0 text-gray-600 dark:text-gray-600"
-                aria-hidden="true"
-              />
-              <Link
-                href={`/article`}
-                className="pl-4 text-lg font-bold text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700"
-              >
-                মতামত
-              </Link>
-            </div>
-            <div className="pl-4 flex items-center">
-              <ChevronRightIcon
-                className="h-5 w-5 flex-shrink-0 text-gray-600 dark:text-gray-600"
-                aria-hidden="true"
-              />
-              <Link
-                href={`/article/`}
-                className="ml-4 text-lg font-bold text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700"
-              >
-                {post.category.title}
-              </Link>
-            </div>
-          </li>
-        </ol>
-        <div className="lg:pr-6 pr-4">
-          <ShareIcon className="h-5 w-5 flex-shrink-0 text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700" />
-        </div>
-      </nav>
-      {/* breadcumb end */}
-      <div
-        role="list"
-        className="grid grid-cols-1 md:px-4 px-4  gap-y-2 lg:grid-cols-7 xl:gap-x-2"
-      >
-        <div className="hidden lg:block col-span-2">
-          <div>
-            <Author post={post} />
-            <Tabs defaultValue="lastnews" className="w-full">
-              <TabsList>
-                <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>
-                <TabsTrigger value="mostpopular">সর্বাধিক পঠিত</TabsTrigger>
-              </TabsList>
-              <TabsContent value="lastnews">সর্বশেষ সংবাদ here.</TabsContent>
-              <TabsContent value="mostpopular">সর্বাধিক পঠিত here.</TabsContent>
-            </Tabs>
+                <Link
+                  href={`/article`}
+                  className="pl-4 text-lg font-bold text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700"
+                >
+                  মতামত
+                </Link>
+              </div>
+              <div className="pl-4 flex items-center">
+                <ChevronRightIcon
+                  className="h-5 w-5 flex-shrink-0 text-gray-600 dark:text-gray-600"
+                  aria-hidden="true"
+                />
+                <Link
+                  href={`/article/`}
+                  className="ml-4 text-lg font-bold text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700"
+                >
+                  {post.category.title}
+                </Link>
+              </div>
+            </li>
+          </ol>
+          <div className="lg:pr-6 pr-4">
+            <ShareIcon className="h-5 w-5 flex-shrink-0 text-gray-500 dark:text-gray-400 dark:hover:text-gray-600 hover:text-gray-700" />
           </div>
-        </div>
+        </nav>
+        {/* breadcumb end */}
+        <div
+          role="list"
+          className="grid grid-cols-1 md:px-4 px-4  gap-y-2 lg:grid-cols-7 xl:gap-x-2"
+        >
+          <div className="hidden lg:block col-span-2">
+            <div>
+              <Author post={post} />
+              <Tabs defaultValue="lastnews" className="w-full">
+                <TabsList>
+                  <TabsTrigger value="lastnews">সর্বশেষ</TabsTrigger>
+                  <TabsTrigger value="mostpopular">সর্বাধিক পঠিত</TabsTrigger>
+                </TabsList>
+                <TabsContent value="lastnews">সর্বশেষ সংবাদ here.</TabsContent>
+                <TabsContent value="mostpopular">
+                  সর্বাধিক পঠিত here.
+                </TabsContent>
+              </Tabs>
+            </div>
+          </div>
 
-        <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700 lg:px-4 col-start-auto col-span-4 ">
-          <h1 className="mt-2 pb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl text-center ">
-            {post.title}
-          </h1>
-          <figure className="mt-4">
-            <Image
-              src={post.image || webInfo.websiteInfo.newsThumbnail}
-              alt=""
-              height={240}
-              width={840}
-              className="aspect-video rounded-xl bg-gray-50 object-cover"
-            />
+          <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700 lg:px-4 col-start-auto col-span-4 ">
+            <h1 className="mt-2 pb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl text-center ">
+              {post.title}
+            </h1>
+            {post.image ? (
+              <figure className="mt-4">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  height={240}
+                  width={840}
+                  className="aspect-video rounded-xl bg-gray-50 object-cover"
+                />
 
-            <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
-              <InformationCircleIcon
-                className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
-                aria-hidden="true"
+                {post.imageSource ? (
+                  <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+                    <InformationCircleIcon
+                      className="mt-0.5 h-5 w-5 flex-none text-gray-300 dark:text-gray-700"
+                      aria-hidden="true"
+                    />
+                    {post.imageSource}
+                  </figcaption>
+                ) : null}
+              </figure>
+            ) : null}
+
+            {post.description ? (
+              <p className="my-6 text-xl font-semibold leading-8 dark:text-gray-400">
+                <div>{post.description}</div>
+              </p>
+            ) : null}
+
+            {/* Video  */}
+            {post.videoLink ? (
+              <>
+                <figure className="mt-4 dark:bg-[#001219] bg-[#E7E5E4] px-4 pt-4 lg:pb-10 pb-6 rounded-xl drop-shadow-lg">
+                  <YouTubePlayer videoUrl={post.videoLink} />
+                  {/* {post.videoLink} */}
+                  <figcaption className="mt-6 flex gap-x-2 text-sm leading-6 text-gray-700 dark:text-gray-400">
+                    <InformationCircleIcon
+                      className="mt-0.5 h-5 w-5 flex-none text-gray-600 dark:text-gray-700"
+                      aria-hidden="true"
+                    />
+                    {post.videoSource}
+                  </figcaption>
+                </figure>
+              </>
+            ) : null}
+
+            <p className="mt-6 text-lg leading-8 dark:text-gray-400">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: post.details,
+                }}
               />
-              {post.imageSource}
-            </figcaption>
-          </figure>
-          <p className="mt-6 text-xl leading-8 dark:text-gray-400">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: post.details,
-              }}
-            />
-          </p>
+            </p>
 
-          {/* <div>
+            {/* <div>
             <h4 className="lg:pt-8 pt-4 pb-4 border-b border-white dark:border-[#071720] text-lg lg:text-2xl font-bold text-gray-600 dark:text-gray-400">
               Related Topics:
             </h4>
             <Badges post={post} />
           </div> */}
-        </div>
-        <div className="hidden lg:block col-span-1">
-            <DetailsPageAd/>
           </div>
-        {/* <div className="col-span-1">
+          <div className="hidden lg:block col-span-1">
+            <DetailsPageAd />
+          </div>
+          {/* <div className="col-span-1">
           <div className="lg:hidden">
             <Author post={post} />
           </div>
           <RelatedNews categoryPosts={categoryPosts} />
         </div> */}
-      </div>
-      {/* <div className="px-4 py-2 lg:hidden">
+        </div>
+        {/* <div className="px-4 py-2 lg:hidden">
         <MostViewed categoryPosts={categoryPosts} />
       </div> */}
+      </div>
+      <OtherPageLeaderboardAd />
     </div>
-    <OtherPageLeaderboardAd/>
-   </div>
   );
 }
