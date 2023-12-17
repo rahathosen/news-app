@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { adGQL } from "@/lib/getGQL";
+import { adGQL,websiteInfoGQL } from "@/lib/getGQL";
 
 export default async function SmallBannerAd() {
+  const webInfo = await websiteInfoGQL();
   try {
     const adbox = await adGQL(6);
     const ad = adbox.adsByBoxPosition;
@@ -33,7 +34,7 @@ export default async function SmallBannerAd() {
             className="max-w-max w-full max-h-max object-cover"
           />
           <div className="absolute inset-0 left-1/2 top-4 flex -translate-x-1/2 transform justify-center px-2 text-white">
-            <h1 className="lg:text-xl text-sm font-bold text-black">BD News 20</h1>
+            <h1 className="lg:text-xl text-sm font-bold text-black">{webInfo.websiteInfo.title}</h1>
           </div>
         </Link>
       </div>

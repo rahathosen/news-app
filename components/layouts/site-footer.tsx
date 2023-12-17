@@ -140,20 +140,20 @@ export default function SiteFooter({ webInfo }: any) {
               </div>
               <div className="mt-10 md:mt-0 space-y-4 text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300">
                 <ul className="">
-                  Address
+                  ঠিকানা
                   <li className="text-sm  font-normal text-gray-500 dark:text-gray-400">
                     {webInfo.websiteInfo.address}
                   </li>
                 </ul>
                 <ul className="">
-                  Phone
+                  ফোন নম্বর
                   <li className="text-sm font-normal text-gray-500 dark:text-gray-400">
                     {" "}
                     {webInfo.websiteInfo.contact1}
                   </li>
                 </ul>
                 <ul className="">
-                  Email{" "}
+                  ইমেইল{" "}
                   <li className="text-sm font-normal text-gray-500 dark:text-gray-400">
                     {webInfo.websiteInfo.email}
                   </li>
@@ -163,27 +163,27 @@ export default function SiteFooter({ webInfo }: any) {
           </div>
           <div className="flex lg:flex-row flex-col justify-between  mt-10 md:mt-0 lg:space-y-0 space-y-4">
             <Link href={"/contact"}>
-              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
+              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400 hover:text-gray-600 dark:hover:text-white">
                 যোগাযোগ
               </h3>
             </Link>
             <Link href={"/terms-and-conditions"}>
-              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
+              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400 hover:text-gray-600 dark:hover:text-white">
                 শার্তাবলি ও নীতিমালা
               </h3>
             </Link>
             <Link href={"/privacy-and-policy"}>
-              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
+              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400 hover:text-gray-600 dark:hover:text-white">
                 গোপনিয়তা নীতি
               </h3>
             </Link>
             <Link href={"/advertisement"}>
-              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
+              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400 hover:text-gray-600 dark:hover:text-white">
                 বিজ্ঞাপন
               </h3>
             </Link>
             <Link href={"/about"}>
-              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400">
+              <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-400 hover:text-gray-600 dark:hover:text-white">
                 আমাদের সম্পর্কে{" "}
               </h3>
             </Link>
@@ -193,8 +193,10 @@ export default function SiteFooter({ webInfo }: any) {
           <p className="text-xs leading-5 text-gray-500">
             2023 {webInfo.websiteInfo.copyrightText} সর্বস্বত্ব সংরক্ষিত
           </p>
-          <p className=" text-xs leading-5 text-gray-500">
-            Developed By <span className="font-bold">TECHSAND</span>
+          <p className=" text-xs leading-5 text-gray-500 ">
+            Developed By <a href="#">
+            <span className="font-bold hover:text-black dark:hover:text-white">TECHSAND</span>
+            </a>
           </p>
           <div className="hidden lg:block">
             {" "}
