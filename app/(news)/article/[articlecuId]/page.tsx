@@ -106,12 +106,12 @@ export default async function Page({ params }: Props) {
             <div className="flex flex-row flex-wrap">
               <div className="flex-shrink max-w-full w-full overflow-hidden">
                 <div className="flex flex-row flex-wrap ">
-                  <div className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900">
-                    {articleByCategory.articleByCategory.map((post: any) => (
-                      <div
-                        key={post.uniqueId}
-                        className="flex flex-row sm:block hover-img max-h-18"
-                      >
+                  {articleByCategory.articleByCategory.map((post: any) => (
+                    <div
+                      key={post.uniqueId}
+                      className="flex-shrink max-w-full w-full sm:w-1/3 lg:w-1/4 px-2 pb-3 pt-3 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900"
+                    >
+                      <div className="flex flex-row sm:block hover-img max-h-18">
                         <Link href={`../article/details/${post.uniqueId}`}>
                           <Image
                             src={
@@ -120,7 +120,7 @@ export default async function Page({ params }: Props) {
                             alt={""}
                             width={640}
                             height={427}
-                            className="max-w-full aspect-[3/4] object-cover w-full mx-auto max-h-[12.7rem] rounded-md"
+                            className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
                           />
                         </Link>
                         <div className="py-0 sm:py-3 pl-3 sm:pl-0">
@@ -130,25 +130,25 @@ export default async function Page({ params }: Props) {
                             </Link>
                           </h3>
                           <div className="hidden  md:block text-gray-800 dark:text-gray-400 leading-tight mb-1">
-                          <div
-                          dangerouslySetInnerHTML={{
-                            __html: post.details.slice(0, 50) + "...",
-                          }}
-                        />
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: post.details.slice(0, 50) + "...",
+                              }}
+                            />
+                          </div>
                             <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                               <RelativeDate date={post.createdAt} />{" "}
                             </div>
-                          </div>
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
           <div className="col-start-auto col-span-2 ">
-          <div className="lg:mb-4">
+            <div className="lg:mb-4">
               <SmallBannerAd />
             </div>
             <Tabs defaultValue="lastnews" className="w-full">

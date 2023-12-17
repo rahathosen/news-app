@@ -22,7 +22,7 @@ export default function Tag({ postsByTag }: any) {
                             alt={""}
                             width={640}
                             height={427}
-                            className="max-w-full aspect-[3/4] object-cover w-full mx-auto max-h-[12.7rem] rounded-md"
+                            className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
                           />
                         </Link>
                         <div className="py-0 sm:py-3 pl-3 sm:pl-0">
@@ -33,10 +33,10 @@ export default function Tag({ postsByTag }: any) {
                           </h3>
                           <p className="hidden md:block text-gray-800 dark:text-gray-400 leading-tight mb-1">
                             <div>{post.description.slice(0, 100) + "..."}</div>
+                          </p>
                             <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                               <RelativeDate date={post.createdAt} />{" "}
                             </div>
-                          </p>
                         </div>
                       </div>
                     </div>
