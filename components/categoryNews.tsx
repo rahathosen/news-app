@@ -57,10 +57,10 @@ export default async function CategoryNews({
                       {posts.slice(0, 1).map((post: any) => (
                         <div
                           key={post.id}
-                          className="relative hover-img dark:hover-img-dark   "
+                          className="relative   "
                         >
                           {/* <!--thumbnail--> */}
-                          <Link href={`/news/${post.uniqueId}`}>
+                          <Link className="hover-img dark:hover-img-dark " href={`/news/${post.uniqueId}`}>
                             <Image
                               src={
                                 post.image || webInfo.websiteInfo.newsThumbnail
@@ -74,7 +74,7 @@ export default async function CategoryNews({
                           <div className="pt-4">
                             {/* <!--title--> */}
                             <Link href={`/news/${post.uniqueId}`}>
-                              <h2 className="lg:text-2xl text-xl font-bold capitalize text-black  dark:text-white ">
+                              <h2 className="lg:text-2xl text-xl font-bold capitalize text-black  dark:text-white hover:text-gray-600 dark:hover:text-gray-500">
                                 {post.title}
                               </h2>
                             </Link>
@@ -100,9 +100,9 @@ export default async function CategoryNews({
                       {posts.slice(0, 1).map((post: any) => (
                         <div
                           key={post.uniqueId}
-                          className="flex flex-row sm:block hover-img dark:hover-img-dark"
+                          className="flex flex-row sm:block"
                         >
-                          <Link href={`/news/${post.uniqueId}`}>
+                          <Link className="hover-img dark:hover-img-dark" href={`/news/${post.uniqueId}`}>
                             <Image
                               src={
                                 post.image || webInfo.websiteInfo.newsThumbnail
@@ -115,7 +115,7 @@ export default async function CategoryNews({
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                             <h3 className="text-base font-bold leading-tight md:line-clamp-2 text-black  dark:text-white mb-2">
-                              <Link href={`/news/${post.uniqueId}`}>
+                              <Link className="hover:text-gray-600 dark:hover:text-gray-500" href={`/news/${post.uniqueId}`}>
                                 {post.title}
                               </Link>
                             </h3>
@@ -149,8 +149,8 @@ export default async function CategoryNews({
                           index !== posts.length - 1 ? "sm:pr-2" : ""
                         }`}
                       >
-                        <div className="flex flex-row sm:block hover-img dark:hover-img-dark">
-                          <Link href={`../news/${post.uniqueId}`}>
+                        <div className="flex flex-row sm:block  ">
+                          <Link className="hover-img dark:hover-img-dark" href={`../news/${post.uniqueId}`}>
                             <Image
                               src={
                                 post.image || webInfo.websiteInfo.newsThumbnail
@@ -162,8 +162,8 @@ export default async function CategoryNews({
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="text-base font-bold line-clamp-3 leading-tight text-black  dark:text-white mb-2">
-                              <Link href={`../news/${post.uniqueId}`}>
+                            <h3 className="text-base font-bold line-clamp-3 leading-tight text-black  dark:text-white mb-2 ">
+                              <Link className="hover:text-gray-600 dark:hover:text-gray-500" href={`../news/${post.uniqueId}`}>
                                 {post.title}
                               </Link>
                             </h3>
