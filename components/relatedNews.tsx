@@ -22,7 +22,7 @@ export default async function RelatedNews({ categoryPosts }: any) {
                     <Link href={`../news/${post.uniqueId}`}>
                       <Image
                         src={post.image}
-                        alt={""}
+                        alt={post.title}
                         width={640}
                         height={427}
                         className="max-w-full w-full mx-auto rounded-md"

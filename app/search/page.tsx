@@ -73,7 +73,7 @@ export default async function Page({ searchParams }: any) {
                               <Link href={`/news/${post.uniqueId}`}>
                                 <Image
                                   src={post.image}
-                                  alt={""}
+                                  alt={post.title}
                                   width={640}
                                   height={427}
                                   className="max-w-full aspect-[3/4] object-cover w-full mx-auto max-h-[12.7rem] rounded-md"
@@ -122,7 +122,7 @@ export default async function Page({ searchParams }: any) {
                             <Link href={`/news/${post.uniqueId}`}>
                               <Image
                                 src={post.image}
-                                alt={""}
+                                alt={post.title}
                                 width={640}
                                 height={427}
                                 className="max-w-full aspect-[3/4] object-cover w-full mx-auto max-h-[12.7rem] rounded-md"
@@ -170,7 +170,7 @@ export default async function Page({ searchParams }: any) {
                             <Link href={`/news/${post.uniqueId}`}>
                               <Image
                                 src={post.image}
-                                alt={""}
+                                alt={post.title}
                                 width={640}
                                 height={427}
                                 className="max-w-full aspect-[3/4] object-cover w-full mx-auto max-h-[12.7rem] rounded-md"

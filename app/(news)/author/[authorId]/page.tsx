@@ -61,7 +61,7 @@ export default async function Page({ params }: Props) {
                       <Image
                         className="mx-auto object-cover h-24 w-24 rounded-full"
                         src={reporter.image}
-                        alt=""
+                        alt={reporter.name}
                         width={40}
                         height={20}
                       />
@@ -116,7 +116,7 @@ export default async function Page({ params }: Props) {
                             <Link href={`../news/${post.uniqueId}`}>
                               <Image
                                 src={post.image}
-                                alt={""}
+                                alt={post.title}
                                 width={640}
                                 height={427}
                                 className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"

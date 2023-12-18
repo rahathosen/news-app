@@ -36,7 +36,7 @@ export default async function Section({
                             <Link href={`../news/${post.uniqueId}`}>
                               <Image
                                 src={post.image}
-                                alt={""}
+                                alt={post.title}
                                 width={640}
                                 height={427}
                                 className="max-w-full w-full mx-auto h-auto max-h-[18.2rem] pb-2  object-cover rounded-md"
@@ -71,7 +71,7 @@ export default async function Section({
                             <Link href={`../news/${post.uniqueId}`}>
                               <Image
                                 src={post.image}
-                                alt={""}
+                                alt= {post.title}
                                 width={640}
                                 height={427}
                                 className="max-w-full w-full mx-auto rounded-md"

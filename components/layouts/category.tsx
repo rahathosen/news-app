@@ -21,7 +21,7 @@ export default function Category({ categoryPosts,webInfo }: any) {
                       <Link href={`../news/${post.uniqueId}`}>
                         <Image
                           src={post.image || webInfo.websiteInfo.newsThumbnail}
-                          alt={""}
+                          alt={post.title}
                           width={640}
                           height={427}
                           className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
