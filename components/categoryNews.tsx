@@ -55,12 +55,12 @@ export default async function CategoryNews({
                     {/* cover news */}
                     <div className="group  overflow-hidden sm:col-span-2 sm:row-span-2">
                       {posts.slice(0, 1).map((post: any) => (
-                        <div
-                          key={post.id}
-                          className="relative   "
-                        >
+                        <div key={post.id} className="relative   ">
                           {/* <!--thumbnail--> */}
-                          <Link className="hover-img dark:hover-img-dark " href={`/news/${post.uniqueId}`}>
+                          <Link
+                            className="hover-img dark:hover-img-dark "
+                            href={`/news/${post.uniqueId}`}
+                          >
                             <Image
                               src={
                                 post.image || webInfo.websiteInfo.newsThumbnail
@@ -68,6 +68,8 @@ export default async function CategoryNews({
                               alt={post.title}
                               width={640}
                               height={427}
+                              quality={75}
+                              priority={true}
                               className="sm:max-w-full sm:max-h-[20rem] max-w-full max-h-40 sm:w-full sm:h-80   aspect-[3/4]  mx-auto object-cover rounded-md"
                             />
                           </Link>
@@ -102,7 +104,10 @@ export default async function CategoryNews({
                           key={post.uniqueId}
                           className="flex flex-row sm:block"
                         >
-                          <Link className="hover-img dark:hover-img-dark" href={`/news/${post.uniqueId}`}>
+                          <Link
+                            className="hover-img dark:hover-img-dark"
+                            href={`/news/${post.uniqueId}`}
+                          >
                             <Image
                               src={
                                 post.image || webInfo.websiteInfo.newsThumbnail
@@ -110,12 +115,17 @@ export default async function CategoryNews({
                               alt={post.title}
                               width={640}
                               height={427}
+                              quality={75}
+                              priority={true}
                               className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                             <h3 className="text-base font-bold leading-tight md:line-clamp-2 text-black  dark:text-white mb-2">
-                              <Link className="hover:text-gray-600 dark:hover:text-gray-500" href={`/news/${post.uniqueId}`}>
+                              <Link
+                                className="hover:text-gray-600 dark:hover:text-gray-500"
+                                href={`/news/${post.uniqueId}`}
+                              >
                                 {post.title}
                               </Link>
                             </h3>
@@ -135,7 +145,7 @@ export default async function CategoryNews({
                       ))}
                     </div>
                     {/* ad */}
-                    <div >
+                    <div>
                       <MPUAd />
                     </div>
                   </div>
@@ -150,7 +160,10 @@ export default async function CategoryNews({
                         }`}
                       >
                         <div className="flex flex-row sm:block  ">
-                          <Link className="hover-img dark:hover-img-dark" href={`../news/${post.uniqueId}`}>
+                          <Link
+                            className="hover-img dark:hover-img-dark"
+                            href={`../news/${post.uniqueId}`}
+                          >
                             <Image
                               src={
                                 post.image || webInfo.websiteInfo.newsThumbnail
@@ -158,12 +171,17 @@ export default async function CategoryNews({
                               alt={post.title}
                               width={640}
                               height={427}
+                              quality={75}
+                              priority={true}
                               className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
                             />
                           </Link>
                           <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                             <h3 className="text-base font-bold line-clamp-3 leading-tight text-black  dark:text-white mb-2 ">
-                              <Link className="hover:text-gray-600 dark:hover:text-gray-500" href={`../news/${post.uniqueId}`}>
+                              <Link
+                                className="hover:text-gray-600 dark:hover:text-gray-500"
+                                href={`../news/${post.uniqueId}`}
+                              >
                                 {post.title}
                               </Link>
                             </h3>
@@ -217,6 +235,8 @@ export default async function CategoryNews({
                                 alt={post.title}
                                 width={200}
                                 height={160}
+                                quality={75}
+                                priority={true}
                                 className="mx-auto object-cover h-16 w-16 rounded-md"
                               />
                             </Link>
@@ -270,6 +290,8 @@ export default async function CategoryNews({
                                   alt={post.title}
                                   width={200}
                                   height={160}
+                                  quality={75}
+                                  priority={true}
                                   className="mx-auto object-cover h-16 w-16 rounded-md"
                                 />
                               </Link>

@@ -53,6 +53,8 @@ export default function OpnionNews({ webInfo, articles }: any) {
                                 post.image || webInfo.websiteInfo.newsThumbnail
                               }
                               alt={post.title}
+                              quality={75}
+                              priority={true}
                               width={1040}
                               height={840}
                               className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
@@ -113,6 +115,8 @@ export default function OpnionNews({ webInfo, articles }: any) {
                             alt={post.title}
                             width={200}
                             height={160}
+                            quality={75}
+                            priority={true}
                             className="mx-auto object-cover h-16 w-16 rounded-md"
                           />
                         </Link>
@@ -162,6 +166,8 @@ export default function OpnionNews({ webInfo, articles }: any) {
                               alt={post.title}
                               width={200}
                               height={160}
+                              quality={75}
+                              priority={true}
                               className="mx-auto object-cover h-16 w-16 rounded-md"
                             />
                           </Link>

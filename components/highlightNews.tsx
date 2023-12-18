@@ -65,6 +65,8 @@ export default async function HighlightNews({
                     alt={mainPost.title}
                     width={640}
                     height={427}
+                    quality={75}
+                    priority={true}
                     className="max-w-full w-full mx-auto rounded-md bg-gray-50"
                   />
                 </Link>
@@ -119,6 +121,8 @@ export default async function HighlightNews({
                       alt={post.title}
                       width={200}
                       height={160}
+                      quality={75}
+                      priority={true}
                       className="mx-auto object-cover h-24 w-60 rounded-md"
                     />
                   </Link>
