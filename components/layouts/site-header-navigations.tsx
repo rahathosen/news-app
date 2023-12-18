@@ -34,8 +34,8 @@ export default function SiteHeaderNavigations({
                   className="h-10 w-auto rounded-md"
                   src={webInfo.websiteInfo.logo}
                   alt={webInfo.websiteInfo.title}
-                  width={280}
-                  height={220}
+                  width={384}
+                  height={127}
                 />
               </div>
             </div>
@@ -50,9 +50,9 @@ export default function SiteHeaderNavigations({
                 <Image
                   className="h-14 w-auto rounded-md"
                   src={webInfo.websiteInfo.logo}
-                  alt={webInfo.websiteInfo.title}
-                  width={280}
-                  height={220}
+                  alt={`Logo of ${webInfo.websiteInfo.title}`}
+                  width={640}
+                  height={211}
                 />
               </div>
             </div>
@@ -95,7 +95,7 @@ export default function SiteHeaderNavigations({
                         </div>
                         <div className="py-0 sm:py-3 pl-3 sm:pl-0">
                           <h3 className="text-sm font-medium leading-tight  text-black dark:text-gray-400">
-                          <Link href={`/article/details/${item.uniqueId}`}>
+                            <Link href={`/article/details/${item.uniqueId}`}>
                               {item.title}
                             </Link>
                           </h3>
@@ -104,30 +104,28 @@ export default function SiteHeaderNavigations({
                     ))}
                   </li>
 
-                  <li>
-                    <div className="col-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm pl-8">
-                      <ul
-                        role="list"
-                        className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                  <li className="col-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm pl-8">
+                    <ul
+                      role="list"
+                      className="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
+                    >
+                      <Link
+                        href={`/article`}
+                        className="font-semibold text-base dark:text-gray-200 text-black"
                       >
-                        <Link
-                          href={`/article`}
-                          className="font-semibold text-base dark:text-gray-200 text-black"
-                        >
-                          মতামত
-                        </Link>
-                        {opinions.articleCategories.map((item: any) => (
-                          <li key={item.id} className="flex">
-                            <Link
-                              href={`/article/${item.uniqueId}`}
-                              className="dark:hover:text-gray-200  dark:text-gray-400 hover:text-gray-900 font-semibold"
-                            >
-                              {item.title}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                        মতামত
+                      </Link>
+                      {opinions.articleCategories.map((item: any) => (
+                        <li key={item.id} className="flex">
+                          <Link
+                            href={`/article/${item.uniqueId}`}
+                            className="dark:hover:text-gray-200  dark:text-gray-400 hover:text-gray-900 font-semibold"
+                          >
+                            {item.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </li>
                 </ul>
               </NavigationMenu.Content>
@@ -149,7 +147,11 @@ export default function SiteHeaderNavigations({
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight  top-0 shadow-2xl backdrop-blur-xl dark:backdrop-blur-xl bg-white/95 dark:bg-[#040D12]/100  text-sm text-gray-500 relative ">
                     <ul className="grid grid-flow-col  py-12 ">
-                      <FeaturePosts webInfo={webInfo } posts={posts} categoryId={category.id} />
+                      <FeaturePosts
+                        webInfo={webInfo}
+                        posts={posts}
+                        categoryId={category.id}
+                      />
                       <li>
                         <div className="col-start-1 grid grid-cols-2 gap-x-8 gap-y-10 text-sm pl-8">
                           <ul
@@ -198,7 +200,9 @@ export default function SiteHeaderNavigations({
                       <Link key={item.id} href={`/feature/${item.uniqueId}`}>
                         <div className="relative aspect-h-1 aspect-w-2 rounded-md bg-gray-100 group-hover:opacity-75">
                           <Image
-                            src={item.image || webInfo.websiteInfo.newsThumbnail}
+                            src={
+                              item.image || webInfo.websiteInfo.newsThumbnail
+                            }
                             alt={item.title}
                             width={440}
                             height={320}
@@ -216,7 +220,11 @@ export default function SiteHeaderNavigations({
             </NavigationMenu.Item>
 
             {/* End Feature section */}
-            <Link href="/search" className="flex items-center  pl-2 ">
+            <Link
+              href="/search"
+              aria-label="Search The News"
+              className="flex items-center  pl-2 "
+            >
               <MagnifyingGlassIcon
                 className="h-5 w-5 text-gray-400 "
                 aria-hidden="true"
@@ -228,7 +236,12 @@ export default function SiteHeaderNavigations({
           </NavigationMenu.List>
         </div>
         {/* sitebar hamburger menu */}
-        <Siebar newsCategories={newsCategories} posts={posts} opinions={opinions} navigations={navigations}/>
+        <Siebar
+          newsCategories={newsCategories}
+          posts={posts}
+          opinions={opinions}
+          navigations={navigations}
+        />
         <div className=" absolute top-full left-0 flex w-full  justify-center ">
           <NavigationMenu.Viewport className="data-[state=open]:animate-scaleIn data-[state=closed]:animate-scaleOut relative mt-[10px] h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-md drop-shadow-2xl  transition-[width,_height] duration-300 " />
         </div>

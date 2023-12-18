@@ -40,6 +40,7 @@ export default function ThemeToggle() {
         <ComputerDesktopIcon className="w-4 h-4" />
       </button> */}
       <button
+        aria-label="Dark Button"
         className={`${btnDefault} ${
           theme === "dark"
             ? "bg-white dark:bg-[#0c2525f8] dark:text-gray-100 text-zinc-50 rounded-md shadow-xl"
@@ -50,6 +51,7 @@ export default function ThemeToggle() {
         <MoonIcon className="h-4 w-4" />
       </button>
       <button
+        aria-label="Light Button"
         className={`${btnDefault} ${
           theme === "light"
             ? "bg-gray-200 dark:bg-[#0c2525f8] text-zinc-700 rounded-md shadow-xl"
