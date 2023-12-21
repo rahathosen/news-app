@@ -20,6 +20,11 @@ export default async function CategoryNews({
   const categoryPosts = await postByCategoryGQL(categoryUId);
   const posts = categoryPosts.postByCategory;
   // const startIndex = Math.max(0, posts.length - 10);
+
+
+  // const highlightA1Post = posts.find((post: any) => post.isHighlightOnSection === "A_1");
+  const highlightA1Post = posts.filter((post: any) => post.isHighlightOnSection === "A_1");
+
   return (
     <>
       {catSetPost.postSet.length > 0 ? (
@@ -50,7 +55,7 @@ export default async function CategoryNews({
                 <div className="col-span-5 ">
                   <div className="grid grid-cols-1 gap-y-2 sm:grid-cols-3 sm:grid-rows-2 sm:gap-x-2 lg:gap-4 lg:pb-2">
                     <div className="group  overflow-hidden sm:col-span-2 sm:row-span-2">
-                      {posts.slice(0, 1).map((post: any) => (
+                      {highlightA1Post && highlightA1Post.slice(0, 1).map((post: any) => (
                         <div key={post.id} className="relative   ">
                           {/* <!--thumbnail one news--> */}
                           <Link
