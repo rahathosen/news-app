@@ -21,9 +21,11 @@ export default async function CategoryNews({
   const posts = categoryPosts.postByCategory;
   // const startIndex = Math.max(0, posts.length - 10);
 
-
   // const highlightA1Post = posts.find((post: any) => post.isHighlightOnSection === "A_1");
-  const highlightA1Post = posts.filter((post: any) => post.isHighlightOnSection === "A_1");
+  const highlightA1Post = posts.filter(
+    (post: any) => post.isHighlightOnSection === "A_1"
+  );
+  const remainingPosts = posts.filter((post: any) => post.isHighlightOnSection !== "A_1");
 
   return (
     <>
@@ -52,44 +54,155 @@ export default async function CategoryNews({
                 </Link>
               </div>
               <div className="grid grid-cols-1 gap-y-2 lg:grid-cols-8 xl:gap-x-2">
-                <div className="col-span-5 ">
-                  <div className="grid grid-cols-1 gap-y-2 sm:grid-cols-3 sm:grid-rows-2 sm:gap-x-2 lg:gap-4 lg:pb-2">
-                    <div className="group  overflow-hidden sm:col-span-2 sm:row-span-2">
-                      {highlightA1Post && highlightA1Post.slice(0, 1).map((post: any) => (
-                        <div key={post.id} className="relative   ">
-                          {/* <!--thumbnail one news--> */}
-                          <Link
-                            className="hover-img dark:hover-img-dark "
-                            href={`/news/${post.uniqueId}`}
+                {highlightA1Post?( <>
+                  <div className="col-span-5 ">
+                    <div className="grid grid-cols-1 gap-y-2 sm:grid-cols-3 sm:grid-rows-2 sm:gap-x-2 lg:gap-4 lg:pb-2">
+                      {/* {highlightA1Post ? } */}
+                      <div className="group  overflow-hidden sm:col-span-2 sm:row-span-2">
+                        {highlightA1Post &&
+                          highlightA1Post.slice(0, 1).map((post: any) => (
+                            <div key={post.id} className="relative   ">
+                              {/* <!--thumbnail one news--> */}
+                              <Link
+                                className="hover-img dark:hover-img-dark "
+                                href={`/news/${post.uniqueId}`}
+                              >
+                                <Image
+                                  src={
+                                    post.image ||
+                                    webInfo.websiteInfo.newsThumbnail
+                                  }
+                                  alt={post.title}
+                                  width={640}
+                                  height={427}
+                                  quality={75}
+                                  priority={true}
+                                  className="sm:max-w-full sm:max-h-[20rem] max-w-full max-h-40 sm:w-full sm:h-80   aspect-[3/4]  mx-auto object-cover rounded-md"
+                                />
+                              </Link>
+                              <div className="pt-4">
+                                {/* <!--title--> */}
+                                <Link href={`/news/${post.uniqueId}`}>
+                                  <h2 className="lg:text-2xl text-xl font-bold capitalize text-black  dark:text-white hover:text-gray-600 dark:hover:text-gray-500">
+                                    {post.title}
+                                  </h2>
+                                </Link>
+                                <p className="mt-2 mb-2  text-sm  text-gray-600 dark:text-gray-400  hidden sm:inline-block">
+                                  <div
+                                    dangerouslySetInnerHTML={{
+                                      __html:
+                                        post.details.slice(0, 410) + "...",
+                                    }}
+                                  />
+                                </p>
+                                {/* <!-- author and date --> */}
+                                <div className="">
+                                  <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
+                                    <RelativeDate date={post.createdAt} />{" "}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                      {/* hilight one news */}
+                      <div className="group  overflow-hidden rounded-md sm:aspect-none sm:relative sm:h-full">
+                        {remainingPosts.slice(0, 1).map((post: any) => (
+                          <div
+                            key={post.uniqueId}
+                            className="flex flex-row sm:block"
                           >
-                            <Image
-                              src={
-                                post.image || webInfo.websiteInfo.newsThumbnail
-                              }
-                              alt={post.title}
-                              width={640}
-                              height={427}
-                              quality={75}
-                              priority={true}
-                              className="sm:max-w-full sm:max-h-[20rem] max-w-full max-h-40 sm:w-full sm:h-80   aspect-[3/4]  mx-auto object-cover rounded-md"
-                            />
-                          </Link>
-                          <div className="pt-4">
-                            {/* <!--title--> */}
-                            <Link href={`/news/${post.uniqueId}`}>
-                              <h2 className="lg:text-2xl text-xl font-bold capitalize text-black  dark:text-white hover:text-gray-600 dark:hover:text-gray-500">
-                                {post.title}
-                              </h2>
-                            </Link>
-                            <p className="mt-2 mb-2  text-sm  text-gray-600 dark:text-gray-400  hidden sm:inline-block">
-                              <div
-                                dangerouslySetInnerHTML={{
-                                  __html: post.details.slice(0, 410) + "...",
-                                }}
+                            <Link
+                              className="hover-img dark:hover-img-dark"
+                              href={`/news/${post.uniqueId}`}
+                            >
+                              <Image
+                                src={
+                                  post.image ||
+                                  webInfo.websiteInfo.newsThumbnail
+                                }
+                                alt={post.title}
+                                width={640}
+                                height={427}
+                                quality={75}
+                                priority={true}
+                                className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
                               />
-                            </p>
-                            {/* <!-- author and date --> */}
-                            <div className="">
+                            </Link>
+                            <div className="py-0 sm:py-3 pl-3 sm:pl-0">
+                              <h3 className="text-base font-bold leading-tight md:line-clamp-2 text-black  dark:text-white mb-2">
+                                <Link
+                                  className="hover:text-gray-600 dark:hover:text-gray-500"
+                                  href={`/news/${post.uniqueId}`}
+                                >
+                                  {post.title}
+                                </Link>
+                              </h3>
+                              <p className="hidden md:block lg:line-clamp-2  text-sm  text-gray-600 dark:text-gray-400 mb-1">
+                                <div
+                                  dangerouslySetInnerHTML={{
+                                    __html: post.details.slice(0, 90) + "...",
+                                  }}
+                                />
+                              </p>
+
+                              <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
+                                <RelativeDate date={post.createdAt} />{" "}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* ad */}
+                      <div>
+                        <MPUAd />
+                      </div>
+                    </div>
+                    {/* hilight four news */}
+                    <div className="flex flex-wrap md:pt-2 md:-mt-20  xl:lg:-mt-[6.5rem] -mt-0">
+                      {remainingPosts.slice(1, 5).map((post: any, index: number) => (
+                        <div
+                          key={post.uniqueId}
+                          className={`flex-shrink max-w-full w-full sm:w-1/4 pb-2 lg:pb-0 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900 
+                  ${index !== 0 ? "sm:pl-2" : ""} ${
+                            index !== posts.length - 1 ? "sm:pr-2" : ""
+                          }`}
+                        >
+                          <div className="flex flex-row sm:block  ">
+                            <Link
+                              className="hover-img dark:hover-img-dark"
+                              href={`../news/${post.uniqueId}`}
+                            >
+                              <Image
+                                src={
+                                  post.image ||
+                                  webInfo.websiteInfo.newsThumbnail
+                                }
+                                alt={post.title}
+                                width={640}
+                                height={427}
+                                quality={75}
+                                priority={true}
+                                className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
+                              />
+                            </Link>
+                            <div className="py-0 sm:py-3 pl-3 sm:pl-0">
+                              <h3 className="text-base font-bold line-clamp-3 leading-tight text-black  dark:text-white mb-2 ">
+                                <Link
+                                  className="hover:text-gray-600 dark:hover:text-gray-500"
+                                  href={`../news/${post.uniqueId}`}
+                                >
+                                  {post.title}
+                                </Link>
+                              </h3>
+                              <p className="hidden md:block lg:line-clamp-3  text-sm  text-gray-600 dark:text-gray-400 mb-1">
+                                <div
+                                  dangerouslySetInnerHTML={{
+                                    __html: post.details.slice(0, 45) + "...",
+                                  }}
+                                />
+                              </p>
                               <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
                                 <RelativeDate date={post.createdAt} />{" "}
                               </div>
@@ -98,110 +211,166 @@ export default async function CategoryNews({
                         </div>
                       ))}
                     </div>
-                    {/* hilight one news */}
-                    <div className="group  overflow-hidden rounded-md sm:aspect-none sm:relative sm:h-full">
-                      {posts.slice(1, 2).map((post: any) => (
-                        <div
-                          key={post.uniqueId}
-                          className="flex flex-row sm:block"
-                        >
-                          <Link
-                            className="hover-img dark:hover-img-dark"
-                            href={`/news/${post.uniqueId}`}
-                          >
-                            <Image
-                              src={
-                                post.image || webInfo.websiteInfo.newsThumbnail
-                              }
-                              alt={post.title}
-                              width={640}
-                              height={427}
-                              quality={75}
-                              priority={true}
-                              className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
-                            />
-                          </Link>
-                          <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="text-base font-bold leading-tight md:line-clamp-2 text-black  dark:text-white mb-2">
+                  </div>
+                </>):( <>
+                  <div className="col-span-5 ">
+                    <div className="grid grid-cols-1 gap-y-2 sm:grid-cols-3 sm:grid-rows-2 sm:gap-x-2 lg:gap-4 lg:pb-2">
+                      {/* {highlightA1Post ? } */}
+                      <div className="group  overflow-hidden sm:col-span-2 sm:row-span-2">
+                        {posts.slice(0, 1).map((post: any) => (
+                            <div key={post.id} className="relative   ">
+                              {/* <!--thumbnail one news--> */}
                               <Link
-                                className="hover:text-gray-600 dark:hover:text-gray-500"
+                                className="hover-img dark:hover-img-dark "
                                 href={`/news/${post.uniqueId}`}
                               >
-                                {post.title}
+                                <Image
+                                  src={
+                                    post.image ||
+                                    webInfo.websiteInfo.newsThumbnail
+                                  }
+                                  alt={post.title}
+                                  width={640}
+                                  height={427}
+                                  quality={75}
+                                  priority={true}
+                                  className="sm:max-w-full sm:max-h-[20rem] max-w-full max-h-40 sm:w-full sm:h-80   aspect-[3/4]  mx-auto object-cover rounded-md"
+                                />
                               </Link>
-                            </h3>
-                            <p className="hidden md:block lg:line-clamp-2  text-sm  text-gray-600 dark:text-gray-400 mb-1">
-                              <div
-                                dangerouslySetInnerHTML={{
-                                  __html: post.details.slice(0, 90) + "...",
-                                }}
+                              <div className="pt-4">
+                                {/* <!--title--> */}
+                                <Link href={`/news/${post.uniqueId}`}>
+                                  <h2 className="lg:text-2xl text-xl font-bold capitalize text-black  dark:text-white hover:text-gray-600 dark:hover:text-gray-500">
+                                    {post.title}
+                                  </h2>
+                                </Link>
+                                <p className="mt-2 mb-2  text-sm  text-gray-600 dark:text-gray-400  hidden sm:inline-block">
+                                  <div
+                                    dangerouslySetInnerHTML={{
+                                      __html:
+                                        post.details.slice(0, 410) + "...",
+                                    }}
+                                  />
+                                </p>
+                                {/* <!-- author and date --> */}
+                                <div className="">
+                                  <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
+                                    <RelativeDate date={post.createdAt} />{" "}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                      {/* hilight one news */}
+                      <div className="group  overflow-hidden rounded-md sm:aspect-none sm:relative sm:h-full">
+                        {posts.slice(1, 2).map((post: any) => (
+                          <div
+                            key={post.uniqueId}
+                            className="flex flex-row sm:block"
+                          >
+                            <Link
+                              className="hover-img dark:hover-img-dark"
+                              href={`/news/${post.uniqueId}`}
+                            >
+                              <Image
+                                src={
+                                  post.image ||
+                                  webInfo.websiteInfo.newsThumbnail
+                                }
+                                alt={post.title}
+                                width={640}
+                                height={427}
+                                quality={75}
+                                priority={true}
+                                className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
                               />
-                            </p>
+                            </Link>
+                            <div className="py-0 sm:py-3 pl-3 sm:pl-0">
+                              <h3 className="text-base font-bold leading-tight md:line-clamp-2 text-black  dark:text-white mb-2">
+                                <Link
+                                  className="hover:text-gray-600 dark:hover:text-gray-500"
+                                  href={`/news/${post.uniqueId}`}
+                                >
+                                  {post.title}
+                                </Link>
+                              </h3>
+                              <p className="hidden md:block lg:line-clamp-2  text-sm  text-gray-600 dark:text-gray-400 mb-1">
+                                <div
+                                  dangerouslySetInnerHTML={{
+                                    __html: post.details.slice(0, 90) + "...",
+                                  }}
+                                />
+                              </p>
 
-                            <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
-                              <RelativeDate date={post.createdAt} />{" "}
+                              <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
+                                <RelativeDate date={post.createdAt} />{" "}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* ad */}
+                      <div>
+                        <MPUAd />
+                      </div>
+                    </div>
+                    {/* hilight four news */}
+                    <div className="flex flex-wrap md:pt-2 md:-mt-20  xl:lg:-mt-[6.5rem] -mt-0">
+                      {posts.slice(2, 6).map((post: any, index: number) => (
+                        <div
+                          key={post.uniqueId}
+                          className={`flex-shrink max-w-full w-full sm:w-1/4 pb-2 lg:pb-0 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900 
+                  ${index !== 0 ? "sm:pl-2" : ""} ${
+                            index !== posts.length - 1 ? "sm:pr-2" : ""
+                          }`}
+                        >
+                          <div className="flex flex-row sm:block  ">
+                            <Link
+                              className="hover-img dark:hover-img-dark"
+                              href={`../news/${post.uniqueId}`}
+                            >
+                              <Image
+                                src={
+                                  post.image ||
+                                  webInfo.websiteInfo.newsThumbnail
+                                }
+                                alt={post.title}
+                                width={640}
+                                height={427}
+                                quality={75}
+                                priority={true}
+                                className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
+                              />
+                            </Link>
+                            <div className="py-0 sm:py-3 pl-3 sm:pl-0">
+                              <h3 className="text-base font-bold line-clamp-3 leading-tight text-black  dark:text-white mb-2 ">
+                                <Link
+                                  className="hover:text-gray-600 dark:hover:text-gray-500"
+                                  href={`../news/${post.uniqueId}`}
+                                >
+                                  {post.title}
+                                </Link>
+                              </h3>
+                              <p className="hidden md:block lg:line-clamp-3  text-sm  text-gray-600 dark:text-gray-400 mb-1">
+                                <div
+                                  dangerouslySetInnerHTML={{
+                                    __html: post.details.slice(0, 45) + "...",
+                                  }}
+                                />
+                              </p>
+                              <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
+                                <RelativeDate date={post.createdAt} />{" "}
+                              </div>
                             </div>
                           </div>
                         </div>
                       ))}
                     </div>
-                    {/* ad */}
-                    <div>
-                      <MPUAd />
-                    </div>
                   </div>
-                  {/* hilight four news */}
-                  <div className="flex flex-wrap md:pt-2 md:-mt-20  xl:lg:-mt-[6.5rem] -mt-0">
-                    {posts.slice(2, 6).map((post: any, index: number) => (
-                      <div
-                        key={post.uniqueId}
-                        className={`flex-shrink max-w-full w-full sm:w-1/4 pb-2 lg:pb-0 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900 
-                  ${index !== 0 ? "sm:pl-2" : ""} ${
-                          index !== posts.length - 1 ? "sm:pr-2" : ""
-                        }`}
-                      >
-                        <div className="flex flex-row sm:block  ">
-                          <Link
-                            className="hover-img dark:hover-img-dark"
-                            href={`../news/${post.uniqueId}`}
-                          >
-                            <Image
-                              src={
-                                post.image || webInfo.websiteInfo.newsThumbnail
-                              }
-                              alt={post.title}
-                              width={640}
-                              height={427}
-                              quality={75}
-                              priority={true}
-                              className="sm:max-w-full aspect-[3/4]  mx-auto object-cover max-w-[140px] max-h-20 sm:w-full  sm:max-h-[12.7rem] rounded-md"
-                            />
-                          </Link>
-                          <div className="py-0 sm:py-3 pl-3 sm:pl-0">
-                            <h3 className="text-base font-bold line-clamp-3 leading-tight text-black  dark:text-white mb-2 ">
-                              <Link
-                                className="hover:text-gray-600 dark:hover:text-gray-500"
-                                href={`../news/${post.uniqueId}`}
-                              >
-                                {post.title}
-                              </Link>
-                            </h3>
-                            <p className="hidden md:block lg:line-clamp-3  text-sm  text-gray-600 dark:text-gray-400 mb-1">
-                              <div
-                                dangerouslySetInnerHTML={{
-                                  __html: post.details.slice(0, 45) + "...",
-                                }}
-                              />
-                            </p>
-                            <div className="text-gray-600 font-medium text-sm  dark:text-gray-600">
-                              <RelativeDate date={post.createdAt} />{" "}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                </>)}
+               
                 {/* part two */}
                 <div className="col-span-3 lg:pl-2">
                   {/* Ad */}
