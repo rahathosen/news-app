@@ -46,17 +46,13 @@ export default async function CategoryNews({
                   </div>
                 </Link>
               </div>
-              {/* 2 part */}
               <div className="grid grid-cols-1 gap-y-2 lg:grid-cols-8 xl:gap-x-2">
-                {/* part one */}
                 <div className="col-span-5 ">
-                  {/* 4 part */}
                   <div className="grid grid-cols-1 gap-y-2 sm:grid-cols-3 sm:grid-rows-2 sm:gap-x-2 lg:gap-4 lg:pb-2">
-                    {/* cover news */}
                     <div className="group  overflow-hidden sm:col-span-2 sm:row-span-2">
                       {posts.slice(0, 1).map((post: any) => (
                         <div key={post.id} className="relative   ">
-                          {/* <!--thumbnail--> */}
+                          {/* <!--thumbnail one news--> */}
                           <Link
                             className="hover-img dark:hover-img-dark "
                             href={`/news/${post.uniqueId}`}
@@ -97,9 +93,9 @@ export default async function CategoryNews({
                         </div>
                       ))}
                     </div>
-                    {/* hilight news */}
+                    {/* hilight one news */}
                     <div className="group  overflow-hidden rounded-md sm:aspect-none sm:relative sm:h-full">
-                      {posts.slice(0, 1).map((post: any) => (
+                      {posts.slice(1, 2).map((post: any) => (
                         <div
                           key={post.uniqueId}
                           className="flex flex-row sm:block"
@@ -149,9 +145,9 @@ export default async function CategoryNews({
                       <MPUAd />
                     </div>
                   </div>
-                  {/* 4 card */}
+                  {/* hilight four news */}
                   <div className="flex flex-wrap md:pt-2 md:-mt-20  xl:lg:-mt-[6.5rem] -mt-0">
-                    {posts.slice(0, 4).map((post: any, index: number) => (
+                    {posts.slice(2, 6).map((post: any, index: number) => (
                       <div
                         key={post.uniqueId}
                         className={`flex-shrink max-w-full w-full sm:w-1/4 pb-2 lg:pb-0 sm:pt-0 border-b-[1px] sm:border-b-0 border-solid border-gray-200 dark:border-gray-900 
